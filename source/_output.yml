@@ -1,0 +1,14 @@
+bookdown::gitbook:
+  highlight: tango
+  css: style.css
+  config:
+    fontsettings: no
+    # search: yes
+    toc_depth:
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">M362M Lecture notes</a></li>
+    sharing: null
+      
+    

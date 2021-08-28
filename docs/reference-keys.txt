@@ -1,0 +1,14 @@
+intro
+setting-up-an-r-environment-on-your-computer
+installing-r
+installing-rstudio
+installing-basic-packages
+learning-the-basics-of-r
+the-console-scripts-and-r-notebooks
+asking-for-help
+vectors
+matrices
+functions
+if-else-statements
+problems
+endnotes

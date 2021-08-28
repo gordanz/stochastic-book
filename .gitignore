@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_cache
+_book
+cache
+*_cache
+*_files
+test
+
+

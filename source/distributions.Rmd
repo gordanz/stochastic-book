@@ -1,0 +1,263 @@
+\newcommand{\PP}{{\mathbb{P}}}
+\newcommand{\RR}{{\mathbb{R}}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\N}{{\mathbb{N}}}
+\newcommand{\sS}{{\mathcal{S}}}
+\newcommand{\EE}{{\mathbb{E}}}
+\newcommand{\ld}{\lambda}
+\newcommand{\eand}{\text{ and }}
+
+# (APPENDIX) Appendix {-}
+
+# Probability Distributions {#dist}
+
+Here are the basic facts about the probability distributions we will need in these lecture notes. For a much longer list of important distributions, check  this [wikipedia page](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
+
+
+## Discrete distributions:
+
+Note: $(q=1-p)$
+```{r echo=FALSE, warning = FALSE}
+library(tidyverse)
+library(kableExtra)
+discrete = matrix(c(
+      c("",
+      "Parameters",
+      "Notation",
+      "Support",
+      "pmf",
+      "$\\EE[X]$",
+      "$\\Var[X]$"
+   ),
+   c( "Bernoulli",
+      "$p\\in (0,1)$", 
+      "$B(p)$", 
+      "$\\{0,1\\}$", 
+      "$(q,p,0,0,\\dots)$", 
+      "$p$", 
+      "$pq$" 
+      # "$ps+q$"
+      ),
+  c("Binomial",
+      "$n\\in\\N , p\\in (0,1)$",
+      "$b(n,p)$",
+      "$\\{0,1,\\dots, n\\}$",
+      "$\\binom{n}{k} p^k q^{n-k}$",
+      "$np$",
+      "$npq$"
+      # "$(ps +q)^n$"
+      ),
+   c("Geometric",
+      "$p\\in (0,1)$",
+      "$g(p)$",
+      "$\\{0,1,\\dots\\}$",
+      "$p q^k$",
+      "$q/p$",
+      "$q/p^2$"
+      # "$\\tfrac{p}{1-qs}$"
+   ),
+  c("Poisson",
+      "$\\lambda\\in(0,\\infty)$",
+      "$P(\\lambda)$",
+      "$\\{0,1,\\dots\\}$",
+      "$e^{-\\lambda} \\tfrac{\\lambda^k}{k!}$",
+      "$\\lambda$",
+      "$\\lambda$"
+      # "$e^{\\lambda(s-1)}$"
+   )),
+  byrow = TRUE,
+  ncol = 7
+) 
+
+a = as_tibble(discrete)
+
+kable(a, col.names = NULL) %>% 
+   column_spec(1, bold = TRUE) %>% 
+   row_spec(1, italic = TRUE)
+
+```
+
+## Continuous distributions:
+Note: the pdf is given by the formula in the table only on its support. It is equal to $0$ outside of it. 
+```{r echo=FALSE, warning = FALSE}
+library(tidyverse)
+library(kableExtra)
+continuous = matrix(c(
+      c("",
+      "Parameters",
+      "Notation",
+      "Support",
+      "pdf",
+      "$\\EE[X]$",
+      "$\\Var[X]$"
+   ),
+   c( "Uniform",
+      "$a\\lt b$",
+      "$U(a,b)$", 
+      "$(a,b)$", 
+      "$\\frac{1}{b-a}$",
+      "$\\frac{a+b}{2}$", 
+      "$\\frac{(b-a)^2}{12}$" 
+      ),
+   c( "Normal",
+      "$\\mu\\in{\\mathbb R},\\sigma \\gt 0$", 
+      "$N(\\mu,\\sigma)$", 
+      "${\\mathbb R}$", 
+      "$\\frac{1}{\\sigma \\sqrt{2\\pi}} e^{-\\tfrac{(x-\\mu)^2}{2 \\sigma^2}}$", 
+      "$\\mu$", 
+      "$\\sigma^2$" 
+      ),
+   c( "Exponential",
+      "$\\lambda\\gt 0$",
+      "$\\operatorname{Exp}(\\lambda)$", 
+      "$(0,\\infty)$", 
+      "$\\lambda e^{-\\lambda x}$",
+      "$\\tfrac{1}{\\lambda}$", 
+      "$\\frac{1}{\\lambda^2}$"
+      )
+   ),
+  byrow = TRUE,
+  ncol = 7
+)
+
+
+a = as_tibble(continuous)
+
+kable(a, col.names = NULL) %>% 
+   column_spec(1, bold = TRUE) %>% 
+   row_spec(1, italic = TRUE)
+
+```
+
+
+
+<!-- \mypar{Discrete Random variables:} -->
+
+<!--  \begin{description} -->
+<!--  \item[pmf:] $p_X(x) = \PP[ X=x]$, for $x\in \sS_X$ (the support). -->
+<!--  \item[expectation:] $\EE[X] = \sum_{x\in\sS_X} x\, p_X(x)$. -->
+<!--  \item[variance:] $\Var[X] = \EE[ (X-\EE[X])^2] = \EE[X^2] - -->
+<!--  \EE[X]^2$. -->
+<!--  \item[expectation of a function:] if $\EE[g(X)]$ exists then -->
+<!--    \[ \EE[ g(X)] = \tsum_{x\in \sS_X} g(x) p_X(x).\] -->
+<!--  \item[expectation of a linear combination: ] \[ \EE[ \alpha X+\beta Y] = -->
+<!--    \alpha \EE[X] + \beta \EE[Y].\] -->
+<!--  \item[variance of a linear combination:] if $X,Y$ are independent, -->
+<!--    \[ \Var[\alpha X+\beta Y] = \alpha^2 \Var[X] + \beta^2 \Var[Y].\] -->
+<!--  \item[expectation of a product:] if $X,Y$ are independent and both -->
+<!--    expectations $\EE[X]$ and $\EE[Y]$ exist: -->
+<!--    \[ \EE[X Y] = \EE[X]\times \EE[Y].\] -->
+<!--  \end{description} -->
+
+<!--  \bigskip -->
+
+<!-- \mypar{Random walks} -->
+<!--  \begin{description} -->
+<!--    \item[definition:] -->
+<!--      $\seqk{\delta}$ are independent with\\ $\PP[ \delta_k = 1]=p$ and -->
+<!--      $\PP[\delta_k=-1]=q:=1-p$, \\[1ex] -->
+<!-- $X_0=0$,\  $X_n = \delta_1 + \delta_2 + \dots + \delta_n$, -->
+<!--    \item[distribution:] $\PP[ X_n = k ] = -->
+<!--      \binom{n}{\tf{n+k}{2}} p^{\tf{n+k}{2}} q^{\tf{n-k}{2}}$,\\ if $n$ and $k$ have -->
+<!--      the same parity and $-n \leq k \leq n$. -->
+<!--    \item[maximum:] $M_n = \max(X_0,X_1,\dots, X_n)$. If -->
+<!--      $p=\tot$ then \\ -->
+<!--      $\PP[ M_n = k] = \PP[ X_n=k] + \PP[ X_n = k+1]$. -->
+<!--  \end{description} -->
+<!-- \columnbreak -->
+<!--    \mypar{Generating functions ($X$ must be $\Nz$-valued)} -->
+<!--  \begin{description} -->
+<!--    \item[definition:] $P_X(s) = \sum_{k=0}^{\infty} p_k s^k = \EE[ s^X]$. -->
+<!--    \item[probabilities:] $p_k = \PP[X=k] = \oo{k!} P^{(k)}(0)$\\ (where -->
+<!--      $P^{(k)}$ is the $k$-th derivative) -->
+<!--    \item[moments:] -->
+<!--      $\EE[X] = P_X'(1)$, \ $\EE[X(X-1)] = P_X''(1)$,\\[1ex] $\Var[X] = P_X''(1) -->
+<!--      + P_X'(1) - (P'_X(1))^2$\\[1ex] -->
+<!--      $\EE\left[ \prod_{k=0}^{n-1} (X-k)\right] = P_X^{(k)}(1)$. -->
+<!--    \item[convolutions:] the convolution $r=p \ast q$ of $\seqkz{p}$ and $\seqkz{q}$ is -->
+<!--      $r_n = \tsum_{k=0}^n p_k q_{n-k}, n\in\Nz$. -->
+<!--    \item[sums of independent variables:] if $X$ and $Y$ are $\Nz$-valued and -->
+<!--      independent, with pmfs $P_X$ and $P_Y$, and $Z=X+Y$, then -->
+<!--      the pmf of $Z$ is the convolution of the pmfs of $X$ and $Y$ and -->
+<!--      $P_Z(s) = P_X(s) P_Y(s)$. -->
+<!--    \item[random sums:] If $\seq{\xi}$ are iid and independent of $N$, and -->
+<!--      all are $\Nz$-valued then $P_Y(s) = P_N(P_{\xi_1}(s))$, where -->
+<!--      $Y = \sum_{k=0}^N \xi_k$. Also $\EE[Y] = \EE[N] \times \EE[\xi_1]$. -->
+<!--  \end{description} -->
+<!--  \mypar{Advanced Random Walks} -->
+<!--  \begin{description} -->
+<!--    \item[Walambda's formulas:] Let $\seq{\xi}$ be an iid sequence. Then $\EE[ -->
+<!--      \sum_{k=1}^T \xi_k] = \EE[T]\, \EE[\xi_1]$, when $\EE[T]<\infty$ and -->
+<!--      $\EE[\xi_1]<\infty$ in the following two cases -->
+<!--      I) $T$ is independent of $\seq{\xi}$, or -->
+<!--      II) $T$ is a stopping time w.r.to $\seq{\xi}$. -->
+<!--    \item[Distribution of $T_1$:] The generating function $P_{T_1}$ of $T_1$ (the -->
+<!--       first hitting time of the level $1$ for the random walk with -->
+<!--       $p=\PP[X_1=1]$) is -->
+<!--       $P_{T_1}(s) = \oo{2 q s}(1 - \sqrt{1 - 4 p q s^2} )$ -->
+<!--       and it satisfies the equation $P_{T_1}(s) = p s + q s P_{T_1}(s)^2$. -->
+<!--  \end{description} -->
+<!--  \end{multicols} -->
+<!-- \pagebreak -->
+<!-- \begin{multicols}{2} -->
+<!-- \mypar{Branching processes} -->
+<!--  \begin{description} -->
+<!--    \item[Distribution of $Z_n$:] The generating function of $Z_n$ is -->
+<!--      \[ P_{Z_n}(s) = P(P(\dots P(s))) \text{ ($n$ Ps), }\] -->
+<!--      where $P$ is the generating function of -->
+<!--      the offspring distribution. -->
+<!--    \item[Moments of $Z_n$:] If $\mu = \EE[Z_1]$ and $\sigma^2 = -->
+<!--      \Var[Z_1]$, then -->
+<!--      \[ \EE[ Z_n ] = \mu^n \eand \Var[Z_n] = \sigma^2 -->
+<!--      \mu^n(1+\mu+\dots+\mu^n) .\] -->
+<!--    \item[Extinction:] The extinction probability $p_E$ is the smallest -->
+<!--      solution of the extinction equation $x=P(x)$ in $[0,1]$. -->
+<!--  \end{description} -->
+<!-- \columnbreak -->
+
+<!-- \vspace{5ex} -->
+
+<!--  \mypar{Markov Chains} -->
+<!--  \begin{description} -->
+<!--    \item[Markov property:] $\seqz{X}$ is a Markov chain if -->
+<!--      \begin{align*} -->
+<!--        \PP[ X_{n+1} = i_{n+1}| , X_n = i_n, \dots, X_0=i_0]  = \\ , = -->
+<!--         \PP[ X_{n+1} = i_{n+1} | X_n = i_n], -->
+<!--      \end{align*} -->
+<!--      for all (possible) $i_{n+1}, i_n,\dots, i_0$. -->
+<!--    \item[Transition probabilities:] $p_{ij} = \PP[ X_{k+1} = j| X_k=i]$, -->
+<!--      $p^{(n)}_{ij} = \PP[ X_{k+n}=j| X_k=i]$, -->
+<!--      $P=(p_{ij})$ is the transition matrix. -->
+<!--      \[ P^n = (p^{(n)}_{ij})\] -->
+<!--      If is $a^{(n)}$ the (row) vector corresponding to the distribution of $X_n$, then -->
+<!--      \[ a^{(n)} = a^{(0)} P^n .\] -->
+<!--     \item[Recurrence and transience:] A state $i$ is recurrent if and only -->
+<!--       if $\sum_{n\in\N} p^{(n)}_{ii} = \infty$. -->
+<!--     \item[Canonical decomposition:] -->
+<!--       \[ P = \pmat{ P_C , 0 \\ R , Q},\] -->
+<!--       where recurrent states go before transient states. The fundamental -->
+<!--       matrix $F$ is given by $F = (I-Q)^{-1}$. -->
+<!--     \item[Absorption and reward:] $u_{ij} = (F R)_{ij}$, where $u_{ij}$ is -->
+<!--       the probability that the first recurrent state we hit is $j$, given -->
+<!--       that we start from the transient state $i$. -->
+
+<!--       Also, $v_i = (F g)_i$, where $g$ is the -->
+<!--       reward (column) vector and $v_i$ is the expected reward before -->
+<!--       absorption, if we start from the transient state $i$. -->
+<!--     \item[Stationary distributions:] The (row) vector $\pi$ is a -->
+<!--       stationary distribution if $\pi = \pi P$. -->
+<!--       If $X$ is finite and irreducible, a unique stationary distribution -->
+<!--       $\pi$ exists and we have -->
+<!--       \[ \nu_{ij} = \tf{\pi_j}{\pi_i} \eand m_i = \oo{\pi_i}\] -->
+<!--       where $\nu_{ij}$ is the expected number of visits to $j$ between two -->
+<!--       consecutive visits to $i$, and $m_i$ is the mean return time to $i$. -->
+<!--     \item[Limiting distributions:] -->
+<!--       $\pi$ is a limiting -->
+<!--       distribution if $\pi_j = \lim_n p^{(n)}_{ij}$ for all $i,j$. Limiting -->
+<!--       distributions exist for finite, irreducible and aperiodic chains. -->
+<!--     \item[Ergodic theorem:] If $X$ is finite and irreducible and -->
+<!--       $f:S\to\R$, we have -->
+<!--       \[ \lim_{n\to\infty} \tf{f(X_1)+\dots+f(X_n)}{n} = \EE_{\pi}[f(X_1)] -->
+<!--       = \sum_{i\in S} \pi_i f(i).\] -->
+<!-- \end{description} -->
+<!-- \end{multicols} -->

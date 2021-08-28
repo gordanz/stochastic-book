@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>A Probability Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;</title>
+  <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="A Probability Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
+  <meta name="github-repo" content="gordanz/M362M" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A Probability Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;" />
+  
+  <meta name="twitter:description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
+  
+
+<meta name="author" content="Gordan Zitkovic" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">M362M Lecture notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="dist.html"><a href="dist.html#discrete-distributions"><i class="fa fa-check"></i><b>A.1</b> Discrete distributions:</a></li>
+<li class="chapter" data-level="A.2" data-path="dist.html"><a href="dist.html#continuous-distributions"><i class="fa fa-check"></i><b>A.2</b> Continuous distributions:</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture notes for "Introduction to Stochastic Processes"</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dist" class="section level1" number="1">
+<h1><span class="header-section-number">A</span> Probability Distributions</h1>
+<p>Here are the basic facts about the probability distributions we will need in these lecture notes. For a much longer list of important distributions, check this <a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">wikipedia page</a>.</p>
+<div id="discrete-distributions" class="section level2" number="1.1">
+<h2><span class="header-section-number">A.1</span> Discrete distributions:</h2>
+Note: <span class="math inline">\((q=1-p)\)</span>
+<table>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;font-style: italic;">
+</td>
+<td style="text-align:left;font-style: italic;">
+Parameters
+</td>
+<td style="text-align:left;font-style: italic;">
+Notation
+</td>
+<td style="text-align:left;font-style: italic;">
+Support
+</td>
+<td style="text-align:left;font-style: italic;">
+pmf
+</td>
+<td style="text-align:left;font-style: italic;">
+<span class="math inline">\({\mathbb{E}}[X]\)</span>
+</td>
+<td style="text-align:left;font-style: italic;">
+<span class="math inline">\(\operatorname{Var}[X]\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Bernoulli
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(p\in (0,1)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(B(p)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\{0,1\}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\((q,p,0,0,\dots)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(p\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(pq\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Binomial
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(n\in{\mathbb{N}}, p\in (0,1)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(b(n,p)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\{0,1,\dots, n\}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\binom{n}{k} p^k q^{n-k}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(np\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(npq\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Geometric
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(p\in (0,1)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(g(p)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\{0,1,\dots\}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(p q^k\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(q/p\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(q/p^2\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Poisson
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda\in(0,\infty)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(P(\lambda)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\{0,1,\dots\}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(e^{-\lambda} \tfrac{\lambda^k}{k!}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="continuous-distributions" class="section level2" number="1.2">
+<h2><span class="header-section-number">A.2</span> Continuous distributions:</h2>
+Note: the pdf is given by the formula in the table only on its support. It is equal to <span class="math inline">\(0\)</span> outside of it.
+<table>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;font-style: italic;">
+</td>
+<td style="text-align:left;font-style: italic;">
+Parameters
+</td>
+<td style="text-align:left;font-style: italic;">
+Notation
+</td>
+<td style="text-align:left;font-style: italic;">
+Support
+</td>
+<td style="text-align:left;font-style: italic;">
+pdf
+</td>
+<td style="text-align:left;font-style: italic;">
+<span class="math inline">\({\mathbb{E}}[X]\)</span>
+</td>
+<td style="text-align:left;font-style: italic;">
+<span class="math inline">\(\operatorname{Var}[X]\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Uniform
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(a\lt b\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(U(a,b)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\((a,b)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{1}{b-a}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{a+b}{2}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{(b-a)^2}{12}\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Normal
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\mu\in{\mathbb R},\sigma \gt 0\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(N(\mu,\sigma)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\({\mathbb R}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{1}{\sigma \sqrt{2\pi}} e^{-\tfrac{(x-\mu)^2}{2 \sigma^2}}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\mu\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\sigma^2\)</span>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Exponential
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda\gt 0\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\operatorname{Exp}(\lambda)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\((0,\infty)\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\lambda e^{-\lambda x}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\tfrac{1}{\lambda}\)</span>
+</td>
+<td style="text-align:left;">
+<span class="math inline">\(\frac{1}{\lambda^2}\)</span>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- \mypar{Discrete Random variables:} -->
+<!--  \begin{description} -->
+<!--  \item[pmf:] $p_X(x) = \PP[ X=x]$, for $x\in \sS_X$ (the support). -->
+<!--  \item[expectation:] $\EE[X] = \sum_{x\in\sS_X} x\, p_X(x)$. -->
+<!--  \item[variance:] $\Var[X] = \EE[ (X-\EE[X])^2] = \EE[X^2] - -->
+<!--  \EE[X]^2$. -->
+<!--  \item[expectation of a function:] if $\EE[g(X)]$ exists then -->
+<!--    \[ \EE[ g(X)] = \tsum_{x\in \sS_X} g(x) p_X(x).\] -->
+<!--  \item[expectation of a linear combination: ] \[ \EE[ \alpha X+\beta Y] = -->
+<!--    \alpha \EE[X] + \beta \EE[Y].\] -->
+<!--  \item[variance of a linear combination:] if $X,Y$ are independent, -->
+<!--    \[ \Var[\alpha X+\beta Y] = \alpha^2 \Var[X] + \beta^2 \Var[Y].\] -->
+<!--  \item[expectation of a product:] if $X,Y$ are independent and both -->
+<!--    expectations $\EE[X]$ and $\EE[Y]$ exist: -->
+<!--    \[ \EE[X Y] = \EE[X]\times \EE[Y].\] -->
+<!--  \end{description} -->
+<!--  \bigskip -->
+<!-- \mypar{Random walks} -->
+<!--  \begin{description} -->
+<!--    \item[definition:] -->
+<!--      $\seqk{\delta}$ are independent with\\ $\PP[ \delta_k = 1]=p$ and -->
+<!--      $\PP[\delta_k=-1]=q:=1-p$, \\[1ex] -->
+<!-- $X_0=0$,\  $X_n = \delta_1 + \delta_2 + \dots + \delta_n$, -->
+<!--    \item[distribution:] $\PP[ X_n = k ] = -->
+<!--      \binom{n}{\tf{n+k}{2}} p^{\tf{n+k}{2}} q^{\tf{n-k}{2}}$,\\ if $n$ and $k$ have -->
+<!--      the same parity and $-n \leq k \leq n$. -->
+<!--    \item[maximum:] $M_n = \max(X_0,X_1,\dots, X_n)$. If -->
+<!--      $p=\tot$ then \\ -->
+<!--      $\PP[ M_n = k] = \PP[ X_n=k] + \PP[ X_n = k+1]$. -->
+<!--  \end{description} -->
+<!-- \columnbreak -->
+<!--    \mypar{Generating functions ($X$ must be $\Nz$-valued)} -->
+<!--  \begin{description} -->
+<!--    \item[definition:] $P_X(s) = \sum_{k=0}^{\infty} p_k s^k = \EE[ s^X]$. -->
+<!--    \item[probabilities:] $p_k = \PP[X=k] = \oo{k!} P^{(k)}(0)$\\ (where -->
+<!--      $P^{(k)}$ is the $k$-th derivative) -->
+<!--    \item[moments:] -->
+<!--      $\EE[X] = P_X'(1)$, \ $\EE[X(X-1)] = P_X''(1)$,\\[1ex] $\Var[X] = P_X''(1) -->
+<!--      + P_X'(1) - (P'_X(1))^2$\\[1ex] -->
+<!--      $\EE\left[ \prod_{k=0}^{n-1} (X-k)\right] = P_X^{(k)}(1)$. -->
+<!--    \item[convolutions:] the convolution $r=p \ast q$ of $\seqkz{p}$ and $\seqkz{q}$ is -->
+<!--      $r_n = \tsum_{k=0}^n p_k q_{n-k}, n\in\Nz$. -->
+<!--    \item[sums of independent variables:] if $X$ and $Y$ are $\Nz$-valued and -->
+<!--      independent, with pmfs $P_X$ and $P_Y$, and $Z=X+Y$, then -->
+<!--      the pmf of $Z$ is the convolution of the pmfs of $X$ and $Y$ and -->
+<!--      $P_Z(s) = P_X(s) P_Y(s)$. -->
+<!--    \item[random sums:] If $\seq{\xi}$ are iid and independent of $N$, and -->
+<!--      all are $\Nz$-valued then $P_Y(s) = P_N(P_{\xi_1}(s))$, where -->
+<!--      $Y = \sum_{k=0}^N \xi_k$. Also $\EE[Y] = \EE[N] \times \EE[\xi_1]$. -->
+<!--  \end{description} -->
+<!--  \mypar{Advanced Random Walks} -->
+<!--  \begin{description} -->
+<!--    \item[Walambda's formulas:] Let $\seq{\xi}$ be an iid sequence. Then $\EE[ -->
+<!--      \sum_{k=1}^T \xi_k] = \EE[T]\, \EE[\xi_1]$, when $\EE[T]<\infty$ and -->
+<!--      $\EE[\xi_1]<\infty$ in the following two cases -->
+<!--      I) $T$ is independent of $\seq{\xi}$, or -->
+<!--      II) $T$ is a stopping time w.r.to $\seq{\xi}$. -->
+<!--    \item[Distribution of $T_1$:] The generating function $P_{T_1}$ of $T_1$ (the -->
+<!--       first hitting time of the level $1$ for the random walk with -->
+<!--       $p=\PP[X_1=1]$) is -->
+<!--       $P_{T_1}(s) = \oo{2 q s}(1 - \sqrt{1 - 4 p q s^2} )$ -->
+<!--       and it satisfies the equation $P_{T_1}(s) = p s + q s P_{T_1}(s)^2$. -->
+<!--  \end{description} -->
+<!--  \end{multicols} -->
+<!-- \pagebreak -->
+<!-- \begin{multicols}{2} -->
+<!-- \mypar{Branching processes} -->
+<!--  \begin{description} -->
+<!--    \item[Distribution of $Z_n$:] The generating function of $Z_n$ is -->
+<!--      \[ P_{Z_n}(s) = P(P(\dots P(s))) \text{ ($n$ Ps), }\] -->
+<!--      where $P$ is the generating function of -->
+<!--      the offspring distribution. -->
+<!--    \item[Moments of $Z_n$:] If $\mu = \EE[Z_1]$ and $\sigma^2 = -->
+<!--      \Var[Z_1]$, then -->
+<!--      \[ \EE[ Z_n ] = \mu^n \eand \Var[Z_n] = \sigma^2 -->
+<!--      \mu^n(1+\mu+\dots+\mu^n) .\] -->
+<!--    \item[Extinction:] The extinction probability $p_E$ is the smallest -->
+<!--      solution of the extinction equation $x=P(x)$ in $[0,1]$. -->
+<!--  \end{description} -->
+<!-- \columnbreak -->
+<!-- \vspace{5ex} -->
+<!--  \mypar{Markov Chains} -->
+<!--  \begin{description} -->
+<!--    \item[Markov property:] $\seqz{X}$ is a Markov chain if -->
+<!--      \begin{align*} -->
+<!--        \PP[ X_{n+1} = i_{n+1}| , X_n = i_n, \dots, X_0=i_0]  = \\ , = -->
+<!--         \PP[ X_{n+1} = i_{n+1} | X_n = i_n], -->
+<!--      \end{align*} -->
+<!--      for all (possible) $i_{n+1}, i_n,\dots, i_0$. -->
+<!--    \item[Transition probabilities:] $p_{ij} = \PP[ X_{k+1} = j| X_k=i]$, -->
+<!--      $p^{(n)}_{ij} = \PP[ X_{k+n}=j| X_k=i]$, -->
+<!--      $P=(p_{ij})$ is the transition matrix. -->
+<!--      \[ P^n = (p^{(n)}_{ij})\] -->
+<!--      If is $a^{(n)}$ the (row) vector corresponding to the distribution of $X_n$, then -->
+<!--      \[ a^{(n)} = a^{(0)} P^n .\] -->
+<!--     \item[Recurrence and transience:] A state $i$ is recurrent if and only -->
+<!--       if $\sum_{n\in\N} p^{(n)}_{ii} = \infty$. -->
+<!--     \item[Canonical decomposition:] -->
+<!--       \[ P = \pmat{ P_C , 0 \\ R , Q},\] -->
+<!--       where recurrent states go before transient states. The fundamental -->
+<!--       matrix $F$ is given by $F = (I-Q)^{-1}$. -->
+<!--     \item[Absorption and reward:] $u_{ij} = (F R)_{ij}$, where $u_{ij}$ is -->
+<!--       the probability that the first recurrent state we hit is $j$, given -->
+<!--       that we start from the transient state $i$. -->
+<!--       Also, $v_i = (F g)_i$, where $g$ is the -->
+<!--       reward (column) vector and $v_i$ is the expected reward before -->
+<!--       absorption, if we start from the transient state $i$. -->
+<!--     \item[Stationary distributions:] The (row) vector $\pi$ is a -->
+<!--       stationary distribution if $\pi = \pi P$. -->
+<!--       If $X$ is finite and irreducible, a unique stationary distribution -->
+<!--       $\pi$ exists and we have -->
+<!--       \[ \nu_{ij} = \tf{\pi_j}{\pi_i} \eand m_i = \oo{\pi_i}\] -->
+<!--       where $\nu_{ij}$ is the expected number of visits to $j$ between two -->
+<!--       consecutive visits to $i$, and $m_i$ is the mean return time to $i$. -->
+<!--     \item[Limiting distributions:] -->
+<!--       $\pi$ is a limiting -->
+<!--       distribution if $\pi_j = \lim_n p^{(n)}_{ij}$ for all $i,j$. Limiting -->
+<!--       distributions exist for finite, irreducible and aperiodic chains. -->
+<!--     \item[Ergodic theorem:] If $X$ is finite and irreducible and -->
+<!--       $f:S\to\R$, we have -->
+<!--       \[ \lim_{n\to\infty} \tf{f(X_1)+\dots+f(X_n)}{n} = \EE_{\pi}[f(X_1)] -->
+<!--       = \sum_{i\in S} \pi_i f(i).\] -->
+<!-- \end{description} -->
+<!-- \end{multicols} -->
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": false,
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"toc_depth": null
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
