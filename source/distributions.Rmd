@@ -8,6 +8,7 @@ Here are the basic facts about the probability distributions we will need in the
 ## Discrete distributions:
 
 Note: $(q=1-p)$
+
 ```{r echo=FALSE, warning = FALSE}
 library(tidyverse)
 library(kableExtra)
