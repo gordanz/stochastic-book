@@ -1,0 +1,85 @@
+---
+title: 'A Template for HW solutions; M362M, Fall 2021'
+author: 'Jane B. Student, eid:jbs123'
+date: '2021-09-01'
+output: pdf_document
+---
+
+<!-- The code chunk below contains some settings that will  -->
+<!-- make your R code look better in the output pdf file.  -->
+<!-- If you are curious about what each option below does, -->
+<!-- go to https://yihui.org/knitr/options/ -->
+<!-- If not, feel free to disregard everything ...  -->
+```{r echo=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  fig.align="center",
+  fig.pos="b",
+  strip.white = TRUE
+)
+```
+<style type="text/css">
+
+.figure {
+   margin-top: 400px;
+   margin-bottom: 100px;
+}
+</style>
+<!-- ... up to here. -->
+
+## Problem 1.1
+
+This is where I would explain what I am doing. 
+
+### a.
+
+```{r}
+1/238746238746
+```
+
+You can write an explanation here, too. 
+
+### b.
+
+```{r}
+2^45
+```
+
+### e.
+
+```{r}
+cos(pi/8)
+```
+  
+
+## Problem 1.2
+
+### 3.
+
+```{r}
+(A = matrix(c(1, 2, -1, 3), nrow = 2, byrow = TRUE))
+```
+
+
+## Problem 1.3.
+
+### 2.
+
+```{r}
+my_function <- function(x) { 
+  if (2 < x & x < 3) {
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+```
+
+If the problem asked for a plot, you would do it in a "chunk", too (don't worry about the specifics of the commands used below)
+
+```{r}
+x = seq(from = 0, to = 12*pi, length = 500)
+y = sin(x)
+plot(x,y , type = "l", col = "red", lwd = 2, lty = "dashed")
+```
+
