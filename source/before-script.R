@@ -7,7 +7,7 @@ library(kableExtra)
 
 knitr::opts_chunk$set(
   collapse = TRUE,
-  cache = TRUE,
+  cache = FALSE,
   fig.align="center",
   fig.pos="t",
   strip.white = TRUE,
