@@ -1,9 +1,8 @@
-problems*
 .Rproj.user
 .Rhistory
 .RData
-.Rbuildignore
 _publish.R
-*_files
 _book
-_main.*
+_bookdown_files
+
+problems*
