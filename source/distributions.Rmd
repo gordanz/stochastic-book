@@ -1,12 +1,3 @@
-\newcommand{\PP}{{\mathbb{P}}}
-\newcommand{\RR}{{\mathbb{R}}}
-\newcommand{\Var}{\operatorname{Var}}
-\newcommand{\N}{{\mathbb{N}}}
-\newcommand{\sS}{{\mathcal{S}}}
-\newcommand{\EE}{{\mathbb{E}}}
-\newcommand{\ld}{\lambda}
-\newcommand{\eand}{\text{ and }}
-
 # (APPENDIX) Appendix {-}
 
 # Probability Distributions {#dist}

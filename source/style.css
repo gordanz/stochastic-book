@@ -32,53 +32,24 @@ pre code {
   margin-right: 350px;
 }
 
-/* numbering headings */
-
-body { 
-  counter-reset: thechapter; 
-}
-
-h1 { 
-  content: "";
-  counter-reset: h2counter; 
-}
-
-h1::before {
-  content: "";
-  counter-increment: thechapter;
-}
-
-h2::before {
-  counter-increment: h2counter;
-  content: "";
-}
 
 /* examples, theorems and such */
 /*******************************/
 
-.problem, .problemec, .example { 
+.exercise { 
   padding: 10px; 
   margin-bottom: 25px;
-  counter-increment: nmb;
 }
 
 /* Backgrounds */
-.problem { background: #FDF5E6; }
-.problemec {  background: #FDF0E6; }
-.example { background: #EEFEEE; }
+.exercise{ background: #FDF5E6; }
 
 /* Titles */
-.example:before, .problem:before, .problemec:before, .solution::before, .comments::before {
+.exercise:before, .solution::before {
     font-weight: bold; 
     font-size: Large;
 }
-.example::before { content: "Problem " counter(thechapter) "." counter(h2counter) "." counter(nmb);}
-.problem::before { content: "Problem " counter(thechapter) "." counter(h2counter) "." counter(nmb);}
-.problemec::before { 
-  content: "Problem " counter(thechapter) "." counter(h2counter) "." counter(nmb) " (extra credit)";}
 .solution { padding-left: 10px;} 
-.solution::before { content: "Solution:";}
-.comments::before { content: "Comments:"; }
 
 part {
   font-weight: bold;
@@ -87,4 +58,6 @@ part {
 part::before {
   content: "Part" ;
 }
+
+
 
