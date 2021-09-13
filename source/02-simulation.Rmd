@@ -611,8 +611,8 @@ a sample of size $n$ from the vector of size $n$ *without* replacement is
 nothing by a random permutation of `y`. 
 
 You are not required to do this in your submissions, but if you want to display
-several plots side-by-side, use the command is `par(mfrow=c(m,n))` before the
-`plot` commands. It tells R to plot the next $mn$ plots in a $m\times n$ grid.
+several plots side-by-side, use the command  `par(mfrow=c(m,n))` before the command
+`plot`.  It tells R to plot the next $mn$ plots in a $m\times n$ grid.
 
 :::
 
@@ -1046,7 +1046,7 @@ plot(x,y, type="l")
 ```
 The other arguments, `xlab`, `ylab` and `main` determine labels for axes and the entire plot. The function `abline(a,b)` adds a line $y = a x + b$ to an already existing plot. It is very useful in statistics if one wants to show the regression line superimposed on the scatterplot of data. Finally, the argument `col`, of course, determines the color of the line. To learn about various graphical parameters, type `?par`. 
 
-*Comments (Math):** The conceptual reason for this exercise is to explore (numerically) the kinds of errors we make when we use Monte Carlo. Unlike the deterministic numerical procedures,  Monte Carlo has a strange property that no bound on the error can be made with absolute certainty. Let me give you an example. Suppose that you have a biased coin, with the probability $0.6$ of heads and $0.4$ of tails. You don't know this probability, and use a Monte Carlo technique to estimate it - you toss your coin $1000$ times and record the number of times you observe $H$. The law of large numbers suggests that the relative frequency of heads is close to the true probability of $H$. Indeed, you run a simulation
+*Comments (Math):* The conceptual reason for this exercise is to explore (numerically) the kinds of errors we make when we use Monte Carlo. Unlike the deterministic numerical procedures,  Monte Carlo has a strange property that no bound on the error can be made with absolute certainty. Let me give you an example. Suppose that you have a biased coin, with the probability $0.6$ of heads and $0.4$ of tails. You don't know this probability, and use a Monte Carlo technique to estimate it - you toss your coin $1000$ times and record the number of times you observe $H$. The law of large numbers suggests that the relative frequency of heads is close to the true probability of $H$. Indeed, you run a simulation
 ```{r echo=2:10}
 set.seed(1234)
 x = sample( c("T","H"), 1000, prob = c(0.4, 0.6), replace = TRUE)
@@ -1057,7 +1057,7 @@ and get a pretty accurate estimate of $0.594$. If you run the same code a few mo
 
 The take-home message is that even though there are no guarantees, Monte Carlo performs well the vast majority of the time. The crucial ingredient, however, is the number of simulations. The plot you were asked to make illustrates exactly that. The function `cumavg` gives you a whole sequence of Monte-Carlo estimates of the same thing (the number $\pi$) with different numbers of simulations `nsim`. For small values of `nsim` the error is typically very large (and very random). As the number of simulations grows, the situations stabilizes and the error decreases. Without going into the theory behind it, let me only mention is that in the majority of practical applications we have the following relationship:
 $$ error \sim \frac{1}{\sqrt{n}}.$$
-In words, if you want to double the precision, you need to quadruple the number of simulations. If you want an extra digit in your estimate, you need to multiply the number of simulations by $100$. Here is an image where I superimposed $40$ plots like the one you were asked to produce (the red lines are $\pm \frac{4}{\sqrt{n}}$):
+In words, if you want to double the precision, you need to quadruple the number of simulations. If you want an extra digit in your estimate, you need to multiply the number of simulations by $100$. Here is an image where I superimposed $40$ plots like the one you were asked to produce (the dashed lines are $\pm \frac{4}{\sqrt{n}}$):
 
 ```{r echo=F, warning = F}
 library(tidyverse)
@@ -1080,11 +1080,13 @@ S = data.frame(t(replicate(nbatch,single() ))) %>%
    group_by(omega)
 E = data.frame( time = 1:nsim, error = 4/sqrt(1:nsim))
 
-ggplot(S, aes(x=time, y=estimate-pi, group = omega)) +
-   geom_line(size=0.3, color="#999999")+
-   geom_path(aes(time, error), data = E, inherit.aes = F, color="red") +
-   geom_path(aes(time, -error), data = E, inherit.aes = F, color="red") +
+ggplot(S, aes(x=time, y=estimate-pi, group = omega, color = omega )) +
+   # geom_line(size=0.3, color="#999999")+
+   geom_line(size=0.3)+
+   geom_path(aes(time, error), data = E, inherit.aes = F, color="black", linetype = 2) +
+   geom_path(aes(time, -error), data = E, inherit.aes = F, color="black", linetype = 2) +
    theme_bw()+
+   theme(legend.position = "None")+
    xlab("number of simulations")+
    ylab("error")+
    ggtitle(TeX("Errors in  Monte Carlo estimation of $\\pi$"))
@@ -1222,7 +1224,7 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 <!-- ::: -->
 
 ::: {.exercise}
-
+\ 
 ```{r child="problems/00_R/Sim-trans_prb.Rmd"}
 ```
 :::
@@ -1235,8 +1237,6 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 <!-- ::: -->
 
 ::: {.exercise}
-\ 
-
 ```{r child="problems/00_R/Sim-FX_prb.Rmd"}
 ```
 :::
