@@ -1,6 +1,6 @@
+
 ```{r child="mydefs.Rmd"}
 ```
-
 # Simulation of Random Variables and Monte Carlo
 
 
