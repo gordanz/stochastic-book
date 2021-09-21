@@ -1047,6 +1047,7 @@ plot(x,y, type="l")
 The other arguments, `xlab`, `ylab` and `main` determine labels for axes and the entire plot. The function `abline(a,b)` adds a line $y = a x + b$ to an already existing plot. It is very useful in statistics if one wants to show the regression line superimposed on the scatterplot of data. Finally, the argument `col`, of course, determines the color of the line. To learn about various graphical parameters, type `?par`. 
 
 *Comments (Math):* The conceptual reason for this exercise is to explore (numerically) the kinds of errors we make when we use Monte Carlo. Unlike the deterministic numerical procedures,  Monte Carlo has a strange property that no bound on the error can be made with absolute certainty. Let me give you an example. Suppose that you have a biased coin, with the probability $0.6$ of heads and $0.4$ of tails. You don't know this probability, and use a Monte Carlo technique to estimate it - you toss your coin $1000$ times and record the number of times you observe $H$. The law of large numbers suggests that the relative frequency of heads is close to the true probability of $H$. Indeed, you run a simulation
+
 ```{r echo=2:10}
 set.seed(1234)
 x = sample( c("T","H"), 1000, prob = c(0.4, 0.6), replace = TRUE)
@@ -1241,12 +1242,10 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \ -->
-
-<!-- ```{r child="problems/00_R/Sim-FX_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/00_R/Sim-FX_sol.Rmd"}
+```
+:::
 
 ::: {.exercise name="Extra Credit"}
 \ 
@@ -1255,12 +1254,12 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/00_R/Sim-mix_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/00_R/Sim-mix_sol.Rmd"}
+```
+:::
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-perm_prb.Rmd"}
@@ -1291,60 +1290,54 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
-
-<!-- ```{r child="problems/00_R/Sim-int_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/00_R/Sim-int_sol.Rmd"}
+```
+:::
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-tricyl_prb.Rmd"}
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
-
-<!-- ```{r child="problems/00_R/Sim-tricyl_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/00_R/Sim-tricyl_sol.Rmd"}
+```
+:::
 
 ::: {.exercise name="Extra Credit"}
 ```{r child="problems/00_R/Sim-monty_prb.Rmd"}
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
-
-<!-- ```{r child="problems/00_R/Sim-monty_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/00_R/Sim-monty_sol.Rmd"}
+```
+:::
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-joint-cond_prb.Rmd"}
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/00_R/Sim-joint-cond_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/00_R/Sim-joint-cond_sol.Rmd"}
+```
+:::
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-disease_prb.Rmd"}
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/00_R/Sim-disease_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/00_R/Sim-disease_sol.Rmd"}
+```
+:::
 
 
 ::: {.exercise}
@@ -1352,11 +1345,11 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
-<!-- ::: {.solution} -->
-<!-- \  -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/00_R/Sim-cube_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/00_R/Sim-cube_sol.Rmd"}
+```
+:::
 
 ## Endnotes
