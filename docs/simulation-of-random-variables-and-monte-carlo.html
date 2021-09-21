@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="intro.html"/>
-<link rel="next" href="dist.html"/>
+<link rel="next" href="random-walks.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -169,6 +169,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#additional-problems-for-chapter-2"><i class="fa fa-check"></i><b>2.5</b> Additional Problems for Chapter 2</a></li>
 <li class="chapter" data-level="2.6" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#endnotes-1"><i class="fa fa-check"></i><b>2.6</b> Endnotes</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="random-walks.html"><a href="random-walks.html"><i class="fa fa-check"></i><b>3</b> Random Walks</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="random-walks.html"><a href="random-walks.html#what-are-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> What are stochastic processes?</a></li>
+<li class="chapter" data-level="3.2" data-path="random-walks.html"><a href="random-walks.html#the-simple-symmetric-random-walk"><i class="fa fa-check"></i><b>3.2</b> The Simple Symmetric Random Walk</a></li>
+<li class="chapter" data-level="3.3" data-path="random-walks.html"><a href="random-walks.html#how-to-simulate-random-walks"><i class="fa fa-check"></i><b>3.3</b> How to simulate random walks</a></li>
+<li class="chapter" data-level="3.4" data-path="random-walks.html"><a href="random-walks.html#two-ways-of-looking-at-a-stochastic-proceses"><i class="fa fa-check"></i><b>3.4</b> Two ways of looking at a stochastic proceses</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="random-walks.html"><a href="random-walks.html#column-wise-distributionally"><i class="fa fa-check"></i><b>3.4.1</b> Column-wise (distributionally)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="random-walks.html"><a href="random-walks.html#row-wise-trajectorially-or-path-wise"><i class="fa fa-check"></i><b>3.4.2</b> Row-wise (trajectorially or path-wise)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="random-walks.html"><a href="random-walks.html#the-path-space"><i class="fa fa-check"></i><b>3.5</b> The path space</a></li>
+<li class="chapter" data-level="3.6" data-path="random-walks.html"><a href="random-walks.html#the-distribution-of-x_n"><i class="fa fa-check"></i><b>3.6</b> The distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="3.7" data-path="random-walks.html"><a href="random-walks.html#biased-random-walks"><i class="fa fa-check"></i><b>3.7</b> Biased random walks</a></li>
+<li class="chapter" data-level="3.8" data-path="random-walks.html"><a href="random-walks.html#additional-problems-for-chapter-3"><i class="fa fa-check"></i><b>3.8</b> Additional problems for Chapter 3</a></li>
+<li class="chapter" data-level="3.9" data-path="random-walks.html"><a href="random-walks.html#endnotes-2"><i class="fa fa-check"></i><b>3.9</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -213,7 +229,8 @@ any new ideas and are there to help you practice the skills presented before.</p
 <div class="solution">
 <p><span id="unlabeled-div-10" class="solution"><em>Solution</em>. </span> </p>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rgeom</span>(<span class="dv">50</span>, <span class="at">prob =</span> <span class="fl">0.4</span>)</span>
-<span id="cb51-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 1 0 3 4 1 2 0 0 2 2 0 1 5 0 1 0 2 1 1 0 2 2 2 1 0 0 1 3 2 2 1 1 1 3 5 0 1 1 0 0 0 1 2 0 1 1 1 0 1 0</span></span></code></pre></div>
+<span id="cb51-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 1 0 3 4 1 2 0 0 2 2 0 1 5 0 1 0 2 1 1 0 2 2 2 1 0 0 1 3 2 2 1 1 1 3 5 0 1 1</span></span>
+<span id="cb51-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [39] 0 0 0 1 2 0 1 1 1 0 1 0</span></span></code></pre></div>
 <p><em>Comments (R):</em> R makes it very easy to simulate draws from a large class of <em>named
 distributions</em><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>,
 such as geometric, binomial, uniform, normal, etc. For a list of all available
@@ -605,8 +622,9 @@ value.</p>
 <div class="solution">
 <p><span id="unlabeled-div-16" class="solution"><em>Solution</em>. </span> </p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">60</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb58-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  2  8  9  8  4  7  7  7  2  3  3 10  6  1  9  7  4  7  6  2  2  3 10  1  9  7  3  2  8  4  1  2  8  1  4  9  1  9 10 10  6  1  8  6  1</span></span>
-<span id="cb58-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [46] 10  5  1  6  9  8  3  8  9  4  6  1  6  7  8</span></span></code></pre></div>
+<span id="cb58-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1]  2  8  9  8  4  7  7  7  2  3  3 10  6  1  9  7  4  7  6  2  2  3 10  1  9</span></span>
+<span id="cb58-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [26]  7  3  2  8  4  1  2  8  1  4  9  1  9 10 10  6  1  8  6  1 10  5  1  6  9</span></span>
+<span id="cb58-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [51]  8  3  8  9  4  6  1  6  7  8</span></span></code></pre></div>
 <p><em>Comments (Math):</em> Let <span class="math inline">\(X\)</span> denote the outcome of a single throw of a fair <span class="math inline">\(10\)</span>-sided die.
 The distribution of <span class="math inline">\(X\)</span> is discrete (it can only take the values
 <span class="math inline">\(1,2,\dots, 10\)</span>) but it is not one of the more famous named distributions. I
@@ -696,7 +714,8 @@ number at most once:</p>
 <span id="cb60-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in sample.int(length(x), size, replace, prob): cannot take a sample larger than the population when &#39;replace = FALSE&#39;</span></span></code></pre></div>
 <p>The bag you draw from can contain objects other than numbers:</p>
 <div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Picard&quot;</span>, <span class="st">&quot;Data&quot;</span>, <span class="st">&quot;Geordi&quot;</span>), <span class="dv">9</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb61-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Picard&quot; &quot;Data&quot;   &quot;Geordi&quot; &quot;Geordi&quot; &quot;Data&quot;   &quot;Data&quot;   &quot;Picard&quot; &quot;Data&quot;   &quot;Geordi&quot;</span></span></code></pre></div>
+<span id="cb61-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Picard&quot; &quot;Data&quot;   &quot;Geordi&quot; &quot;Geordi&quot; &quot;Data&quot;   &quot;Data&quot;   &quot;Picard&quot; &quot;Data&quot;  </span></span>
+<span id="cb61-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb61-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [9] &quot;Geordi&quot;</span></span></code></pre></div>
 So far, each object in the bag had the same probability of being drawn. You can
 use the <code>sample</code> command to produce a <em>weighted</em> sample, too. For example, if we
 wanted to simulate <span class="math inline">\(10\)</span> draws from the following distribution
@@ -2063,9 +2082,6 @@ of the spectrum - too big, and too small.</p>
 
 </div>
 </div>
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="3">
@@ -2088,7 +2104,7 @@ exactly the same vector it got as input.<a href="simulation-of-random-variables-
         </div>
       </div>
 <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="random-walks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

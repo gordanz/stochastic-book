@@ -169,6 +169,22 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.5" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#additional-problems-for-chapter-2"><i class="fa fa-check"></i><b>2.5</b> Additional Problems for Chapter 2</a></li>
 <li class="chapter" data-level="2.6" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#endnotes-1"><i class="fa fa-check"></i><b>2.6</b> Endnotes</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="random-walks.html"><a href="random-walks.html"><i class="fa fa-check"></i><b>3</b> Random Walks</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="random-walks.html"><a href="random-walks.html#what-are-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> What are stochastic processes?</a></li>
+<li class="chapter" data-level="3.2" data-path="random-walks.html"><a href="random-walks.html#the-simple-symmetric-random-walk"><i class="fa fa-check"></i><b>3.2</b> The Simple Symmetric Random Walk</a></li>
+<li class="chapter" data-level="3.3" data-path="random-walks.html"><a href="random-walks.html#how-to-simulate-random-walks"><i class="fa fa-check"></i><b>3.3</b> How to simulate random walks</a></li>
+<li class="chapter" data-level="3.4" data-path="random-walks.html"><a href="random-walks.html#two-ways-of-looking-at-a-stochastic-proceses"><i class="fa fa-check"></i><b>3.4</b> Two ways of looking at a stochastic proceses</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="random-walks.html"><a href="random-walks.html#column-wise-distributionally"><i class="fa fa-check"></i><b>3.4.1</b> Column-wise (distributionally)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="random-walks.html"><a href="random-walks.html#row-wise-trajectorially-or-path-wise"><i class="fa fa-check"></i><b>3.4.2</b> Row-wise (trajectorially or path-wise)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="random-walks.html"><a href="random-walks.html#the-path-space"><i class="fa fa-check"></i><b>3.5</b> The path space</a></li>
+<li class="chapter" data-level="3.6" data-path="random-walks.html"><a href="random-walks.html#the-distribution-of-x_n"><i class="fa fa-check"></i><b>3.6</b> The distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="3.7" data-path="random-walks.html"><a href="random-walks.html#biased-random-walks"><i class="fa fa-check"></i><b>3.7</b> Biased random walks</a></li>
+<li class="chapter" data-level="3.8" data-path="random-walks.html"><a href="random-walks.html#additional-problems-for-chapter-3"><i class="fa fa-check"></i><b>3.8</b> Additional problems for Chapter 3</a></li>
+<li class="chapter" data-level="3.9" data-path="random-walks.html"><a href="random-walks.html#endnotes-2"><i class="fa fa-check"></i><b>3.9</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -657,10 +673,14 @@ TRUE
 <li></li>
 </ol>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="intro.html#cb45-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="fl">4e+05</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="fl">5e+05</span>])</span>
-<span id="cb45-2"><a href="intro.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 400689 401956 403225 404496 405769 407044 408321 409600 410881 412164 413449 414736 416025 417316 418609 419904 421201 422500 423801</span></span>
-<span id="cb45-3"><a href="intro.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [20] 425104 426409 427716 429025 430336 431649 432964 434281 435600 436921 438244 439569 440896 442225 443556 444889 446224 447561 448900</span></span>
-<span id="cb45-4"><a href="intro.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [39] 450241 451584 452929 454276 455625 456976 458329 459684 461041 462400 463761 465124 466489 467856 469225 470596 471969 473344 474721</span></span>
-<span id="cb45-5"><a href="intro.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [58] 476100 477481 478864 480249 481636 483025 484416 485809 487204 488601 490000 491401 492804 494209 495616 497025 498436 499849</span></span></code></pre></div>
+<span id="cb45-2"><a href="intro.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 400689 401956 403225 404496 405769 407044 408321 409600 410881 412164</span></span>
+<span id="cb45-3"><a href="intro.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [11] 413449 414736 416025 417316 418609 419904 421201 422500 423801 425104</span></span>
+<span id="cb45-4"><a href="intro.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [21] 426409 427716 429025 430336 431649 432964 434281 435600 436921 438244</span></span>
+<span id="cb45-5"><a href="intro.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [31] 439569 440896 442225 443556 444889 446224 447561 448900 450241 451584</span></span>
+<span id="cb45-6"><a href="intro.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [41] 452929 454276 455625 456976 458329 459684 461041 462400 463761 465124</span></span>
+<span id="cb45-7"><a href="intro.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [51] 466489 467856 469225 470596 471969 473344 474721 476100 477481 478864</span></span>
+<span id="cb45-8"><a href="intro.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [61] 480249 481636 483025 484416 485809 487204 488601 490000 491401 492804</span></span>
+<span id="cb45-9"><a href="intro.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [71] 494209 495616 497025 498436 499849</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li></li>
 </ol>
