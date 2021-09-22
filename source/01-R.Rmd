@@ -317,7 +317,7 @@ distance_or_zero(2,3)
 
 ## Additional Problems for Chapter 1
 
-Here are several simple problems. Their goal is to give you an idea of exactly how much R is required to get started in this course.!
+Here are several simple problems. Their goal is to give you an idea of exactly how much R is required to get started in this course.
 
 :::  {.exercise}
 ```{r child = 'problems/00_R/R-calc_prb.Rmd'}
@@ -325,44 +325,65 @@ Here are several simple problems. Their goal is to give you an idea of exactly h
 :::
 
 
-
-
+<details>
+  <summary>Click for Solution</summary>
 ::: {.solution}
 ```{r child = 'problems/00_R/R-calc_sol.Rmd'}
 ```
 :::
-
+</details>
 
 
 ::: {.exercise}
+\ 
+
 ```{r child = 'problems/00_R/R-vars_prb.Rmd'}
 ```
 :::
 
 
+<details>
+  <summary>Click for Solution</summary>
 ::: {.solution}
+\ 
+
 ```{r child = 'problems/00_R/R-vars_sol.Rmd'}
 ```
 :::
+</details>
 
 ::: {.exercise}
+\ 
+
 ```{r child = 'problems/00_R/R-vect_prb.Rmd'}
 ```
 :::
 
+<details>
+  <summary>Click for Solution</summary>
 ::: {.solution}
+\ 
+
 ```{r child = 'problems/00_R/R-vect_sol.Rmd'}
 ```
 :::
+</details>
 
 ::: {.exercise}
+\ 
+
 ```{r child = 'problems/00_R/R-func_prb.Rmd'}
 ```
 :::
 
+<details>
+  <summary>Click for Solution</summary>
 ::: {.solution}
+\ 
+
 ```{r child = 'problems/00_R/R-func_sol.Rmd'}
 ```
 :::
+</details>
 
 ## Endnotes
