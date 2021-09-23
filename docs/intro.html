@@ -568,7 +568,7 @@ TRUE
 </div>
 <div id="additional-problems-for-chapter-1" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Additional Problems for Chapter 1</h2>
-<p>Here are several simple problems. Their goal is to give you an idea of exactly how much R is required to get started in this course.!</p>
+<p>Here are several simple problems. Their goal is to give you an idea of exactly how much R is required to get started in this course.</p>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-1" class="exercise"><strong>Problem 1.1  </strong></span>Compute the following (your answer should be a decimal number):</p>
 <ol style="list-style-type: lower-alpha">
@@ -584,6 +584,10 @@ TRUE
 </ol>
 <p>Note: some of the answers will look like this <code>3.14e+13</code>. If you do not know what that means, google <em>scientific notation</em> or <em>E notation</em>.</p>
 </div>
+<details>
+<summary>
+Click for Solution
+</summary>
 <div class="solution">
 <p><span id="unlabeled-div-2" class="solution"><em>Solution</em>. </span>Remember, parentheses around the whole expression tell R to print out the result</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="intro.html#cb37-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="dv">238746238746</span>)</span>
@@ -605,6 +609,7 @@ TRUE
 <span id="cb37-17"><a href="intro.html#cb37-17" aria-hidden="true" tabindex="-1"></a>(((<span class="fl">1342.16</span> <span class="sc">-</span> <span class="fl">2.18</span>)<span class="sc">/</span>(<span class="dv">3</span> <span class="sc">*</span> pi <span class="sc">+</span> <span class="fl">4.12</span>)<span class="sc">^</span><span class="dv">2</span>)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>))</span>
 <span id="cb37-18"><a href="intro.html#cb37-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.940222</span></span></code></pre></div>
 </div>
+</details>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-3" class="exercise"><strong>Problem 1.2  </strong></span> </p>
 <ol style="list-style-type: decimal">
@@ -614,42 +619,37 @@ TRUE
 <li><p>Compute the matrix square <span class="math inline">\(A^2\)</span>.</p></li>
 </ol>
 </div>
+<details>
+<summary>
+Click for Solution
+</summary>
 <div class="solution">
 <p><span id="unlabeled-div-4" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="intro.html#cb38-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">3</span></span>
+<li><div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="intro.html#cb38-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="dv">3</span></span>
 <span id="cb38-2"><a href="intro.html#cb38-2" aria-hidden="true" tabindex="-1"></a>b <span class="ot">=</span> <span class="dv">4</span></span>
 <span id="cb38-3"><a href="intro.html#cb38-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">c =</span> a <span class="sc">*</span> b)</span>
-<span id="cb38-4"><a href="intro.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12</span></span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="intro.html#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb38-4"><a href="intro.html#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="intro.html#cb39-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb39-2"><a href="intro.html#cb39-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">0</span>)</span>
 <span id="cb39-3"><a href="intro.html#cb39-3" aria-hidden="true" tabindex="-1"></a>(x <span class="sc">+</span> y)</span>
-<span id="cb39-4"><a href="intro.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  9 11  3</span></span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="intro.html#cb40-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
+<span id="cb39-4"><a href="intro.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]  9 11  3</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="intro.html#cb40-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">nrow =</span> <span class="dv">2</span>))</span>
 <span id="cb40-2"><a href="intro.html#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
 <span id="cb40-3"><a href="intro.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    2</span></span>
-<span id="cb40-4"><a href="intro.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   -1    3</span></span></code></pre></div>
-<ol start="4" style="list-style-type: decimal">
-<li></li>
-</ol>
+<span id="cb40-4"><a href="intro.html#cb40-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   -1    3</span></span></code></pre></div></li>
+<li><p>Note that we need to use <code>%*%</code> for matrix multiplication. If we used <code>*</code> we would get the “entry-by-entry” product:</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="intro.html#cb41-1" aria-hidden="true" tabindex="-1"></a>(A <span class="sc">%*%</span> A)</span>
 <span id="cb41-2"><a href="intro.html#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
 <span id="cb41-3"><a href="intro.html#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   -1    8</span></span>
-<span id="cb41-4"><a href="intro.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   -4    7</span></span></code></pre></div>
-<p>Note that we used <code>%*%</code> for matrix multiplication. If we used <code>*</code> we would get the “entry-by-entry” product:</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="intro.html#cb42-1" aria-hidden="true" tabindex="-1"></a>(A <span class="sc">*</span> A)</span>
-<span id="cb42-2"><a href="intro.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
-<span id="cb42-3"><a href="intro.html#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4</span></span>
-<span id="cb42-4"><a href="intro.html#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    1    9</span></span></code></pre></div>
+<span id="cb41-4"><a href="intro.html#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   -4    7</span></span>
+<span id="cb41-5"><a href="intro.html#cb41-5" aria-hidden="true" tabindex="-1"></a>(A <span class="sc">*</span> A)</span>
+<span id="cb41-6"><a href="intro.html#cb41-6" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb41-7"><a href="intro.html#cb41-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4</span></span>
+<span id="cb41-8"><a href="intro.html#cb41-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    1    9</span></span></code></pre></div></li>
+</ol>
 </div>
+</details>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-5" class="exercise"><strong>Problem 1.3  </strong></span> </p>
 <ol style="list-style-type: decimal">
@@ -659,34 +659,29 @@ TRUE
 <li><p>Compute the average (arithmetic mean) of all the components of <span class="math inline">\(z\)</span>. There is an R function that does that for you - find it!</p></li>
 </ol>
 </div>
+<details>
+<summary>
+Click for Solution
+</summary>
 <div class="solution">
 <p><span id="unlabeled-div-6" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
-<li></li>
+<li><div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="intro.html#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="dv">20</span><span class="sc">:</span><span class="dv">2000</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="fl">4e+05</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="fl">5e+05</span>])</span>
+<span id="cb44-2"><a href="intro.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 400689 401956 403225 404496 405769 407044 408321 409600 410881 412164</span></span>
+<span id="cb44-3"><a href="intro.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [11] 413449 414736 416025 417316 418609 419904 421201 422500 423801 425104</span></span>
+<span id="cb44-4"><a href="intro.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [21] 426409 427716 429025 430336 431649 432964 434281 435600 436921 438244</span></span>
+<span id="cb44-5"><a href="intro.html#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [31] 439569 440896 442225 443556 444889 446224 447561 448900 450241 451584</span></span>
+<span id="cb44-6"><a href="intro.html#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [41] 452929 454276 455625 456976 458329 459684 461041 462400 463761 465124</span></span>
+<span id="cb44-7"><a href="intro.html#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [51] 466489 467856 469225 470596 471969 473344 474721 476100 477481 478864</span></span>
+<span id="cb44-8"><a href="intro.html#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [61] 480249 481636 483025 484416 485809 487204 488601 490000 491401 492804</span></span>
+<span id="cb44-9"><a href="intro.html#cb44-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [71] 494209 495616 497025 498436 499849</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="intro.html#cb45-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">mean</span>(z))</span>
+<span id="cb45-2"><a href="intro.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 449368.7</span></span></code></pre></div></li>
 </ol>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="dv">20</span><span class="sc">:</span><span class="dv">2000</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="intro.html#cb45-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="fl">4e+05</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="fl">5e+05</span>])</span>
-<span id="cb45-2"><a href="intro.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 400689 401956 403225 404496 405769 407044 408321 409600 410881 412164</span></span>
-<span id="cb45-3"><a href="intro.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [11] 413449 414736 416025 417316 418609 419904 421201 422500 423801 425104</span></span>
-<span id="cb45-4"><a href="intro.html#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [21] 426409 427716 429025 430336 431649 432964 434281 435600 436921 438244</span></span>
-<span id="cb45-5"><a href="intro.html#cb45-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [31] 439569 440896 442225 443556 444889 446224 447561 448900 450241 451584</span></span>
-<span id="cb45-6"><a href="intro.html#cb45-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [41] 452929 454276 455625 456976 458329 459684 461041 462400 463761 465124</span></span>
-<span id="cb45-7"><a href="intro.html#cb45-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [51] 466489 467856 469225 470596 471969 473344 474721 476100 477481 478864</span></span>
-<span id="cb45-8"><a href="intro.html#cb45-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [61] 480249 481636 483025 484416 485809 487204 488601 490000 491401 492804</span></span>
-<span id="cb45-9"><a href="intro.html#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [71] 494209 495616 497025 498436 499849</span></span></code></pre></div>
-<ol start="4" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="intro.html#cb46-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">mean</span>(z))</span>
-<span id="cb46-2"><a href="intro.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 449368.7</span></span></code></pre></div>
 </div>
+</details>
 <div class="exercise">
 <p><span id="exr:unlabeled-div-7" class="exercise"><strong>Problem 1.4  </strong></span> </p>
 <ol style="list-style-type: decimal">
@@ -695,71 +690,70 @@ TRUE
 <li><p>(Extra credit) Write a function that takes two equal-sized vectors as arguments and returns the angle between them in degrees. For definiteness, the angle between two vectors is defined to be <span class="math inline">\(0\)</span> when either one of them is <span class="math inline">\((0,0,\dots,0)\)</span>.</p></li>
 </ol>
 </div>
+<details>
+<summary>
+Click for Solution
+</summary>
 <div class="solution">
 <p><span id="unlabeled-div-8" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="intro.html#cb47-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
-<span id="cb47-2"><a href="intro.html#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
-<span id="cb47-3"><a href="intro.html#cb47-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">5</span>)</span>
-<span id="cb47-4"><a href="intro.html#cb47-4" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb47-5"><a href="intro.html#cb47-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(x)</span>
-<span id="cb47-6"><a href="intro.html#cb47-6" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb47-7"><a href="intro.html#cb47-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<li><div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="intro.html#cb46-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb46-2"><a href="intro.html#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb46-3"><a href="intro.html#cb46-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">5</span>)</span>
+<span id="cb46-4"><a href="intro.html#cb46-4" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb46-5"><a href="intro.html#cb46-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(x)</span>
+<span id="cb46-6"><a href="intro.html#cb46-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb46-7"><a href="intro.html#cb46-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>This could be made shorter using the function <code>ifelse</code>:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="intro.html#cb48-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="dv">5</span>, x)</span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
-<li></li>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="intro.html#cb47-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">&gt;</span> <span class="dv">5</span>, <span class="dv">5</span>, x)</span></code></pre></div></li>
+<li><div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="intro.html#cb48-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb48-2"><a href="intro.html#cb48-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
+<span id="cb48-3"><a href="intro.html#cb48-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
+<span id="cb48-4"><a href="intro.html#cb48-4" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb48-5"><a href="intro.html#cb48-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb48-6"><a href="intro.html#cb48-6" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb48-7"><a href="intro.html#cb48-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb48-8"><a href="intro.html#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="intro.html#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="co"># more R-ic (what&#39;s &#39;Pythonic&#39;, but for R?)</span></span>
+<span id="cb48-10"><a href="intro.html#cb48-10" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">3</span></span></code></pre></div></li>
+<li><div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="intro.html#cb49-1" aria-hidden="true" tabindex="-1"></a>angle <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb49-2"><a href="intro.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    length_x <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb49-3"><a href="intro.html#cb49-3" aria-hidden="true" tabindex="-1"></a>    length_y <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(y<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb49-4"><a href="intro.html#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (length_y <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> length_x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb49-5"><a href="intro.html#cb49-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb49-6"><a href="intro.html#cb49-6" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb49-7"><a href="intro.html#cb49-7" aria-hidden="true" tabindex="-1"></a>        inn_prod <span class="ot">=</span> <span class="fu">sum</span>(x <span class="sc">*</span> y)</span>
+<span id="cb49-8"><a href="intro.html#cb49-8" aria-hidden="true" tabindex="-1"></a>        cos_alpha <span class="ot">=</span> inn_prod<span class="sc">/</span>(length_x <span class="sc">*</span> length_y)</span>
+<span id="cb49-9"><a href="intro.html#cb49-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">acos</span>(cos_alpha)<span class="sc">/</span>pi <span class="sc">*</span> <span class="dv">180</span>)</span>
+<span id="cb49-10"><a href="intro.html#cb49-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb49-11"><a href="intro.html#cb49-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb49-12"><a href="intro.html#cb49-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-13"><a href="intro.html#cb49-13" aria-hidden="true" tabindex="-1"></a><span class="co"># some testing</span></span>
+<span id="cb49-14"><a href="intro.html#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-15"><a href="intro.html#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
+<span id="cb49-16"><a href="intro.html#cb49-16" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb49-17"><a href="intro.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.207418e-06</span></span>
+<span id="cb49-18"><a href="intro.html#cb49-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-19"><a href="intro.html#cb49-19" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
+<span id="cb49-20"><a href="intro.html#cb49-20" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span>
+<span id="cb49-21"><a href="intro.html#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span>
+<span id="cb49-22"><a href="intro.html#cb49-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-23"><a href="intro.html#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 45</span></span>
+<span id="cb49-24"><a href="intro.html#cb49-24" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb49-25"><a href="intro.html#cb49-25" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 45</span></span>
+<span id="cb49-26"><a href="intro.html#cb49-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-27"><a href="intro.html#cb49-27" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 90</span></span>
+<span id="cb49-28"><a href="intro.html#cb49-28" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))</span>
+<span id="cb49-29"><a href="intro.html#cb49-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 90</span></span></code></pre></div>
+<p><em>Note:</em> This function may fail for certain (rare) values of
+arguments because the variable <code>cos_alpha</code> may happen to take a
+value slightly larger than <span class="math inline">\(1\)</span> or slightly smaller then <span class="math inline">\(-1\)</span> due
+to rounding errors. When applied to such a value <code>acos</code> will
+return a <code>NaN</code>. For simplicity, all of this is ignored in the
+solution above.</p></li>
 </ol>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="intro.html#cb49-1" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb49-2"><a href="intro.html#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">3</span>) {</span>
-<span id="cb49-3"><a href="intro.html#cb49-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="cn">TRUE</span>)</span>
-<span id="cb49-4"><a href="intro.html#cb49-4" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb49-5"><a href="intro.html#cb49-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="cn">FALSE</span>)</span>
-<span id="cb49-6"><a href="intro.html#cb49-6" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb49-7"><a href="intro.html#cb49-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb49-8"><a href="intro.html#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-9"><a href="intro.html#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="co"># more R-ic (what&#39;s &#39;Pythonic&#39;, but for R?)</span></span>
-<span id="cb49-10"><a href="intro.html#cb49-10" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="cf">function</span>(x) x <span class="sc">&gt;</span> <span class="dv">2</span> <span class="sc">&amp;</span> x <span class="sc">&lt;</span> <span class="dv">3</span></span></code></pre></div>
-<ol start="3" style="list-style-type: decimal">
-<li></li>
-</ol>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="intro.html#cb50-1" aria-hidden="true" tabindex="-1"></a>angle <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb50-2"><a href="intro.html#cb50-2" aria-hidden="true" tabindex="-1"></a>    length_x <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(x<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb50-3"><a href="intro.html#cb50-3" aria-hidden="true" tabindex="-1"></a>    length_y <span class="ot">=</span> <span class="fu">sqrt</span>(<span class="fu">sum</span>(y<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb50-4"><a href="intro.html#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (length_y <span class="sc">==</span> <span class="dv">0</span> <span class="sc">|</span> length_x <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb50-5"><a href="intro.html#cb50-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">0</span>)</span>
-<span id="cb50-6"><a href="intro.html#cb50-6" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
-<span id="cb50-7"><a href="intro.html#cb50-7" aria-hidden="true" tabindex="-1"></a>        inn_prod <span class="ot">=</span> <span class="fu">sum</span>(x <span class="sc">*</span> y)</span>
-<span id="cb50-8"><a href="intro.html#cb50-8" aria-hidden="true" tabindex="-1"></a>        cos_alpha <span class="ot">=</span> inn_prod<span class="sc">/</span>(length_x <span class="sc">*</span> length_y)</span>
-<span id="cb50-9"><a href="intro.html#cb50-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">acos</span>(cos_alpha)<span class="sc">/</span>pi <span class="sc">*</span> <span class="dv">180</span>)</span>
-<span id="cb50-10"><a href="intro.html#cb50-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb50-11"><a href="intro.html#cb50-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb50-12"><a href="intro.html#cb50-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-13"><a href="intro.html#cb50-13" aria-hidden="true" tabindex="-1"></a><span class="co"># some testing</span></span>
-<span id="cb50-14"><a href="intro.html#cb50-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-15"><a href="intro.html#cb50-15" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
-<span id="cb50-16"><a href="intro.html#cb50-16" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
-<span id="cb50-17"><a href="intro.html#cb50-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.207418e-06</span></span>
-<span id="cb50-18"><a href="intro.html#cb50-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-19"><a href="intro.html#cb50-19" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
-<span id="cb50-20"><a href="intro.html#cb50-20" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span>
-<span id="cb50-21"><a href="intro.html#cb50-21" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span>
-<span id="cb50-22"><a href="intro.html#cb50-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-23"><a href="intro.html#cb50-23" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 45</span></span>
-<span id="cb50-24"><a href="intro.html#cb50-24" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
-<span id="cb50-25"><a href="intro.html#cb50-25" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 45</span></span>
-<span id="cb50-26"><a href="intro.html#cb50-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-27"><a href="intro.html#cb50-27" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 90</span></span>
-<span id="cb50-28"><a href="intro.html#cb50-28" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))</span>
-<span id="cb50-29"><a href="intro.html#cb50-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 90</span></span></code></pre></div>
-<p><em>Note:</em> This function may fail for certain (rare) values of arguments because
-the variable <code>cos_alpha</code> may happen to take a value slightly larger than <span class="math inline">\(1\)</span> or
-slightly smaller then <span class="math inline">\(-1\)</span> due to rounding errors. When applied to such a value
-<code>acos</code> will return a <code>NaN</code>. For simplicity, all of this is ignored in the
-solution above.</p>
 </div>
+</details>
 </div>
 <div id="endnotes" class="section level2" number="1.4">
 <h2><span class="header-section-number">1.4</span> Endnotes</h2>

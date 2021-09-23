@@ -16,3 +16,4 @@ knitr::opts_chunk$set(
 set.seed(2016)
 # options(digits = 4)
 options(dplyr.print_min = 4, dplyr.print_max = 4)
+
