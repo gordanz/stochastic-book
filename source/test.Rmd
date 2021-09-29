@@ -1,0 +1,40 @@
+
+```{r child="mydefs.Rmd"}
+```
+# Simulation of Random Variables and Monte Carlo
+
+## Something
+
+### Problem 1
+
+```{r child="problems/00_R/Sim-gamma_prb.Rmd"}
+```
+
+**Solution**
+
+```{r child="problems/00_R/Sim-gamma_sol.Rmd"}
+```
+
+### Problem 2
+
+
+```{r child="problems/00_R/Sim-joint-cond_2_prb.Rmd"}
+```
+
+**Solution**
+
+```{r child="problems/00_R/Sim-joint-cond_2_sol.Rmd"}
+```
+
+
+### Problem 3
+
+
+```{r child="problems/00_R/Sim-sphere_prb.Rmd"}
+```
+
+**Solution**
+
+```{r child="problems/00_R/Sim-sphere_sol.Rmd"}
+```
+

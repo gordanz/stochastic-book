@@ -12,9 +12,10 @@ view: https://github.com/gordanz/M362M/blob/master/source/%s
 repo: https://github.com/gordanz/M362M
 rmd_files: [
    # "index.Rmd",
+   "test.Rmd",
    # "01-R.Rmd",
    # "02-simulation.Rmd",
-   "03-random-walks.Rmd",
+   # "03-random-walks.Rmd",
    # "04-more-random-walks.Rmd",
    # "05-Markov-chains.Rmd",
    # "06-Classification.Rmd",
