@@ -580,9 +580,9 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 <!-- ::: {.solution} -->
 <!-- \ -->
 
-```{r child="problems/01_Random_Walks/walk6_sol.Rmd"}
-```
-:::
+<!-- ```{r child="problems/01_Random_Walks/walk6_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
 
 <!-- </details> -->
 

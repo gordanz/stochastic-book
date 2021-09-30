@@ -563,16 +563,9 @@ processes are simple random walks?</p>
 <!--   <summary>Click for Solution</summary> -->
 <!-- ::: {.solution} -->
 <!-- \ -->
-<ol style="list-style-type: decimal">
-<li><p>No - the support of the distribution of <span class="math inline">\(X_1\)</span> is <span class="math inline">\(\{-2,2\}\)</span> and
-not <span class="math inline">\(\{-1,1\}\)</span>.</p></li>
-<li><p>No - <span class="math inline">\(X_1^2=1\)</span>, and not <span class="math inline">\(\pm 1\)</span> with equal probabilities.</p></li>
-<li><p>Yes - all parts of the definition check out.</p></li>
-<li><p>Yes - all parts of the definition check out.</p></li>
-</ol>
-<p>The answers are the same if <span class="math inline">\(p\ne \tfrac{1}{2}\)</span>, but, in 3., <span class="math inline">\(-X_n\)</span> comes with
-probability <span class="math inline">\(1-p\)</span> of an up-step, and not <span class="math inline">\(p\)</span>.
-:::</p>
+<!-- ```{r child="problems/01_Random_Walks/walk6_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
 <!-- </details> -->
 <div class="exercise">
 <p><span id="exr:unlabeled-div-76" class="exercise"><strong>Problem 3.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk.</p>
@@ -666,7 +659,7 @@ probability <span class="math inline">\(1-p\)</span> of an up-step, and not <spa
 <p><span id="exr:unlabeled-div-81" class="exercise"><strong>Problem 3.9  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk with <span class="math inline">\({\mathbb{P}}[X_1=1]=p\in (0,1)\)</span>, and
 let <span class="math inline">\(A_n\)</span> be the (signed) area under its graph (in the picture below, <span class="math inline">\(A_n\)</span> is
 the area of the blue part minus the area of the orange part).</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-257-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-256-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Find a formula for <span class="math inline">\(A_n\)</span> in terms of <span class="math inline">\(X_1,\dots, X_n\)</span>.</p></li>
 <li><p>Compute <span class="math inline">\({\mathbb{E}}[A_n]\)</span> and <span class="math inline">\(\operatorname{Var}[A_n]\)</span>, for <span class="math inline">\(n\in{\mathbb{N}}\)</span>. (You will find the
