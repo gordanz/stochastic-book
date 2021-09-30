@@ -217,25 +217,26 @@ In a similar way, for $n$ odd, we have
 
 Here is a example of a typical problem where the reflection principle (i.e., the formula for $\PP[M_n=k]$) is used:
 
-<div class="problem">
+::: {.exercise}
 Let $X$ be a simple symmetric random walk. 
   What is the probability that $X_n\leq 0$ for all $0\leq n \leq T$? 
-</div>
+:::
 
-<div class="solution">
+::: {.solution}
 
   This is really a question about the maximum, but in disguise.  The walk will stay negative or $0$ if and only if its running maximum $M_T$ at time $T$ takes the value $0$. By our formula for $\PP[M_n=l]$ we have
   $$ \PP[M_T=0] = \PP[X_T=0] + \PP[X_T = 1].$$
 When $T=2N$ this evaluates to $\binom{2N}{N} 2^{-2N}$, and when $T=2N-1$ to
 $\binom{2N-1}{N} 2^{-(2N-1)}$. 
-</div>
+:::
 
-<div class="problem">
+::: {.exercise}
   What is the probability that a simple symmetric random walk will reach the level $l=1$ in $T$ steps or fewer?
   What happens when $T\to\infty$?
-</div>
+:::
 
-<div class="solution">The first question is exactly the opposite of the question in our previous example, so the answer is
+::: {.solution}
+The first question is exactly the opposite of the question in our previous example, so the answer is
   $$ 1 - \PP[M_T=0] = 1- \PP[X_T=0] - \PP[X_T=1].$$
   As above, this evaluates to $\binom{2N}{N} 2^{-2N}$ when $T=2N$ is even (we skip the case of odd $T$ because it is very similar). 
   When $N\to\infty$, we expect $\binom{2N}{N}$ to go to $+\infty$ and $2^{-2N}$ to go to 
@@ -258,7 +259,7 @@ $\binom{2N-1}{N} 2^{-(2N-1)}$.
   \text{ so that }  \lim_{N\to\infty}
   \binom{2N}{N} 2^{-2n}
   = 0 $$
-</div>
+:::
 
 The result of the previous problem implies the following important fact:
 
@@ -281,7 +282,7 @@ We close this chapter with an application of the reflection principle
 to a classical problem in probability and combinatorics. Feel free to skip it
 if you want to. 
 
-<div class="problemec">
+::: {.exercise name="Extra Credit"}
 Suppose that two
 candidates, Daisy and Oscar, are running for office, and $T \in\N$
 voters cast their ballots. Votes are counted the old-fashioned way,
@@ -292,9 +293,9 @@ announces that Daisy has won by a margin of $k>0$ votes, i.e., that
 Daisy got $(T+k)/2$ votes and Oscar the remaining $(T-k)/2$ votes. What
 is the probability that at no time during the counting has Oscar been in
 the lead?
-</div>
+:::
 
-<div class="solution">
+::: {.solution}
 We assume that the order in which the official counts the votes is
 completely independent of the actual votes, and that each voter chooses
 Daisy with probability $p\in (0,1)$ and Oscar with probability $q=1-p$.
@@ -413,12 +414,13 @@ below zero is called the **$n$-th Catalan number** and equals
  \begin{align}
    C_n=\frac{1}{n+1} \binom{2n}{n}.
  \end{align}
-</div>
+:::
 
-<div class="problemec">
+::: {.exercise name="Extra Credit"}
 Given $n\in\N$, compute $\PP[ \tau_1 = 2n+1 ]$ for a simple, but possibly biased, random walk. (Note: Clearly, $\PP[ \tau_1=2n]=0$.)
-</div>
-<div class="solution">
+:::
+
+::: {.solution}
 Let $A$ denote the set of all trajectories of length $2n+1$ that hit $1$ for the first time at time $2n+1$, and let $A'$ be the set of all trajectories of length $2n$ which stay at or below $0$ at all times and take the value $0$ at time $2n$. 
 Clearly, each trajectory in $A$ is a trajectory in $A'$ with $1$ attached at the very end, so that $\# A = \# A'$. 
 
@@ -426,105 +428,124 @@ By the (last part) of the previous problem, $\# A' = \oo{n+1} \binom{2n}{n}$ (th
 As above, all paths in $A$ have the same probability weight, namely $p^{n+1} q^n$, so 
 $$ \PP[ \tau_1 = 2n+1]= p^{n+1} q^n \frac{1}{n+1} \binom{2n}{n}.$$
 
-</div>
+:::
 
-<div class="problemec">
+::: {.exercise name="Extra Credit"}
 Given  $p\in (0,1)$, 
 
 1. compute $\PP[\tau_1<\infty]$;
 2. decide whether or not $\EE[\tau_1]<\infty$;
 3. compute, heuristically, the value of $\EE[\tau_1]$ for those $p$ for which it is finite.
-</div>
-<div class="solution">
-<part> 1. </part>
-  Using the previous problem, we need to sum the following series
-  $$\sum_{k=0}^{\infty}  \PP[\tau_1=k] = \sum_{n=0}^{\infty} \PP[ \tau_1 = 2n+1] = 
-  \sum_{n=0}^{\infty} p^{n+1} q^{n} \frac{1}{n+1} \binom{2n}{n} = p \sum_{n=0}^{\infty} (pq)^n \frac{1}{n+1} \binom{2n}{n}.$$
-  The sum looks difficult, so let us plot a numerical approximation of its value for  different values of the parameter $p$ (the true value is plotted in orange):
-  
-```{r fig.align="center", fig.width = 6, fig.height = 3.5, out.width = "50%", echo=FALSE}
-tol = 0.0005
-P = function(p) { 
-  if (p == 0.5) {
-    return(1)
-  } else {
-    r = 2 * p * (1 - p)
-    S = 0
-    n = 0
-    a = p
-    while (a > tol) {
-      S = S + a
-      a = a * r * (2 * n + 1) / (n + 2)
-      n = n + 1
+:::
+
+::: {.solution}
+\
+
+1.  
+    Using the previous problem, we need to sum the following series
+    $$\sum_{k=0}^{\infty}  \PP[\tau_1=k] = \sum_{n=0}^{\infty} \PP[ \tau_1 = 2n+1] =
+    \sum_{n=0}^{\infty} p^{n+1} q^{n} \frac{1}{n+1} \binom{2n}{n} = p
+    \sum_{n=0}^{\infty} (pq)^n \frac{1}{n+1} \binom{2n}{n}.$$ The sum looks
+    difficult, so let us plot a numerical approximation of its value for  different
+    values of the parameter $p$ (the true value is plotted in orange):
+      
+    ```{r fig.align="center", fig.width = 6, fig.height = 3.5, out.width = "50%", echo=FALSE}
+    tol = 0.0005
+    P = function(p) { 
+      if (p == 0.5) {
+        return(1)
+      } else {
+        r = 2 * p * (1 - p)
+        S = 0
+        n = 0
+        a = p
+        while (a > tol) {
+          S = S + a
+          a = a * r * (2 * n + 1) / (n + 2)
+          n = n + 1
+        }
+        return(S)
+      }
     }
-    return(S)
-  }
-}
-x_approx = seq(0,1,length.out=22)
-y_approx = sapply(x_approx,P)
-x_true = seq(0,1,by=0.01)
-y_true = pmin(1, x_true/(1-x_true))
-df_approx = data.frame(x = x_approx, y = y_approx)
-df_true = data.frame(x = x_true, y = y_true)
-ggplot()+
-  geom_point(data=df_approx, aes(x=x, y=y))+
-  geom_line(data=df_true,aes(x=x, y=y), color="orange")+
-  ylab(TeX("Approximate and true values of $\\mathbf{P} \\[ \\tau_1<\\infty\\]$"))+xlab("p")+theme_bw()
-```
+    x_approx = seq(0,1,length.out=22)
+    y_approx = sapply(x_approx,P)
+    x_true = seq(0,1,by=0.01)
+    y_true = pmin(1, x_true/(1-x_true))
+    df_approx = data.frame(x = x_approx, y = y_approx)
+    df_true = data.frame(x = x_true, y = y_true)
+    ggplot()+
+      geom_point(data=df_approx, aes(x=x, y=y))+
+      geom_line(data=df_true,aes(x=x, y=y), color="orange")+
+      ylab(TeX("Approximate and true values of $\\mathbf{P} \\[ \\tau_1<\\infty\\]$"))+xlab("p")+theme_bw()
+    ```
+      
+    We conjecture that $\PP[ \tau_1 <\infty ] = 1$ for $p\geq \tot$, but $\PP[ \tau_1<\infty]<1$ for $p<\tot$. 
+    Indeed, using methods beyond the scope of these notes, it can be shown that our conjecture is true and that
+    $$ \PP[ \tau_1<\infty ] =\begin{cases} 1, & p \geq \tot \\ \frac{p}{q}, & p<\tot. \end{cases} $$
+      
+
+2.
+    Since $\PP[ \tau_1= \infty]>0$ for $p<\tot$, we can immediately conclude that $\EE[\tau_1]=\infty$ in that 
+    case. Therefore, we assume that $p\geq \tot$, and consider the sum
+    $$ \EE[\tau_1] = \sum_{k=0}^{\infty} k \PP[\tau_1 = k] = \sum_{n=0}^{\infty} (2n+1) \PP[ \tau_1 = 2n+1] = \sum_{n=0}^{\infty} p^{n+1} q^{n} \frac{2n+1}{n+1} \binom{2n}{n}.$$
+      We have already seen that (by Stirling's formula) we have $\binom{2n}{n} \sim \frac{2^{2n}}{\sqrt{\pi n}}$, so the question reduces to the one about convergence of the following, simpler,  series:
+      $$ \sum_{n=1}^{\infty} \oo{\sqrt{n}} p^n q^{n} 2^{2n} = \sum_{n=1}^{\infty} \oo{\sqrt{n}} (4pq)^n.$$
+      When $p=\tot$, we have $4pq=1$, and the series above becomes a $p$-series with $p=\tot$. Hence, it diverges. On the other hand, when $p>\tot$, $4pq<1$, the terms of the series are dominated by the terms of the convergent geometric series $\sum_{n=1}^{\infty} (4pq)^n$. Therefore, it, itself, must converge. All in all:
+      $$ \EE[\tau_1] = \begin{cases} \infty, & p\leq \tot, \\ <\infty, & p > \tot. \end{cases}. $$
   
-We conjecture that $\PP[ \tau_1 <\infty ] = 1$ for $p\geq \tot$, but $\PP[ \tau_1<\infty]<1$ for $p<\tot$. 
-Indeed, using methods beyond the scope of these notes, it can be shown that our conjecture is true and that
-$$ \PP[ \tau_1<\infty ] =\begin{cases} 1, & p \geq \tot \\ \frac{p}{q}, & p<\tot. \end{cases} $$
-  
-<part> 2. </part>
-
-Since $\PP[ \tau_1= \infty]>0$ for $p<\tot$, we can immediately conclude that $\EE[\tau_1]=\infty$ in that 
-case. Therefore, we assume that $p\geq \tot$, and consider the sum
-$$ \EE[\tau_1] = \sum_{k=0}^{\infty} k \PP[\tau_1 = k] = \sum_{n=0}^{\infty} (2n+1) \PP[ \tau_1 = 2n+1] = \sum_{n=0}^{\infty} p^{n+1} q^{n} \frac{2n+1}{n+1} \binom{2n}{n}.$$
-  We have already seen that (by Stirling's formula) we have $\binom{2n}{n} \sim \frac{2^{2n}}{\sqrt{\pi n}}$, so the question reduces to the one about convergence of the following, simpler,  series:
-  $$ \sum_{n=1}^{\infty} \oo{\sqrt{n}} p^n q^{n} 2^{2n} = \sum_{n=1}^{\infty} \oo{\sqrt{n}} (4pq)^n.$$
-  When $p=\tot$, we have $4pq=1$, and the series above becomes a $p$-series with $p=\tot$. Hence, it diverges. On the other hand, when $p>\tot$, $4pq<1$, the terms of the series are dominated by the terms of the convergent geometric series $\sum_{n=1}^{\infty} (4pq)^n$. Therefore, it, itself, must converge. All in all:
-  $$ \EE[\tau_1] = \begin{cases} \infty, & p\leq \tot, \\ <\infty, & p > \tot. \end{cases}. $$
-<part> 3. </part>
-
-Let $a_j = \EE^{j}[\tau_1]$, where $\EE^{j}$ means that 
-the random walk starts from the level $j$, i.e., $X_0=j$, instead of the usual $X_0=0$. Think about why it is plausible that the 
-following relations hold for the sequence $a_n$:
-$$a_1 = 0,\text{ and } a_j = 1 + p a_{j+1} + q a_{j-1}.$$ 
-We guess that $a_j$ has the form $a_j = c(1-j)$, for $j<1$ (why?) and plug that guess into the above equation to get:
-$$ c(1-j) = 1 + p c (-j) + q c (2-j) = 1 - c - 2 c q + c(1-j).$$
-It follows that $c = \tfrac{1}{1-2q} = \tfrac{1}{p-q}$. Thus, if you believe the heuristic, we have
-$$ \EE[ \tau_1 ] = \begin{cases} \frac{1}{p-q}, & p>\tot, \\ + \infty, & p\leq \tot. \end{cases}$$
-(Note: If you have never seen it before, the approach we took here seems very unusual. Indeed, in order to find the value of $a_0$ we decided to compute values for the elements *of the whole sequence* $a_n$. This kind of 
-thinking will appear many times later in the chapters on Markov Chains.)
-
-</div>
+3. Let $a_j = \EE^{j}[\tau_1]$, where $\EE^{j}$ means that the random walk starts
+from the level $j$, i.e., $X_0=j$, instead of the usual $X_0=0$. Think about why
+it is plausible that the following relations hold for the sequence $a_n$: $$a_1
+= 0,\text{ and } a_j = 1 + p a_{j+1} + q a_{j-1}.$$ We guess that $a_j$ has the
+form $a_j = c(1-j)$, for $j<1$ (why?) and plug that guess into the above
+equation to get: $$ c(1-j) = 1 + p c (-j) + q c (2-j) = 1 - c - 2 c q +
+c(1-j).$$ It follows that $c = \tfrac{1}{1-2q} = \tfrac{1}{p-q}$. Thus, if you
+believe the heuristic, we have $$ \EE[ \tau_1 ] = \begin{cases} \frac{1}{p-q}, &
+p>\tot, \\ + \infty, & p\leq \tot. \end{cases}$$ (Note: If you have never seen
+it before, the approach we took here seems very unusual. Indeed, in order to
+find the value of $a_0$ we decided to compute values for the elements *of the
+whole sequence* $a_n$. This kind of thinking will appear many times later in the
+chapters on Markov Chains.)
+    
+:::
 
 ## Stopping times
 
-A **random time** is simply a random variable which takes values in the set $\N_0$ - it is random, and 
-it can be interpreted as a point in time. Not all random times are created equal, though: here are three
-examples based on a simple symmetric random walk $X$:
+A **random time** is simply a random variable which takes values in the set
+$\N_0$ - it is random, and it can be interpreted as a point in time. Not all
+random times are created equal, though: here are three examples based on a
+simple symmetric random walk $X$:
 
-1. $\tau = 3$. This is the simplest random time - it always takes the value $3$, no matter what. It is random 
-only in the formal sense of the word (just as the constant random vairbale $X=3$ *is* a random variable, but not a very interesting one). Constant random times, like $\tau=3$, are called **deterministic times**.
+1. $\tau = 3$. This is the simplest random time - it always takes the value $3$,
+no matter what. It is random only in the formal sense of the word (just as the
+constant random vairbale $X=3$ *is* a random variable, but not a very
+interesting one). Constant random times, like $\tau=3$, are called
+**deterministic times**.
 
-2. $\tau=\tau_1$ where $\tau_1$ is the first time $X$ hits the level $1$. It is no longer constant - it clearly depends on the underlying trajectory of the random walk: sometimes $\tau_1=1$; other times it can be very large. 
+2. $\tau=\tau_1$ where $\tau_1$ is the first time $X$ hits the level $1$. It is
+no longer constant - it clearly depends on the underlying trajectory of the
+random walk: sometimes $\tau_1=1$; other times it can be very large.
 
-3. $\tau=\tau_{\max}$ where $\tau_{\max}$ is the first time $X$ takes its maximal value in the interval $\set{0,1,\dots, 100}$. The random time $\tau_{\max}$ is clearly non-constant, but it differs from $\tau=3$ or $\tau=\tau_1$ in a significant way.
+3. $\tau=\tau_{\max}$ where $\tau_{\max}$ is the first time $X$ takes its
+maximal value in the interval $\set{0,1,\dots, 100}$. The random time
+$\tau_{\max}$ is clearly non-constant, but it differs from $\tau=3$ or
+$\tau=\tau_1$ in a significant way.
 
 Indeed, the first two examples have the following property:
 
 > Given a time $n$, you can tell whether $\tau=n$ or not using only the information you have gathered by  time $n$.
 
-The third one does *not*. Random times with this property are called **stopping times**. Here is a more precise, mathematical, definition. You should note that we allow our stopping times to take the value $+\infty$. The usual interpretation is that whatever the stopping time is modeling never happens. 
+The third one does *not*. Random times with this property are called **stopping
+times**. Here is a more precise, mathematical, definition. You should note that
+we allow our stopping times to take the value $+\infty$. The usual
+interpretation is that whatever the stopping time is modeling never happens.
 
 
-**Definition.** A random variable $\tau$ taking
-values in $\N_0\cup\set{+\infty} = \{0,1,2,\dots, +\infty\}$ is said to be a **stopping time** with respect to the process
-$\seqz{X}$ if for each $n\in\N_0$ there exists a function
-$G^n:\R^{n+1}\to \set{0,1}$ such that
-$$\inds{\tau=n}=G^n(X_0,X_1,\dots, X_n), \text{ for all } n\in\N_0.$$
+**Definition.** A random variable $\tau$ taking values in $\N_0\cup\set{+\infty}
+= \{0,1,2,\dots, +\infty\}$ is said to be a **stopping time** with respect to
+the process $\seqz{X}$ if for each $n\in\N_0$ there exists a function
+$G^n:\R^{n+1}\to \set{0,1}$ such that $$\inds{\tau=n}=G^n(X_0,X_1,\dots, X_n),
+\text{ for all } n\in\N_0.$$
 
 
 The functions $G^n$ are called the **decision functions**, and should be thought of as a black
@@ -714,12 +735,12 @@ $$ \EE[X_{\tau}] = \EE[\tau] \mu \text{ where } \mu = \EE[\xi_1] = \EE[\xi_2] = 
  
 Before we prove this theorem, here is a handy identity:
 
-<div class="problem">
+::: {.exercise}
 (The "tail formula" for the expectation) Let $\tau$ be an
 $\N_0$-valued random variable. Show that 
 $$\EE[\tau]=\sum_{k=1}^{\infty} \PP[\tau \geq k].$$
-</div>
-<div class="solution">
+:::
+::: {.solution}
 Clearly, $\PP[\tau\geq k] = \PP[ \tau=k] + \PP[\tau=k+1]+\dots$. 
 Therefore, 
 
@@ -734,11 +755,11 @@ $$
 If you look at the "columns", you will realize that the expression $\PP[\tau=1]$ appears in this sum once, $\PP[\tau=2]$ twice, $\PP[\tau=3]$ three times, etc.
 Hence
 $$\sum_{k=1}^{\infty} \PP[ \tau\geq k] = \sum_{n=1}^{\infty} n \PP[\tau=n] = \EE[\tau].$$
-</div>
-<div class="problemec">
+:::
+::: {.exercise name="Extra Credit"}
   Prove Wald's identity.
-</div>
-<div class="solution">
+:::
+::: {.solution}
 Here is another representation of the random variable $X_{\tau}$:
 $$X_{\tau} = \sum_{k=1}^{\tau} \xi_k=\sum_{k=1}^{\infty} \xi_k \inds{k\leq \tau}.$$ The idea
 behind it is simple: add all the values of $\xi_k$ for $k\leq
@@ -782,11 +803,11 @@ Putting it all together, we get
    k]= \EE[\tau] \mu,
 \end{align}
 where we use the  "tail formula" to get  the last equality.
-</div>
-<div class="problem">
+:::
+::: {.exercise}
   Show, by giving an example, that Wald's identity does not necessarily hold if $\tau$ is not a stopping time.
-</div>
-<div class="solution">
+:::
+::: {.solution}
   Let $X$ be a simple symmetric random walk, and let $\tau$ be a random time constructed like this:
   \begin{align}
     \tau = \begin{cases} 1, & X_1=1 \\ 0,& X_1=-1. \end{cases}
@@ -801,11 +822,11 @@ where we use the  "tail formula" to get  the last equality.
   It is clear that $\tau$ cannot be a stopping time, since Wald's identity would hold for it if it were.
   To see that it is not more directly, consider the event when $\tau=0$. 
   Its occurrence depends on whether $X_1=1$ or not, which is not known at time $0$.
-</div>
+:::
 
 A famous use of Wald's identity is in the solution of the following classical problem:
 
-<div class="problem">
+::: {.exercise}
 A gambler starts with $\$x$ dollars and repeatedly plays a game in
 which she wins a dollar with probability $\tot$ and loses a dollar with
 probability $\tot$. She decides to stop when one of the following two
@@ -818,9 +839,9 @@ things happens:
 The "Gambler's ruin"  problem (dating at least to 1600s)  asks
 the following question: what is the probability that the gambler will
 make $a$ dollars before she goes bankrupt?
-</div>
+:::
 
-<div class="solution">
+::: {.solution}
 Let the gambler's "wealth" $\seqz{W}$ be 
   modeled by a simple random walk starting
 from $x$, whose increments $\xi_k=\delta_k$ are coin-tosses. Then
@@ -858,20 +879,20 @@ $$p_0= \frac{a-x}{a}, \ p_a=\frac{x}{a}.$$
 It is remarkable that the two probabilities are proportional to the amounts of
 money the gambler needs to make (lose) in the two outcomes. The
 situation is different when $p\not=\tot$.
-</div>
+:::
 
 In order to be able to use Wald's identity, we need to check its conditions. We have already seen that 
 $\tau$ needs to be a stopping time, and not just any old random time. There are also two conditions about the expected values of $\tau$ and of $\xi_1$. If you read the above solution carefully, you will realize that we never checked whether $\EE[\tau]<\infty$. We should have, but we did not because we still don't have the mathematical tools to do it. We will see later that, indeed, $\EE[\tau]<\infty$ for this particular stopping time. In general, the condition that $\EE[\tau]<\infty$ is important, as the following simple example shows:
 
-<div class="problem">
+::: {.exercise}
   Let $\seqz{X}$ be a simple symmetric random walk, and let $\tau_1$ be the first hitting time of the level $1$.
   Use Wald's identity to show that $\EE[\tau]=+\infty$.
-</div>
-<div class="solution">
+:::
+::: {.solution}
   Suppose, to the contrary, that $\EE[\tau]<\infty$. Since $\EE[\delta_1]<\infty$ and $\tau_1$ is a stopping time, Wald's identity applies:
   $$ \EE[X_{\tau_1}] = \EE[ \delta_1] \cdot \EE[\tau_1].$$
   The right hand side is then equal to $0$ because $\EE[\delta_1]=0$. On the other hand, $X_{\tau_1}=1$: the value of $X_n$ when it first hits the level $1$ is, of course, $1$. This leads to a contradiction $1=\EE[X_{\tau_1}] = \EE[\delta_1] \EE[\tau_1] = 0$. Therefore, our initial assumption that $\EE[\tau_1]<\infty$ was wrong!
-</div>
+:::
 
 ## Additional problems for Chapter 4
 
@@ -879,28 +900,43 @@ $\tau$ needs to be a stopping time, and not just any old random time. There are 
   3-max-problems
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+\ 
+
 ```{r child="problems/01_Random_Walks/3-max-problems_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01_Random_Walks/3-max-problems_sol.Rmd"}
-```
-</div>
+:::
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+
+<!-- ```{r child="problems/01_Random_Walks/3-max-problems_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
   time_until_hit
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+\ 
+
 ```{r child="problems/01_Random_Walks/time_until_hit_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"}
-```
-</div>
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+
+<!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -908,94 +944,122 @@ $\tau$ needs to be a stopping time, and not just any old random time. There are 
   Luke_cookies
   -------------------------------
 -->
-<div class="problem">
+::: {.exercise}
 ```{r child="problems/01_Random_Walks/Luke_cookies_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"}
-```
-</div>
- 
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!--  </details> -->
+
 
 <!--
   catalan
   ------------------------------------------------
 -->
-<div class="problemec">
+::: {.exercise name="Extra Credit"}
 ```{r child="problems/01_Random_Walks/catalan_prb.Rmd"}
 ```
-</div>
-<!-- <div class="solution"> -->
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
 <!-- ```{r child="problems/01_Random_Walks/catalan_sol.Rmd"} -->
 <!-- ``` -->
-<!-- </div> -->
+<!-- ::: -->
+<!-- </details> -->
 
 <!--
   no_return_to_zero
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
 ```{r child="problems/01_Random_Walks/no_return_to_zero_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"}
-```
-</div>
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
   hit_times_1
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
 ```{r child="problems/01b_Advanced_Random_Walks/hit_times_1_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01b_Advanced_Random_Walks/hit_times_1_sol.Rmd"}
-```
-</div>
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/01b_Advanced_Random_Walks/hit_times_1_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 <!--
   min_stopping_times
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
 ```{r child="problems/01b_Advanced_Random_Walks/min_stopping_times_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01b_Advanced_Random_Walks/min_stopping_times_sol.Rmd"}
-```
-</div>
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/01b_Advanced_Random_Walks/min_stopping_times_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 <!--
   stopping_times_2
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
 ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_2_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01b_Advanced_Random_Walks/stopping_times_2_sol.Rmd"}
-```
-</div>
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_2_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 <!--
   stopping_times_3
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
 ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_3_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/01b_Advanced_Random_Walks/stopping_times_3_sol.Rmd"}
-```
-</div>
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_3_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
