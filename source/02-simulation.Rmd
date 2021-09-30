@@ -1360,6 +1360,25 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 :::
 </details>
 
+
+::: {.exercise}
+\ 
+
+```{r child="problems/00_R/Sim-gamma_prb.Rmd"}
+```
+:::
+
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+\ 
+
+```{r child="problems/00_R/Sim-gamma_sol.Rmd"}
+```
+:::
+</details>
+
+
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-joint-cond_prb.Rmd"}
 ```
@@ -1371,6 +1390,22 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 \ 
 
 ```{r child="problems/00_R/Sim-joint-cond_sol.Rmd"}
+```
+:::
+</details>
+
+
+::: {.exercise}
+```{r child="problems/00_R/Sim-joint-cond_2_prb.Rmd"}
+```
+:::
+
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+\
+
+```{r child="problems/00_R/Sim-joint-cond_2_sol.Rmd"}
 ```
 :::
 </details>
@@ -1418,4 +1453,20 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 :::
 </details> 
 
+::: {.exercise}
+\ 
+
+```{r child="problems/00_R/Sim-sphere_prb.Rmd"}
+```
+:::
+
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+\ 
+
+```{r child="problems/00_R/Sim-sphere_sol.Rmd"}
+```
+:::
+</details> 
 ## Endnotes
