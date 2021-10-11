@@ -574,17 +574,17 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
-<!-- ::: {.solution} -->
-<!-- \ -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/walk6_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/01_Random_Walks/walk6_sol.Rmd"}
+```
+:::
 
-<!-- </details> -->
+</details>
 
 
 ::: {.exercise}
@@ -592,18 +592,18 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
 
-<!-- ::: {.solution} -->
-<!-- \ -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/simple-1_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/01_Random_Walks/simple-1_sol.Rmd"}
+```
+:::
 
-<!-- </details> -->
+</details>
 
 ::: {.exercise}
 ```{r child="problems/01_Random_Walks/simple-1b_prb.Rmd"}
@@ -611,19 +611,19 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 :::
 
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
 
-<!-- ::: {.solution} -->
-<!-- \ -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/simple-1b_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+```{r child="problems/01_Random_Walks/simple-1b_sol.Rmd"}
+```
+:::
 
 
-<!-- </details> -->
+</details>
 
 <!--
   same_value_three_points
@@ -633,16 +633,16 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
 
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/same_value_three_points_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/01_Random_Walks/same_value_three_points_sol.Rmd"}
+```
+:::
 
-<!-- </details> -->
+</details>
 
 <!--
   R-impl-all paths
@@ -653,16 +653,16 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
 
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/R-impl-all-paths_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/01_Random_Walks/R-impl-all-paths_sol.Rmd"}
+```
+:::
 
-<!-- </details> -->
+</details>
 
 <!--
   var_cov_corr
@@ -673,16 +673,16 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
 
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/var_cov_corr_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
+::: {.solution}
+```{r child="problems/01_Random_Walks/var_cov_corr_sol.Rmd"}
+```
+:::
 
-<!-- </details> -->
+</details>
 
 <!--
   area_under_walk
@@ -693,15 +693,15 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
-<!-- ::: {.solution} -->
-<!-- \ -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/area_under_walk_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+```{r child="problems/01_Random_Walks/area_under_walk_sol.Rmd"}
+```
+:::
+</details>
 
 ## Endnotes
