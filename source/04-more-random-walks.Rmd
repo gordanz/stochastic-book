@@ -894,6 +894,36 @@ $\tau$ needs to be a stopping time, and not just any old random time. There are 
   The right hand side is then equal to $0$ because $\EE[\delta_1]=0$. On the other hand, $X_{\tau_1}=1$: the value of $X_n$ when it first hits the level $1$ is, of course, $1$. This leads to a contradiction $1=\EE[X_{\tau_1}] = \EE[\delta_1] \EE[\tau_1] = 0$. Therefore, our initial assumption that $\EE[\tau_1]<\infty$ was wrong!
 :::
 
+We close this chapter with another identity of Abraham Wald, namely ``Wald's second identity''. The original identity helped us compute the expected value of the position of a random walk at a stopping time. The second one computes the variance:
+
+**Theorem.** (Wald's second identity) Let $\seq{\xi}$ be a sequence of independent and
+identically distributed random variables, and let $X_n = \sum_{k=1}^n \xi_k$ be
+the associated random walk. If $\EE[ (\xi_n)^2]<\infty$ and $\tau$ is a
+stopping time for $\seqz{X}$ such that $\EE[\tau]<\infty$, then $$ \Var[X_{\tau}]= \EE[\tau] \sigma^2
+\text{ where } \sigma^2 = \Var[\xi_1] = \Var[\xi_2] = \dots $$
+
+
+The proof is similar (but more difficult) than the proof of Wald's (first) identity, so we skip it. Instead, here is an application to negative binomial random variables.
+
+
+::: {.exercise}
+We toss a biased coin ($\PP[H]=p$) repeatedly until exactly $k$ $H$s are observed. What are the mean and the variance of the total number of tosses it took?
+:::
+
+::: {.solution}
+As we know, the number $\tau$ of Ts observed before that has a geometric distribution
+with parameter $p$. The mean and the variance of $\tau$ can be computed easily using Wald's formulas.
+Let $X_n$ be the indicator of the even that $n$-th coin toss resulted in $H$. 
+It is clear that $\{X_n}_{n\in\N}$ is a sequence of idependent Bernoulli random variables 
+with parameter $p$.
+:::
+
+
+
+
+
+
+
 ## Additional problems for Chapter 4
 
 <!--
