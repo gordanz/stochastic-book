@@ -592,254 +592,254 @@ a rule more than an exception, and we will study such phenomena in the
 following lectures.
 </div>
 
-## How to simulate Markov chains {#mc-sim}
+<!-- ## How to simulate Markov chains {#mc-sim} -->
 
-One of the (many) reasons Markov chains are a popular modeling tool is the ease with which they can be simulated. When we simulated a random walk, we started at $0$ and built the process by adding independent coin-toss-distributed increments. We obtained the value of the next position of the walk by *adding* the present position and the value of an independent random variable. For general Markov chain, this procedure works almost verbatim, except that the function that combines the present position 
-and a value of an independent random variable may be something other than addition. 
-In general, we collapse the two parts of the process - a simulation of an independent random variable and its combination with the present position - into one. Given our position, we pick the row of the transition matrix that corresponds to it and then use its elements as the probabilities that govern our position tomorrow. It will all be clear once you read through the solution of the following problem.
+<!-- One of the (many) reasons Markov chains are a popular modeling tool is the ease with which they can be simulated. When we simulated a random walk, we started at $0$ and built the process by adding independent coin-toss-distributed increments. We obtained the value of the next position of the walk by *adding* the present position and the value of an independent random variable. For general Markov chain, this procedure works almost verbatim, except that the function that combines the present position  -->
+<!-- and a value of an independent random variable may be something other than addition.  -->
+<!-- In general, we collapse the two parts of the process - a simulation of an independent random variable and its combination with the present position - into one. Given our position, we pick the row of the transition matrix that corresponds to it and then use its elements as the probabilities that govern our position tomorrow. It will all be clear once you read through the solution of the following problem. -->
 
-<div class="problem">
-  Simulate $1000$ trajectories of a gambler's ruin Markov chain with $a=3$, $p=2/3$ and $x=1$ (see subsection \@ref(gambler) above for the meaning of these constants). Use the Monte Carlo method to estimate the probability that the gambler will leave the casino with $\$3$ in her pocket in at most $T=100$ time periods.
-</div>
-<div class="solution">
-```{r tidy=F}
-# state space
-S = c(0, 1, 2, 3)
+<!-- <div class="problem"> -->
+<!--   Simulate $1000$ trajectories of a gambler's ruin Markov chain with $a=3$, $p=2/3$ and $x=1$ (see subsection \@ref(gambler) above for the meaning of these constants). Use the Monte Carlo method to estimate the probability that the gambler will leave the casino with $\$3$ in her pocket in at most $T=100$ time periods. -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r tidy=F} -->
+<!-- # state space -->
+<!-- S = c(0, 1, 2, 3) -->
 
-# transition matrix
-P = matrix(c(1,   0,   0,   0,
-             1/3, 0,   2/3, 0,
-             0,   1/3, 0,   2/3,
-             0,   0,   0,   1), 
-           byrow=T, ncol=4)
+<!-- # transition matrix -->
+<!-- P = matrix(c(1,   0,   0,   0, -->
+<!--              1/3, 0,   2/3, 0, -->
+<!--              0,   1/3, 0,   2/3, -->
+<!--              0,   0,   0,   1),  -->
+<!--            byrow=T, ncol=4) -->
 
-T = 100 # number of time periods
-nsim = 1000 # number of simulations
+<!-- T = 100 # number of time periods -->
+<!-- nsim = 1000 # number of simulations -->
 
-# simulate the next position of the chain
-draw_next = function(s) {
-  i = match(s, S) # the row number of the state s
-  sample(S, prob = P[i, ], size = 1)
-}
+<!-- # simulate the next position of the chain -->
+<!-- draw_next = function(s) { -->
+<!--   i = match(s, S) # the row number of the state s -->
+<!--   sample(S, prob = P[i, ], size = 1) -->
+<!-- } -->
 
-# simulate a single trajectory of length T
-# from the initial state
-single_trajectory = function(initial_state) {
-  path = numeric(T)
-  last = initial_state
-  for (n in 1:T) {
-    path[n] = draw_next(last)
-    last = path[n]
-  }
-  return(path)
-}
+<!-- # simulate a single trajectory of length T -->
+<!-- # from the initial state -->
+<!-- single_trajectory = function(initial_state) { -->
+<!--   path = numeric(T) -->
+<!--   last = initial_state -->
+<!--   for (n in 1:T) { -->
+<!--     path[n] = draw_next(last) -->
+<!--     last = path[n] -->
+<!--   } -->
+<!--   return(path) -->
+<!-- } -->
 
-# simulate the entire chain
-simulate_chain = function(initial_state) {
-  data.frame(X0 = initial_state,
-             t(replicate(
-               nsim, single_trajectory(initial_state)
-             )))
-}
+<!-- # simulate the entire chain -->
+<!-- simulate_chain = function(initial_state) { -->
+<!--   data.frame(X0 = initial_state, -->
+<!--              t(replicate( -->
+<!--                nsim, single_trajectory(initial_state) -->
+<!--              ))) -->
+<!-- } -->
 
-df = simulate_chain(1)
-(p = mean(df$X100 == 3))
+<!-- df = simulate_chain(1) -->
+<!-- (p = mean(df$X100 == 3)) -->
 
-```
+<!-- ``` -->
 
-*R.* The function `draw_next` is at the heart of the simulation. Given the current state `s`, it looks up the row of the transition matrix `P` which corresponds to `s`. This is where the function `match` comes in handy - `match(s,S)` gives you the position of th element `s` in the vector `S`. Of course, if $S = \{ 1,2,3, \dots, n\}$ then we don't need to use `match`, as each state is "its own position". In our case, `S` is a bit different, namely $S=\{0,1,2,3\}$, and so `match(s,S)` is nothing by `s+1`. This is clearly an overkill in this case, but we still do it for didactical purposes. 
+<!-- *R.* The function `draw_next` is at the heart of the simulation. Given the current state `s`, it looks up the row of the transition matrix `P` which corresponds to `s`. This is where the function `match` comes in handy - `match(s,S)` gives you the position of th element `s` in the vector `S`. Of course, if $S = \{ 1,2,3, \dots, n\}$ then we don't need to use `match`, as each state is "its own position". In our case, `S` is a bit different, namely $S=\{0,1,2,3\}$, and so `match(s,S)` is nothing by `s+1`. This is clearly an overkill in this case, but we still do it for didactical purposes.  -->
 
-Once the row corresponding to the state `s` is identified, we use its elements as the probabilities to be fed into the command `sample`, which, in turn, returns our next state and we repeat the procedure over and over (in this case $T=100$ times). 
-</div>
-
-
-
-## Additional problems for Chapter 5
-
-
-<!--
-  max-roll-so-far
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/max-roll-so-far_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"}
-```
-</div>
-
-<!-- 
-  Y-Z-Markov-chains
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"}
-```
-</div>
-
-<!--
-  number-of-consecutives
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/number-of-consecutives_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"}
-```
-</div>
-
-
-<!--
-  lazy-chain
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/lazy-chain_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"}
-```
-</div>
-
-<!--
-  blue-red-100
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/blue-red-100_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"}
-```
-</div>
+<!-- Once the row corresponding to the state `s` is identified, we use its elements as the probabilities to be fed into the command `sample`, which, in turn, returns our next state and we repeat the procedure over and over (in this case $T=100$ times).  -->
+<!-- </div> -->
 
 
 
-
-<!--
-  deck-2-2
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/deck-2-2_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/deck-2-2_sol.Rmd"}
-```
-</div>
-
-<!--
-  train-m-cities
-  ------------------------------------------------
--->
-<div class="problemec">
-```{r child="problems/02_Basic_Chains/train-m-cities_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"}
-```
-</div>
+<!-- ## Additional problems for Chapter 5 -->
 
 
-<!-- multi-step -->
+<!-- <!-- -->
+<!--   max-roll-so-far -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/max-roll-so-far_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
 
-<!--
-  glass-milk
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/glass-milk_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"}
-```
-</div>
+<!-- <!--  -->
+<!--   Y-Z-Markov-chains -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
 
-<!--
-  manual-multi-step
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/manual-multi-step_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"}
-```
-</div>
-
-
-
-<!--
-  gambler-multi-step
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/gambler-multi-step_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"}
-```
-</div>
+<!-- <!-- -->
+<!--   number-of-consecutives -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/number-of-consecutives_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
 
 
-<!--
-  car-insurance
-  ------------------------------------------------
--->
-<div class="problem">
-```{r child="problems/02_Basic_Chains/car-insurance_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"}
-```
-</div>
+<!-- <!-- -->
+<!--   lazy-chain -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/lazy-chain_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+<!-- <!-- -->
+<!--   blue-red-100 -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/blue-red-100_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
 
 
-<!--
-  basil
-  ------------------------------------------------
--->
-<div id="basil"> 
-<div class="problem">
-```{r child="problems/02_Basic_Chains/basil_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/basil_sol.Rmd"}
-```
-</div>
-</div>
 
 
-<!--
-  professor
-  ------------------------------------------------
--->
-<div id="professor"> 
-   <div class="problem">
-```{r child="problems/02_Basic_Chains/professor_prb.Rmd"}
-```
-</div>
-<div class="solution">
-```{r child="problems/02_Basic_Chains/professor_sol.Rmd"}
-```
-</div>
-</div>
+<!-- <!-- -->
+<!--   deck-2-2 -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/deck-2-2_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/deck-2-2_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+<!-- <!-- -->
+<!--   train-m-cities -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problemec"> -->
+<!-- ```{r child="problems/02_Basic_Chains/train-m-cities_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+
+<!-- <!-- multi-step --> -->
+
+<!-- <!-- -->
+<!--   glass-milk -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/glass-milk_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+<!-- <!-- -->
+<!--   manual-multi-step -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/manual-multi-step_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+
+
+<!-- <!-- -->
+<!--   gambler-multi-step -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/gambler-multi-step_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+
+<!-- <!-- -->
+<!--   car-insurance -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/car-insurance_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+
+
+<!-- <!-- -->
+<!--   basil -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div id="basil">  -->
+<!-- <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/basil_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/basil_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- </div> -->
+
+
+<!-- <!-- -->
+<!--   professor -->
+<!--   ------------------------------------------------ -->
+<!-- --> -->
+<!-- <div id="professor">  -->
+<!--    <div class="problem"> -->
+<!-- ```{r child="problems/02_Basic_Chains/professor_prb.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- <div class="solution"> -->
+<!-- ```{r child="problems/02_Basic_Chains/professor_sol.Rmd"} -->
+<!-- ``` -->
+<!-- </div> -->
+<!-- </div> -->
 
 
