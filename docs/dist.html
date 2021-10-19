@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="more-about-random-walks.html"/>
+<link rel="prev" href="markov-chains.html"/>
 
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -62,7 +62,6 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -192,6 +191,24 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#walds-identity-and-gamblers-ruin"><i class="fa fa-check"></i><b>4.3</b> Wald’s identity and Gambler’s ruin</a></li>
 <li class="chapter" data-level="4.4" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#additional-problems-for-chapter-4"><i class="fa fa-check"></i><b>4.4</b> Additional problems for Chapter 4</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="markov-chains.html"><a href="markov-chains.html"><i class="fa fa-check"></i><b>5</b> Markov Chains</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="markov-chains.html"><a href="markov-chains.html#the-markov-property"><i class="fa fa-check"></i><b>5.1</b> The Markov property</a></li>
+<li class="chapter" data-level="5.2" data-path="markov-chains.html"><a href="markov-chains.html#first-examples"><i class="fa fa-check"></i><b>5.2</b> First Examples</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="markov-chains.html"><a href="markov-chains.html#random-walks-1"><i class="fa fa-check"></i><b>5.2.1</b> Random walks</a></li>
+<li class="chapter" data-level="5.2.2" data-path="markov-chains.html"><a href="markov-chains.html#gambler"><i class="fa fa-check"></i><b>5.2.2</b> Gambler’s ruin</a></li>
+<li class="chapter" data-level="5.2.3" data-path="markov-chains.html"><a href="markov-chains.html#regime-switching"><i class="fa fa-check"></i><b>5.2.3</b> Regime Switching</a></li>
+<li class="chapter" data-level="5.2.4" data-path="markov-chains.html"><a href="markov-chains.html#deterministically-monotone-markov-chain"><i class="fa fa-check"></i><b>5.2.4</b> Deterministically monotone Markov chain</a></li>
+<li class="chapter" data-level="5.2.5" data-path="markov-chains.html"><a href="markov-chains.html#not-a-markov-chain"><i class="fa fa-check"></i><b>5.2.5</b> Not a Markov chain</a></li>
+<li class="chapter" data-level="5.2.6" data-path="markov-chains.html"><a href="markov-chains.html#turning-a-non-markov-chain-into-a-markov-chain"><i class="fa fa-check"></i><b>5.2.6</b> Turning a non-Markov chain into a Markov chain</a></li>
+<li class="chapter" data-level="5.2.7" data-path="markov-chains.html"><a href="markov-chains.html#deterministic-functions-of-markov-chains-do-not-need-to-be-markov-chains"><i class="fa fa-check"></i><b>5.2.7</b> Deterministic functions of Markov chains do not need to be Markov chains</a></li>
+<li class="chapter" data-level="5.2.8" data-path="markov-chains.html"><a href="markov-chains.html#a-game-of-tennis"><i class="fa fa-check"></i><b>5.2.8</b> A game of tennis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="markov-chains.html"><a href="markov-chains.html#chapman-kolmogorov-equations"><i class="fa fa-check"></i><b>5.3</b> Chapman-Kolmogorov equations</a></li>
+<li class="chapter" data-level="5.4" data-path="markov-chains.html"><a href="markov-chains.html#mc-sim"><i class="fa fa-check"></i><b>5.4</b> How to simulate Markov chains</a></li>
+<li class="chapter" data-level="5.5" data-path="markov-chains.html"><a href="markov-chains.html#additional-problems-for-chapter-5"><i class="fa fa-check"></i><b>5.5</b> Additional problems for Chapter 5</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -215,10 +232,10 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="dist" class="section level1" number="5">
+<div id="dist" class="section level1" number="6">
 <h1><span class="header-section-number">A</span> Probability Distributions</h1>
 <p>Here are the basic facts about the probability distributions we will need in these lecture notes. For a much longer list of important distributions, check this <a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">wikipedia page</a>.</p>
-<div id="discrete-distributions" class="section level2" number="5.1">
+<div id="discrete-distributions" class="section level2" number="6.1">
 <h2><span class="header-section-number">A.1</span> Discrete distributions:</h2>
 <p>Note: <span class="math inline">\((q=1-p)\)</span></p>
 <table>
@@ -340,7 +357,7 @@ Poisson
 </tbody>
 </table>
 </div>
-<div id="continuous-distributions" class="section level2" number="5.2">
+<div id="continuous-distributions" class="section level2" number="6.2">
 <h2><span class="header-section-number">A.2</span> Continuous distributions:</h2>
 Note: the pdf is given by the formula in the table only on its support. It is equal to <span class="math inline">\(0\)</span> outside of it.
 <table>
@@ -591,7 +608,7 @@ Exponential
           </div>
         </div>
       </div>
-<a href="more-about-random-walks.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="markov-chains.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

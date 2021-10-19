@@ -84,21 +84,21 @@ When $S$ is finite, there is no loss of generality in
 assuming that $S=\set{1,2,\dots, n}$, and then we usually organize the
 entries of $\az$ into a *row vector* $$\aaz=(\az_1,\az_2,\dots, \az_n),$$
 and the transition probabilities $p_{ij}$ into a *square matrix* $\Pr$,
-where $$\Pr =\begin{bmatrix}
+where $$\Pr =\begin{pmatrix}
   p_{11} & p_{12} & \dots & p_{1n} \\
   p_{21} & p_{22} & \dots & p_{2n} \\
   \vdots  & \vdots  & \ddots & \vdots \\
   p_{n1} & p_{n2} & \dots & p_{nn} \\
-\end{bmatrix}$$ In the general case ($S$ possibly infinite), one can
+\end{pmatrix}$$ In the general case ($S$ possibly infinite), one can
 still use the vector and matrix notation as before, but it becomes quite
 clumsy. For example, if $S=\bZ$, then $\Pr$ is an
-infinite matrix $$\Pr=\begin{bmatrix}
+infinite matrix $$\Pr=\begin{pmatrix}
   \ddots & \vdots & \vdots & \vdots &   \\
   \dots & p_{-1\, -1} & p_{-1\, 0} & p_{-1\, 1} & \dots \\
   \dots & p_{0\, -1} & p_{0\, 0} & p_{0\, 1} & \dots \\
   \dots & p_{1\, -1} & p_{1\, 0} & p_{1\, 1} & \dots \\
     & \vdots & \vdots & \vdots & \ddots \\
-\end{bmatrix}$$
+\end{pmatrix}$$
 
 ## First Examples
 
@@ -144,7 +144,7 @@ probability $1$ (so that $\az_0=1$ and $\az_i=0$, for $i\not= 0$.). The
 transition probabilities are simple to write down
 $$p_{ij}= \begin{cases} p, & j=i+1 \\ q, & j=i-1 \\ 0, & \text{otherwise.}
 \end{cases}$$ If you insist, these can be written down in an infinite matrix,
-$$\Pr=\begin{bmatrix}
+$$\Pr=\begin{pmatrix}
   \ddots & \vdots & \vdots & \vdots & \vdots & \vdots &  \\
   \dots  & 0 & p  & 0 & 0 & 0 & \dots \\
   \dots  & q & 0  & p & 0 & 0 & \dots \\
@@ -153,7 +153,7 @@ $$\Pr=\begin{bmatrix}
   \dots  &0  & 0 &0 & q& 0& \dots \\
   \dots  &0  & 0 &0 & 0& q& \dots \\
    & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots \\
-\end{bmatrix}$$ but this representation is typically not as useful as in the finite case.
+\end{pmatrix}$$ but this representation is typically not as useful as in the finite case.
 
 Here is a (portion of) a transition graph for a simple random walk. Instead of writing probabilities 
 on top of the edges, we color code them as follows: green is $p$ and orange is $1-p$. 
@@ -180,7 +180,7 @@ the states $0$ and $a$, he/she simply stays there forever.
 Therefore, the transition probabilities are similar to those of a random
 walk, but differ from them at the boundaries $0$ and $a$. The state
 space is finite $S=\set{0,1,\dots, a}$ and the matrix $\Pr$ is given by
-$$\Pr=\begin{bmatrix}
+$$\Pr=\begin{pmatrix}
   1 & 0 & 0 & 0 & \dots & 0 & 0 & 0 \\
   q & 0 & p & 0 & \dots & 0 & 0 & 0 \\
   0 & q & 0 & p & \dots & 0 & 0 & 0 \\
@@ -189,7 +189,7 @@ $$\Pr=\begin{bmatrix}
   0 & 0 & 0 & 0 & \dots & 0 & p & 0 \\
   0 & 0 & 0 & 0 & \dots & q & 0 & p \\
   0 & 0 & 0 & 0 & \dots & 0 & 0 & 1 \\
-\end{bmatrix}$$ 
+\end{pmatrix}$$ 
 
 In the picture below, green denotes the probability $p$ and orange  $1-p$. As always, black is $1$. 
 
@@ -213,9 +213,9 @@ $p_{21}$ of switching states are given. The probabilities
 $p_{11}=1-p_{12}$ and $p_{22}=1-p_{21}$ correspond to the system staying
 in the same state. The transition matrix for this Markov chain with
 $S=\set{1,2}$ is $$\Pr=
-\begin{bmatrix}
+\begin{pmatrix}
   p_{11} & p_{12} \\ p_{21} & p_{22}.
-\end{bmatrix}$$ When $p_{12}$ and $p_{21}$ are large (close to $1$) the
+\end{pmatrix}$$ When $p_{12}$ and $p_{21}$ are large (close to $1$) the
 system nervously jumps between the two states. When they are small,
 there are long periods of stability (staying in the same state).
 
@@ -235,12 +235,12 @@ A stochastic process $\seqz{X}$ with state space $S=\N_0$ such that
 $X_n=n$ for $n\in\N_0$ (no randomness here) is called Deterministically
 monotone Markov chain (DMMC). The transition matrix looks like this
 $$\Pr=
-\begin{bmatrix}
+\begin{pmatrix}
   0 & 1 & 0 & 0 & \dots \\
   0 & 0 & 1 & 0 & \dots \\
   0 & 0 & 0 & 1 & \dots \\
   \vdots & \vdots & \vdots & \vdots & \ddots 
-\end{bmatrix}$$ 
+\end{pmatrix}$$ 
 
 and the transition graph like this: 
 
@@ -362,13 +362,13 @@ possible state space is the following:
 \begin{align}
       S=
       \Big\{ &(0,0), (0,15), (0,30), (0,40), (15,0), (15,15), (15,30), (15,40), (30,0),
-      (30,15),\\ &  (30,30),  (30,40), (40,0), (40,15), (40,30), (40,40), (40,A), (A,40), W_1, W_2 \Big\}
+      (30,15),\\ &  (30,30),  (30,40), (40,0), (40,15), (40,30), (40,40), (40,A), (A,40), P_1, P_2 \Big\}
 \end{align}
 
-where $A$ stands for *"advantage"* and $W_1$
-(resp., $W_2$) denotes the state where player 1 (resp., player 2) wins. It is not hard
+where $A$ stands for *"advantage"* and $P_1$
+(resp., $P_2$) denotes the state where player 1 (resp., player 2) wins. It is not hard
 to assign probabilities to transitions between states. Once we reach
-either $W_1$ or $W_2$ the game stops. We can assume that the
+either $P_1$ or $P_2$ the game stops. We can assume that the
 chain remains in that state forever, i.e., the state is absorbing. 
 
 ```{r echo=FALSE, fig.align="center"}
@@ -384,9 +384,9 @@ How about the transition matrix? When the number of states is big
 ($\# S=20$ in this case), transition matrices are useful in computer
 memory, but not so much on paper. Just for the fun of it, here is the
 transition matrix for our game-of-tennis chain (I am going to leave it up to you 
-to figure out how rows/columns of the matrix match to states) $$\tiny
+to figure out how rows/columns of the matrix match to states) $$
 \Pr=
-\mat{
+\begin{pmatrix}
  1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
  0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
  0 & 0 & 0 & q & 0 & 0 & p & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
@@ -407,7 +407,7 @@ to figure out how rows/columns of the matrix match to states) $$\tiny
  0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & q & p \\
  0 & q & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & p & 0 & 0 \\
  p & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & q & 0 & 0 \\
-} $$
+\end{pmatrix} $$
 
 Does the structure of a game of tennis make is easier or harder for the better
 player to win? In other words, if you had to play against the best tennis player
@@ -486,9 +486,16 @@ $$\aa{n}_i=\PP[X_n=i]=\sum_{k\in S} \PP[ X_0=k] \PP[ X_n=i|X_0=k]=
 vector, so the above relationship can be expressed using vector-matrix
 multiplication $$\aaa{n}=\aaz \Pr^n.$$
 
-<details>
- <summary>Click for Solution</summary>
- ::: {.solution}
+::: {.exercise}
+
+  Find an explicit expression for $\Prn$ in the case of the regime-switching 
+  chain introduced above. Feel free to assume that $p_{ij}>0$ for all $i,j$.
+
+:::
+
+
+
+::: {.solution}
 
 It is often difficult to compute $\Pr^n$ for a general transition
 matrix $\Pr$ and a large $n$. We will see later that it will be easier
@@ -499,9 +506,9 @@ By \@ref(eq:Prn-Pn), we need to compute the $n$-th matrix power of the transitio
 matrix $\Pr$. To make the notation a bit nicer, let us write $a$ for $p_{12}$ and
 $b$ for $p_{21}$, so that we can write
 $$\Pr=
-\begin{bmatrix}
+\begin{pmatrix}
   1-a & a \\ b & 1-b
-\end{bmatrix}$$ 
+\end{pmatrix}$$ 
 
 The winning idea is to use  diagonalization, and for that we start by writing down the
 characteristic equation $\det (\ld I-\Pr)=0$ of the
@@ -519,59 +526,59 @@ $$\label{equ:}
 $\ld_2=1-a-b$, and the corresponding eigenvectors are $v_1=\binom{1}{1}$ and
 $v_2=\binom{a}{-b}$. Therefore, 
 if we define $$V=
-\begin{bmatrix}
+\begin{pmatrix}
 1 & a \\ 1 & -b
-\end{bmatrix} 
+\end{pmatrix} 
 \eand D=
-\begin{bmatrix}
+\begin{pmatrix}
   \ld_1 & 0 \\ 0 & \ld_2
-\end{bmatrix}=
-\begin{bmatrix}
+\end{pmatrix}=
+\begin{pmatrix}
   1 & 0 \\ 0 & (1-a-b)
-\end{bmatrix}$$ we have $$\Pr V =
+\end{pmatrix}$$ we have $$\Pr V =
 V D,\text{ i.e., } \Pr= V D V^{-1}.$$ This representation is very useful
 for taking (matrix) powers: $$\label{equ:60C4}
  \begin{split}
     \Pr^n &= (V D V^{-1})( V D V^{-1}) \dots (V D V^{-1})= V D^n V^{-1}
   \\ & =
    V
-   \begin{bmatrix}
+   \begin{pmatrix}
      1  & 0 \\ 0 & (1-a-b)^n
-   \end{bmatrix} V^{-1}
+   \end{pmatrix} V^{-1}
  \end{split}$$ We assumed that all $p_{ij}$ are positive which means, in particular, that $a+b>0$ and 
  $$V^{-1} = \tfrac{1}{a+b}
-\begin{bmatrix}
+\begin{pmatrix}
   b & a \\ 1 & -1
-\end{bmatrix},$$ and so 
+\end{pmatrix},$$ and so 
 \begin{align}
  \Pr^n &= V D^n V^{-1}= 
-\begin{bmatrix}
+\begin{pmatrix}
 1 & a \\ 1 & -b
-\end{bmatrix}
+\end{pmatrix}
 \ 
-\begin{bmatrix}
+\begin{pmatrix}
 1 & 0 \\ 0 & (1-a-b)^n
-\end{bmatrix}
+\end{pmatrix}
 \ 
 \tfrac{1}{a+b}
-\begin{bmatrix}
+\begin{pmatrix}
   b & a \\ 1 & -1
-\end{bmatrix}\\
+\end{pmatrix}\\
 &=
  \frac{1}{a+b} 
-  \begin{bmatrix}
+  \begin{pmatrix}
    b & a \\ b & a 
-  \end{bmatrix}
+  \end{pmatrix}
 +
  \frac{(1-a-b)^n}{a+b} 
-  \begin{bmatrix}
+  \begin{pmatrix}
     a & -a \\ b & -b
-  \end{bmatrix}\\
+  \end{pmatrix}\\
 &=
-\begin{bmatrix}
+\begin{pmatrix}
   \frac{b}{a+b}+(1-a-b)^n \frac{a}{a+b} &   \frac{a}{a+b}-(1-a-b)^n \frac{a}{a+b}\\
   \frac{b}{a+b}+(1-a-b)^n \frac{b}{a+b} &   \frac{a}{a+b}-(1-a-b)^n \frac{b}{a+b}
-\end{bmatrix}
+\end{pmatrix}
 \end{align}
 
 The expression for $\Pr^n$ above tells us a lot about the structure of
@@ -580,9 +587,9 @@ second matrix on the right-hand side above comes multiplied by
 $(1-a-b)^n$ which tends to $0$ as $n\to\infty$ (under our assumptions that $p_{ij}>0$.)
 We can, therefore, write
 $$\Pr^n\sim \frac{1}{a+b}
-\begin{bmatrix}
+\begin{pmatrix}
   b & a \\ b & a
-\end{bmatrix}
+\end{pmatrix}
 \text{ for large } n.$$ The fact that the rows of the right-hand side
 above are equal points to the fact that, for large $n$, $\pn_{ij}$ does
 not depend (much) on the initial state $i$. In other words, this Markov
@@ -591,9 +598,6 @@ a rule more than an exception, and we will study such phenomena in the
 following lectures.
 
 :::
-</details>
-
-
 
 ## How to simulate Markov chains {#mc-sim}
 
@@ -601,9 +605,15 @@ One of the (many) reasons Markov chains are a popular modeling tool is the ease 
 and a value of an independent random variable may be something other than addition.
 In general, we collapse the two parts of the process - a simulation of an independent random variable and its combination with the present position - into one. Given our position, we pick the row of the transition matrix that corresponds to it and then use its elements as the probabilities that govern our position tomorrow. It will all be clear once you read through the solution of the following problem.
 
+::: {.exercise}
+
+  Simulate $1000$ trajectories of a gambler's ruin Markov chain with $a=3$, $p=2/3$ and $x=1$ (see subsection \@ref(gambler) above for the meaning of these constants). Use the Monte Carlo method to estimate the probability that the gambler will leave the casino with $\$3$ in her pocket in at most $T=100$ time periods.
+
+:::
+
+
 ::: {.solution}
 \ 
-
 
 ```{r tidy=F}
 # state space
@@ -650,252 +660,330 @@ df = simulate_chain(1)
 
 ```
 
-*R.* The function `draw_next` is at the heart of the simulation. Given the
-current state `s`, it looks up the row of the transition matrix `P` which
-corresponds to `s`. This is where the function `match` comes in handy -
-`match(s,S)` gives you the position of th element `s` in the vector `S`. Of
-course, if $S = \{ 1,2,3, \dots, n\}$ then we don't need to use `match`, as each
-state is "its own position". In our case, `S` is a bit different, namely
-$S=\{0,1,2,3\}$, and so `match(s,S)` is nothing by `s+1`. This is clearly an
-overkill in this case, but we still do it for didactical purposes.
+*R.* The function `draw_next` is at the heart of the simulation. Given the current state `s`, it looks up the row of the transition matrix `P` which corresponds to `s`. This is where the function `match` comes in handy - `match(s,S)` gives you the position of th element `s` in the vector `S`. Of course, if $S = \{ 1,2,3, \dots, n\}$ then we don't need to use `match`, as each state is "its own position". In our case, `S` is a bit different, namely $S=\{0,1,2,3\}$, and so `match(s,S)` is nothing by `s+1`. This is clearly an overkill in this case, but we still do it for didactical purposes.
 
-Once the row corresponding to the state `s` is identified, we use its elements
-as the probabilities to be fed into the command `sample`, which, in turn,
-returns our next state and we repeat the procedure over and over (in this case
-$T=100$ times).
+Once the row corresponding to the state `s` is identified, we use its elements as the probabilities to be fed into the command `sample`, which, in turn, returns our next state and we repeat the procedure over and over (in this case $T=100$ times).
 
 :::
-</details>
-
-
 
 
 
 ## Additional problems for Chapter 5
 
 
-<!-- <!-- -->
-<!--   max-roll-so-far -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+<!--
+  max-roll-so-far
+  ------------------------------------------------
+-->
+::: {.exercise}
 
-<!-- ```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/02_Basic_Chains/max-roll-so-far_prb.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
 
 
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- <!-- -->
-<!--   Y-Z-Markov-chains -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"}
+```
 
-<!-- ```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"} -->
-<!-- ``` -->
+:::
+</details> -->
 
-<!-- ::: -->
-<!-- </details> -->
 
+<!--
+  Y-Z-Markov-chains
+  ------------------------------------------------
+-->
+::: {.exercise}
 
+```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_prb.Rmd"}
+```
 
-<!-- <!-- -->
-<!--   number-of-consecutives -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+:::
 
-<!-- ```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"} -->
-<!-- ``` -->
 
-<!-- ::: -->
-<!-- </details> -->
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
+```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"}
+```
 
+:::
+</details> -->
 
 
-<!-- <!-- -->
-<!--   lazy-chain -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+<!--
+  number-of-consecutives
+  ------------------------------------------------
+-->
+::: {.exercise}
 
-<!-- ```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/02_Basic_Chains/number-of-consecutives_prb.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
 
 
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- <!-- -->
-<!--   blue-red-100 -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"}
+```
 
-<!-- ```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"} -->
-<!-- ``` -->
+:::
+</details> -->
 
-<!-- ::: -->
-<!-- </details> -->
 
 
+<!--
+  lazy-chain
+  ------------------------------------------------
+-->
+::: {.exercise}
 
+```{r child="problems/02_Basic_Chains/lazy-chain_prb.Rmd"}
+```
 
+:::
 
 
-<!-- <!-- -->
-<!--   deck-2-2 -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/02_Basic_Chains/deck-2-2_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details> -->
 
 
+<!--
+  blue-red-100
+  ------------------------------------------------
+-->
+::: {.exercise}
 
-<!-- <!-- -->
-<!--   train-m-cities -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+```{r child="problems/02_Basic_Chains/blue-red-100_prb.Rmd"}
+```
 
-<!-- ```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"} -->
-<!-- ``` -->
+:::
 
-<!-- ::: -->
-<!-- </details> -->
 
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
+```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"}
+```
 
+:::
+</details> -->
 
-<!-- <!-- multi-step --> -->
 
-<!-- <!-- -->
-<!--   glass-milk -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
 
-<!-- ```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"} -->
-<!-- ``` -->
 
-<!-- ::: -->
-<!-- </details> -->
 
+<!--
+  deck-2-2
+  ------------------------------------------------
+-->
+::: {.exercise}
 
+```{r child="problems/02_Basic_Chains/deck-2-2_prb.Rmd"}
+```
 
-<!-- <!-- -->
-<!--   manual-multi-step -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+:::
 
-<!-- ```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"} -->
-<!-- ``` -->
 
-<!-- ::: -->
-<!-- </details> -->
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
+```{r child="problems/02_Basic_Chains/deck-2-2_sol.Rmd"}
+```
 
+:::
+</details> -->
 
 
+<!--
+  train-m-cities
+  ------------------------------------------------
+-->
+::: {.exercise name="Extra Credit"}
 
-<!-- <!-- -->
-<!--   gambler-multi-step -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+```{r child="problems/02_Basic_Chains/train-m-cities_prb.Rmd"}
+```
 
-<!-- ```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"} -->
-<!-- ``` -->
+:::
 
-<!-- ::: -->
-<!-- </details> -->
 
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
+```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"}
+```
 
+:::
+</details> -->
 
-<!-- <!-- -->
-<!--   car-insurance -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
 
-<!-- ```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"} -->
-<!-- ``` -->
 
-<!-- ::: -->
-<!-- </details> -->
+<!-- multi-step -->
 
+<!--
+  glass-milk
+  ------------------------------------------------
+-->
+::: {.exercise}
 
+```{r child="problems/02_Basic_Chains/glass-milk_prb.Rmd"}
+```
 
+:::
 
-<!-- <!-- -->
-<!--   basil -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <div id="basil"> -->
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
 
-<!-- ```{r child="problems/02_Basic_Chains/basil_sol.Rmd"} -->
-<!-- ``` -->
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ::: -->
-<!-- </details> -->
+```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"}
+```
 
+:::
+</details> -->
 
-<!-- </div> -->
 
+<!--
+  manual-multi-step
+  ------------------------------------------------
+-->
+::: {.exercise}
 
-<!-- <!-- -->
-<!--   professor -->
-<!--   ------------------------------------------------ -->
-<!-- --> -->
-<!-- <div id="professor"> -->
-<!--    <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!--  ::: {.solution} -->
+```{r child="problems/02_Basic_Chains/manual-multi-step_prb.Rmd"}
+```
 
-<!-- ```{r child="problems/02_Basic_Chains/professor_sol.Rmd"} -->
-<!-- ``` -->
+:::
 
-<!-- ::: -->
-<!-- </details> -->
 
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- </div> -->
+```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"}
+```
+
+:::
+</details> -->
+
+
+
+
+<!--
+  gambler-multi-step
+  ------------------------------------------------
+-->
+::: {.exercise}
+
+```{r child="problems/02_Basic_Chains/gambler-multi-step_prb.Rmd"}
+```
+
+:::
+
+
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"}
+```
+
+:::
+</details> -->
+
+
+
+<!--
+  car-insurance
+  ------------------------------------------------
+-->
+::: {.exercise}
+
+```{r child="problems/02_Basic_Chains/car-insurance_prb.Rmd"}
+```
+
+:::
+
+
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"}
+```
+
+:::
+</details> -->
+
+
+
+<!--
+  basil
+  ------------------------------------------------
+-->
+<div id="basil">
+::: {.exercise}
+
+```{r child="problems/02_Basic_Chains/basil_prb.Rmd"}
+```
+
+:::
+
+
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/basil_sol.Rmd"}
+```
+
+:::
+</details> -->
+
+</div>
+
+
+<!--
+  professor
+  ------------------------------------------------
+-->
+<div id="professor">
+::: {.exercise}
+
+```{r child="problems/02_Basic_Chains/professor_prb.Rmd"}
+```
+
+:::
+
+
+<!-- <details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/professor_sol.Rmd"}
+```
+
+:::
+</details> -->
+
+</div>
 
 
