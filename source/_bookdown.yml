@@ -16,7 +16,7 @@ rmd_files: [
    # "01-R.Rmd",
    # "02-simulation.Rmd",
    # "03-random-walks.Rmd",
-   "04-more-random-walks.Rmd",
+   # "04-more-random-walks.Rmd",
    "05-Markov-chains.Rmd",
    # "06-Classification.Rmd",
    # "07-Absorption-and-Reward.Rmd",
