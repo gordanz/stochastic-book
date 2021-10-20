@@ -997,13 +997,13 @@ with parameter $p$.
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/catalan_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="problems/01_Random_Walks/catalan_sol.Rmd"}
+```
+:::
+</details>
 
 <!--
   no_return_to_zero
