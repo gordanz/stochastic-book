@@ -62,6 +62,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
@@ -258,9 +259,9 @@ probabilities.</p>
 and ask what the probabilities <span class="math inline">\({\mathbb{P}}[M_n = k]\)</span> for <span class="math inline">\(k=0,\dots, n\)</span> are.
 An easy numerical solution to this problem can be given by simulation. We reuse the function
 <code>simulate_walk</code> defined at the beginning of the chapter, but also employ a new function, called <code>apply</code> which “applies” a function to each row (or column) of a data frame or a matrix. It seems to be tailor-made for our purpose<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> because we want to compute the maximum of each row of the simulation matrix (remember - the row means keep the realization fixed, but vary the time-index <span class="math inline">\(n\)</span>). The syntax of <code>apply</code> is simple - it needs the data frame, the margin (rows are coded as 1 and columns as 2; so when the margin is 1, the function is applied row-wise and when the margin is 2, the function is applied column-wise) and the function to be applied (<code>max</code> in our case). The output is a vector of size <code>nsim</code> with all row-wise maxima:</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="more-about-random-walks.html#cb167-1" aria-hidden="true"></a>walk =<span class="st"> </span><span class="kw">simulate_walk</span>(<span class="dt">nsim =</span> <span class="dv">100000</span>, <span class="dt">T =</span> <span class="dv">12</span>, <span class="dt">p =</span> <span class="fl">0.5</span>)</span>
-<span id="cb167-2"><a href="more-about-random-walks.html#cb167-2" aria-hidden="true"></a>M =<span class="st"> </span><span class="kw">apply</span>(walk, <span class="dv">1</span>, max)</span>
-<span id="cb167-3"><a href="more-about-random-walks.html#cb167-3" aria-hidden="true"></a><span class="kw">hist</span>(M, <span class="dt">breaks =</span> <span class="kw">seq</span>(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="dt">probability =</span> <span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="more-about-random-walks.html#cb167-1" aria-hidden="true" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="fl">1e+05</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
+<span id="cb167-2"><a href="more-about-random-walks.html#cb167-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">apply</span>(walk, <span class="dv">1</span>, max)</span>
+<span id="cb167-3"><a href="more-about-random-walks.html#cb167-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(M, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-178-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The overall shape of the distribution is as we expected; the support is <span class="math inline">\(\{0,1,2,\dots, 12\}\)</span> and the
 probabilities tend to decrease as <span class="math inline">\(k\)</span> gets larger. The unexpected feature is that <span class="math inline">\({\mathbb{P}}[ M_{12} = 1]\)</span> seems
@@ -821,17 +822,18 @@ identically distributed random variables, and let <span class="math inline">\(X_
 the associated random walk. If <span class="math inline">\({\mathbb{E}}[ (\xi_n)^2]&lt;\infty\)</span> and <span class="math inline">\(\tau\)</span> is a
 stopping time for <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> such that <span class="math inline">\({\mathbb{E}}[\tau]&lt;\infty\)</span>, then <span class="math display">\[ \operatorname{Var}[X_{\tau}]= {\mathbb{E}}[\tau] \sigma^2
 \text{ where } \sigma^2 = \operatorname{Var}[\xi_1] = \operatorname{Var}[\xi_2] = \dots \]</span></p>
-<p>The proof is similar (but more difficult) than the proof of Wald’s (first) identity, so we skip it. Instead, here is an application to negative binomial random variables.</p>
-<div class="exercise">
-<p><span id="exr:unlabeled-div-109" class="exercise"><strong>Problem 4.11  </strong></span>We toss a biased coin (<span class="math inline">\({\mathbb{P}}[H]=p\)</span>) repeatedly until exactly <span class="math inline">\(k\)</span> <span class="math inline">\(H\)</span>s are observed. What are the mean and the variance of the total number of tosses it took?</p>
-</div>
-<div class="solution">
-<p><span id="unlabeled-div-110" class="solution"><em>Solution</em>. </span>As we know, the number <span class="math inline">\(\tau\)</span> of Ts observed before that has a geometric distribution
-with parameter <span class="math inline">\(p\)</span>. The mean and the variance of <span class="math inline">\(\tau\)</span> can be computed easily using Wald’s formulas.
-Let <span class="math inline">\(X_n\)</span> be the indicator of the even that <span class="math inline">\(n\)</span>-th coin toss resulted in <span class="math inline">\(H\)</span>.
-It is clear that <span class="math inline">\(\{X_n}_{n\in{\mathbb{N}}}\)</span> is a sequence of idependent Bernoulli random variables
-with parameter <span class="math inline">\(p\)</span>.</p>
-</div>
+<p>The proof is similar (but more difficult) than the proof of Wald’s (first) identity, so we skip it.
+<!-- Instead, here is an application to negative binomial random variables. --></p>
+<!-- ::: {.exercise} -->
+<!-- We toss a biased coin ($\PP[H]=p$) repeatedly until exactly $k$ $H$s are observed. What are the mean and the variance of the total number of tosses it took? -->
+<!-- ::: -->
+<!-- ::: {.solution} -->
+<!-- As we know, the number $\tau$ of Ts observed before that has a geometric distribution -->
+<!-- with parameter $p$. The mean and the variance of $\tau$ can be computed easily using Wald's formulas. -->
+<!-- Let $X_n$ be the indicator of the even that $n$-th coin toss resulted in $H$.  -->
+<!-- It is clear that $\{X_n}_{n\in\N}$ is a sequence of idependent Bernoulli random variables  -->
+<!-- with parameter $p$. -->
+<!-- ::: -->
 </div>
 <div id="additional-problems-for-chapter-4" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> Additional problems for Chapter 4</h2>
@@ -840,7 +842,7 @@ with parameter <span class="math inline">\(p\)</span>.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-111" class="exercise"><strong>Problem 4.12  </strong></span> </p>
+<p><span id="exr:unlabeled-div-109" class="exercise"><strong>Problem 4.11  </strong></span> </p>
 <ol style="list-style-type: decimal">
 <li><p>Let <span class="math inline">\(\{X_n\}_{0\leq n \leq 10}\)</span> be a simple symmetric random walk with
 time horizon <span class="math inline">\(T=10\)</span>. What is the probability it will never reach the
@@ -871,7 +873,7 @@ the length of such a sequence is at most 10?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-112" class="exercise"><strong>Problem 4.13  </strong></span> </p>
+<p><span id="exr:unlabeled-div-110" class="exercise"><strong>Problem 4.12  </strong></span> </p>
 <p>The purpose of this problem is to understand how long we have to wait util a simple symmetric random walk hits the level <span class="math inline">\(1\)</span>. Theory presented so far guarantees that this will happen sooner or later, but it gives no indication of the length of the wait. As usual, we denote by <span class="math inline">\(\tau_1\)</span> the (random) first time the SSRW <span class="math inline">\(\{X_n\}_{n\in{\mathbb{N}}_0}\)</span> hits the level <span class="math inline">\(1\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Write an R function that simulates a trajectory of a random walk, but only until the first time it hits level <span class="math inline">\(1\)</span>. You don’t have to record the trajectory itself - just keep tossing coins until the trajectory hits <span class="math inline">\(1\)</span> and return the number of steps needed. Your function needs to accept an argument, <code>T</code>, such that your simulation stops if <span class="math inline">\(1\)</span> has not been reached in the first <code>T</code> steps.</p></li>
@@ -893,7 +895,7 @@ the length of such a sequence is at most 10?</p></li>
   -------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Problem 4.14  </strong></span>Luke starts a random walk, where each step takes him to the left or to
+<p><span id="exr:unlabeled-div-111" class="exercise"><strong>Problem 4.13  </strong></span>Luke starts a random walk, where each step takes him to the left or to
 the right, with the two alternatives being equally likely and
 independent of the previous steps. <span class="math inline">\(11\)</span> steps to his right is a cookie
 jar, and Luke gets to take a (single) cookie every time he reaches that
@@ -925,7 +927,7 @@ bowl of broccoli soup and with at least one cookie in his hand?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-114" class="exercise"><strong>Problem 4.15  (Extra Credit) </strong></span>Let <span class="math inline">\(C_n = \frac{1}{n+1}\binom{2n}{n}\)</span> denote the <span class="math inline">\(n\)</span>-th Catalan number, as defined at the end of the discussion of the Balot problem above.</p>
+<p><span id="exr:unlabeled-div-112" class="exercise"><strong>Problem 4.14  (Extra Credit) </strong></span>Let <span class="math inline">\(C_n = \frac{1}{n+1}\binom{2n}{n}\)</span> denote the <span class="math inline">\(n\)</span>-th Catalan number, as defined at the end of the discussion of the Balot problem above.</p>
 <ol style="list-style-type: decimal">
 <li><p>Use the reflection principle to show that <span class="math inline">\(C_n\)</span> is the number
 trajectories <span class="math inline">\((x_0,\dots, x_{2n})\)</span> of a random
@@ -949,7 +951,7 @@ vertices do not intersect.</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Problem 4.16  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, what
+<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Problem 4.15  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, what
 is the probability that <span class="math inline">\(X\)</span> does not visit <span class="math inline">\(0\)</span> during the time interval
 <span class="math inline">\(1,\dots, n\)</span>.</p>
 </div>
@@ -965,7 +967,7 @@ is the probability that <span class="math inline">\(X\)</span> does not visit <s
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-116" class="exercise"><strong>Problem 4.17  </strong></span>Let <span class="math inline">\(\tau_{-1}\)</span> be the hitting time of the level <span class="math inline">\({-1}\)</span> for a simple biased
+<p><span id="exr:unlabeled-div-114" class="exercise"><strong>Problem 4.16  </strong></span>Let <span class="math inline">\(\tau_{-1}\)</span> be the hitting time of the level <span class="math inline">\({-1}\)</span> for a simple biased
 random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Choose the correct answer(s) (they will depend on the value of the
 parameter <span class="math inline">\(p\)</span>):</p>
 <ol style="list-style-type: lower-alpha">
@@ -988,7 +990,7 @@ parameter <span class="math inline">\(p\)</span>):</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Problem 4.18  </strong></span>Let <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\tilde{\tau}\)</span> be two stopping times. Which of the following are necessarily stopping times, as well:</p>
+<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Problem 4.17  </strong></span>Let <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\tilde{\tau}\)</span> be two stopping times. Which of the following are necessarily stopping times, as well:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\max(\tau,\widetilde{\tau})\)</span></li>
 <li><span class="math inline">\(\min(\tau, \widetilde{\tau})\)</span></li>
@@ -1008,7 +1010,7 @@ parameter <span class="math inline">\(p\)</span>):</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-118" class="exercise"><strong>Problem 4.19  </strong></span>Either one of the following <span class="math inline">\(4\)</span> random times is <em>not</em> a stopping
+<p><span id="exr:unlabeled-div-116" class="exercise"><strong>Problem 4.18  </strong></span>Either one of the following <span class="math inline">\(4\)</span> random times is <em>not</em> a stopping
 time for a simple random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>, or they all are. Choose the
 one which is not in the first case, or choose e. if you think they all
 are.</p>
@@ -1034,7 +1036,7 @@ whatever happens <em>last</em></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-119" class="exercise"><strong>Problem 4.20  </strong></span>At most one of the following <span class="math inline">\(4\)</span> random times <em>is</em> a stopping time
+<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Problem 4.19  </strong></span>At most one of the following <span class="math inline">\(4\)</span> random times <em>is</em> a stopping time
 for a simple random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Either choose the one which you
 think is a stopping time, or choose e. if you think there are no
 stopping times among them.</p>

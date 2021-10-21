@@ -903,20 +903,21 @@ stopping time for $\seqz{X}$ such that $\EE[\tau]<\infty$, then $$ \Var[X_{\tau}
 \text{ where } \sigma^2 = \Var[\xi_1] = \Var[\xi_2] = \dots $$
 
 
-The proof is similar (but more difficult) than the proof of Wald's (first) identity, so we skip it. Instead, here is an application to negative binomial random variables.
+The proof is similar (but more difficult) than the proof of Wald's (first) identity, so we skip it. 
+<!-- Instead, here is an application to negative binomial random variables. -->
 
 
-::: {.exercise}
-We toss a biased coin ($\PP[H]=p$) repeatedly until exactly $k$ $H$s are observed. What are the mean and the variance of the total number of tosses it took?
-:::
+<!-- ::: {.exercise} -->
+<!-- We toss a biased coin ($\PP[H]=p$) repeatedly until exactly $k$ $H$s are observed. What are the mean and the variance of the total number of tosses it took? -->
+<!-- ::: -->
 
-::: {.solution}
-As we know, the number $\tau$ of Ts observed before that has a geometric distribution
-with parameter $p$. The mean and the variance of $\tau$ can be computed easily using Wald's formulas.
-Let $X_n$ be the indicator of the even that $n$-th coin toss resulted in $H$. 
-It is clear that $\{X_n}_{n\in\N}$ is a sequence of idependent Bernoulli random variables 
-with parameter $p$.
-:::
+<!-- ::: {.solution} -->
+<!-- As we know, the number $\tau$ of Ts observed before that has a geometric distribution -->
+<!-- with parameter $p$. The mean and the variance of $\tau$ can be computed easily using Wald's formulas. -->
+<!-- Let $X_n$ be the indicator of the even that $n$-th coin toss resulted in $H$.  -->
+<!-- It is clear that $\{X_n}_{n\in\N}$ is a sequence of idependent Bernoulli random variables  -->
+<!-- with parameter $p$. -->
+<!-- ::: -->
 
 
 
