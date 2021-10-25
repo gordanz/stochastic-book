@@ -418,9 +418,8 @@ When we index <code>x</code> using it, only the values of <code>x</code> on posi
 <span id="cb27-2"><a href="intro.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
 <span id="cb27-3"><a href="intro.html#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    7</span></span>
 <span id="cb27-4"><a href="intro.html#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   -1    2</span></span>
-<span id="cb27-5"><a href="intro.html#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-6"><a href="intro.html#cb27-6" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span>]</span>
-<span id="cb27-7"><a href="intro.html#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 7</span></span></code></pre></div>
+<span id="cb27-5"><a href="intro.html#cb27-5" aria-hidden="true" tabindex="-1"></a>A[<span class="dv">1</span>, <span class="dv">2</span>]</span>
+<span id="cb27-6"><a href="intro.html#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 7</span></span></code></pre></div>
 <p>Note that I did not use the argument <code>byrow</code> at all. In such cases, R always uses the default value (documented in the function’s help). For <code>matrix</code> the default value of <code>byrow</code> is <code>FALSE</code>, i.e., it fills the matrix column by column. This is not what we usually want because we tend to think of matrices as composed of rows. Moral: do not forget <code>byrow = TRUE</code> if that is what you, indeed, want.</p>
 <p>Usual matrix operations can be performed in R in the obvious way</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="intro.html#cb28-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">A =</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">7</span>, <span class="dv">2</span>), <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>))</span>
@@ -616,11 +615,11 @@ Click for Solution
 <div class="solution">
 <p><span id="unlabeled-div-2" class="solution"><em>Solution</em>. </span>Remember, parentheses around the whole expression tell R to print out the result</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="intro.html#cb37-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="dv">238746238746</span>)</span>
-<span id="cb37-2"><a href="intro.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.188548e-12</span></span>
+<span id="cb37-2"><a href="intro.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.000000000004188548</span></span>
 <span id="cb37-3"><a href="intro.html#cb37-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">^</span>(<span class="dv">45</span>))  <span class="co"># this is the same as 2**45</span></span>
-<span id="cb37-4"><a href="intro.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.518437e+13</span></span>
+<span id="cb37-4"><a href="intro.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 35184372088832</span></span>
 <span id="cb37-5"><a href="intro.html#cb37-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">^</span>(<span class="dv">28</span>))</span>
-<span id="cb37-6"><a href="intro.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.287679e+13</span></span>
+<span id="cb37-6"><a href="intro.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 22876792454961</span></span>
 <span id="cb37-7"><a href="intro.html#cb37-7" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sqrt</span>(<span class="dv">15</span>))</span>
 <span id="cb37-8"><a href="intro.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.872983</span></span>
 <span id="cb37-9"><a href="intro.html#cb37-9" aria-hidden="true" tabindex="-1"></a>(<span class="fu">cos</span>(pi<span class="sc">/</span><span class="dv">8</span>))</span>
@@ -693,7 +692,7 @@ Click for Solution
 <ol style="list-style-type: decimal">
 <li><div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="intro.html#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span></code></pre></div></li>
 <li><div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="dv">20</span><span class="sc">:</span><span class="dv">2000</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div></li>
-<li><div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="fl">4e+05</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="fl">5e+05</span>])</span>
+<li><div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="dv">400000</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="dv">500000</span>])</span>
 <span id="cb44-2"><a href="intro.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 400689 401956 403225 404496 405769 407044 408321 409600 410881 412164</span></span>
 <span id="cb44-3"><a href="intro.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [11] 413449 414736 416025 417316 418609 419904 421201 422500 423801 425104</span></span>
 <span id="cb44-4"><a href="intro.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [21] 426409 427716 429025 430336 431649 432964 434281 435600 436921 438244</span></span>
@@ -757,19 +756,16 @@ Click for Solution
 <span id="cb49-14"><a href="intro.html#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-15"><a href="intro.html#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
 <span id="cb49-16"><a href="intro.html#cb49-16" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
-<span id="cb49-17"><a href="intro.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.207418e-06</span></span>
-<span id="cb49-18"><a href="intro.html#cb49-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-19"><a href="intro.html#cb49-19" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
-<span id="cb49-20"><a href="intro.html#cb49-20" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span>
-<span id="cb49-21"><a href="intro.html#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span>
-<span id="cb49-22"><a href="intro.html#cb49-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-23"><a href="intro.html#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 45</span></span>
-<span id="cb49-24"><a href="intro.html#cb49-24" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
-<span id="cb49-25"><a href="intro.html#cb49-25" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 45</span></span>
-<span id="cb49-26"><a href="intro.html#cb49-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-27"><a href="intro.html#cb49-27" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 90</span></span>
-<span id="cb49-28"><a href="intro.html#cb49-28" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))</span>
-<span id="cb49-29"><a href="intro.html#cb49-29" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 90</span></span></code></pre></div>
+<span id="cb49-17"><a href="intro.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.000001207418</span></span>
+<span id="cb49-18"><a href="intro.html#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
+<span id="cb49-19"><a href="intro.html#cb49-19" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span>
+<span id="cb49-20"><a href="intro.html#cb49-20" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span>
+<span id="cb49-21"><a href="intro.html#cb49-21" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 45</span></span>
+<span id="cb49-22"><a href="intro.html#cb49-22" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
+<span id="cb49-23"><a href="intro.html#cb49-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 45</span></span>
+<span id="cb49-24"><a href="intro.html#cb49-24" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 90</span></span>
+<span id="cb49-25"><a href="intro.html#cb49-25" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)))</span>
+<span id="cb49-26"><a href="intro.html#cb49-26" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 90</span></span></code></pre></div>
 <p><em>Note:</em> This function may fail for certain (rare) values of
 arguments because the variable <code>cos_alpha</code> may happen to take a
 value slightly larger than <span class="math inline">\(1\)</span> or slightly smaller then <span class="math inline">\(-1\)</span> due
