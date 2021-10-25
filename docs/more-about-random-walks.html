@@ -860,20 +860,87 @@ of tosses could look like <em>HHTTTHHTHHTHH</em>. What is the probability that
 the length of such a sequence is at most 10?</p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- \  -->
-<!-- ```{r child="problems/01_Random_Walks/3-max-problems_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-110" class="solution"><em>Solution</em>. </span><br />
+</p>
+<ol style="list-style-type: decimal">
+<li>This is the same as asking that its maximum <span class="math inline">\(M_{10}\)</span> up to time <span class="math inline">\(T=10\)</span>
+be <span class="math inline">\(\leq 4\)</span>. This can be further computed using the formula from class:
+$$\begin{aligned}
+&amp;= + + </li>
+</ol>
+<ul>
+<li>+ \ &amp; =
+(+ ) +
+(+ ) \ &amp; +
+(+ ) +
+(+ )\ &amp; +
+(+ ) \ &amp;=
+2 (+ ) + \&amp;=
+2^{-10}( 2  + 2  + )\end{aligned}$$</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Let the outcomes of the coin tosses be denoted by <span class="math inline">\(\gamma_1 = H\)</span>,
+<span class="math inline">\(\gamma_2, \gamma_3, \dots\)</span>. We define the random variables
+<span class="math inline">\(\delta_1,\delta_2,\dots\)</span> as follows: <span class="math inline">\(\delta_1 = 1\)</span> if <span class="math inline">\(\gamma_2 = T\)</span>
+and <span class="math inline">\(\delta_1 = -1\)</span>, otherwise. Similarly, <span class="math inline">\(\delta_2 = 1\)</span> if <span class="math inline">\(\gamma_3 = \gamma_2\)</span> and <span class="math inline">\(-1\)</span> otherwise. It is clear that
+<span class="math inline">\(\delta_1,\delta_2,\dots\)</span> is an iid sequence of coin tosses (just like
+in the definition of) of a simple symmetric random walk. After <span class="math inline">\(n\)</span>
+tosses ( the first one), our gambler has
+<span class="math inline">\(X_n = \delta_1+\delta_2 + \dots + \delta_n\)</span> dollars. She will need at
+least 19 tosses (excluding the first one) to reach <span class="math inline">\(10\)</span> dollars if and
+only if the value of the running maximum process at time <span class="math inline">\(n=18\)</span> is at
+most <span class="math inline">\(9\)</span>. Using the formula from the formula sheet, this evaluates to
+<span class="math display">\[\begin{aligned}
+  {\mathbb{P}}[ M_{18}\leq 9] &amp;= \sum_{k=0}^{9} {\mathbb{P}}[ M_{18} = k] = 
+  \sum_{k=0}^{9} ({\mathbb{P}}[X_{18}=k] + {\mathbb{P}}[ X_{18} = k+1])\\ 
+                     &amp; = {\mathbb{P}}[ X_{18} =0 ]
+    + 2\, {\mathbb{P}}[X_{18} = 2] + 2\, {\mathbb{P}}[X_{18} = 4] + \dots \\ &amp; \qquad   \dots + 2\, {\mathbb{P}}[ X_{18} = 8] +
+  {\mathbb{P}}[ X_{18} = 10] \\
+                     &amp;= 2^{-18}\left( \binom{18}{9} + 2 \binom{18}{10} +
+                     2\binom{18}{11} + 2 \binom{18}{12} + 2
+                     \binom{18}{13} + \binom{18}{14}\right)
+\end{aligned}\]</span> Btw, you could have gotten a seemingly different
+answer. Since it is impossible to reach <span class="math inline">\(10\)</span> in exactly <span class="math inline">\(19\)</span> steps (the
+parity is wrong), the required probability is also equal to
+<span class="math display">\[\begin{align}
+{\mathbb{P}}[ M_{19}\leq 9] &amp;= \sum_{k=0}^9 \Big( {\mathbb{P}}[ X_{19} = k] +  {\mathbb{P}}[ X_{19} =
+  k+1] \Big)
+  = 2^{-19} \times 2 \times \sum_{k=1}^9 \binom{19}{(19+k)/2}\\
+  &amp;=
+  2^{-18} \times \left( \binom{19}{10} + \binom{19}{11} + \dots +
+\binom{19}{16} \right).
+\end{align}\]</span></p></li>
+<li><p>Let <span class="math inline">\(X_n\)</span>, <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> be the number of heads <em>minus</em> the number of tails
+obtained so far. Then, <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is a simple symmetric random walk, and
+we stop tossing the coin when <span class="math inline">\(X\)</span> hits <span class="math inline">\(3\)</span> for the first time. This will
+happen during the first 10 tosses, if and only if <span class="math inline">\(M_{10} \geq 3\)</span>,
+where <span class="math inline">\(M_n\)</span> denotes the (running) maximum of <span class="math inline">\(X\)</span>. According to the
+reflection principle, <span class="math display">\[\nonumber
+  \begin{split}
+{\mathbb{P}}[M_{10} \geq 3]&amp;= {\mathbb{P}}[ X_{10} \geq 3 ] + {\mathbb{P}}[ X_{10} \geq 4]\\ &amp;
+ = 2(
+ {\mathbb{P}}[X_{10}= 4]
+ +{\mathbb{P}}[X_{10}= 6]
+ +{\mathbb{P}}[X_{10}= 8]
+ +{\mathbb{P}}[X_{10}= 10])\\
+ &amp;= 2^{-9} \left[
+ \binom{10}{3}+\binom{10}{2}+\binom{10}{1}+\binom{10}{0}
+ \right] =  {\frac{11}{32}}.
+  \end{split}\]</span></p></li>
+</ol>
+</div>
+</details>
 <!--
   time_until_hit
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-110" class="exercise"><strong>Problem 4.12  </strong></span> </p>
+<p><span id="exr:unlabeled-div-111" class="exercise"><strong>Problem 4.12  </strong></span> </p>
 <p>The purpose of this problem is to understand how long we have to wait util a simple symmetric random walk hits the level <span class="math inline">\(1\)</span>. Theory presented so far guarantees that this will happen sooner or later, but it gives no indication of the length of the wait. As usual, we denote by <span class="math inline">\(\tau_1\)</span> the (random) first time the SSRW <span class="math inline">\(\{X_n\}_{n\in{\mathbb{N}}_0}\)</span> hits the level <span class="math inline">\(1\)</span>.</p>
 <ol style="list-style-type: decimal">
 <li><p>Write an R function that simulates a trajectory of a random walk, but only until the first time it hits level <span class="math inline">\(1\)</span>. You don’t have to record the trajectory itself - just keep tossing coins until the trajectory hits <span class="math inline">\(1\)</span> and return the number of steps needed. Your function needs to accept an argument, <code>T</code>, such that your simulation stops if <span class="math inline">\(1\)</span> has not been reached in the first <code>T</code> steps.</p></li>
@@ -882,20 +949,102 @@ the length of such a sequence is at most 10?</p></li>
 <li><p>Repeat all of the above, but for the first time the <strong>absolute value</strong> of your random walk reaches level <span class="math inline">\(5\)</span>. What is the most glaring difference between the two cases? What does that mean for the amount of time you are going to have to wait to hit <span class="math inline">\(1\)</span>, vs. for the absolute value to hit <span class="math inline">\(5\)</span>? More precisely, what do you think their means and standard deviations are?</p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- \  -->
-<!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-112" class="solution"><em>Solution</em>. </span><br />
+</p>
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="more-about-random-walks.html#cb168-1" aria-hidden="true" tabindex="-1"></a>simulate_tau <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
+<span id="cb168-2"><a href="more-about-random-walks.html#cb168-2" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb168-3"><a href="more-about-random-walks.html#cb168-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb168-4"><a href="more-about-random-walks.html#cb168-4" aria-hidden="true" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb168-5"><a href="more-about-random-walks.html#cb168-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (X <span class="sc">==</span> <span class="dv">1</span>) </span>
+<span id="cb168-6"><a href="more-about-random-walks.html#cb168-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb168-7"><a href="more-about-random-walks.html#cb168-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb168-8"><a href="more-about-random-walks.html#cb168-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
+<span id="cb168-9"><a href="more-about-random-walks.html#cb168-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="more-about-random-walks.html#cb169-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb169-2"><a href="more-about-random-walks.html#cb169-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb169-3"><a href="more-about-random-walks.html#cb169-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T))</span>
+<span id="cb169-4"><a href="more-about-random-walks.html#cb169-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-332-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="more-about-random-walks.html#cb170-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
+<span id="cb170-2"><a href="more-about-random-walks.html#cb170-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb170-3"><a href="more-about-random-walks.html#cb170-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb170-4"><a href="more-about-random-walks.html#cb170-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb170-5"><a href="more-about-random-walks.html#cb170-5" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb170-6"><a href="more-about-random-walks.html#cb170-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb170-7"><a href="more-about-random-walks.html#cb170-7" aria-hidden="true" tabindex="-1"></a>    tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T[i]))</span>
+<span id="cb170-8"><a href="more-about-random-walks.html#cb170-8" aria-hidden="true" tabindex="-1"></a>    Mean[i] <span class="ot">=</span> <span class="fu">mean</span>(tau)</span>
+<span id="cb170-9"><a href="more-about-random-walks.html#cb170-9" aria-hidden="true" tabindex="-1"></a>    StDev[i] <span class="ot">=</span> <span class="fu">sd</span>(tau)</span>
+<span id="cb170-10"><a href="more-about-random-walks.html#cb170-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb170-11"><a href="more-about-random-walks.html#cb170-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(T, Mean, StDev)</span>
+<span id="cb170-12"><a href="more-about-random-walks.html#cb170-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">50</span>)  <span class="co"># no scientific (e) notation</span></span>
+<span id="cb170-13"><a href="more-about-random-walks.html#cb170-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df)</span>
+<span id="cb170-14"><a href="more-about-random-walks.html#cb170-14" aria-hidden="true" tabindex="-1"></a><span class="do">##        T Mean StDev</span></span>
+<span id="cb170-15"><a href="more-about-random-walks.html#cb170-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 1    500   31    98</span></span>
+<span id="cb170-16"><a href="more-about-random-walks.html#cb170-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   1000   43   158</span></span>
+<span id="cb170-17"><a href="more-about-random-walks.html#cb170-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  10000  196  1156</span></span>
+<span id="cb170-18"><a href="more-about-random-walks.html#cb170-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  50000  264  2865</span></span>
+<span id="cb170-19"><a href="more-about-random-walks.html#cb170-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 100000  427  5077</span></span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li></li>
+</ol>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="more-about-random-walks.html#cb171-1" aria-hidden="true" tabindex="-1"></a>simulate_tau_abs <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
+<span id="cb171-2"><a href="more-about-random-walks.html#cb171-2" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb171-3"><a href="more-about-random-walks.html#cb171-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb171-4"><a href="more-about-random-walks.html#cb171-4" aria-hidden="true" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb171-5"><a href="more-about-random-walks.html#cb171-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">abs</span>(X) <span class="sc">==</span> <span class="dv">5</span>) </span>
+<span id="cb171-6"><a href="more-about-random-walks.html#cb171-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb171-7"><a href="more-about-random-walks.html#cb171-7" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb171-8"><a href="more-about-random-walks.html#cb171-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
+<span id="cb171-9"><a href="more-about-random-walks.html#cb171-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="more-about-random-walks.html#cb172-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb172-2"><a href="more-about-random-walks.html#cb172-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb172-3"><a href="more-about-random-walks.html#cb172-3" aria-hidden="true" tabindex="-1"></a>tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T))</span>
+<span id="cb172-4"><a href="more-about-random-walks.html#cb172-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau_abs, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-335-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="more-about-random-walks.html#cb173-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
+<span id="cb173-2"><a href="more-about-random-walks.html#cb173-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb173-3"><a href="more-about-random-walks.html#cb173-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb173-4"><a href="more-about-random-walks.html#cb173-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb173-5"><a href="more-about-random-walks.html#cb173-5" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb173-6"><a href="more-about-random-walks.html#cb173-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb173-7"><a href="more-about-random-walks.html#cb173-7" aria-hidden="true" tabindex="-1"></a>    tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T[i]))</span>
+<span id="cb173-8"><a href="more-about-random-walks.html#cb173-8" aria-hidden="true" tabindex="-1"></a>    Mean[i] <span class="ot">=</span> <span class="fu">mean</span>(tau_abs)</span>
+<span id="cb173-9"><a href="more-about-random-walks.html#cb173-9" aria-hidden="true" tabindex="-1"></a>    StDev[i] <span class="ot">=</span> <span class="fu">sd</span>(tau_abs)</span>
+<span id="cb173-10"><a href="more-about-random-walks.html#cb173-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb173-11"><a href="more-about-random-walks.html#cb173-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(T, Mean, StDev)</span>
+<span id="cb173-12"><a href="more-about-random-walks.html#cb173-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">50</span>)  <span class="co"># no scientific (e) notation</span></span>
+<span id="cb173-13"><a href="more-about-random-walks.html#cb173-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df)</span>
+<span id="cb173-14"><a href="more-about-random-walks.html#cb173-14" aria-hidden="true" tabindex="-1"></a><span class="do">##        T Mean StDev</span></span>
+<span id="cb173-15"><a href="more-about-random-walks.html#cb173-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 1    500   25    20</span></span>
+<span id="cb173-16"><a href="more-about-random-walks.html#cb173-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   1000   25    20</span></span>
+<span id="cb173-17"><a href="more-about-random-walks.html#cb173-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  10000   25    20</span></span>
+<span id="cb173-18"><a href="more-about-random-walks.html#cb173-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  50000   25    20</span></span>
+<span id="cb173-19"><a href="more-about-random-walks.html#cb173-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 100000   25    20</span></span></code></pre></div>
+<p>The most glaring difference between two tables is that the mean and st-dev estimates seem to grow with <span class="math inline">\(T\)</span> in the first, but not in the second case. It suggests that the random variable
+<span class="math inline">\(\tau\)</span> takes such large values that no “cap” <span class="math inline">\(T\)</span> can “contain them”. More precisely, the random variable <span class="math inline">\(\tau\)</span> has <strong>infinite expectation</strong> (and also <strong>infinite standard deviation</strong>). Indeed, it its expectation were finite, the value in the “Mean” column would stabilize towards it. Since they don’t, this expectation is infinite. Same for standard deviation. The moral of the story is that even though simple symmetric random walks hit every level eventually, you may have to wait a long time for that to happen.</p>
+<p>This does not happen for <code>tau_abs</code>. Indeed, it can be shown that both its expectation and standard deviation are finite. The time you are going wait until you hit either <span class="math inline">\(-5\)</span> or <span class="math inline">\(5\)</span> is much shorter “on average” than the time needed to hit <span class="math inline">\(1\)</span>.</p>
+</div>
+</details>
 <!-- 
   Luke_cookies
   -------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-111" class="exercise"><strong>Problem 4.13  </strong></span>Luke starts a random walk, where each step takes him to the left or to
+<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Problem 4.13  </strong></span>Luke starts a random walk, where each step takes him to the left or to
 the right, with the two alternatives being equally likely and
 independent of the previous steps. <span class="math inline">\(11\)</span> steps to his right is a cookie
 jar, and Luke gets to take a (single) cookie every time he reaches that
@@ -915,19 +1064,50 @@ will finish his <span class="math inline">\(15\)</span>-step walk without ever e
 bowl of broccoli soup and with at least one cookie in his hand?</p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!--  </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-114" class="solution"><em>Solution</em>. </span>Let the position at time <span class="math inline">\(n\)</span> be denoted by <span class="math inline">\(X_n\)</span>, so that
+<span class="math inline">\(\{X_n\}_{0\leq n \leq 15}\)</span> is a simple symmetric random walk with the
+time horizon <span class="math inline">\(T=15\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>This is simply <span class="math inline">\({\mathbb{P}}[ X_{15} = 11] = \binom{15}{2} 2^{-15} =  \binom{15}{13} 2^{-15}\)</span>.</p></li>
+<li><p>The only way for Luke to return with <span class="math inline">\(3\)</span> cookies is to go straight
+to <span class="math inline">\(11\)</span>, step away from it, return, step away from it and return
+again. There are exactly <span class="math inline">\(4\)</span> paths that do that. They all start with
+<span class="math inline">\(11\)</span> <span class="math inline">\(+1\)</span>s (or "up"s or "right"s) and then continue in one of
+the following 4 ways
+<span class="math display">\[(+1,-1,+1,-1), (+1,-1,-1,+1), (-1,+1,-1,+1) \text{ and }
+    (-1,+1,+1,-1).\]</span> Therefore, the probability is
+<span class="math inline">\(4/2^{15} = 2^{-13}\)</span>.</p></li>
+<li><p>Luke will stop with at least one cookie in his hand, if and only if
+the maximal (i.e., right-most) position of his walk is <span class="math inline">\(11\)</span> or
+above. Therefore, the required probability is
+<span class="math inline">\({\mathbb{P}}[ M_{15} \geq 11]\)</span>. Using the formula
+<span class="math inline">\({\mathbb{P}}[ M_T=k] = {\mathbb{P}}[X_T = k]  + {\mathbb{P}}[ X_T = k+1]\)</span> we get <span class="math display">\[\begin{aligned}
+        {\mathbb{P}}[ M_{15} \geq 11] 
+        &amp;= {\mathbb{P}}[ M_{15} = 11] + {\mathbb{P}}[ M_{15} = 12] +
+        \dots + {\mathbb{P}}[ M_{15}=15]\\ &amp; = {\mathbb{P}}[ X_{15}=11] + 2 {\mathbb{P}}[ X_{15} = 13] + 2
+        {\mathbb{P}}[X_{15}=15] \\
+                                  &amp;= 2^{-15}\Big( \binom{15}{2} + 2
+                                  \binom{15}{1} + 2\binom{15}{0}\Big).
+     \end{aligned}\]</span></p></li>
+<li><p>Here, we want Luke to reach the position <span class="math inline">\(11\)</span> (to get a cookie), but
+not the position <span class="math inline">\(12\)</span> (where the bowl of broccoli soup is). This
+corresponds to the maximum being exactly <span class="math inline">\(11\)</span>. By the formula
+<span class="math inline">\({\mathbb{P}}[ M_T = k] =  {\mathbb{P}}[X_T=k] + {\mathbb{P}}[X_T = k+1]\)</span>, we get
+<span class="math display">\[{\mathbb{P}}[ M_{15}=11] = {\mathbb{P}}[X_{15}=11] = \binom{15}{2}2^{-15}.\]</span></p></li>
+</ol>
+</div>
+</details>
 <!--
   catalan
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-112" class="exercise"><strong>Problem 4.14  (Extra Credit) </strong></span>Let <span class="math inline">\(C_n = \frac{1}{n+1}\binom{2n}{n}\)</span> denote the <span class="math inline">\(n\)</span>-th Catalan number, as defined at the end of the discussion of the Balot problem above.</p>
+<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Problem 4.14  (Extra Credit) </strong></span>Let <span class="math inline">\(C_n = \frac{1}{n+1}\binom{2n}{n}\)</span> denote the <span class="math inline">\(n\)</span>-th Catalan number, as defined at the end of the discussion of the Balot problem above.</p>
 <ol style="list-style-type: decimal">
 <li><p>Use the reflection principle to show that <span class="math inline">\(C_n\)</span> is the number
 trajectories <span class="math inline">\((x_0,\dots, x_{2n})\)</span> of a random
@@ -939,35 +1119,126 @@ walk with time horizon <span class="math inline">\(T=2n\)</span> such that <span
 vertices do not intersect.</p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/catalan_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-116" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(\hat{C}_n\)</span> be the number of all with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}\)</span> such that <span class="math inline">\(x_k&lt;0\)</span>
+for some <span class="math inline">\(k\)</span>. This way, <span class="math inline">\(C_n = \binom{2n}{n} - \hat{C}_n\)</span>, since the total number
+of trajectories with <span class="math inline">\(x_0=x_{2n}=0\)</span> is <span class="math inline">\(\binom{2n}{n}\)</span>. If we reflect each
+trajectory that contributes to <span class="math inline">\(\hat{C}_n\)</span> around the level <span class="math inline">\(-1\)</span>, we will get a
+trajectory with <span class="math inline">\(x_{2n} = -2\)</span>. Conversely, each trajectory from <span class="math inline">\(x_0=\)</span> to
+<span class="math inline">\(x_{2n}=-2\)</span> will cross the level <span class="math inline">\(-1\)</span> at some point <span class="math inline">\(k\)</span>, and its reflection
+(around <span class="math inline">\(-1\)</span>) will be a trajectory with <span class="math inline">\(x_0=0\)</span> to <span class="math inline">\(x_{2n}=0\)</span>. Therefore,
+<span class="math inline">\(\hat{C}_n = \binom{2n}{n+1}\)</span> because there are exactly <span class="math inline">\(\binom{2n}{n+1}\)</span>
+trajectories with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}=-2\)</span> (<span class="math inline">\(n+1\)</span> down-steps and <span class="math inline">\(2n - (n+1) =  n-1\)</span> up-steps). Putting it all together, we get
+<span class="math display">\[\begin{align}
+   C_n &amp;= \binom{2n}{n} -
+  \binom{2n}{n+1} = \frac{(2n)!}{n! n!} - \frac{(2n)!}{ (n+1)! (n-1)!} = \frac{
+  (2n)!}{ (n-1)! n!} \Big( \frac{1}{n} - \frac{1}{n+1}\Big)\\ &amp; = \frac{ (2n)!}{ (n-1)! n!
+  n (n+1)} = \frac{1}{n+1} \binom{2n}{n}.
+  \end{align}\]</span></p></li>
+<li><p>Let <span class="math inline">\(A\)</span> denote the set of all trajectories of <span class="math inline">\(T=2n+2\)</span> steps with <span class="math inline">\(x_0=x_{2n+2}=0\)</span>
+that never dip below zero, so that <span class="math inline">\(C_{n+1} = \# A\)</span> (the number of elements in <span class="math inline">\(A\)</span>)
+We can split <span class="math inline">\(A\)</span> into several subclasses according to the first
+time <span class="math inline">\(0\)</span> is re-visited after <span class="math inline">\(x_0=0\)</span>. More precisely, let <span class="math inline">\(A_m\)</span> denote the
+set of all trajectories in <span class="math inline">\(A\)</span> such that <span class="math inline">\(x_{m}=0\)</span>, but <span class="math inline">\(x_k&gt;0\)</span> for <span class="math inline">\(0&lt;k&lt;m\)</span>.
+Since you can be back at <span class="math inline">\(0\)</span> only at even times, the sets <span class="math inline">\(A_m\)</span> with <span class="math inline">\(m\)</span> odd are empty.
+Therefore, we can focus on <span class="math inline">\(A_{2i}\)</span> for <span class="math inline">\(i=1,2, \dots, n\)</span>.
+As shown on the plot below (where <span class="math inline">\(T=20\)</span> and <span class="math inline">\(2i =10\)</span>)
+<img src="_main_files/figure-html/unnamed-chunk-337-1.png" width="672" style="display: block; margin: auto;" />
+each trajectory in <span class="math inline">\(A_{2i}\)</span> must look like this:
+the first step is necessarily up (blue segment). After that the trajectory stays at or
+above the level <span class="math inline">\(1\)</span> until time <span class="math inline">\(x_{2i-1}\)</span>, when it must be exactly at <span class="math inline">\(1\)</span> (green segments).
+The next step must be down (blue, to make good on the promise that <span class="math inline">\(x_{2i}=0\)</span>),
+and after that, the trajectory (red) is free to do whatever it wants (subject to
+remaining in the set <span class="math inline">\(A\)</span>).</p>
+<p>The green portion of the graph is itself a trajectory that starts at the
+same level where it ends, and never goes below it. Its size is <span class="math inline">\(2(i-1)\)</span>,
+so the number of possible green sub-trajectories is <span class="math inline">\(C_{i-1}\)</span>. After that,
+the red trajectory is just like any other trajectory in <span class="math inline">\(A\)</span>, but of length
+<span class="math inline">\(2(n+1)-2i\)</span>, so the number of possible red trajectories is <span class="math inline">\(C_{n+1-i}.\)</span> Hence, the
+number of trajectories in <span class="math inline">\(A_{2i}\)</span> is <span class="math inline">\(C_{i-1} C_{n+1-i}.\)</span>
+Since <span class="math inline">\(A\)</span> is made up of <span class="math inline">\(A_2, A_4, \dots, A_{2(n+1)}\)</span>, we have
+<span class="math display">\[ \#A = \sum_{i=1}^{n+1} \#
+  A_{2i} = \sum_{i=1}^{n+1} C_{i-1} C_{n+1-i} = \sum_{i=0}^{n} C_{i} C_{n-i}. \]</span>
+Note that we used tacitly that <span class="math inline">\(C_0=1\)</span>.</p></li>
+<li><p>Let the number of pairings without intersections (as in the problem) be denoted
+by <span class="math inline">\(B_n\)</span>. The goal is to show that <span class="math inline">\(B_n = C_n\)</span>, where <span class="math inline">\(C_n\)</span> is the <span class="math inline">\(n\)</span>-th
+Catalan number.</p>
+<p>We start by picking a vertex of the regular <span class="math inline">\(2n\)</span>-gon and calling it <span class="math inline">\(V_1\)</span>.
+Starting from <span class="math inline">\(V_1\)</span> and going clockwise, we name the other vertices
+<span class="math inline">\(V_2,V_3,\dots, V_{2n}\)</span>. The set of all pairings without intersections, as
+in the problem, can be split into subclasses according to to which vertex is
+paired with <span class="math inline">\(V_1\)</span>. More precisely, let <span class="math inline">\(A_m\)</span> be the set of all pairings in
+which <span class="math inline">\(V_1\)</span> is paired with <span class="math inline">\(V_m\)</span>. We first note that no pairing can exist in
+which <span class="math inline">\(m\)</span> is odd(why?), we we can write <span class="math inline">\(m=2i\)</span>.
+<img src="_main_files/figure-html/unnamed-chunk-338-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Each pairing in <span class="math inline">\(A_{2i}\)</span>
+splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,  \dots, V_{2i-1}\)</span>“to the left”
+of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1  V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>
+to the right (there are <span class="math inline">\(2n -  2i\)</span> of those. No pairing can use one point “to the left” and one point “to
+the right”, because the segment joining them would necessarily intersect
+<span class="math inline">\(V_1 V_{2i}\)</span>. Hence, the problem is reduced to two smaller, but similar,
+problems. We can pair the points “to the left” in <span class="math inline">\(B_{i-1}\)</span> ways (the red segments), and those
+“to the right” in <span class="math inline">\(B_{n-i}\)</span> ways (green segments),
+resulting in exactly <span class="math inline">\(B_{i-1} B_{n-i}\)</span>
+possible pairings when <span class="math inline">\(V_1\)</span> is paired with <span class="math inline">\(V_{2i}\)</span>. It remains to sum over
+<span class="math inline">\(i\)</span> to obtain <span class="math inline">\(B_n = \sum_{i=1}^{n} B_{i-1} B_{n-i}\)</span>,
+or, equivalently,
+<span class="math display">\[ B_{n+1} = \sum_{i=0}^{n} B_{i} B_{m-i}.\]</span></p>
+<p>In other words <span class="math inline">\(B_n\)</span>s satisfy the same recursive equation as the Catalan numbers
+<span class="math inline">\(C_n\)</span>s. To conclude that <span class="math inline">\(B_n = C_n\)</span>, it will be enough to show that <span class="math inline">\(B_2 = C_2\)</span>.
+Using the formula for the <span class="math inline">\(n\)</span>-th Catalan number, we have <span class="math inline">\(C_2 = 2\)</span>. On the other
+hand <span class="math inline">\(B_2\)</span> is also <span class="math inline">\(2\)</span> because there are two ways to pair the vertices of a
+square without intersections.</p></li>
+</ol>
+</div>
+</details>
 <!--
   no_return_to_zero
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Problem 4.15  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, what
+<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Problem 4.15  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, what
 is the probability that <span class="math inline">\(X\)</span> does not visit <span class="math inline">\(0\)</span> during the time interval
 <span class="math inline">\(1,\dots, n\)</span>.</p>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-118" class="solution"><em>Solution</em>. </span>Let us denote the required probability by <span class="math inline">\(p_n\)</span>, i.e.,
+<span class="math display">\[p_n={\mathbb{P}}[ X_1\not= 0, X_2\not=0, \dots, X_n\not=0].\]</span> For <span class="math inline">\(n=1\)</span>,
+<span class="math inline">\(p_1=1\)</span>, since <span class="math inline">\(X_1\)</span> is either <span class="math inline">\(1\)</span> or <span class="math inline">\(-1\)</span>. For <span class="math inline">\(n&gt;1\)</span>, let <span class="math inline">\(\delta_1\)</span> be
+the first increment <span class="math inline">\(\delta_1=X_1-X_0=X_1\)</span>. If <span class="math inline">\(\delta_1=-1\)</span>, we need to
+compute that probability that a random walk of length <span class="math inline">\(n-1\)</span>, starting at
+<span class="math inline">\(-1\)</span>, does not hit <span class="math inline">\(0\)</span>. This probability is, in turn, the same as the
+probability that a random walk of length <span class="math inline">\(n-1\)</span>, starting from <span class="math inline">\(0\)</span>, never
+hits <span class="math inline">\(1\)</span>. By the symmetry of the increments, the same reasoning works
+for the case <span class="math inline">\(\delta_1=1\)</span>. Therefore,
+<span class="math display">\[\begin{align}
+  p_n &amp;=
+  {\mathbb{P}}[ X_1\leq 0, X_2\leq 0, \dots, X_{n-1}\leq 0]\, {\mathbb{P}}[\delta_1=-1]\\ 
+    &amp; \quad+ 
+  {\mathbb{P}}[ X_1\geq 0, X_2\geq 0, \dots, X_{n-1}\leq 0]\, {\mathbb{P}}[\delta_1=1]\\
+    &amp;=\tfrac{1}{2}{\mathbb{P}}[ M_{n-1}=0] + \tfrac{1}{2}{\mathbb{P}}[M_{n-1}=0] = {\mathbb{P}}[ M_{n-1}=0], 
+\end{align}\]</span>
+where <span class="math inline">\(M_n=\max\{X_0,\dots, X_n\}\)</span>. Using the formula from the notes,
+this probability is given by <span class="math display">\[p_n= 2^{-n+1} \binom{n-1}{ \lfloor n/2 \rfloor},\]</span>
+where <span class="math inline">\(\lfloor x \rfloor\)</span> denotes the largest integer <span class="math inline">\(\leq x\)</span>.</p>
+</div>
+</details>
 <!--
   hit_times_1
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-114" class="exercise"><strong>Problem 4.16  </strong></span>Let <span class="math inline">\(\tau_{-1}\)</span> be the hitting time of the level <span class="math inline">\({-1}\)</span> for a simple biased
+<p><span id="exr:unlabeled-div-119" class="exercise"><strong>Problem 4.16  </strong></span>Let <span class="math inline">\(\tau_{-1}\)</span> be the hitting time of the level <span class="math inline">\({-1}\)</span> for a simple biased
 random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Choose the correct answer(s) (they will depend on the value of the
 parameter <span class="math inline">\(p\)</span>):</p>
 <ol style="list-style-type: lower-alpha">
@@ -978,19 +1249,26 @@ parameter <span class="math inline">\(p\)</span>):</p>
 <li>none of the above.</li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01b_Advanced_Random_Walks/hit_times_1_sol.Rmd"} -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-120" class="solution"><em>Solution</em>. </span>Hitting the level <span class="math inline">\(-1\)</span> for a biased random walk with parameter <span class="math inline">\(p\)</span> is equivalent to hitting the level <span class="math inline">\(1\)</span> for a biased random walk with parameter <span class="math inline">\(1-p\)</span>. The correct answers are: a and d, for <span class="math inline">\(p&lt;1/2\)</span>, c, for <span class="math inline">\(p=1/2\)</span> and b for <span class="math inline">\(p&lt;1/2\)</span>.</p>
+<!-- ```{r echo=F} -->
+<!-- df = data.frame( p = c("$<\\frac{1}{2}$","$=\\frac{1}{2}$", "$>\\frac{1}{2}$"), -->
+<!--                  answers = c ("b.", "c.", "a., d.") ) -->
+<!-- kable(df, row.names = FALSE, align="cl", escape=FALSE) %>% -->
+<!--     kableExtra::kable_styling(full_width = FALSE) -->
 <!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+</div>
+</details>
 <!--
   min_stopping_times
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Problem 4.17  </strong></span>Let <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\tilde{\tau}\)</span> be two stopping times. Which of the following are necessarily stopping times, as well:</p>
+<p><span id="exr:unlabeled-div-121" class="exercise"><strong>Problem 4.17  </strong></span>Let <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\tilde{\tau}\)</span> be two stopping times. Which of the following are necessarily stopping times, as well:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\max(\tau,\widetilde{\tau})\)</span></li>
 <li><span class="math inline">\(\min(\tau, \widetilde{\tau})\)</span></li>
@@ -998,19 +1276,27 @@ parameter <span class="math inline">\(p\)</span>):</p>
 <li><span class="math inline">\(\tau-\widetilde{\tau}\)</span> (assuming that <span class="math inline">\(\tau \geq \widetilde{\tau}\)</span>)</li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01b_Advanced_Random_Walks/min_stopping_times_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-122" class="solution"><em>Solution</em>. </span><part> 1. </part>
+Yes. Wait for both of them to happen and then stop.</p>
+<p><part> 2. </part>
+Yes. Wait for one of them to happen and stop immediately.</p>
+<p><part> 3. </part>
+Yes. Wait for the earlier one to happen, and write down the time when it happens (call it <span class="math inline">\(n\)</span>). Then wait for the later one to happen, and wait additional <span class="math inline">\(n\)</span> units of time after that. Then stop.</p>
+<p><part> 4. </part>
+No. Let <span class="math inline">\(\tau=\tau_2\)</span> and <span class="math inline">\(\widetilde{\tau} = \tau_1\)</span> (the hitting times of levels <span class="math inline">\(2\)</span> and <span class="math inline">\(1\)</span>). It may happen that <span class="math inline">\(\tau_1=13\)</span> and then <span class="math inline">\(\tau_2=14\)</span>, but you don’t know whether it will at time <span class="math inline">\(\widetilde{\tau} - \tau = 1\)</span>.</p>
+</div>
+</details>
 <!--
   stopping_times_2
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-116" class="exercise"><strong>Problem 4.18  </strong></span>Either one of the following <span class="math inline">\(4\)</span> random times is <em>not</em> a stopping
+<p><span id="exr:unlabeled-div-123" class="exercise"><strong>Problem 4.18  </strong></span>Either one of the following <span class="math inline">\(4\)</span> random times is <em>not</em> a stopping
 time for a simple random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>, or they all are. Choose the
 one which is not in the first case, or choose e. if you think they all
 are.</p>
@@ -1024,19 +1310,23 @@ whatever happens <em>last</em></li>
 <li>none of the above.</li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_2_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-124" class="solution"><em>Solution</em>. </span>The correct answer is e. The first, second, third, or … hitting times of a level are
+stopping times, and so are their minima or maxima. Note that for two
+stopping times <span class="math inline">\(\tau_1\)</span> and <span class="math inline">\(\tau_2\)</span>, the one that happens <em>first</em> is
+<span class="math inline">\(\min(\tau_1,\tau_2)\)</span> and the one that happens <em>last</em> is <span class="math inline">\(\max(\tau_1,\tau_2)\)</span>.</p>
+</div>
+</details>
 <!--
   stopping_times_3
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Problem 4.19  </strong></span>At most one of the following <span class="math inline">\(4\)</span> random times <em>is</em> a stopping time
+<p><span id="exr:unlabeled-div-125" class="exercise"><strong>Problem 4.19  </strong></span>At most one of the following <span class="math inline">\(4\)</span> random times <em>is</em> a stopping time
 for a simple random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Either choose the one which you
 think is a stopping time, or choose e. if you think there are no
 stopping times among them.</p>
@@ -1049,13 +1339,17 @@ stopping times among them.</p>
 <li>none of the above are stopping times.</li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_3_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-126" class="solution"><em>Solution</em>. </span>The correct answer is e. For each of the random times in a.-d. you need
+to know something about the future to tell whether they happened when
+they happened. For example, for <span class="math inline">\(c.\)</span>, you have no way of knowing (in
+general) whether or not <span class="math inline">\(X_{2} - X_1\)</span> equals <span class="math inline">\(X_3\)</span> at time <span class="math inline">\(2\)</span>.</p>
+</div>
+</details>
 <p>⬇︎ In case you were wondering, the text below belongs to footnotes from somewhere high above.⬇︎</p>
 
 </div>
