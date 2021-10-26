@@ -1021,7 +1021,5 @@ In all examples below we assume that $0 < p < 1$.
 
 
 
-⬇︎ In case you were wondering, the text below belongs to footnotes from somewhere high above.⬇︎
-
-
+## Endnotes
 
