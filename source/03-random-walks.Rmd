@@ -625,6 +625,9 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 
 </details>
 
+
+
+
 <!--
   same_value_three_points
 -->
@@ -704,4 +707,20 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 :::
 </details>
 
+
+::: {.exercise}
+```{r child="problems/01_Random_Walks/three-rv_prb.Rmd"}
+```
+:::
+
+<details>
+  <summary>Click for Solution</summary>
+
+::: {.solution}
+\
+
+```{r child="problems/01_Random_Walks/three-rv_sol.Rmd"}
+```
+:::
+</details>
 ## Endnotes

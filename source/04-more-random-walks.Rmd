@@ -927,6 +927,21 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 
 ## Additional problems for Chapter 4
 
+<!-- assorted-rw -->
+::: {.exercise}
+```{r child="~/.s/problems/01_Random_Walks/assorted-rw_prb.Rmd"}
+```
+:::
+
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="~/.s/problems/01_Random_Walks/assorted-rw_sol.Rmd"}
+```
+:::
+</details>
+
+
 <!--
   3-max-problems
   ------------------------------------------------
