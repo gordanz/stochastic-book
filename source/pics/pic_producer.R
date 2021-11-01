@@ -2,13 +2,13 @@ library(chapman)
 library(tidyverse)
 
 
-plotpng <- function(x, filename, height=1600, ...) {
+plotpng <- function(x, filename, height=1800, ...) {
   output_dir = "~/.ms/pics/"
   x = x %>% 
     set_graphics_parameters(
                             vertex.label.cex = 5,
                             edge.arrow.size = 2,
-                            margin=c(0,0,0,0),
+                            margin=c(1,1,0,0),
                             edge.width = 5)
   
   png(filename = paste0(output_dir, filename),
@@ -329,24 +329,42 @@ plotpng(m,"professor_chain.png")
 #     
 
 # mc_prob18 (the bold play)
-p=0.3; q=1-p
-m = markov_chain() %>% 
-  add_state("0", x=-2, y=0) %>% 
-  add_state("1", x=-1, y=-1) %>% 
-  add_state("2", x=-1, y=1) %>% 
-  add_state("3", x=1, y=-1) %>% 
-  add_state("4", x=1, y=1) %>% 
-  add_state("5", x=2, y=0) %>% 
-  add_edge("0","0", prob=1, loop_angle = pi) %>% 
-  add_edge("1","0", prob=q) %>% 
-  add_edge("1","2", prob=p) %>% 
-  add_edge("2","0", prob=q) %>% 
-  add_edge("2","4", prob=p) %>% 
-  add_edge("3","1", prob=q) %>% 
-  add_edge("3","5", prob=p) %>% 
-  add_edge("4","3", prob=q) %>% 
-  add_edge("4","5", prob=p) %>% 
-  add_edge("5","5", prob=1) %>% 
-  set_auto_edge_colors() %>% 
-  set_absorbing_state_color()
-plotpng(m,"bold_play_chain.png")
+# p=0.3; q=1-p
+# m = markov_chain() %>% 
+#   add_state("0", x=-2, y=0) %>% 
+#   add_state("1", x=-1, y=-1) %>% 
+#   add_state("2", x=-1, y=1) %>% 
+#   add_state("3", x=1, y=-1) %>% 
+#   add_state("4", x=1, y=1) %>% 
+#   add_state("5", x=2, y=0) %>% 
+#   add_edge("0","0", prob=1, loop_angle = pi) %>% 
+#   add_edge("1","0", prob=q) %>% 
+#   add_edge("1","2", prob=p) %>% 
+#   add_edge("2","0", prob=q) %>% 
+#   add_edge("2","4", prob=p) %>% 
+#   add_edge("3","1", prob=q) %>% 
+#   add_edge("3","5", prob=p) %>% 
+#   add_edge("4","3", prob=q) %>% 
+#   add_edge("4","5", prob=p) %>% 
+#   add_edge("5","5", prob=1) %>% 
+#   set_auto_edge_colors() %>% 
+#   set_absorbing_state_color()
+# plotpng(m,"bold_play_chain.png")
+
+# simple_prob
+m = markov_chain(4) %>% 
+  add_edge(2, 2, 1 , loop_angle = -pi/2) %>% 
+  add_edge(1, 2, 1 / 3, label="1/3") %>% 
+  add_edge(1, 1, 1 / 3, label="1/3", loop_angle = - pi/2) %>% 
+  add_edge(1, 3, 1 / 3, label = "1/3") %>% 
+  add_edge(3, 3, 1 / 2, loop_angle = -pi/2) %>% 
+  add_edge(3, 4, 1 / 2) %>% 
+  add_edge(4, 4, 1, loop_angle = -pi/2) %>% 
+  set_auto_layout() %>% 
+  rotate(pca=TRUE) %>% 
+  set_auto_edge_colors()
+
+plotpng(m,"simple_prob_chain.png", height = 800, ylim = c(0, 0.5), xlim = c(-2, 2), width=1000)
+
+
+  

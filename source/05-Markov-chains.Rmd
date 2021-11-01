@@ -885,6 +885,28 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 </details> 
 
 
+<!--
+  simple-step
+  ------------------------------------------------
+-->
+::: {.exercise}
+
+```{r child="problems/02_Basic_Chains/simple_prob_prb.Rmd"}
+```
+
+:::
+
+
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/simple_prob_sol.Rmd"}
+```
+
+:::
+</details> 
+
 
 
 <!--
