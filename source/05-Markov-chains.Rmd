@@ -996,7 +996,7 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1004,7 +1004,7 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 ```
 
 :::
-</details> -->
+</details>
 
 </div>
 

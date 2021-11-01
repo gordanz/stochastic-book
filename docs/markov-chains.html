@@ -1674,135 +1674,97 @@ whether it rained the last time he checked.</p>
 </ol></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-
-\ 
-
-1.
-
-    We model the situation by a Markov chain whose stats are all of the 
-    form h$m$-$n$ or $m$-$n$o, or "Wet" 
-    where h$m$-$n$ means that the professor
-    is at home, there are $m$ umbrellas at home and $n$ umbrellas at the office. Similarly, 
-    $m$-$n$o means that there are $m$ umbrellas at home, $n$ at the office and the 
-    professor is at the office. 
-    
-    The transitions between the states are simple to figure out. For example, from
-    the state h$4$-$1$ the professor will move to the state $4$-$1$o with
-    probability $19/20$ (if it does not rain) and $3$-$2$o with probability $1/20$? (if it
-    rains). 
-    The professor can move to the state "Wet" only from h$0$-$5$ (with
-    probability $1/20$) or from $5$-$0$o (with probability $1/5$), and the state "Wet" is made absorbing. Here is the full transition graph, color-coded as follows: green is $1/20$, pink is $19/20$, orange is $1/5$ and purple is $4/5$:
-    
-    <img src="pics/professor_chain.png" width="1200" style="display: block; margin: auto;" />
-    
-    
-    The state "Wet" is absorbing, and, therefore, constitutes a one-element recurrent class. All the other states belong to a separate, transient, class. The periods of the state "Wet" is 1, while the periods of all other states are $2$. 
-    
-    We prepare for Monte Carlo by building the state-space vector `S` and the transition matrix `P` for this chain. 
-    
-    ```r
-    S= c("h0-4", "h1-3", "h2-2", "h3-1", "h4-0", 
-         "0-4o", "1-3o", "2-2o", "3-1o", "4-0o", "Wet")
-    P = matrix(c( 
-      0, 0, 0, 0, 0, 0.95, 0, 0, 0, 0, 0.05,  
-      0, 0, 0, 0, 0, 0.05, 0.95, 0, 0, 0, 0,  
-      0, 0, 0, 0, 0, 0, 0.05, 0.95, 0, 0, 0,  
-      0, 0, 0, 0, 0, 0, 0, 0.05, 0.95, 0, 0,  
-      0, 0, 0, 0, 0, 0, 0, 0, 0.05, 0.95, 0,  
-      0.8, 0.2, 0, 0, 0, 0, 0, 0, 0, 0, 0,  
-      0, 0.8, 0.2, 0, 0, 0, 0, 0, 0, 0, 0,  
-      0, 0, 0.8, 0.2, 0, 0, 0, 0, 0, 0, 0,  
-      0, 0, 0, 0.8, 0.2, 0, 0, 0, 0, 0, 0,  
-      0, 0, 0, 0, 0.8, 0, 0, 0, 0, 0, 0.2,  
-      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 ),
-     byrow=T, ncol = 11 )
-    ```
-    
-    
-2.
-
-    We reuse the code from the notes to simulate `nsim=1000` paths of 
-    length `T=300`, - it is almost exactly the same as before, but we include it here for completion:
-    
-    
-    ```r
-    T = 300  # number of time periods
-    nsim = 1000  # number of simulations
-    
-    single_trajectory = function(i) {
-        path = numeric(T)
-        last = i
-        for (n in 1:T) {
-            path[n] = sample(1:11, prob = P[last, ], size = 1)
-            last = path[n]
-        }
-        return(path)
-    }
-    
-    i0 = 3  # the initial state is 'h2-2' which is at position 3 in S
-    
-    d = data.frame(X0 = i0, t(replicate(nsim, single_trajectory(i0))))
-    ```
-    
-    First, we check that all $1000$ trajectories reached the state 11 ("Wet") during the first `T=300` steps:
-    
-    
-    ```r
-    table(d$X300)
-    ## 
-    ##   11 
-    ## 1000
-    ```
-    Good. Next, we need to find the first time a given trajectory hits 11 (the number of the state "Wet"). 
-    This can be done in several ways but perhaps the easiest is by combining  built-in functions `match` (which finds the first occurrence of an element in a vector) and `apply` (which applies a function to each row/column in a matric/data.frame):
-    
-    ```r
-    tau = apply(d, 1, function(x) match(11, x))
-    mean(tau)
-    ## [1] 39
-    ```
-    
-    a. So we get that the expected number of trips before the professor gets wet is about $39$, which is about $19.5$ days. 
-    
-    b. The second question can be answered in many ways. One possibility is to split the state "Wet" into two states, depending on the location the professor left just before he got wet. A simpler possibility is check the number of the state with index `tau-1` in the data frame `d` above:
-    
-    ```r
-    last_locations = integer(nsim)
-    for (i in 1:nsim) last_locations[i] = d[i, tau[i] - 1]
-    table(last_locations)
-    ## last_locations
-    ##   1  10 
-    ##  10 990
-    ```
-    The states h$0$-$4$ and $0$-$4$o have numbers $1$ and $10$ in the vector `S` of states. Therefore, the table obtained above tells us that just before getting wet the professor left his home in $10$ draws out of $1000$, and his office in the remaining $990$ draws. Hence, the Monte-Carlo estimate of the required probability is $0.99$. 
-    
-    There is another, computationally simpler, but conceptually more tricky way of obtaining this estimate. Since there are $11$ states in the chain, the "Wet" state can only be reached from two states with numbers $1$ and $10$ and all states (except for "Wet") have period $2$,  we have the following dichotomy: 
-    
-    - if the "Wet" state was reached in an *odd* number of steps, the last "dry" location must have been "Home", and
-    - if the "Wet" state was reached in an *even* number of steps, the last "dry" location must have been "Office".
-    
-    Therefore, it is enough to count the number of even and odd elements in `tau`:
-    
-    ```r
-    tau_mod_2 = tau %% 2
-    table(tau_mod_2)
-    ## tau_mod_2
-    ##   0   1 
-    ##  10 990
-    ```
-    We get the same probability estimate as above. 
-    
-    
-    
-    
-
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-156" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>We model the situation by a Markov chain whose stats are all of the
+form h<span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span> or <span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span>o, or “Wet”
+where h<span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span> means that the professor
+is at home, there are <span class="math inline">\(m\)</span> umbrellas at home and <span class="math inline">\(n\)</span> umbrellas at the office. Similarly,
+<span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span>o means that there are <span class="math inline">\(m\)</span> umbrellas at home, <span class="math inline">\(n\)</span> at the office and the
+professor is at the office.</p>
+<p>The transitions between the states are simple to figure out. For example, from
+the state h<span class="math inline">\(4\)</span>-<span class="math inline">\(1\)</span> the professor will move to the state <span class="math inline">\(4\)</span>-<span class="math inline">\(1\)</span>o with
+probability <span class="math inline">\(19/20\)</span> (if it does not rain) and <span class="math inline">\(3\)</span>-<span class="math inline">\(2\)</span>o with probability <span class="math inline">\(1/20\)</span>? (if it
+rains).
+The professor can move to the state “Wet” only from h<span class="math inline">\(0\)</span>-<span class="math inline">\(5\)</span> (with
+probability <span class="math inline">\(1/20\)</span>) or from <span class="math inline">\(5\)</span>-<span class="math inline">\(0\)</span>o (with probability <span class="math inline">\(1/5\)</span>), and the state “Wet” is made absorbing. Here is the full transition graph, color-coded as follows: green is <span class="math inline">\(1/20\)</span>, pink is <span class="math inline">\(19/20\)</span>, orange is <span class="math inline">\(1/5\)</span> and purple is <span class="math inline">\(4/5\)</span>:</p>
+<p><img src="pics/professor_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p>The state “Wet” is absorbing, and, therefore, constitutes a one-element recurrent class. All the other states belong to a separate, transient, class. The periods of the state “Wet” is 1, while the periods of all other states are <span class="math inline">\(2\)</span>.</p>
+<p>We prepare for Monte Carlo by building the state-space vector <code>S</code> and the transition matrix <code>P</code> for this chain.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="markov-chains.html#cb180-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;h0-4&quot;</span>, <span class="st">&quot;h1-3&quot;</span>, <span class="st">&quot;h2-2&quot;</span>, <span class="st">&quot;h3-1&quot;</span>, <span class="st">&quot;h4-0&quot;</span>, </span>
+<span id="cb180-2"><a href="markov-chains.html#cb180-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;0-4o&quot;</span>, <span class="st">&quot;1-3o&quot;</span>, <span class="st">&quot;2-2o&quot;</span>, <span class="st">&quot;3-1o&quot;</span>, <span class="st">&quot;4-0o&quot;</span>, <span class="st">&quot;Wet&quot;</span>)</span>
+<span id="cb180-3"><a href="markov-chains.html#cb180-3" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>( </span>
+<span id="cb180-4"><a href="markov-chains.html#cb180-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>,  </span>
+<span id="cb180-5"><a href="markov-chains.html#cb180-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-6"><a href="markov-chains.html#cb180-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-7"><a href="markov-chains.html#cb180-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-8"><a href="markov-chains.html#cb180-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-9"><a href="markov-chains.html#cb180-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-10"><a href="markov-chains.html#cb180-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-11"><a href="markov-chains.html#cb180-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-12"><a href="markov-chains.html#cb180-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb180-13"><a href="markov-chains.html#cb180-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.2</span>,  </span>
+<span id="cb180-14"><a href="markov-chains.html#cb180-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span> ),</span>
+<span id="cb180-15"><a href="markov-chains.html#cb180-15" aria-hidden="true" tabindex="-1"></a> <span class="at">byrow=</span>T, <span class="at">ncol =</span> <span class="dv">11</span> )</span></code></pre></div></li>
+<li><p>We reuse the code from the notes to simulate <code>nsim=1000</code> paths of
+length <code>T=300</code>, - it is almost exactly the same as before, but we include it here for completion:</p>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="markov-chains.html#cb181-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">300</span>  <span class="co"># number of time periods</span></span>
+<span id="cb181-2"><a href="markov-chains.html#cb181-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span>  <span class="co"># number of simulations</span></span>
+<span id="cb181-3"><a href="markov-chains.html#cb181-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-4"><a href="markov-chains.html#cb181-4" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
+<span id="cb181-5"><a href="markov-chains.html#cb181-5" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
+<span id="cb181-6"><a href="markov-chains.html#cb181-6" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> i</span>
+<span id="cb181-7"><a href="markov-chains.html#cb181-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb181-8"><a href="markov-chains.html#cb181-8" aria-hidden="true" tabindex="-1"></a>        path[n] <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, <span class="at">prob =</span> P[last, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb181-9"><a href="markov-chains.html#cb181-9" aria-hidden="true" tabindex="-1"></a>        last <span class="ot">=</span> path[n]</span>
+<span id="cb181-10"><a href="markov-chains.html#cb181-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb181-11"><a href="markov-chains.html#cb181-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
+<span id="cb181-12"><a href="markov-chains.html#cb181-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb181-13"><a href="markov-chains.html#cb181-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-14"><a href="markov-chains.html#cb181-14" aria-hidden="true" tabindex="-1"></a>i0 <span class="ot">=</span> <span class="dv">3</span>  <span class="co"># the initial state is &#39;h2-2&#39; which is at position 3 in S</span></span>
+<span id="cb181-15"><a href="markov-chains.html#cb181-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-16"><a href="markov-chains.html#cb181-16" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">X0 =</span> i0, <span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_trajectory</span>(i0))))</span></code></pre></div>
+<p>First, we check that all <span class="math inline">\(1000\)</span> trajectories reached the state 11 (“Wet”) during the first <code>T=300</code> steps:</p>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="markov-chains.html#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>X300)</span>
+<span id="cb182-2"><a href="markov-chains.html#cb182-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb182-3"><a href="markov-chains.html#cb182-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   11 </span></span>
+<span id="cb182-4"><a href="markov-chains.html#cb182-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1000</span></span></code></pre></div>
+<p>Good. Next, we need to find the first time a given trajectory hits 11 (the number of the state “Wet”).
+This can be done in several ways but perhaps the easiest is by combining built-in functions <code>match</code> (which finds the first occurrence of an element in a vector) and <code>apply</code> (which applies a function to each row/column in a matric/data.frame):</p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="markov-chains.html#cb183-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">apply</span>(d, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">match</span>(<span class="dv">11</span>, x))</span>
+<span id="cb183-2"><a href="markov-chains.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tau)</span>
+<span id="cb183-3"><a href="markov-chains.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 39</span></span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>So we get that the expected number of trips before the professor gets wet is about <span class="math inline">\(39\)</span>, which is about <span class="math inline">\(19.5\)</span> days.</p></li>
+<li><p>The second question can be answered in many ways. One possibility is to split the state “Wet” into two states, depending on the location the professor left just before he got wet. A simpler possibility is check the number of the state with index <code>tau-1</code> in the data frame <code>d</code> above:</p></li>
+</ol>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="markov-chains.html#cb184-1" aria-hidden="true" tabindex="-1"></a>last_locations <span class="ot">=</span> <span class="fu">integer</span>(nsim)</span>
+<span id="cb184-2"><a href="markov-chains.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) last_locations[i] <span class="ot">=</span> d[i, tau[i] <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb184-3"><a href="markov-chains.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(last_locations)</span>
+<span id="cb184-4"><a href="markov-chains.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="do">## last_locations</span></span>
+<span id="cb184-5"><a href="markov-chains.html#cb184-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   1  10 </span></span>
+<span id="cb184-6"><a href="markov-chains.html#cb184-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
+<p>The states h<span class="math inline">\(0\)</span>-<span class="math inline">\(4\)</span> and <span class="math inline">\(0\)</span>-<span class="math inline">\(4\)</span>o have numbers <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> in the vector <code>S</code> of states. Therefore, the table obtained above tells us that just before getting wet the professor left his home in <span class="math inline">\(10\)</span> draws out of <span class="math inline">\(1000\)</span>, and his office in the remaining <span class="math inline">\(990\)</span> draws. Hence, the Monte-Carlo estimate of the required probability is <span class="math inline">\(0.99\)</span>.</p>
+<p>There is another, computationally simpler, but conceptually more tricky way of obtaining this estimate. Since there are <span class="math inline">\(11\)</span> states in the chain, the “Wet” state can only be reached from two states with numbers <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> and all states (except for “Wet”) have period <span class="math inline">\(2\)</span>, we have the following dichotomy:</p>
+<ul>
+<li>if the “Wet” state was reached in an <em>odd</em> number of steps, the last “dry” location must have been “Home”, and</li>
+<li>if the “Wet” state was reached in an <em>even</em> number of steps, the last “dry” location must have been “Office”.</li>
+</ul>
+<p>Therefore, it is enough to count the number of even and odd elements in <code>tau</code>:</p>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="markov-chains.html#cb185-1" aria-hidden="true" tabindex="-1"></a>tau_mod_2 <span class="ot">=</span> tau <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb185-2"><a href="markov-chains.html#cb185-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(tau_mod_2)</span>
+<span id="cb185-3"><a href="markov-chains.html#cb185-3" aria-hidden="true" tabindex="-1"></a><span class="do">## tau_mod_2</span></span>
+<span id="cb185-4"><a href="markov-chains.html#cb185-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   0   1 </span></span>
+<span id="cb185-5"><a href="markov-chains.html#cb185-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
+<p>We get the same probability estimate as above.</p></li>
+</ol>
+</div>
+</details>
 </div>
 </div>
 <div id="endnotes-4" class="section level2" number="5.6">

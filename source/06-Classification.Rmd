@@ -937,7 +937,8 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
+
 
 
 
@@ -964,9 +965,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
-
-
+</details> -->
 
 <!--3
   cl-stat-04
@@ -988,7 +987,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
@@ -1013,7 +1012,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
@@ -1038,7 +1037,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
@@ -1063,7 +1062,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
@@ -1088,7 +1087,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
@@ -1112,7 +1111,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
@@ -1137,54 +1136,11 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
-
-
-<!--10
-  cl-stat-13
-  ------------------------------------------------
--->
-::: {.exercise}
-
-```{r child="problems/03_Classification_of_States/cl-stat-13_prb.Rmd"}
-```
-
-:::
-
-
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/03_Classification_of_States/cl-stat-13_sol.Rmd"}
-```
-
-:::
-<details> -->
+</details> -->
 
 
 
-<!--11
-  cl-stat-14
-  ------------------------------------------------
--->
-::: {.exercise}
 
-```{r child="problems/03_Classification_of_States/cl-stat-14_prb.Rmd"}
-```
-
-:::
-
-
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/03_Classification_of_States/cl-stat-14_sol.Rmd"}
-```
-
-:::
-<details> -->
 
 
 <!--12
@@ -1208,7 +1164,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details> -->
 
 
 
