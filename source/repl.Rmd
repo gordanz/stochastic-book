@@ -100,8 +100,6 @@ Explain why the following statements are true for all states $i,j,k$ of a Markov
 
 
 ::: {.solution}
-\ 
-
 
   
 1.  If we start from state $i\in S$ we are already there! More rigorously, note that $0$
@@ -367,7 +365,8 @@ also holds at stopping times (and not only fixed times $n$). We will not
 prove this property it these notes, but we will gladly use it to prove
 the following dichotomy:
 
-::: {.theorem name="The \"Return\" Theorem"}
+```{theorem}
+(The "Return" Theorem)
 Let
 $\seqz{X}$ be a Markov chain on a countable state space $S$, with the
 (deterministic) initial state $X_0=i$. Then exactly one of the following
@@ -380,11 +379,11 @@ two statements hold with probability 1:
     $f_i=\PP_i[T_i(1)<\infty]$.
 
 In the first case, $i$ is recurrent and, in the second, it is transient.
-:::
+```
 
 \medskip
 
-:::{.proof}
+**Proof.** 
 If $f_i=1$, then $X$ is guaranteed to return to $i$ at least once. When
 that happens, however, the strong Markov property "deletes" the past,
 and the process "renews" itself. This puts us back in the original
@@ -401,11 +400,7 @@ $1-f_i$ that it will never come back to $i$, and, this is independent of
 the past behavior. If we think of the return to $i$ as a success, the
 number of successes before the first failure, i.e., the number of return
 visits to $i$, is nothing but a geometrically distributed random
-variable with parameter $f_i$. 
-
-:::
-
-
+variable with parameter $f_i$. Q.E.D.  
 
 The following interesting fact follows (almost) directly from the Return Theorem:
 
@@ -443,30 +438,28 @@ the random walk with $p\not=\tot$. All states are transitive there.
 Perhaps the most important consequence of the Return Theorem is the following 
 criterion for recurrence of Markov chains on finite or countable state spaces:
 
-::: {.theorem name="The Recurrence Criterion"}
+```{theorem}
+(The Recurrence Criterion)
 A state $i\in S$
 is recurrent if and only if $$\sum_{n\in\N} \pn_{ii}=\infty.$$
-:::
+```
 
-:::{.proof}
-Let $N_i$ denote the total number (finite or $\infty$) of visits to the state
-$i$, with the initial visit at time $0$ not counted. We can write $N_i$ as an
-infinite sum as follows $$N_i = \sum_{n=1}^{\infty} \inds{X_n = i}.$$ Taking the
-expectation yields $$\EE[N_i] = \EE_i[ \sum_{n=1}^{\infty} \inds{X_n=i}] =
-\sum_{n=1}^{\infty} \EE_i[ \inds{X_n=i}] = \sum_{n=1}^{\infty} \PP_i[ X_n=i] =
-\sum_{n=1}^{\infty} p^{(n)}_{ii},$$ where we used the intuitively acceptable
-(but not rigorously proven) fact that $\EE_i$ and an *infinite* sum can be
-switched.
+**Proof.**
+Let $N_i$ denote the total number (finite or $\infty$) of visits to the state $i$, with the initial visit at time $0$ not counted. 
+We can write $N_i$ as an infinite sum as follows
+$$N_i = \sum_{n=1}^{\infty} \inds{X_n = i}.$$ 
+  Taking the
+expectation yields
+$$\EE[N_i] = \EE_i[ \sum_{n=1}^{\infty} \inds{X_n=i}] = \sum_{n=1}^{\infty} \EE_i[ \inds{X_n=i}] = \sum_{n=1}^{\infty} \PP_i[
+ X_n=i] = \sum_{n=1}^{\infty} p^{(n)}_{ii},$$ where we used the intuitively acceptable (but not rigorously proven)
+fact that $\EE_i$ and an *infinite* sum can be switched.  
 
-If $i$ is transient, i.e., if $f_i<1$, the Return Theorem and the formula for
-the expected value of a geometric distribution imply that $$\EE_i[N_i] =
-\tf{f_i}{1-f_i}<\infty, \text{ and so } \sum_{n=1}^{\infty} p^{(n)}_{ii} =
-\EE_i[N_i]<\infty.$$ On the other hand, if $i$ is recurrent, the Return Theorem
-states that $N_i=\infty$.  Hence, $$\sum_{n=1}^{\infty}
-p^{(n)}_{ii}=\EE_i[N_i]=\infty,$$
-which is exactly what we had to prove. 
-:::
-
+If $i$ is transient, i.e., if
+$f_i<1$, the Return Theorem and the formula for the expected value of a geometric distribution imply that 
+$$\EE_i[N_i] = \tf{f_i}{1-f_i}<\infty, \text{ and so }
+ \sum_{n=1}^{\infty} p^{(n)}_{ii} = \EE_i[N_i]<\infty.$$ On the other
+hand, if $i$ is recurrent, the Return Theorem states that $N_i=\infty$.  Hence,
+$$\sum_{n=1}^{\infty} p^{(n)}_{ii}=\EE_i[N_i]=\infty. \text{ Q.E.D. }$$
 
 
 *Remark.* The central idea behind the proof of the recurrence criterion is the following: we managed tell 
@@ -500,14 +493,14 @@ unexpected result of George Pólya from 1921.
 
 In addition to the simple symmetric random walk on the line ($d=1$) we
 studied before, one can consider random walks whose values are in the
-plane ($d=2$), the space ($d=3$), etc. They defined as Markov Chains with 
-the state space $S=\bZ^d$ and the following transitions:  starting from the state $(x_1,\dots, x_d)$, it
-picks one of its $2d$ neighbors \begin{align} & (x_1+1,x_2, \dots, x_d),
-(x_1-1,x_2, \dots, x_d),\\
-&(x_1, x_2+1,\dots, x_d), (x_1, x_2-1,\dots, x_d),\\
-&... \\
-&(x_1,x_2, \dots, x_d+1), (x_1,x_2, \dots, x_d-1)\end{align} 
-randomly and uniformly and moves there. For 
+plane ($d=2$), the space ($d=3$), etc. These are usually defined as
+follows: the random walk in $d$ dimensions is the Markov chain with the
+state space $S=\bZ^d$ and the following transitions:  
+starting from the state $(x_1,\dots, x_d)$, it
+picks one of its $2d$ neighbors $(x_1+1,\dots, x_d)$,
+$(x_1-1,\dots, x_d)$, $(x_1, x_2+1,\dots, x_d)$,
+$(x_1, x_2-1,\dots, x_d)$, ..., $(x_1,\dots,
+x_d+1)$, $(x_1,\dots, x_d-1)$ randomly and uniformly and moves there. For 
 illustration, here is a picture of a path of a two-dimensional random walk; as time progresses, the color of the edges goes from black to orange, edges traversed
 multiple times are darker, dots mark the position of the walk at time $n=0$ (the black round dot) and at time $n=1000$ (orange square dot):
 
@@ -560,7 +553,7 @@ $$\pn = \pn_{00}= \PP_{0}[ X_n=(0,0,\dots, 0)].$$ As we learned some time ago,
 this probability can be computed by counting all "trajectories" from $(0,\dots, 0)$ 
 that return to $(0,\dots, 0)$ in $n$ steps. First of all, it is clear that $n$ needs to
 be even, i.e., $n=2m$, for some $m\in\N$. It helps if we think of any
-trajectory as a sequence of "increments" $\xi_1,\dots, \xi_n,$ where
+trajectory as a sequence of "increments" $\xi_1,\dots, \xi_n$, where
 each $\xi_i$ takes its value in the set $\set{1,-1,2,-2,\dots, d, -d}$.
 In words, $\xi_i= +k$ if the $k$-th coordinate increases by $1$ on the
 $i$-th step, and $\xi_i=-k$, if the $k$-th coordinate decreases^[For $d=2$ we could have used the values "up", "down", "left" and
@@ -642,11 +635,13 @@ transient for all $d\geq 3$, too (why?).
 
 To summarize  
 
-:::{.theorem name="Polya\'s theorem"}
+```{theorem}
+(Polya)
 The simple symmetric random walk is recurrent for $d=1,2$, but transient
 for $d\geq 3$.
-:::
+```
 
+<br> 
 In the words of Shizuo Kakutani
 
 > *A drunk man will find his way home, but a drunk bird may get lost
@@ -741,21 +736,21 @@ The distinction between different transient classes is usually not very
 important, so we pack all transient states together in a set
 $T=T_1\cup T_2\cup \dots$.
 
-:::{.definition}
+**Definition.**
 Let $S$ be the state space of a Markov chain $\seqz{X}$. Let
 $C_1,C_2, \dots$ be its recurrent classes,  $T_1,T_2,\dots$ the
 transient classes, and let $T=T_1\cup T_2\cup \dots$ be their union. The
 decomposition $$S= T \cup C_1 \cup C_2 \cup C_3 \cup \dots,$$ is called
 the **canonical decomposition** of the (state space of the) Markov chain $\seqz{X}$.  
-:::
 
 
 The reason that recurrent classes are important is simple - they can be
 interpreted as Markov chains themselves. To see why, we start with the following
 problem:
-
 ::: {.exercise}
+
   Show that recurrent classes are necessarily closed.
+
 :::
 
 
@@ -916,7 +911,7 @@ In all examples below we assume that $0 < p < 1$.
 
 
 
-<!--1
+<!--
   cl-stat-09
   ------------------------------------------------
 -->
@@ -928,21 +923,20 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
 
 ```{r child="problems/03_Classification_of_States/cl-stat-09_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
 
 
 
 
-<!--2
+<!--
   cl-stat-02
   ------------------------------------------------
 -->
@@ -954,21 +948,19 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
-
 
 ```{r child="problems/03_Classification_of_States/cl-stat-02_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--3
+<!--
   cl-stat-04
   ------------------------------------------------
 -->
@@ -980,7 +972,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -988,11 +980,11 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--4
+<!--
   cl-stat-06
   ------------------------------------------------
 -->
@@ -1004,20 +996,19 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
 
 ```{r child="problems/03_Classification_of_States/cl-stat-06_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--5
+<!--
   cl-stat-07
   ------------------------------------------------
 -->
@@ -1029,20 +1020,19 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
 
 ```{r child="problems/03_Classification_of_States/cl-stat-07_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--6
+<!--
   cl-stat-08
   ------------------------------------------------
 -->
@@ -1054,21 +1044,20 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
 
 ```{r child="problems/03_Classification_of_States/cl-stat-08_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
 
 
 
 
-<!--7
+<!--
   cl-stat-10
   ------------------------------------------------
 -->
@@ -1080,7 +1069,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1088,11 +1077,11 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--8
+ <!--
   cl-stat-11
   ------------------------------------------------
 -->
@@ -1104,7 +1093,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1112,11 +1101,11 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--9
+<!--
   cl-stat-12
   ------------------------------------------------
 -->
@@ -1128,19 +1117,18 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
 
 ```{r child="problems/03_Classification_of_States/cl-stat-12_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
 
 
-<!--10
+<!--
   cl-stat-13
   ------------------------------------------------
 -->
@@ -1152,7 +1140,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1160,11 +1148,11 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details>
 
 
 
-<!--11
+<!--
   cl-stat-14
   ------------------------------------------------
 -->
@@ -1176,7 +1164,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1184,10 +1172,10 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-<details> -->
+</details>
 
 
-<!--12
+<!--
   four-stmts
   ------------------------------------------------
 -->
@@ -1199,16 +1187,16 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
-\ 
 
 ```{r child="problems/03_Classification_of_States/four-stmts_sol.Rmd"}
 ```
 
 :::
-<details> -->
+</details>
+
 
 
 

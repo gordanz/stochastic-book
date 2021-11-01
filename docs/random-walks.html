@@ -212,6 +212,30 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.5" data-path="markov-chains.html"><a href="markov-chains.html#additional-problems-for-chapter-5"><i class="fa fa-check"></i><b>5.5</b> Additional problems for Chapter 5</a></li>
 <li class="chapter" data-level="5.6" data-path="markov-chains.html"><a href="markov-chains.html#endnotes-4"><i class="fa fa-check"></i><b>5.6</b> Endnotes</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>6</b> Classification of States</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification-of-states.html"><a href="classification-of-states.html#the-communication-relation"><i class="fa fa-check"></i><b>6.1</b> The Communication Relation</a></li>
+<li class="chapter" data-level="6.2" data-path="classification-of-states.html"><a href="classification-of-states.html#classes"><i class="fa fa-check"></i><b>6.2</b> Classes</a></li>
+<li class="chapter" data-level="6.3" data-path="classification-of-states.html"><a href="classification-of-states.html#transience-and-recurrence"><i class="fa fa-check"></i><b>6.3</b> Transience and recurrence</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="classification-of-states.html"><a href="classification-of-states.html#the-return-theorem"><i class="fa fa-check"></i><b>6.3.1</b> The Return Theorem</a></li>
+<li class="chapter" data-level="6.3.2" data-path="classification-of-states.html"><a href="classification-of-states.html#a-recurrence-criterion"><i class="fa fa-check"></i><b>6.3.2</b> A recurrence criterion</a></li>
+<li class="chapter" data-level="6.3.3" data-path="classification-of-states.html"><a href="classification-of-states.html#polyas-theorem"><i class="fa fa-check"></i><b>6.3.3</b> Polya’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="classification-of-states.html"><a href="classification-of-states.html#class-properties"><i class="fa fa-check"></i><b>6.4</b> Class properties</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="classification-of-states.html"><a href="classification-of-states.html#the-canonical-decomposition"><i class="fa fa-check"></i><b>6.4.1</b> The Canonical Decomposition</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="classification-of-states.html"><a href="classification-of-states.html#a-few-examples"><i class="fa fa-check"></i><b>6.5</b> A few examples</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="classification-of-states.html"><a href="classification-of-states.html#random-walks-2"><i class="fa fa-check"></i><b>6.5.1</b> Random walks</a></li>
+<li class="chapter" data-level="6.5.2" data-path="classification-of-states.html"><a href="classification-of-states.html#gamblers-ruin"><i class="fa fa-check"></i><b>6.5.2</b> Gambler’s ruin</a></li>
+<li class="chapter" data-level="6.5.3" data-path="classification-of-states.html"><a href="classification-of-states.html#deterministically-monotone-markov-chain-1"><i class="fa fa-check"></i><b>6.5.3</b> Deterministically monotone Markov chain</a></li>
+<li class="chapter" data-level="6.5.4" data-path="classification-of-states.html"><a href="classification-of-states.html#the-game-of-tennis"><i class="fa fa-check"></i><b>6.5.4</b> The game of tennis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="classification-of-states.html"><a href="classification-of-states.html#additional-problems-for-chapter-6"><i class="fa fa-check"></i><b>6.6</b> Additional problems for Chapter 6</a></li>
+<li class="chapter" data-level="6.7" data-path="classification-of-states.html"><a href="classification-of-states.html#endnotes-5"><i class="fa fa-check"></i><b>6.7</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -809,7 +833,7 @@ the random walk tends to forget its past after a large number of steps.</p>
 <p><span id="exr:unlabeled-div-87" class="exercise"><strong>Problem 3.9  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk with <span class="math inline">\({\mathbb{P}}[X_1=1]=p\in (0,1)\)</span>, and
 let <span class="math inline">\(A_n\)</span> be the (signed) area under its graph (in the picture below, <span class="math inline">\(A_n\)</span> is
 the area of the blue part minus the area of the orange part).</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-332-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-361-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Find a formula for <span class="math inline">\(A_n\)</span> in terms of <span class="math inline">\(X_1,\dots, X_n\)</span>.</p></li>
 <li><p>Compute <span class="math inline">\({\mathbb{E}}[A_n]\)</span> and <span class="math inline">\(\operatorname{Var}[A_n]\)</span>, for <span class="math inline">\(n\in{\mathbb{N}}\)</span>. (You will find the
@@ -934,7 +958,7 @@ Click for Solution
 <ol style="list-style-type: decimal">
 <li><p>First, we simulate <code>nsim=100,000</code> trajectories of length <code>T=100</code> of a simple symmetric random walk. We reuse the function <code>simulate_walk</code> from the notes.</p>
 <div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="random-walks.html#cb167-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb167-2"><a href="random-walks.html#cb167-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
+<span id="cb167-2"><a href="random-walks.html#cb167-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
 <span id="cb167-3"><a href="random-walks.html#cb167-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">simulate_walk</span>(nsim, T)</span></code></pre></div>
 <p>Next, we write three functions. The input to each will be a trajectory of a random walk, and the output will be the value of the corresponding random variable (<span class="math inline">\(P\)</span>, <span class="math inline">\(L\)</span> or <span class="math inline">\(R\)</span>) for that particular trajectory. The function <code>rev</code> reverses its input.</p>
 <div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="random-walks.html#cb168-1" aria-hidden="true" tabindex="-1"></a>compute_P <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
@@ -961,7 +985,7 @@ simulated trajectories of the walk)</p>
 <span id="cb170-2"><a href="random-walks.html#cb170-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(R, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">prob =</span> T, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.04</span>))</span>
 <span id="cb170-3"><a href="random-walks.html#cb170-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(L, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">prob =</span> T, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.04</span>))</span>
 <span id="cb170-4"><a href="random-walks.html#cb170-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(P, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">prob =</span> T, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.04</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-341-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-370-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>All three histograms look the same. Perhaps the random variables <span class="math inline">\(P\)</span>, <span class="math inline">\(L\)</span> and <span class="math inline">\(R\)</span> have the same distributions? That is quite strange, though, because they are constructed by very different procedures.</p></li>
 <li><p>When we normalize the random variables <span class="math inline">\(P\)</span>,<span class="math inline">\(L\)</span>, and <span class="math inline">\(R\)</span> by <span class="math inline">\(T=100\)</span>, i.e.,
 consider <span class="math inline">\(P/100\)</span>, <span class="math inline">\(L/100\)</span> and <span class="math inline">\(R/100\)</span>, we obtain almost the same histograms.
@@ -973,9 +997,9 @@ If you fiddle around a bit with the two parameters you will
 quickly find that setting both of them to <span class="math inline">\(1/2\)</span> fits our histograms very well (I am plotting only
 the histogram of <span class="math inline">\(R/T\)</span>; the others look very similar)</p>
 <div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="random-walks.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(R<span class="sc">/</span><span class="dv">100</span>, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">prob =</span> T, <span class="at">main =</span> <span class="st">&quot;Histogram of R/100 with the pdf of B(1/2, 1/2) superimposed&quot;</span>)</span>
-<span id="cb171-2"><a href="random-walks.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbeta</span>(x, <span class="at">shape1 =</span> <span class="fl">0.5</span>, <span class="at">shape2 =</span> <span class="fl">0.5</span>), <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="dv">2</span>,</span>
+<span id="cb171-2"><a href="random-walks.html#cb171-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dbeta</span>(x, <span class="at">shape1 =</span> <span class="fl">0.5</span>, <span class="at">shape2 =</span> <span class="fl">0.5</span>), <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="dv">2</span>, </span>
 <span id="cb171-3"><a href="random-walks.html#cb171-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-342-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/unnamed-chunk-371-1.png" width="672" style="display: block; margin: auto;" />
 That is, indeed, what is going on. As the number of steps <span class="math inline">\(T\)</span> gets larger,
 the distributions of <span class="math inline">\(L/,T\)</span> <span class="math inline">\(P/T\)</span> and <span class="math inline">\(R/T\)</span> all converge towards the same,
 beta, distribution with parameters <span class="math inline">\(\alpha=1/2\)</span> and <span class="math inline">\(\beta=1/2\)</span>. The exact meaning of the word “converge” in the previous sentence, or the proof of this statement are beyond the scope of this course, but you cannot argue with the fact that the fit looks really good on the picture above.</p>
