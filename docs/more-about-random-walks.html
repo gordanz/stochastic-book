@@ -888,22 +888,22 @@ Out of the <span class="math inline">\(8\)</span>, only the following three have
 Since the walk is symmetric, each of those has probability <span class="math inline">\(1/8\)</span>, so <span class="math inline">\({\mathbb{P}}[ X_1+X_2+X_3&gt;0] = 3/8\)</span>.</p></li>
 <li><p>Since the increments of the random walk are independent, we have
 <span class="math display">\[\begin{align}
-  {\mathbb{P}}[ X_1 = 1, X_9=1 \text{ and } X_{15} = 3] &amp; = {\mathbb{P}}[ X_1 = 1, \, X_9-X_1 = 0,\, X_{15} - X_9 = 2]\\
-  &amp;= {\mathbb{P}}[ X_1 = 1]\times {\mathbb{P}}[ X_9 - X_1 =0 ] \times {\mathbb{P}}[ X_{15} - X_9 = 2]
+  {\mathbb{P}}[ X_3 = 1, X_9=1 \text{ and } X_{15} = 3] &amp; = {\mathbb{P}}[ X_1 = 1, \, X_9-X_1 = 0,\, X_{15} - X_9 = 2]\\
+  &amp;= {\mathbb{P}}[ X_3 = 1]\times {\mathbb{P}}[ X_9 - X_3 =0 ] \times {\mathbb{P}}[ X_{15} - X_9 = 2]
   \end{align}\]</span>
-Moreover, we have <span class="math inline">\({\mathbb{P}}[X_9 - X_1=0] = {\mathbb{P}}[ X_8 - X_0=0] = {\mathbb{P}}[ X_8 = 0]\)</span>. Similarly
+Moreover, we have <span class="math inline">\({\mathbb{P}}[X_9 - X_3=0] = {\mathbb{P}}[ X_6 - X_0=0] = {\mathbb{P}}[ X_6 = 0]\)</span>. Similarly
 <span class="math inline">\({\mathbb{P}}[ X_{15} - X_9 = 2] = {\mathbb{P}}[ X_6 = 2]\)</span>. It remains to use the formula for
 probabilities of the form <span class="math inline">\({\mathbb{P}}[ X_n = k]\)</span> from the notes to obtain</p>
 <p><span class="math display">\[\begin{align}
-  {\mathbb{P}}[ X_1 = 1, X_9=1 \text{ and } X_{15} = 3] &amp; = 
-  \frac{1}{2} \times \binom{8}{4} 2^{-8} \times \binom{6}{4} 2^{-6}= 2^{-15} \binom{8}{4} \binom{6}{4}
+  {\mathbb{P}}[ X_3 = 1, X_9=1 \text{ and } X_{15} = 3] &amp; = 
+  \binom{3}{2} 2^{-3} \times \binom{6}{3} 2^{-6} \times \binom{6}{4} 2^{-6}= 2^{-15} \binom{6}{4} \binom{6}{3}
   \end{align}\]</span></p></li>
 <li><p>By symmetry, this is the same as <span class="math inline">\({\mathbb{P}}[ X_n \leq 2, 0\leq n \leq 10] = {\mathbb{P}}[ M_{10} \leq 2]\)</span>, where <span class="math inline">\(M\)</span> is the
 running-maximum process. By (the formula derived from) the reflection principle, we have
 <span class="math display">\[\begin{align}
  {\mathbb{P}}[ M_n \leq 2] &amp;= {\mathbb{P}}[ M_{10} = 2]+{\mathbb{P}}[M_{10} = 1] + {\mathbb{P}}[ M_{10} = 0] =({\mathbb{P}}[ X_{10} = 2] + {\mathbb{P}}[X_{10}=3])
  +({\mathbb{P}}[X_{10} = 1] + {\mathbb{P}}[X_{10} = 2]) + ({\mathbb{P}}[ X_{10}=0] + {\mathbb{P}}[ X_{10}=1]) \\
- &amp;= {\mathbb{P}}[ X_{10} = 0] + 2 {\mathbb{P}}[ X_{10} = 2] = \binom{10}{5} 2^{-10} + \binom{10}{6} 2^{-10}.
+ &amp;= {\mathbb{P}}[ X_{10} = 0] + 2 {\mathbb{P}}[ X_{10} = 2] = \binom{10}{5} 2^{-10} + 2 \times \binom{10}{6} 2^{-10}.
 \end{align}\]</span></p></li>
 <li><p>There are several ways of solving this problem. The simplest one would be to list all <span class="math inline">\(8\)</span> trajectories
 of the random walk of length <span class="math inline">\(3\)</span> compute the value of <span class="math inline">\(X_1 \times X_3\)</span> on each of them:</p>
