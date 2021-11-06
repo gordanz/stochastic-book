@@ -50,6 +50,7 @@
 \newcommand{\fnf}[1]{f^{(#1)}}
 \newcommand{\fn}{\fnf{n}}
 \newcommand{\tofro}{\leftrightarrow}
+\newcommand{\nto}{\not\!\to}
 \newcommand{\Vn}{V^{(n)}}
 
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}

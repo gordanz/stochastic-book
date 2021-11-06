@@ -224,8 +224,8 @@ following steps:
     element.
 
 The notion of a class is especially useful in relation to another
-natural concept: A set $B\subseteq S$ of states is said to be **closed** if $i
-  \not\to j$ for all $i\in B$ and all $j\in S\setminus B$. In words, $B$ is closed if it is
+natural concept: A set $B\subseteq S$ of states is said to be **closed** if 
+$i\not\to j$ for all $i\in B$ and all $j\in S\setminus B$. In words, $B$ is closed if it is
   impossible to get out of. A state
 $i\in S$ such that the set $\set{i}$ is closed is called **absorbing**.
 
