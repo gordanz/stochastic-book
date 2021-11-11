@@ -130,10 +130,15 @@ called the **fundamental matrix** of the Markov chain.
 Before we turn to the "Tennis" example, let us analyze a simpler case of
 Gambler's ruin with $a=3$.
 
-<div class="problem">
+::: {.exercise}
+
 What is the probability that a gambler coming in at $x=\$1$ in a Gambler's ruin problem with $a=3$ succeeds in "getting rich"? We *do not* assume that $p=\tot$.
-</div>
-<div class="solution">
+
+:::
+
+
+::: {.solution}
+
   The states $0$ and $3$ are absorbing, and all
 the others are transient. Therefore $C_1=\set{0}$, $C_2=\set{3}$ and
 $T=T_1=\set{1,2}$. The transition matrix $P$ in the canonical form (the
@@ -166,13 +171,19 @@ to invert: $$(I-Q)^{-1}= \frac{1}{1-p+p^2}\begin{bmatrix}
 \frac{(1-p)^2}{1-p+p^2} & \frac{p}{1-p+p^2} \\
 \end{bmatrix}.$$ Therefore, for  the initial "wealth" is 1,
 the probability of getting rich before bankruptcy is $u_{13}=p^2/(1-p+p^2)$ (the entry in the first row ($x=1$) and the second column ($a=3$) of $U$.)
-</div>
 
-<div class="problem">
+:::
+
+::: {.exercise}
+
 Find the probability of winning a whole game of Tennis, for a player whose 
 probability of winning a single rally is $p=0.45$. 
-</div>
-<div class="solution">
+
+:::
+
+
+::: {.solution}
+
 In the "Tennis" example, the transition matrix is $20\times 20$, with only 2
 recurrent states (each in its own class). In order to find the matrix $U$, we (essentially) need to invert an $18\times 18$ matrix and that is a 
 job for a computer. We start with an R function which produces the transition
@@ -269,7 +280,8 @@ Actually, you don't really need computers to derive the
 expression above. Can you do it by finding all the ways in which the
 game can be won in $n=4,5,6,8, 10, 12,  \dots$ rallies, computing their
 probabilities, and then adding them all up?
-</div>
+
+:::
 
 ## Expected reward
 
@@ -325,11 +337,14 @@ $g=(0,0,\dots, 1,
 \dots, 0)$, $v_i$ is nothing but the $(i,j)$-entry in $F=(I-Q)^{-1}$.
 
 Let's illustrate these ideas on some of our example chains:
-<div class="problem">
+
+::: {.exercise}
 What is the expected duration of a game of tennis? Compute it for 
 several values of the parameter $p$.
-</div>
-<div class="solution">
+:::
+
+
+::: {.solution}
 The main idea is to perform a reward computation with $g(i)=1$ for all transient states $i$. The R code is very similar to the one in the absorption example:
 ```{r}
 expected_duration = function(p) {
@@ -358,12 +373,18 @@ evenly matched ($p=0.5$).
 Therefore, a game between fairly equally matched opponents lasts $6.75$. 
 The game cannot be shorter than $4$ rallies and that is exactly the expected 
 duration when one player wins with certainty in each rally.
-</div>
-<div class="problem">
+
+:::
+::: {.exercise}
+
 What is the expected number of "deuces", i.e., scores $(40,40)$? Compute it for 
 several values of the parameter $p$.
-</div>
-<div class="solution">
+
+:::
+
+
+::: {.solution}
+
 This can be computed exactly as above, except that now the
 reward function is given by
 \begin{align}
@@ -447,20 +468,19 @@ hist(num_of_deuces, breaks = 0:9-0.5, main="Distribution of the number of deuces
 
  We see that most of the games have no deuces. However, in the
 cases where a deuce does happen, it is quite possible it will be repeated. A sizable number of draws yielded $4$ of more deuces. 
-</div>
+:::
 
 We end with another example from a different area:
 
-<div class="problem">
-  
+::: {.exercise}
 Alice plays the following game. She picks a pattern consisting of three
 letters from the set $\set{H,T}$, and then tosses a fair coin until her
 pattern appears for the first time. If she has to pay $\$1$ for each
 coin toss, what is the expected cost she is going to incur? What pattern
 should she choose to minimize that cost?
-</div>
+:::
 
-<div class="solution">
+::: {.solution}
 We start by choosing a pattern, say $HTH$, and computing the number of
 coin tosses Alice expects to make before it appears. This is just the
 kind of computation that can be done using our absorption-and-reward
@@ -519,6 +539,7 @@ appearance of $HHH$ comes out as $14$.
 \medskip
 Can you do this for other patterns? Which one should Alice choose to
 minimize her cost?
+:::
 
 ## Additional Problems for Chapter 7
 <div style="border: 1px solid; padding: 5px;">
@@ -531,29 +552,50 @@ minimize her cost?
   mc_prob1
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/mc_prob1_prb.Rmd"}
 ```
-</div>
 
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/mc_prob1_sol.Rmd"}
-```
-</div>
+:::
+
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/mc_prob1_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 
 <!--
   ar-prob-01
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/ar-prob-01_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/ar-prob-01_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-01_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 
 
@@ -561,92 +603,164 @@ minimize her cost?
   ar-prob-03
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/ar-prob-03_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/ar-prob-03_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-03_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--
   mc_prob2
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/mc_prob2_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/mc_prob2_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/mc_prob2_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--
   ar-prob-04
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/ar-prob-04_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/ar-prob-04_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-04_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--
   ar-prob-02
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/ar-prob-02_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/ar-prob-02_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-02_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--
   ar-prob-15
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/ar-prob-15_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/ar-prob-15_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-15_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--
   basil-comp
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/basil-comp_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/basil-comp_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/basil-comp_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--
   prof-comp
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/prof-comp_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/prof-comp_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/prof-comp_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 
 
@@ -654,14 +768,24 @@ minimize her cost?
   facility
   ------------------------------------------------
 -->
-<div class="problem">
+::: {.exercise}
+
 ```{r child="problems/04_Absorption_and_Reward/facility_prb.Rmd"}
 ```
-</div>
-<div class="solution">
-```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"}
-```
-</div>
+
+:::
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 
 

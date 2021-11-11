@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="markov-chains.html"/>
-<link rel="next" href="dist.html"/>
+<link rel="next" href="absorption-and-reward.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -236,6 +236,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="classification-of-states.html"><a href="classification-of-states.html#additional-problems-for-chapter-6"><i class="fa fa-check"></i><b>6.6</b> Additional problems for Chapter 6</a></li>
 <li class="chapter" data-level="6.7" data-path="classification-of-states.html"><a href="classification-of-states.html#endnotes-5"><i class="fa fa-check"></i><b>6.7</b> Endnotes</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html"><i class="fa fa-check"></i><b>7</b> Absorption and Reward</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#absorption"><i class="fa fa-check"></i><b>7.1</b> Absorption</a></li>
+<li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
+<li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -379,12 +385,12 @@ P_2=\begin{bmatrix}
 </div>
 <div class="solution">
 <p><span id="unlabeled-div-162" class="solution"><em>Solution</em>. </span>For the first chain, with transition graph</p>
-<p><img src="pics/period-example-1_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p><img src="pics/period-example-1_chain.png" style="display: block; margin: auto;" /></p>
 <p>the return set for each state <span class="math inline">\(i\in\{1,2,3\}\)</span> is
 given by <span class="math inline">\(R(i)= \{3,6,9,12,\dots\}\)</span>, so <span class="math inline">\(d(i)=3\)</span> for all
 <span class="math inline">\(i\in\{1,2,3\}\)</span>.</p>
 <p>Even though the transition graph of the second chain looks very similar to the first one</p>
-<p><img src="pics/period-example-2_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p><img src="pics/period-example-2_chain.png" style="display: block; margin: auto;" /></p>
 <p>the situation changes drastically:
 <span class="math display">\[\begin{align}
   R(1) &amp; =\{ 3,4,5,6, \dots \},\\
@@ -429,7 +435,8 @@ in <span class="math inline">\(S\setminus C_1\)</span>, repeat the procedure abo
 element.</p></li>
 </ol>
 <p>The notion of a class is especially useful in relation to another
-natural concept: A set <span class="math inline">\(B\subseteq S\)</span> of states is said to be <strong>closed</strong> if <span class="math inline">\(i  \not{\rightarrow}j\)</span> for all <span class="math inline">\(i\in B\)</span> and all <span class="math inline">\(j\in S\setminus B\)</span>. In words, <span class="math inline">\(B\)</span> is closed if it is
+natural concept: A set <span class="math inline">\(B\subseteq S\)</span> of states is said to be <strong>closed</strong> if
+<span class="math inline">\(i\not{\rightarrow}j\)</span> for all <span class="math inline">\(i\in B\)</span> and all <span class="math inline">\(j\in S\setminus B\)</span>. In words, <span class="math inline">\(B\)</span> is closed if it is
 impossible to get out of. A state
 <span class="math inline">\(i\in S\)</span> such that the set <span class="math inline">\(\{i\}\)</span> is closed is called <strong>absorbing</strong>.</p>
 <div class="exercise">
@@ -1013,7 +1020,7 @@ some <span class="math inline">\(k\in C_2\)</span> and <span class="math inline"
 -->
 <div class="exercise">
 <p><span id="exr:unlabeled-div-184" class="exercise"><strong>Problem 6.12  </strong></span>Consider a Markov Chain whose transition graph is given below (with orange edges having probability <span class="math inline">\(1/2\)</span>, black <span class="math inline">\(1\)</span>, blue <span class="math inline">\(3/4\)</span> and green <span class="math inline">\(1/4\)</span>)</p>
-<p><img src="pics/cl-stat-02_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p><img src="pics/cl-stat-02_chain.png" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Identify the classes.</p></li>
 <li><p>Find transient and recurrent states.</p></li>
@@ -1266,7 +1273,7 @@ that it is false.</p>
 
 We will use the following chain for all the counterexamples (green edges have probability $1/2$ and black edges $1$)
 
-<img src="pics/cl-stat-10_chain.png" width="1200" style="display: block; margin: auto;" />
+<img src="pics/cl-stat-10_chain.png" style="display: block; margin: auto;" />
 
 1.  False. Take $j=0$ and $i=1$ in the chain in the picture.
 
@@ -1302,7 +1309,7 @@ example showing that it is false.</p>
 
 Consider the following chain for the counterexamples (where red edges have probability $1/2$, black $1$ and green $1/4$)
 
-<img src="pics/cl-stat-11_chain.png" width="1200" style="display: block; margin: auto;" />
+<img src="pics/cl-stat-11_chain.png" style="display: block; margin: auto;" />
 
 
 1.   False. Take $i=2$ and $j=3$ in the chain above.
@@ -1427,9 +1434,6 @@ d. False. That would mean that $j$ is transient.
 
 </div>
 </div>
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="8">
@@ -1453,7 +1457,7 @@ and its value is given by
         </div>
       </div>
 <a href="markov-chains.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="absorption-and-reward.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
