@@ -5,8 +5,8 @@ language:
     chapter_name: "Chapter "
 before_chapter_script: ["before-script.R"]
 delete_merged_file: true
-output_dir: "../docs/"
-# output_dir: "../tmpdocs/"
+# output_dir: "../docs/"
+output_dir: "../tmpdocs/"
 self_contained: FALSE
 view: https://github.com/gordanz/M362M/blob/master/source/%s
 repo: https://github.com/gordanz/M362M
@@ -19,6 +19,6 @@ rmd_files: [
    "05-Markov-chains.Rmd",
    "06-Classification.Rmd",
    "07-Absorption-and-Reward.Rmd",
-   # "08-Stationary-Distributions.Rmd",
+   "08-Stationary-Distributions.Rmd",
    "distributions.Rmd"
     ]

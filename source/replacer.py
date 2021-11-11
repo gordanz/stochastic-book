@@ -1,7 +1,7 @@
 import re
 import sys
 
-filename = "07-Absorption-and-Reward.Rmd"
+filename = "08-Stationary-Distributions.Rmd"
 
 # if not len(sys.argv) == 2:
 #     print("Need exactly one argument")

@@ -109,7 +109,7 @@ the same trick with any Markov chain, as long as the initial
 distribution with the above property can be found. Actually, such a
 distribution is so important that it even has a name:
 
-**Definition.** A distribution $\pi=(\pi_i)_{i\in  S}$ on the state space $S$ of a
+A distribution $\pi=(\pi_i)_{i\in  S}$ on the state space $S$ of a
 Markov chain with transition matrix $P$ is called a **stationary distribution**
 if
 $$\PP[X_1=i]=\pi_i \text{ for all } i\in S, 
@@ -756,7 +756,7 @@ Theorem, since our chain is clearly finite, irreducible and aperiodic.
 ## The PageRank algorithm
 
 An internet user searches for the term "Jimi Hendrix" and find out that
-it appears in about 40 million web pages. Some of these pages are
+it appears in more than 60 million web pages. Some of these pages are
 likely to be more important than others. For example, the Wikipedia
 entry for the famous guitarist is almost certainly more relevant for an
 average user than the web page my son built for his gerbil Jimi Hendrix.
@@ -885,15 +885,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!-- \  -->
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
-<!-- ``` -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ::: -->
-<!-- </details> -->
+```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"}
+```
+
+:::
+</details>
 
 
 
@@ -910,15 +910,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 <!--
@@ -933,15 +933,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -957,15 +957,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -981,15 +981,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -1005,15 +1005,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 <!--
@@ -1028,15 +1028,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
