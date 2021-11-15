@@ -928,7 +928,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -937,7 +937,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 

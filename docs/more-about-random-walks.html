@@ -242,6 +242,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
 <li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="stationary-distributions.html"><a href="stationary-distributions.html"><i class="fa fa-check"></i><b>8</b> Stationary Distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationarity-and-stationary-distributions"><i class="fa fa-check"></i><b>8.1</b> Stationarity and stationary distributions</a></li>
+<li class="chapter" data-level="8.2" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma"><i class="fa fa-check"></i><b>8.2</b> Stationary distributions for finite irreducible chains and Kac’s lemma</a></li>
+<li class="chapter" data-level="8.3" data-path="stationary-distributions.html"><a href="stationary-distributions.html#long-run-averages"><i class="fa fa-check"></i><b>8.3</b> Long-run averages</a></li>
+<li class="chapter" data-level="8.4" data-path="stationary-distributions.html"><a href="stationary-distributions.html#limiting-distributions"><i class="fa fa-check"></i><b>8.4</b> Limiting distributions</a></li>
+<li class="chapter" data-level="8.5" data-path="stationary-distributions.html"><a href="stationary-distributions.html#the-pagerank-algorithm"><i class="fa fa-check"></i><b>8.5</b> The PageRank algorithm</a></li>
+<li class="chapter" data-level="8.6" data-path="stationary-distributions.html"><a href="stationary-distributions.html#additional-problems-for-chapter-8"><i class="fa fa-check"></i><b>8.6</b> Additional Problems for Chapter 8</a></li>
+<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-6"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -291,7 +301,7 @@ probabilities.</p>
 and ask what the probabilities <span class="math inline">\({\mathbb{P}}[M_n = k]\)</span> for <span class="math inline">\(k=0,\dots, n\)</span> are.
 An easy numerical solution to this problem can be given by simulation. We reuse the function
 <code>simulate_walk</code> defined at the beginning of the chapter, but also employ a new function, called <code>apply</code> which “applies” a function to each row (or column) of a data frame or a matrix. It seems to be tailor-made for our purpose<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> because we want to compute the maximum of each row of the simulation matrix (remember - the row means keep the realization fixed, but vary the time-index <span class="math inline">\(n\)</span>). The syntax of <code>apply</code> is simple - it needs the data frame, the margin (rows are coded as 1 and columns as 2; so when the margin is 1, the function is applied row-wise and when the margin is 2, the function is applied column-wise) and the function to be applied (<code>max</code> in our case). The output is a vector of size <code>nsim</code> with all row-wise maxima:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="more-about-random-walks.html#cb172-1" aria-hidden="true" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="fl">1e+05</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="more-about-random-walks.html#cb172-1" aria-hidden="true" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="dv">100000</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
 <span id="cb172-2"><a href="more-about-random-walks.html#cb172-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">apply</span>(walk, <span class="dv">1</span>, max)</span>
 <span id="cb172-3"><a href="more-about-random-walks.html#cb172-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(M, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-180-1.png" width="672" style="display: block; margin: auto;" /></p>
@@ -1158,7 +1168,7 @@ Click for Solution
 <span id="cb173-2"><a href="more-about-random-walks.html#cb173-2" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb173-3"><a href="more-about-random-walks.html#cb173-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
 <span id="cb173-4"><a href="more-about-random-walks.html#cb173-4" aria-hidden="true" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb173-5"><a href="more-about-random-walks.html#cb173-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (X <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb173-5"><a href="more-about-random-walks.html#cb173-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (X <span class="sc">==</span> <span class="dv">1</span>) </span>
 <span id="cb173-6"><a href="more-about-random-walks.html#cb173-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
 <span id="cb173-7"><a href="more-about-random-walks.html#cb173-7" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb173-8"><a href="more-about-random-walks.html#cb173-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
@@ -1170,11 +1180,11 @@ Click for Solution
 <span id="cb174-2"><a href="more-about-random-walks.html#cb174-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
 <span id="cb174-3"><a href="more-about-random-walks.html#cb174-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T))</span>
 <span id="cb174-4"><a href="more-about-random-walks.html#cb174-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-394-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-407-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="more-about-random-walks.html#cb175-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="fl">1e+05</span>)</span>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="more-about-random-walks.html#cb175-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
 <span id="cb175-2"><a href="more-about-random-walks.html#cb175-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
 <span id="cb175-3"><a href="more-about-random-walks.html#cb175-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
 <span id="cb175-4"><a href="more-about-random-walks.html#cb175-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1200,7 +1210,7 @@ Click for Solution
 <span id="cb176-2"><a href="more-about-random-walks.html#cb176-2" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb176-3"><a href="more-about-random-walks.html#cb176-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
 <span id="cb176-4"><a href="more-about-random-walks.html#cb176-4" aria-hidden="true" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb176-5"><a href="more-about-random-walks.html#cb176-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">abs</span>(X) <span class="sc">==</span> <span class="dv">5</span>)</span>
+<span id="cb176-5"><a href="more-about-random-walks.html#cb176-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">abs</span>(X) <span class="sc">==</span> <span class="dv">5</span>) </span>
 <span id="cb176-6"><a href="more-about-random-walks.html#cb176-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
 <span id="cb176-7"><a href="more-about-random-walks.html#cb176-7" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb176-8"><a href="more-about-random-walks.html#cb176-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
@@ -1209,7 +1219,7 @@ Click for Solution
 <span id="cb177-2"><a href="more-about-random-walks.html#cb177-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
 <span id="cb177-3"><a href="more-about-random-walks.html#cb177-3" aria-hidden="true" tabindex="-1"></a>tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T))</span>
 <span id="cb177-4"><a href="more-about-random-walks.html#cb177-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau_abs, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-397-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-410-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="more-about-random-walks.html#cb178-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
 <span id="cb178-2"><a href="more-about-random-walks.html#cb178-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
 <span id="cb178-3"><a href="more-about-random-walks.html#cb178-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
@@ -1344,7 +1354,7 @@ set of all trajectories in <span class="math inline">\(A\)</span> such that <spa
 Since you can be back at <span class="math inline">\(0\)</span> only at even times, the sets <span class="math inline">\(A_m\)</span> with <span class="math inline">\(m\)</span> odd are empty.
 Therefore, we can focus on <span class="math inline">\(A_{2i}\)</span> for <span class="math inline">\(i=1,2, \dots, n\)</span>.
 As shown on the plot below (where <span class="math inline">\(T=20\)</span> and <span class="math inline">\(2i =10\)</span>)
-<img src="_main_files/figure-html/unnamed-chunk-399-1.png" width="672" style="display: block; margin: auto;" />
+<img src="_main_files/figure-html/unnamed-chunk-412-1.png" width="672" style="display: block; margin: auto;" />
 each trajectory in <span class="math inline">\(A_{2i}\)</span> must look like this:
 the first step is necessarily up (blue segment). After that the trajectory stays at or
 above the level <span class="math inline">\(1\)</span> until time <span class="math inline">\(x_{2i-1}\)</span>, when it must be exactly at <span class="math inline">\(1\)</span> (green segments).
@@ -1371,7 +1381,7 @@ in the problem, can be split into subclasses according to to which vertex is
 paired with <span class="math inline">\(V_1\)</span>. More precisely, let <span class="math inline">\(A_m\)</span> be the set of all pairings in
 which <span class="math inline">\(V_1\)</span> is paired with <span class="math inline">\(V_m\)</span>. We first note that no pairing can exist in
 which <span class="math inline">\(m\)</span> is odd(why?), we we can write <span class="math inline">\(m=2i\)</span>.
-<img src="_main_files/figure-html/unnamed-chunk-400-1.png" width="672" style="display: block; margin: auto;" /></p>
+<img src="_main_files/figure-html/unnamed-chunk-413-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Each pairing in <span class="math inline">\(A_{2i}\)</span>
 splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,  \dots, V_{2i-1}\)</span>“to the left”
 of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1  V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>

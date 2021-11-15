@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Stationary Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;</title>
+  <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Stationary Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
+  <meta name="github-repo" content="gordanz/M362M" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Stationary Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;" />
+  
+  <meta name="twitter:description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
+  
+
+<meta name="author" content="Gordan Zitkovic" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="absorption-and-reward.html"/>
+<link rel="next" href="dist.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">M362M Lecture notes</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> An intro to R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-an-r-environment-on-your-computer"><i class="fa fa-check"></i><b>1.1</b> Setting up an R environment on your computer</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#installing-r"><i class="fa fa-check"></i><b>1.1.1</b> Installing R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="intro.html"><a href="intro.html#installing-rstudio"><i class="fa fa-check"></i><b>1.1.2</b> Installing RStudio</a></li>
+<li class="chapter" data-level="1.1.3" data-path="intro.html"><a href="intro.html#installing-basic-packages"><i class="fa fa-check"></i><b>1.1.3</b> Installing basic packages</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#learning-the-basics-of-r"><i class="fa fa-check"></i><b>1.2</b> Learning the basics of R</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="intro.html"><a href="intro.html#the-console-scripts-and-r-notebooks"><i class="fa fa-check"></i><b>1.2.1</b> The console, Scripts and R Notebooks</a></li>
+<li class="chapter" data-level="1.2.2" data-path="intro.html"><a href="intro.html#asking-for-help"><i class="fa fa-check"></i><b>1.2.2</b> Asking for help</a></li>
+<li class="chapter" data-level="1.2.3" data-path="intro.html"><a href="intro.html#vectors"><i class="fa fa-check"></i><b>1.2.3</b> Vectors</a></li>
+<li class="chapter" data-level="1.2.4" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>1.2.4</b> Matrices</a></li>
+<li class="chapter" data-level="1.2.5" data-path="intro.html"><a href="intro.html#functions"><i class="fa fa-check"></i><b>1.2.5</b> Functions</a></li>
+<li class="chapter" data-level="1.2.6" data-path="intro.html"><a href="intro.html#if-else-statements"><i class="fa fa-check"></i><b>1.2.6</b> If-else statements</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#additional-problems-for-chapter-1"><i class="fa fa-check"></i><b>1.3</b> Additional Problems for Chapter 1</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#endnotes"><i class="fa fa-check"></i><b>1.4</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html"><i class="fa fa-check"></i><b>2</b> Simulation of Random Variables and Monte Carlo</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#simulation-of-some-common-probability-distributions"><i class="fa fa-check"></i><b>2.1</b> Simulation of some common probability distributions</a></li>
+<li class="chapter" data-level="2.2" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#multivariate-distributions"><i class="fa fa-check"></i><b>2.2</b> Multivariate Distributions</a></li>
+<li class="chapter" data-level="2.3" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#monte-carlo"><i class="fa fa-check"></i><b>2.3</b> Monte Carlo</a></li>
+<li class="chapter" data-level="2.4" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#conditional-distributions"><i class="fa fa-check"></i><b>2.4</b> Conditional distributions</a></li>
+<li class="chapter" data-level="2.5" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#additional-problems-for-chapter-2"><i class="fa fa-check"></i><b>2.5</b> Additional Problems for Chapter 2</a></li>
+<li class="chapter" data-level="2.6" data-path="simulation-of-random-variables-and-monte-carlo.html"><a href="simulation-of-random-variables-and-monte-carlo.html#endnotes-1"><i class="fa fa-check"></i><b>2.6</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="random-walks.html"><a href="random-walks.html"><i class="fa fa-check"></i><b>3</b> Random Walks</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="random-walks.html"><a href="random-walks.html#what-are-stochastic-processes"><i class="fa fa-check"></i><b>3.1</b> What are stochastic processes?</a></li>
+<li class="chapter" data-level="3.2" data-path="random-walks.html"><a href="random-walks.html#the-simple-symmetric-random-walk"><i class="fa fa-check"></i><b>3.2</b> The Simple Symmetric Random Walk</a></li>
+<li class="chapter" data-level="3.3" data-path="random-walks.html"><a href="random-walks.html#how-to-simulate-random-walks"><i class="fa fa-check"></i><b>3.3</b> How to simulate random walks</a></li>
+<li class="chapter" data-level="3.4" data-path="random-walks.html"><a href="random-walks.html#two-ways-of-looking-at-a-stochastic-proceses"><i class="fa fa-check"></i><b>3.4</b> Two ways of looking at a stochastic proceses</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="random-walks.html"><a href="random-walks.html#column-wise-distributionally"><i class="fa fa-check"></i><b>3.4.1</b> Column-wise (distributionally)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="random-walks.html"><a href="random-walks.html#row-wise-trajectorially-or-path-wise"><i class="fa fa-check"></i><b>3.4.2</b> Row-wise (trajectorially or path-wise)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="random-walks.html"><a href="random-walks.html#the-path-space"><i class="fa fa-check"></i><b>3.5</b> The path space</a></li>
+<li class="chapter" data-level="3.6" data-path="random-walks.html"><a href="random-walks.html#the-distribution-of-x_n"><i class="fa fa-check"></i><b>3.6</b> The distribution of <span class="math inline">\(X_n\)</span></a></li>
+<li class="chapter" data-level="3.7" data-path="random-walks.html"><a href="random-walks.html#biased-random-walks"><i class="fa fa-check"></i><b>3.7</b> Biased random walks</a></li>
+<li class="chapter" data-level="3.8" data-path="random-walks.html"><a href="random-walks.html#additional-problems-for-chapter-3"><i class="fa fa-check"></i><b>3.8</b> Additional problems for Chapter 3</a></li>
+<li class="chapter" data-level="3.9" data-path="random-walks.html"><a href="random-walks.html#endnotes-2"><i class="fa fa-check"></i><b>3.9</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html"><i class="fa fa-check"></i><b>4</b> More about Random Walks</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#the-reflection-principle"><i class="fa fa-check"></i><b>4.1</b> The reflection principle</a></li>
+<li class="chapter" data-level="4.2" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#stopping-times"><i class="fa fa-check"></i><b>4.2</b> Stopping times</a></li>
+<li class="chapter" data-level="4.3" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#walds-identity-and-gamblers-ruin"><i class="fa fa-check"></i><b>4.3</b> Wald’s identity and Gambler’s ruin</a></li>
+<li class="chapter" data-level="4.4" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#additional-problems-for-chapter-4"><i class="fa fa-check"></i><b>4.4</b> Additional problems for Chapter 4</a></li>
+<li class="chapter" data-level="4.5" data-path="more-about-random-walks.html"><a href="more-about-random-walks.html#endnotes-3"><i class="fa fa-check"></i><b>4.5</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="markov-chains.html"><a href="markov-chains.html"><i class="fa fa-check"></i><b>5</b> Markov Chains</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="markov-chains.html"><a href="markov-chains.html#the-markov-property"><i class="fa fa-check"></i><b>5.1</b> The Markov property</a></li>
+<li class="chapter" data-level="5.2" data-path="markov-chains.html"><a href="markov-chains.html#first-examples"><i class="fa fa-check"></i><b>5.2</b> First Examples</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="markov-chains.html"><a href="markov-chains.html#random-walks-1"><i class="fa fa-check"></i><b>5.2.1</b> Random walks</a></li>
+<li class="chapter" data-level="5.2.2" data-path="markov-chains.html"><a href="markov-chains.html#gambler"><i class="fa fa-check"></i><b>5.2.2</b> Gambler’s ruin</a></li>
+<li class="chapter" data-level="5.2.3" data-path="markov-chains.html"><a href="markov-chains.html#regime-switching"><i class="fa fa-check"></i><b>5.2.3</b> Regime Switching</a></li>
+<li class="chapter" data-level="5.2.4" data-path="markov-chains.html"><a href="markov-chains.html#deterministically-monotone-markov-chain"><i class="fa fa-check"></i><b>5.2.4</b> Deterministically monotone Markov chain</a></li>
+<li class="chapter" data-level="5.2.5" data-path="markov-chains.html"><a href="markov-chains.html#not-a-markov-chain"><i class="fa fa-check"></i><b>5.2.5</b> Not a Markov chain</a></li>
+<li class="chapter" data-level="5.2.6" data-path="markov-chains.html"><a href="markov-chains.html#turning-a-non-markov-chain-into-a-markov-chain"><i class="fa fa-check"></i><b>5.2.6</b> Turning a non-Markov chain into a Markov chain</a></li>
+<li class="chapter" data-level="5.2.7" data-path="markov-chains.html"><a href="markov-chains.html#deterministic-functions-of-markov-chains-do-not-need-to-be-markov-chains"><i class="fa fa-check"></i><b>5.2.7</b> Deterministic functions of Markov chains do not need to be Markov chains</a></li>
+<li class="chapter" data-level="5.2.8" data-path="markov-chains.html"><a href="markov-chains.html#a-game-of-tennis"><i class="fa fa-check"></i><b>5.2.8</b> A game of tennis</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="markov-chains.html"><a href="markov-chains.html#chapman-kolmogorov-equations"><i class="fa fa-check"></i><b>5.3</b> Chapman-Kolmogorov equations</a></li>
+<li class="chapter" data-level="5.4" data-path="markov-chains.html"><a href="markov-chains.html#mc-sim"><i class="fa fa-check"></i><b>5.4</b> How to simulate Markov chains</a></li>
+<li class="chapter" data-level="5.5" data-path="markov-chains.html"><a href="markov-chains.html#additional-problems-for-chapter-5"><i class="fa fa-check"></i><b>5.5</b> Additional problems for Chapter 5</a></li>
+<li class="chapter" data-level="5.6" data-path="markov-chains.html"><a href="markov-chains.html#endnotes-4"><i class="fa fa-check"></i><b>5.6</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>6</b> Classification of States</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="classification-of-states.html"><a href="classification-of-states.html#the-communication-relation"><i class="fa fa-check"></i><b>6.1</b> The Communication Relation</a></li>
+<li class="chapter" data-level="6.2" data-path="classification-of-states.html"><a href="classification-of-states.html#classes"><i class="fa fa-check"></i><b>6.2</b> Classes</a></li>
+<li class="chapter" data-level="6.3" data-path="classification-of-states.html"><a href="classification-of-states.html#transience-and-recurrence"><i class="fa fa-check"></i><b>6.3</b> Transience and recurrence</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="classification-of-states.html"><a href="classification-of-states.html#the-return-theorem"><i class="fa fa-check"></i><b>6.3.1</b> The Return Theorem</a></li>
+<li class="chapter" data-level="6.3.2" data-path="classification-of-states.html"><a href="classification-of-states.html#a-recurrence-criterion"><i class="fa fa-check"></i><b>6.3.2</b> A recurrence criterion</a></li>
+<li class="chapter" data-level="6.3.3" data-path="classification-of-states.html"><a href="classification-of-states.html#polyas-theorem"><i class="fa fa-check"></i><b>6.3.3</b> Polya’s theorem</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="classification-of-states.html"><a href="classification-of-states.html#class-properties"><i class="fa fa-check"></i><b>6.4</b> Class properties</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="classification-of-states.html"><a href="classification-of-states.html#the-canonical-decomposition"><i class="fa fa-check"></i><b>6.4.1</b> The Canonical Decomposition</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="classification-of-states.html"><a href="classification-of-states.html#a-few-examples"><i class="fa fa-check"></i><b>6.5</b> A few examples</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="classification-of-states.html"><a href="classification-of-states.html#random-walks-2"><i class="fa fa-check"></i><b>6.5.1</b> Random walks</a></li>
+<li class="chapter" data-level="6.5.2" data-path="classification-of-states.html"><a href="classification-of-states.html#gamblers-ruin"><i class="fa fa-check"></i><b>6.5.2</b> Gambler’s ruin</a></li>
+<li class="chapter" data-level="6.5.3" data-path="classification-of-states.html"><a href="classification-of-states.html#deterministically-monotone-markov-chain-1"><i class="fa fa-check"></i><b>6.5.3</b> Deterministically monotone Markov chain</a></li>
+<li class="chapter" data-level="6.5.4" data-path="classification-of-states.html"><a href="classification-of-states.html#the-game-of-tennis"><i class="fa fa-check"></i><b>6.5.4</b> The game of tennis</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="classification-of-states.html"><a href="classification-of-states.html#additional-problems-for-chapter-6"><i class="fa fa-check"></i><b>6.6</b> Additional problems for Chapter 6</a></li>
+<li class="chapter" data-level="6.7" data-path="classification-of-states.html"><a href="classification-of-states.html#endnotes-5"><i class="fa fa-check"></i><b>6.7</b> Endnotes</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html"><i class="fa fa-check"></i><b>7</b> Absorption and Reward</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#absorption"><i class="fa fa-check"></i><b>7.1</b> Absorption</a></li>
+<li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
+<li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="stationary-distributions.html"><a href="stationary-distributions.html"><i class="fa fa-check"></i><b>8</b> Stationary Distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationarity-and-stationary-distributions"><i class="fa fa-check"></i><b>8.1</b> Stationarity and stationary distributions</a></li>
+<li class="chapter" data-level="8.2" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma"><i class="fa fa-check"></i><b>8.2</b> Stationary distributions for finite irreducible chains and Kac’s lemma</a></li>
+<li class="chapter" data-level="8.3" data-path="stationary-distributions.html"><a href="stationary-distributions.html#long-run-averages"><i class="fa fa-check"></i><b>8.3</b> Long-run averages</a></li>
+<li class="chapter" data-level="8.4" data-path="stationary-distributions.html"><a href="stationary-distributions.html#limiting-distributions"><i class="fa fa-check"></i><b>8.4</b> Limiting distributions</a></li>
+<li class="chapter" data-level="8.5" data-path="stationary-distributions.html"><a href="stationary-distributions.html#the-pagerank-algorithm"><i class="fa fa-check"></i><b>8.5</b> The PageRank algorithm</a></li>
+<li class="chapter" data-level="8.6" data-path="stationary-distributions.html"><a href="stationary-distributions.html#additional-problems-for-chapter-8"><i class="fa fa-check"></i><b>8.6</b> Additional Problems for Chapter 8</a></li>
+<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-6"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="dist.html"><a href="dist.html#discrete-distributions"><i class="fa fa-check"></i><b>A.1</b> Discrete distributions:</a></li>
+<li class="chapter" data-level="A.2" data-path="dist.html"><a href="dist.html#continuous-distributions"><i class="fa fa-check"></i><b>A.2</b> Continuous distributions:</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture notes for "Introduction to Stochastic Processes"</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="stationary-distributions" class="section level1" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Stationary Distributions</h1>
+<div style="counter-reset: thechapter 8;">
+
+</div>
+<p>Transitions between different states of a Markov chain describe
+<em>short-time</em> behavior of the chain. In most models used in physical and
+social sciences, systems change states many times per second. In a rare
+few, the time scale of the steps can be measured in hours or days. What
+is of interest, however, is the long-term behavior of the system,
+measured in thousands, millions, or even billions of steps. Here is an
+example: for a typical liquid stock traded on the New York Stock
+Exchange, there is a trade every few seconds (or, even, milliseconds),
+and each trade changes the price (state) of the stock a little bit. What
+is of interest to an investor is, however, the distribution of the
+stock-price in 6 months, in a year or, in 30 years - just in time for
+retirement. A back-of-an-envelope calculation shows that there are,
+approximately, 50 million trades in 30 years. So, a grasp of very-long
+time behavior of a Markov chain is one of the most important achievments
+of probability in general, and stochastic-process theory in particular.
+We only scratch the surface in this lecture.</p>
+<div id="stationarity-and-stationary-distributions" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> Stationarity and stationary distributions</h2>
+<p><strong>Definition.</strong> A stochastic process <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is said to be <strong>stationary</strong>
+if the random vectors
+<span class="math display">\[(X_0,X_{1},X_{2},\dots, X_{k})\text{ and }
+(X_m,X_{m+1},X_{m+2},\dots, X_{m+k})\]</span> have the same (joint)
+distribution for all <span class="math inline">\(m,k\in{\mathbb{N}}_0\)</span>.</p>
+<p>For stationary processes, all random variables <span class="math inline">\(X_0, X_1, \dots\)</span> have
+the same distribution (just take <span class="math inline">\(k=0\)</span> in the definition). That
+condition is, however, only necessary. The pairs <span class="math inline">\((X_0,X_1)\)</span> and
+<span class="math inline">\((X_m,X_{m+1})\)</span> should be equally distributed as random vectors, the
+same for triplets, etc. Intuitively, a stochastic process is stationary
+if, statistically speaking, it does not evolve. Its probabilistic
+behavior today is the same as its probabilistic behavior in a billion
+years. It is somethings useful to think about stationarity in the
+following way; if a system is let to evolve for a long time, it will
+reach an equilibrium state and fluctuate around it forever. We can
+expect that such a system will look similar a million years from now and
+a billion years from now. It might, however, not resemble its present
+state at all. Think about a glass of water in which we drop a tiny drop
+of ink. Immediately after that, the glass will be clear, with a tiny
+black speck. The ink starts to diffuse and the speck starts to grow
+immediately. It won’t be long before the whole glass is of uniform black
+color - the ink has permeated every last “corner” of the glass. After
+that, nothing much happens. The ink will never spontaneously return to
+its initial state<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
+<p>Ink is composed of many small particles which do
+not interact with each other too much. They do, however, get bombarded
+by the molecules of water, and this bombardment makes them behave like
+random walks<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> which simply bounce back once they hit the glass wall.
+Each ink particle will wander off in its own direction, and quite soon,
+they will be “everywhere”. Eventually, the distribution of the ink in
+the glass becomes very close to uniform and no amount of further
+activity will change that - you just cannot get more “random” then the
+uniform distribution in a glass of water.</p>
+<p>Let us get back to mathematics and give two simple examples; one of a
+process which is not stationary, and the other of a typical stationary
+process.</p>
+<p><strong>Example.</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>The simple random walk is not stationary. Indeed, <span class="math inline">\(X_0\)</span> is a
+constant, while <span class="math inline">\(X_1\)</span> takes two values with equal probabilities, so
+they cannot have the same distribution. Indeed, the distribution of
+<span class="math inline">\(X_n\)</span> is more and more “spread-out” as time passes. Think of an ink
+drop in an infinite ocean. The dark, ink-saturated, region will get
+larger and larger, but it will never stabilize as there is always
+more ocean to invade.</p></li>
+<li><p>For an example of a stationary process, take a regime switching
+chain <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> with <span class="math inline">\(p_{01}=p_{10}=1\)</span>, and the initial
+distribution <span class="math inline">\({\mathbb{P}}[X_0=0]={\mathbb{P}}[X_0=1]=\tfrac{1}{2}\)</span>. Then <span class="math inline">\(X_n=X_0\)</span> if <span class="math inline">\(n\)</span> is
+even, and <span class="math inline">\(X_n=1-X_0\)</span> if <span class="math inline">\(n\)</span> is odd. Moreover, <span class="math inline">\(X_0\)</span> and <span class="math inline">\(1-X_0\)</span>
+have the same distribution (Bernoulli with <span class="math inline">\(p=\tfrac{1}{2}\)</span>), and, so
+<span class="math inline">\(X_0, X_1,\dots\)</span> all have the same distribution. How about
+<span class="math inline">\(k\)</span>-tuples? Why do <span class="math inline">\((X_0,X_1, \dots, X_k)\)</span> and <span class="math inline">\((X_m,X_{m+1},\dots, X_{m+k})\)</span> have the same
+distribution? For <span class="math inline">\(i_0,i_1,\dots, i_k\in \{0,1\}\)</span>, by the Markov
+property, we have <span class="math display">\[\label{equ:380C}
+ \begin{split}
+    {\mathbb{P}}[ X_0=i_0, X_1=i_i, \dots, X_{k}=i_k]
+    &amp;=
+    {\mathbb{P}}[X_0= i_0] p_{i_0 i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}\\ 
+    &amp;= \tfrac{1}{2}p_{i_0 i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}.
+ \end{split}\]</span> In the same manner, <span class="math display">\[\label{equ:2D2C}
+ \begin{split}
+    {\mathbb{P}}[ X_m=i_0, X_1=i_i, \dots, X_{m+k}=i_k]&amp;=
+   {\mathbb{P}}[X_m= i_0] p_{i_0 
+     i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}\\ &amp;=
+   \tfrac{1}{2}p_{i_0 
+     i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}},
+ \end{split}\]</span> so the two distributions are identical.</p></li>
+</ol>
+<p>The second example above is quite instructive. We took a Markov chain
+and gave it an initial distribution with the property that <span class="math inline">\(X_0\)</span> and
+<span class="math inline">\(X_m\)</span> have the same distribution for all <span class="math inline">\(m\in{\mathbb{N}}_0\)</span>. Magically, the
+whole process became stationary. This is not a coincidence; we can play
+the same trick with any Markov chain, as long as the initial
+distribution with the above property can be found. Actually, such a
+distribution is so important that it even has a name:</p>
+<p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i)_{i\in S}\)</span> on the state space <span class="math inline">\(S\)</span> of a
+Markov chain with transition matrix <span class="math inline">\(P\)</span> is called a <strong>stationary distribution</strong>
+if
+<span class="math display">\[{\mathbb{P}}[X_1=i]=\pi_i \text{ for all } i\in S, 
+\text{ whenever }
+{\mathbb{P}}[X_0=i]=\pi_i,\text{ for all } i\in S.\]</span></p>
+<p>In words, <span class="math inline">\(\pi\)</span> is called a stationary distribution if the distribution
+of <span class="math inline">\(X_1\)</span> is equal to that of <span class="math inline">\(X_0\)</span> when the distribution of <span class="math inline">\(X_0\)</span> is
+<span class="math inline">\(\pi\)</span>. Here is a hands-on characterization:</p>
+<p><strong>Proposition.</strong> A nonnegative
+vector <span class="math inline">\(\pi=(\pi_i,i\in S)\)</span> with <span class="math inline">\(\sum_{i\in S} \pi_i=1\)</span> is a stationary
+distribution if and only if <span class="math display">\[\pi P=\pi,\]</span> when <span class="math inline">\(\pi\)</span> is interpreted as
+a row vector. In that case the Markov chain with initial distribution
+<span class="math inline">\(\pi\)</span> and transition matrix <span class="math inline">\(P\)</span> is stationary and the distribution of
+<span class="math inline">\(X_m\)</span> is <span class="math inline">\(\pi\)</span> for all <span class="math inline">\(m\in{\mathbb{N}}_0\)</span>.</p>
+<p>Suppose, first, that <span class="math inline">\(\pi\)</span> is a stationary distribution, and let
+<span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain with initial distribution <span class="math inline">\({a}^{(0)}=\pi\)</span> and
+transition matrix <span class="math inline">\(P\)</span>. Then, <span class="math display">\[{a}^{(1)}={a}^{(0)}P=\pi P.\]</span> By the
+assumption, the distribution <span class="math inline">\({a}^{(1)}\)</span> of <span class="math inline">\(X_1\)</span> is <span class="math inline">\(\pi\)</span>. Therefore,
+<span class="math inline">\(\pi= \pi P\)</span>.</p>
+<p>Conversely, suppose that <span class="math inline">\(\pi=\pi P\)</span>. Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain
+with initial distribution <span class="math inline">\(\pi\)</span> and transition matrix <span class="math inline">\(P\)</span>. We need to
+show that <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is stationary. In order to do that, we first note
+that all random variables <span class="math inline">\(X_m\)</span>, <span class="math inline">\(m\in{\mathbb{N}}_0\)</span>, have the same distribution.
+Indeed, the distribution <span class="math inline">\({a}^{(m)}\)</span> of <span class="math inline">\(X_m\)</span> is given by
+<span class="math display">\[{a}^{(m)}= {a}^{(0)} P^m= \pi P^m = (\pi P) P^{m-1}= \pi
+P^{m-1}=\dots=\pi.\]</span> Next, we pick <span class="math inline">\(m,k\in{\mathbb{N}}_0\)</span> and a <span class="math inline">\(k+1\)</span>-tuple
+<span class="math inline">\(i_0, i_1, \dots, i_k\)</span> of elements of <span class="math inline">\(S\)</span>. By the Markov property, we
+have <span class="math display">\[\label{equ:5716}
+ \begin{split}
+   {\mathbb{P}}[ X_m=i_0, X_{m+1}=i_1,\dots, X_{m+k}=i_{k}]&amp;=
+   {\mathbb{P}}[X_m=i_0] p_{i_0  i_1} p_{i_1 i_2} \dots p_{i_{k-1} i_{k}}\\ &amp;=
+   \pi_{i_0}  p_{i_0  i_1} p_{i_1 i_2} \dots p_{i_{k-1} i_{k}}.
+ \end{split}\]</span> This last expression does not depend on <span class="math inline">\(m\)</span>, so we can
+conclude that <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is stationary.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-220" class="exercise"><strong>Problem 8.1  </strong></span>A model of social mobility of families posits three different social
+classes (strata), namely “lower”, “middle”, and “upper”. The transitions
+between these classes (states) for a given family are governed by the
+following transition matrix:
+<span class="math display">\[P = \begin{bmatrix} 1/2 &amp; 1/2 &amp; 0 \\ 1/3 &amp; 1/3 &amp; 1/3 \\ 0 &amp; 1/3 &amp; 2/3 \end{bmatrix}.\]</span>
+Find all stationary distributions of this chain.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-221" class="solution"><em>Solution</em>. </span>To compute <span class="math inline">\(\pi\)</span>, we start by writing down the following system of
+three linear equations: <span class="math display">\[\begin{array}{rcrcrcr}
+    \pi_1 &amp;=&amp; \frac{1}{2}\, \pi_1    &amp; +&amp; \frac{1}{3}\, \pi_2        &amp;&amp; \\
+    \pi_2 &amp;=&amp; \frac{1}{2}\, \pi_1  &amp; +&amp; \frac{1}{3}\, \pi_2  &amp;+&amp;
+    \frac{1}{2}\, \pi_3 \\
+    \pi_3 &amp;=&amp;              &amp;&amp;   \frac{1}{3}\, \pi_2  &amp;+&amp;
+    \frac{2}{3}\, \pi_3 
+\end{array}\]</span>
+We solve the system and obtain that any triplet
+<span class="math inline">\((\pi_1,\pi_2,\pi_3)\)</span> with <span class="math display">\[\label{equ:in-pi2}
+ \pi_1 = \frac{2}{3} \pi_2 \text{ and }\pi_3 = \pi_2\]</span> is a solution. Of course,
+<span class="math inline">\(\pi\)</span> needs to be a probability distribution, so we also need to require
+that <span class="math inline">\(\pi_1+\pi_2+\pi_3 = 1\)</span>. We plug in the expressions
+for <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_3\)</span> in terms of <span class="math inline">\(\pi_2\)</span> obtained above into
+it to conclude that <span class="math inline">\(\pi_2 = 3/8\)</span>. From there, the unique stationary
+distribution is given by <span class="math display">\[\pi = ( \frac{2}{8}, \frac{3}{8}, \frac{3}{8} ).\]</span></p>
+</div>
+<p>Let us get
+back to the story about the glass of water and let us analyze a
+simplified model of that phenomenon. Our glass will be represented by
+the set <span class="math inline">\(\{0,1,2,\dots, a\}\)</span>, where <span class="math inline">\(0\)</span> and <span class="math inline">\(a\)</span> are the positions
+adjacent to the walls of the glass. The ink particle performs a version
+simple random walk inside the glass - it moves to the left, to the right
+or stays put with equal probabilities, namely <span class="math inline">\(\frac{1}{3}\)</span>. Once it
+reaches the state <span class="math inline">\(0\)</span> further passage to the left is blocked by the
+wall, so it either takes a step to the right to position <span class="math inline">\(1\)</span> (with
+probability <span class="math inline">\(\frac{1}{3}\)</span>) or stays put (with probability <span class="math inline">\(\frac{2}{3}\)</span>).
+The same thing happens at the other wall. All in all, we get a Markov
+chain with the following transition matrix <span class="math display">\[P=
+\begin{bmatrix}
+  \frac{2}{3} &amp; \frac{1}{3} &amp; 0 &amp; 0 &amp; \dots &amp; 0 &amp; 0 &amp; 0 \\
+\frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 &amp; \dots &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; \dots &amp; 0 &amp; 0 &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp;\vdots  &amp; \ddots &amp; \vdots &amp; \vdots &amp; \vdots \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \dots &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \dots &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; \dots &amp; 0 &amp; \frac{1}{3} &amp; \frac{2}{3} \\
+\end{bmatrix}.\]</span> Let us see what happens when we start the chain with a
+distribution concentrated at <span class="math inline">\(a/2\)</span>; a graphical representation
+(histogram) of the distributions of <span class="math inline">\(X_0\)</span>, <span class="math inline">\(X_{1}\)</span>, <span class="math inline">\(X_{3}\)</span>, <span class="math inline">\(X_{25}\)</span>,
+<span class="math inline">\(X_{100}\)</span> and <span class="math inline">\(X_{500}\)</span> when <span class="math inline">\(a=10\)</span> represents the behavior of the
+system very well :</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-293-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>How about if we start from a different initial distribution? Here are
+the same plots when the initial distribution is concentrated at <span class="math inline">\(0\)</span>:</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-294-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p>As you can see, the distribution changes rapidly at first, but then,
+once it has reached the “equilibrium” it changes remarkably little
+(compare <span class="math inline">\(X_{100}\)</span> and <span class="math inline">\(X_{500}\)</span>; when <span class="math inline">\(X_0=a/2\)</span>, even <span class="math inline">\(X_{25}\)</span> is not
+very far). Also, the “equilibrium” distribution seems to be uniform and
+<em>does not depend on the initial distribution</em>; this is exactly what you
+would expect from a long-term distribution of ink in a glass.</p>
+<p>Let us show that the uniform distribution <span class="math display">\[\pi=\Big(\frac{1}{a+1}, \frac{1}{a+1},
+\dots, \frac{1}{a+1}\Big)\]</span> is indeed the stationary distribution. For that
+we need to show that it solves the system
+<span class="math inline">\(\pi=P\pi\)</span>, which, expanded, looks like this <span class="math display">\[\begin{split}
+     \pi_0 &amp; = \frac{2}{3} \pi_0+ \frac{1}{3} \pi_1 \\
+     \pi_1 &amp; = \frac{1}{3} (\pi_0 + \pi_1 + \pi_2) \\
+     \pi_2 &amp; = \frac{1}{3} (\pi_1 + \pi_2 + \pi_3) \\
+&amp; \hspace{0.5em} \vdots \\
+     \pi_{a-1} &amp; = \frac{1}{3} (\pi_{a-2}+\pi_{a-1} + \pi_{a}) \\
+     \pi_{a} &amp; = \frac{1}{3} \pi_{a-1}+ \frac{2}{3} \pi_{a}
+   \end{split}\]</span> It is immediate that
+<span class="math inline">\(\pi_0 = \pi_1 = \dots = \pi_a = \frac{1}{a+1}\)</span> is a probability distribution
+that solves the system above. On the other hand, the first equation
+yields <span class="math inline">\(\pi_1 = \pi_0\)</span>, the second one that <span class="math inline">\(\pi_2 = 2 \pi_1 - \pi_0 = \pi_0\)</span>, the third <span class="math inline">\(\pi_3 = 2 \pi_2 - \pi_1 = \pi_0\)</span>,
+etc. Therefore all <span class="math inline">\(\pi_i\)</span> must be the same, and, since
+<span class="math inline">\(\sum_{i=0}^a \pi_i = 1\)</span>, we conclude that the uniform distribution is the only stationary
+distribution.</p>
+<p>Can there be more than one stationary distribution? Can there be none?
+Sure, here is an example:</p>
+<p><strong>Example.</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>For <span class="math inline">\(P=I\)</span>, any distribution is stationary, so there are are
+infinitely many stationary distributions.</p></li>
+<li><p>A simple example where no stationary distribution exists can be
+constructed on an infinite state space (but not on a finite space,
+as we will soon see). Take the Deterministically Monotone Markov
+chain. The transition “matrix” looks like the identity matrix, with
+the diagonal of ones shifted to the right. Therefore, the system of
+equations <span class="math inline">\(\pi=\pi P\)</span> reads <span class="math display">\[\pi_1= \pi_2, \pi_2=\pi_3, \dots,
+\pi_n=\pi_{n+1}, \dots,\]</span> and so, for <span class="math inline">\(\pi\)</span> to be a stationary
+distribution, we must have <span class="math inline">\(\pi_n=\pi_1\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>. Now, if
+<span class="math inline">\(\pi_1=0\)</span>, <span class="math inline">\(\pi\)</span> is not a distribution (it sums to <span class="math inline">\(0\)</span>, not <span class="math inline">\(1\)</span>).
+But if <span class="math inline">\(\pi_1&gt;0\)</span>, then the sum is <span class="math inline">\(+\infty\)</span>, so <span class="math inline">\(\pi\)</span> is not a
+distribution either. Intuitively, the chain never stabilizes, it
+just keeps moving to the right ad infinitum.</p></li>
+</ol>
+<p>The example with many stationary distributions can be constructed on any
+state space, but the other one, where no stationary distribution exists,
+had to use an infinite one. Was that necessary? Yes. Before we show this
+fact, let us analyze the relation between stationary distributions and
+the properties of recurrence and transience. Here is our first result:</p>
+<p><strong>Proposition.</strong>
+Suppose that the state space <span class="math inline">\(S\)</span> of a Markov chain is finite and let
+<span class="math inline">\(S=C_1\cup C_2\cup \dots \cup C_m \cup  T\)</span> be its canonical decomposition into recurrent classes <span class="math inline">\(C_1, \dots,  C_m\)</span> and the set of transient states <span class="math inline">\(T\)</span>. Then the following two
+statements are equivalent:</p>
+<ol style="list-style-type: decimal">
+<li><p><span class="math inline">\(\pi\)</span> is a stationary distribution, and</p></li>
+<li><p><span class="math inline">\(\pi_{C_k}= \pi_{C_k} P_k\)</span>, <span class="math inline">\(k=1,\dots, m\)</span>, and
+<span class="math inline">\(\pi_T=(0,0,\dots, 0)\)</span>,</p></li>
+</ol>
+<p>where <span class="math display">\[P=
+\begin{bmatrix}
+P_1      &amp; 0      &amp; 0        &amp; 0   \\
+\vdots   &amp; \ddots &amp; \vdots   &amp; 0   \\
+0        &amp; 0      &amp; P_m      &amp; 0  \\
+ &amp; R &amp;  &amp; Q 
+\end{bmatrix},\]</span> is the canonical form of the transition matrix,
+<span class="math inline">\(\pi_{C_k}=(\pi_i, i\in C_k)\)</span>, <span class="math inline">\(k=1,2,\dots, m\)</span> and
+<span class="math inline">\(\pi_T=(\pi_i, i\in T)\)</span>.</p>
+<p><strong>Proof.</strong>
+We write the equation <span class="math inline">\(\pi=\pi P\)</span> coordinatewise as
+<span class="math inline">\(\pi_j=\sum_{i\in S} \pi_i p_{ij}\)</span> and, by distinguishing the cases
+<span class="math inline">\(i\in C_k\)</span>, <span class="math inline">\(k\in\{1,2,\dots, m\}\)</span>, and <span class="math inline">\(i\in T\)</span>, we get the following
+sytem of matrix equations (alternatively, just write the system
+<span class="math inline">\(\pi= \pi P\)</span> in the block-matrix form according to the cannonical
+decomposition above): <span class="math display">\[\pi_{C_k} = \pi_{C_K} P_{C_k} + \pi_T R,\ 
+k=1,\dots, m,  \text{ and } \pi_T =
+\pi_T Q.\]</span> The last equality can be read as follows: <span class="math inline">\(\pi_T\)</span> is in a row
+null-space of <span class="math inline">\(I-Q\)</span>. We know, however, that <span class="math inline">\(I-Q\)</span> admits an inverse, and
+so it is a regular square matrix. Its row null-space (as well as its
+column null-space) must be trivial, and, consequently, <span class="math inline">\(\pi_T=0\)</span>.</p>
+<p>Having established that <span class="math inline">\(\pi_T=0\)</span>, we can de-couple the system of
+equations above and write it as <span class="math display">\[\pi_{C_k} = \pi_{C_K} P_{k},\ 
+k=1,\dots, m,  \text{ and } \pi_T = (0,0,\dots, 0),\]</span> which is exactly
+what we needed to prove.</p>
+<p>The other implication - the proof of which consists of a verification of
+the fact that each distribution from <em>(2)</em> above is indeed a stationary
+distribution - is left to the reader. QED</p>
+<p>The moral of the story of the Proposition above
+is the following: in order to compute
+the stationary distribution(s), classify the states and find the
+canonical decomposition of the state space. Then, set <span class="math inline">\(\pi_i=0\)</span> for any
+transient state <span class="math inline">\(i\)</span>. What remains are recurrent classes, and you can
+analyize each one separately. Note, however, that <span class="math inline">\(\pi_{C_k}\)</span> does not
+need to be a real distribution on <span class="math inline">\(C_k\)</span>, since
+<span class="math inline">\(\sum_{i\in C_k} (\pi_{C_k})_i\)</span> does not need to equal <span class="math inline">\(1\)</span>. However,
+unless <span class="math inline">\(\pi_{C_k}=(0,0,\dots, 0)\)</span>, we can always multiply all its elements by a constant to make the
+sum equal to <span class="math inline">\(1\)</span>.</p>
+</div>
+<div id="stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> Stationary distributions for finite irreducible chains and Kac’s lemma</h2>
+<p>We now know what the general structure of the set of all stationary
+distributions is, but we still have no clue as to whether they actually
+exist. Indeed, our results so far had the following form: “If <span class="math inline">\(\pi\)</span> is a
+stationary distribution, then …”. Luckily, these results also allow us
+to focus our search on single recurrent classes, or, more comfortably,
+chains consisting of a single recurrent class. They are important enough
+to get a name:</p>
+<p><strong>Definition.</strong> A Markov chain is said to be <strong>irreducible</strong> if it has only one class.</p>
+<p>We also assume from now on that the state space is finite. That rules
+out, in particular, our non-existence example above
+which required an infinite chain. We will see
+that that is not a coincidence, and that the situation is much cleaner
+in the finite setting. In fact, our next result (known as Kac’s lemma,
+but we state it here as a theorem) gives a very nice answer to the
+question of existence and uniqueness, with an unexpected benefit:</p>
+<p><strong>Theorem (Kac’s theorem)</strong> Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be an irreducible
+Markov chain with a finite state space. Then</p>
+<ol style="list-style-type: decimal">
+<li><p>there exists a unique stationary distribution <span class="math inline">\(\pi = (\pi_j)_{j\in S}\)</span>,</p></li>
+<li><p>moreover, it is given by the following formula:
+<span class="math display">\[\pi_j= \frac{\nu_{ij}}{m_i} ,\  j\in S,\]</span> where <span class="math inline">\(i\)</span> is an
+arbitrary but fixed state, and
+<span class="math display">\[\nu_{i j}={\mathbb{E}}_i\left[ \sum_{n=0}^{T_i(1)-1} \mathbf{1}_{\{X_n=j\}}\right]
+  \text{ and }m_i = {\mathbb{E}}_i[ T_i(1)]&lt;\infty\]</span> are the expected number of
+visits to state <span class="math inline">\(j\)</span> in between two consecutive visits to state <span class="math inline">\(i\)</span>,
+and the expected return time to <span class="math inline">\(i\)</span>, respectively.</p></li>
+</ol>
+<p>Even
+though it is not exceedingly hard, the proof of this proposition is a
+bit technical, so we omit it. It is important, however, to understand
+what the result states:</p>
+<ol style="list-style-type: decimal">
+<li><p>The stationary distribution <span class="math inline">\(\pi\)</span> exists and is unique in any
+irreducible finite Markov chain. Moreover, <span class="math inline">\(\pi_i&gt;0\)</span> for all
+<span class="math inline">\(i\in S\)</span>.</p></li>
+<li><p>The expected number of visits to the state <span class="math inline">\(j\)</span> in between two
+consecutive visits to the state <span class="math inline">\(i\)</span> can be related to a stationary
+distribution by <span class="math inline">\(\nu_{ij}= m_i \pi_j\)</span>. By uniqueness, the quotient
+<span class="math inline">\(\frac{\nu_{ij}}{m_i}\)</span> does not depend on the state <span class="math inline">\(i\)</span>.</p></li>
+<li><p>When we set <span class="math inline">\(j=i\)</span>, <span class="math inline">\(\nu_{ii}\)</span> counts the number of visits to <span class="math inline">\(i\)</span>
+between two consecutive visits to <span class="math inline">\(i\)</span>, which is always equal to <span class="math inline">\(1\)</span>
+(the first visit is counted and the last one is not). Therefore,
+<span class="math inline">\(\nu_{ii}=1\)</span>, and so <span class="math inline">\(\pi_i=\frac{1}{m_i}\)</span> and
+<span class="math inline">\(\nu_{ij} = \pi_j/\pi_i\)</span>.</p></li>
+</ol>
+<p>All of this is typically used in the following way:
+one first computes the unique stationary distribution <span class="math inline">\(\pi\)</span> by solving
+the equation <span class="math inline">\(\pi=\pi P\)</span> and then uses it to determine <span class="math inline">\(m_i\)</span> or the
+<span class="math inline">\(\nu_{ij}\)</span>’s. Here is a simple problem:</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-222" class="exercise"><strong>Problem 8.2  </strong></span>Suppose that traffic
+statistics on a given road are as follows: on average, three out of every four
+trucks are followed by a car, but only one out of every five cars is
+followed by a truck. A truck passes by you. How many cars do you expect
+to see before another truck passes?</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-223" class="solution"><em>Solution</em>. </span>The type of the vehicle passing by you (car or truck) can be modeled by
+a Markov chain with two states and the transition matrix:
+<span class="math display">\[P = \begin{bmatrix} \frac{4}{5} &amp; \frac{1}{5} \\ \frac{3}{4} &amp;
+\frac{1}{4} \end{bmatrix},\]</span> with the first row (column) corresponding to the
+state “car”. We are interested in the number of “visits” to the state
+“car” (<span class="math inline">\(j=1\)</span>) between two visits to the state “truck” (<span class="math inline">\(i=2\)</span>), which we
+denoted by <span class="math inline">\(\nu_{21}\)</span> in Kac’s theorem.
+According to the same theorem, it is a good idea to find the (unique)
+stationary distribution first. The equations are <span class="math display">\[\begin{aligned}
+  \pi_1 &amp;= \frac{4}{5} \pi_1 + \frac{3}{4} \pi_2\\
+  \pi_2 &amp;= \frac{1}{5} \pi_1 + \frac{1}{4} \pi_2,\end{aligned}\]</span> which, with
+the additional requirement <span class="math inline">\(\pi_1+\pi_2 = 1\)</span>, give
+<span class="math display">\[\pi_1 = \tfrac{15}{19}, \pi_2 = \tfrac{4}{19}.\]</span> Since
+<span class="math inline">\(v_{ij} = m_i \pi_j\)</span>, we have <span class="math inline">\(v_{21} = m_2 \pi_1 = \tfrac{15}{19} m_2\)</span>. We also know that <span class="math inline">\(m_2 = 1/\pi_2 = \frac{19}{4}\)</span>, and, so, we expect
+to see <span class="math inline">\(\frac{15}{4} = 3.75\)</span> cars between two consecutive trucks.</p>
+<p>In this particular case, we could have answered the question by
+computing the expected return time <span class="math inline">\(m_2 = {\mathbb{E}}_2[ T_2(1)]\)</span> to the state
+<span class="math inline">\(2\)</span>. As above, <span class="math inline">\(m_2 = 1/\pi_2 = \tfrac{19}{4}\)</span>. We have to be careful,
+because the state <span class="math inline">\(2\)</span> itself is counted exactly once in this
+expectation, so <span class="math inline">\(m_2 = \tfrac{19}{4}\)</span> does not only count all the cars between two trucks, but
+also one of the trucks. Therefore, the number of cars only is
+<span class="math inline">\(\frac{19}{4} - 1 = \frac{15}{4}\)</span>, which is exactly the number we obtained above.</p>
+</div>
+<p>The family of Markov chains called <strong>random walks on graphs</strong> provides for
+many interesting and
+unexpected applications of Kac’s theorem. We
+start by remembering what a (simple) graph is.</p>
+<p><strong>Definition.</strong> A <strong>simple graph</strong> is defined by a finite set <span class="math inline">\(V\)</span>
+(whose elements are called <strong>vertices</strong> or <strong>nodes</strong>) and a set
+<span class="math inline">\(E\)</span> if unordered pairs of distinct vertices (whose elements are called
+<strong>edges</strong>).</p>
+<p>Intuitively, a simple graph is a finite collection of points, some of
+which are connected by lines. We do not allow loops (edges from a vertex
+to itself) or multiple edged between vertices. For two vertices <span class="math inline">\(i\)</span> and
+<span class="math inline">\(j\)</span> write <span class="math inline">\(i \sim j\)</span> if there is an edge between <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, and say
+that <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are <strong>neighbors</strong> . The number of neighbors of the vertex <span class="math inline">\(i\)</span> called
+the <strong>degree</strong> of <span class="math inline">\(i\)</span>, and is denoted by <span class="math inline">\(d(i)\)</span>.</p>
+<p>Given a simple graph <span class="math inline">\(G\)</span>, let the <strong>random walk on <span class="math inline">\(G\)</span></strong> be the Markov chain defined as
+follows:</p>
+<ol style="list-style-type: decimal">
+<li><p>The set of states <span class="math inline">\(S\)</span> is the set of vertices <span class="math inline">\(V\)</span> of the graph <span class="math inline">\(G\)</span>.</p></li>
+<li><p>To move from a state (vertex) to the next one, chose one of its
+neighbors, uniformly at random, and jump to it. More precisely,
+<span class="math display">\[p_{ij} = \begin{cases} 0 &amp; i \not \sim j \\ 
+          1/d(i) &amp; i \sim j.  \end{cases}\]</span></p></li>
+</ol>
+<p>As long as the underlying graph is connected (you can move from any
+state to any other state by traveling on edges only), the corresponding
+random walk is irreducible and each state is recurrent. The interesting
+thing is that there is a very simple expression for the (unique)
+stationary distribution. Indeed, if we write our usual system of
+equations <span class="math inline">\(\pi = \pi P\)</span> that defines <span class="math inline">\(\pi\)</span> in this case, we obtain
+<span class="math display">\[\pi_j = \sum_i \pi_i p_{ij} =  \sum_{i: i\sim j} \pi_i \frac{1}{d(i)}.\]</span> If
+we plug in <span class="math inline">\(\pi_i = d(i)\)</span> into the right-hand side, we get <span class="math inline">\(d(j)\)</span>,
+because there are <span class="math inline">\(d(j)\)</span> terms, each of which equals <span class="math inline">\(1\)</span>. This matches
+the left-hand side, so we have a solution to <span class="math inline">\(\pi = \pi P\)</span>. The only
+thing missing is that these <span class="math inline">\(\pi\)</span>s do not add up to <span class="math inline">\(1\)</span>. That is easily
+fixed by dividing by their sum, and we obtain the following nice
+expression for the stationary distribution:
+<span class="math display">\[\pi_i = \frac{d(i)}{ \sum_{j\in V} d(j) }.\]</span></p>
+<p><strong>Example.</strong> A interesting example
+of a random walk on a graph can be constructed on a chessboard. We pick
+a piece, say knight, and make it choose, uniformly, from the set of all
+legal moves. This corresponds to a graph whose vertices are the squares
+the board, with the two vertices connected by an edge if and only if it
+is legal for a knight to go from one of them to the other in a single
+move.</p>
+<p><img src="pics/knight_moves.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>What makes all of this possible is the fact that the rules
+governing the knight’s moves are symmetric. If it can jump from <span class="math inline">\(i\)</span> to
+<span class="math inline">\(j\)</span>, then it can also jump from <span class="math inline">\(j\)</span> to <span class="math inline">\(i\)</span>. We would not be able to
+construct a random walk on a graph based on the moves of a pawn, for
+example.</p>
+<p>Once we have built the chain, we can check that it is irreducible (do
+it!), and compute its stationary distribution by computing degrees of
+all vertices. They are given by the number of different legal moves from
+each of the 64 squares, as in the following picture</p>
+<p><img src="pics/knight_numbers.png" width="40%" style="display: block; margin: auto;" /></p>
+<p>The value assigned
+to each square by stationary distribution is then simply the number on
+that square, divided by the sum of all the numbers on the board, which
+happens to be <span class="math inline">\(336\)</span>.</p>
+<p>Kac’s theorem can now be used to answer the following, classical
+question:</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-224" class="exercise"><strong>Problem 8.3  </strong></span>A knight starts from the lower left corner of a chessboard, and moves
+around by selecting one of its legal moves at random at each step, and
+taking it. What is expected number of moves it will take before it
+returns to the lower left corner?</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-225" class="solution"><em>Solution</em>. </span>The question is asking for the value of
+<span class="math inline">\(m_i = {\mathbb{E}}_i[ T_i(1)]\)</span> where
+<span class="math inline">\(i\)</span> is the “lower left corner”. By Kac’s theorem this
+equals to <span class="math inline">\(1/\pi_i = 336/2 = 168\)</span>. If the knight started from one of the
+central squares, this time would be <span class="math inline">\(4\)</span> times shorter (<span class="math inline">\(42\)</span>). It is also
+easy to compute the expected number of visits to another state, between
+two visits to the lower left corner. The answer is simply the degree of that
+state divided by <span class="math inline">\(2\)</span> (the degree of the lower left corner).</p>
+</div>
+</div>
+<div id="long-run-averages" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Long-run averages</h2>
+<p>One of the most important properties of stationary distributions is that
+they describe the long-term behavior of a Markov chain. Before we
+explain how, let us recall the classical Law of Large Numbers (LLN) for
+independent variables:</p>
+<p><strong>Theorem (Law of Large Numbers).</strong> Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence of
+independent and identically distributed random variables, such that
+<span class="math inline">\({\mathbb{E}}[|Y_0|]&lt;\infty\)</span>. Then
+<span class="math display">\[\lim_n \frac{1}{n} \sum\limits_{k=0}^{n-1} Y_k = {\mathbb{E}}[Y_0],\]</span> (in an
+appropriate, mathematically precise, sense).</p>
+<p>A special case goes by the name Borel’s Law of Large Numbers and applies
+to the case where each <span class="math inline">\(Y_n\)</span> is a Bernoulli random variable, i.e., takes
+only the values <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> (like tossing a biased coin repeatedly). In
+this case, we have <span class="math inline">\(\sum_{k=0}^{n-1} Y_k = N_n\)</span>, where <span class="math inline">\(N_n\)</span> is the
+number of “successes” (time instances <span class="math inline">\(k\)</span> when <span class="math inline">\(Y_k=1\)</span>) up to time <span class="math inline">\(n\)</span>.
+The quotient <span class="math inline">\(\frac{1}{n} N_n\)</span> is then the proportion of “successes” among
+the first <span class="math inline">\(n\)</span> experiments, and Borel’s law states that it converges
+towards the “theoretical frequency”, i.e., the probability
+<span class="math inline">\(p ={\mathbb{P}}[Y_0=1]\)</span> of a single “success”. Put differently, <span class="math inline">\(p\)</span> is the long-run
+proportion of the times <span class="math inline">\(k\)</span> when <span class="math inline">\(Y_k=1\)</span>.</p>
+<p>If we try to do the same with a Markov chain, we run into two problems.
+First, the random variables <span class="math inline">\(X_0,X_1,\dots\)</span> are neither independent nor
+identically distributed. Second, <span class="math inline">\(X_k\)</span> takes its values in the state
+space <span class="math inline">\(S\)</span> which does not necessarily consist of numbers, so the
+expression <span class="math inline">\(X_0+X_1\)</span> or <span class="math inline">\({\mathbb{E}}[X_0]\)</span> does not make sense for every Markov
+chain. To deal with the second problem, we pick a numerical “reward”
+function <span class="math inline">\(f: S{\rightarrow}{\mathbb{R}}\)</span> and form sums of the form
+<span class="math inline">\(f(X_0)+f(X_1)+\dots+f(X_{n-1})\)</span>. Independence is much more subtle, but
+the Markov property and irreducibility of the chain can be used as a
+replacement:</p>
+<p><strong>Theorem (Ergodic Theorem for Markov Chains).</strong> Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>
+be a finite and irreducible Markov chain. For any function <span class="math inline">\(f: S{\rightarrow}{\mathbb{R}}\)</span>
+we have
+<span class="math display">\[\lim_n \frac{1}{n} \sum_{k=0}^{n-1} f(X_k) = {\mathbb{E}}_{\pi}[f(X_0)]:=\sum_{j\in S}
+f(j)\pi_j,\]</span> where <span class="math inline">\(\pi\)</span> is the (unique) stationary distribution of <span class="math inline">\(X\)</span>.</p>
+<p>An important special case - corresponding conceptually to Borel’s law -
+is when the function <span class="math inline">\(f\)</span> equals <span class="math inline">\(0\)</span> except for one state, where it
+equals <span class="math inline">\(1\)</span>. In more compact notation, we pick a state <span class="math inline">\(i_0\)</span> and define
+the function <span class="math inline">\(f\)</span> by the following formula
+<span class="math display">\[f(i) = \begin{cases} 1 &amp; i = i_0 \\ 0 &amp; i \ne i_0. \end{cases}\]</span> If we
+apply the Ergodic theorem with that particular <span class="math inline">\(f\)</span>, we immediately get
+the following nice result:</p>
+<p><strong>Proposition.</strong> Given a finite
+and irreducible Markov chain, let <span class="math inline">\(N^i_n\)</span> denote the number of visits to
+the state <span class="math inline">\(i\)</span> in the first <span class="math inline">\(n\)</span> steps. Then,
+<span class="math display">\[\pi_i = \lim_n \frac{1}{n} N^i_n,\]</span> where <span class="math inline">\(\pi\)</span> is the chain’s (unique)
+stationary distribution.</p>
+<p>Put another way,</p>
+<blockquote>
+<p><em>In a finite irreducible Markov chain, the component <span class="math inline">\(\pi_i\)</span> of the
+stationary distribution <span class="math inline">\(\pi\)</span> can be interpreted as the portion
+(percentage) of time the chain spends in the state <span class="math inline">\(i\)</span>, over a long
+run.</em></p>
+</blockquote>
+</div>
+<div id="limiting-distributions" class="section level2" number="8.4">
+<h2><span class="header-section-number">8.4</span> Limiting distributions</h2>
+<p>When we discussed the example of ink diffusing in a glass, we noticed
+how the distribution of ink
+quickly reaches the uniform equilibrium state. It is no coincidence that
+this “limiting” distribution happens to be a stationary distribution.
+Before we make this claim more precise, let us define rigorously what we
+mean by a limiting distribution:</p>
+<p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i, i\in S)\)</span>
+on the state space <span class="math inline">\(S\)</span> of a Markov chain with transition matrix <span class="math inline">\(P\)</span> is
+called a <strong>limiting distribution</strong>
+if <span class="math display">\[\lim_{n{\rightarrow}\infty} p^{(n)}_{ij}=\pi_j,\]</span> for all <span class="math inline">\(i,j\in S\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Note that for <span class="math inline">\(\pi\)</span> to be a limiting distribution, all the limits in the
+Definition above must exist. Once they do (and
+<span class="math inline">\(S\)</span> is finite), <span class="math inline">\(\pi\)</span> is automatically a probability distribution:
+<span class="math inline">\(\pi_j\geq 0\)</span> (as a limit of non-negative numbers) and
+<span class="math display">\[\sum_{j\in S} \pi_j =
+\sum_{j\in S} \lim_{n{\rightarrow}\infty} p^{(n)}_{ij} =
+\lim_{n{\rightarrow}\infty} \sum_{j\in S} p^{(n)}_{ij} =\lim_{n{\rightarrow}\infty} 1 = 1.\]</span>
+In a Deterministically Monotone Markov Chain we have <span class="math inline">\(p^{(n)}_{ij}=0\)</span>
+for <span class="math inline">\(n&gt; j-i\)</span>. Therefore <span class="math inline">\(\pi_j:=\lim_{n{\rightarrow}\infty} p^{(n)}_{ij} = 0\)</span> for
+each <span class="math inline">\(i\)</span>, but these <span class="math inline">\(\pi\)</span>s do not define a probability distribution
+because they do not add up to <span class="math inline">\(1\)</span>.</p></li>
+<li><p>Note that the independence on the initial state <span class="math inline">\(i\)</span> is built into
+the definition of the limiting distribution: the sequence
+<span class="math inline">\(\{p^{(n)}_{ij}\}_{n\in{\mathbb{N}}}\)</span> must tend to the same limit <span class="math inline">\(\pi_j\)</span> for all
+<span class="math inline">\(i\in S\)</span>.</p></li>
+<li><p>Since limits are unique, there can be at most one limiting
+distribution in a given chain.</p></li>
+</ol>
+<p>The connection with stationary distributions is spelled out in the
+following propositions:</p>
+<p><strong>Proposition.</strong> Suppose that a Markov chain with
+transition matrix <span class="math inline">\(P\)</span> admits a limiting distribution
+<span class="math inline">\(\pi=(\pi_i,i\in S)\)</span>. Then <span class="math inline">\(\pi\)</span> is a stationary distribution.</p>
+<p><strong>Proof.</strong> To show that <span class="math inline">\(\pi\)</span> is a stationary distribution, we need to verify that
+it satisfies <span class="math inline">\(\pi=\pi P\)</span>, i.e., that
+<span class="math display">\[\pi_{j}= \sum_{i\in S} \pi_i p_{ij}.\]</span> We use the Chapman-Kolmogorov
+equation <span class="math inline">\(p^{(n+1)}_{ij}= \sum_{k\in S} p^{(n)}_{ik} p_{kj}\)</span> and start from the observation that
+<span class="math inline">\(\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}\)</span> to get exactly what we need:
+<span class="math display">\[\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}= \lim_{n{\rightarrow}\infty} 
+\sum_{k\in S} p^{(n)}_{ik} p_{kj} =
+\sum_{k\in S} (\lim_{n{\rightarrow}\infty} p^{(n)}_{ik}) p_{kj} =
+\sum_{k\in S} \pi_k p_{kj}. \text{ QED}\]</span></p>
+<p>Limiting distributions don’t need to exist, even when there are
+stationary ones. Here are two examples:</p>
+<ol style="list-style-type: decimal">
+<li><p>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be an extreme regime-switching chain which alternates
+deterministically between states <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. Its transition matrix
+is given by <span class="math display">\[P=
+  \begin{bmatrix}0 &amp; 1 \\ 1 &amp; 0\end{bmatrix}\]</span> and it is easy to see that
+<span class="math display">\[P^{2n-1} = \begin{bmatrix}0 &amp; 1 \\ 1 &amp; 0\end{bmatrix} \text{ and }
+P^{2n} = \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 1\end{bmatrix} \text{ for }n\in{\mathbb{N}}.\]</span> That means that the
+values of each <span class="math inline">\(p^{(n)}_{ij}\)</span> oscillate between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>, and,
+therefore, cannot converge to anything when <span class="math inline">\(n{\rightarrow}\infty\)</span>. In other
+words, there is no limiting distribution. On the other hand, a
+stationary distribution <span class="math inline">\(\pi = (\tfrac{1}{2}, \tfrac{1}{2})\)</span> clearly exists.</p></li>
+<li><p>In the previous example the limiting distribution did not exists
+because the limits of the sequences <span class="math inline">\(p^{(n)}_{ij}\)</span> did not exist. A more
+subtle reason for the non-existence of limiting distributions can be
+dependence on the initial conditions: the limits <span class="math inline">\(\lim_n p^{(n)}_{ij}\)</span>
+may exist for all <span class="math inline">\(i,j\)</span>, but their values can depend on <span class="math inline">\(i\)</span> (which
+it outlawed in the definition of the limiting distribution above.
+The simplest example is a
+Markov chain with two states <span class="math inline">\(i=1,2\)</span> which does not move at all,
+i.e., where <span class="math inline">\(p_{11}=p_{22}=1\)</span>. It follows that for each <span class="math inline">\(n\)</span>, we have
+<span class="math inline">\(p^{(n)}_{ij} = 1\)</span> if <span class="math inline">\(i=j\)</span> and <span class="math inline">\(p^{(n)}_{ij}=0\)</span> if <span class="math inline">\(i\ne j\)</span>. Therefore, the
+limits <span class="math inline">\(\lim_{n{\rightarrow}\infty}  p^{(n)}_{ij}\)</span> exist for each pair <span class="math inline">\(i,j\)</span>, but their values depend on
+the initial state <span class="math inline">\(i\)</span>: <span class="math display">\[\lim_{n{\rightarrow}\infty} p^{(n)}_{12} = 0 \text{ and }
+  \lim_{n{\rightarrow}\infty} p^{(n)}_{22} = 1.\]</span></p></li>
+</ol>
+<p>The first part of the example above shows that no limiting distribution
+needs to exist even in the simplest of irreducible finite chains.
+Luckily, it also identifies the problem: the chain is periodic and it
+looks very differently on even vs. odd time points. Clearly, when the
+chain exhibits this kind of a periodic behavior, it will always be
+possible to separate even from odd points in time, and, therefore, no
+equilibrium can be achieved. For this reason, we need to assume,
+additionally, that the chain is aperiodic. The beauty of the following
+result (which we give without a proof) is that nothing else is needed.</p>
+<p><strong>Theorem. (Convergence theorem)</strong> Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be
+a finite-state, irreducible and aperiodic Markov chain. Then the
+limiting distribution exists.</p>
+<p><strong>Example.</strong>
+When we first introuced Markov chains and their transition probabilities
+we considered a two-state “Regime-switching”
+Markov chain with the following transition matrix:
+<span class="math display">\[P =  \begin{bmatrix}1-a &amp; a \\ b &amp; 1-b\end{bmatrix},\]</span> where <span class="math inline">\(0&lt;a,b&lt;1\)</span>. Using
+diagonalization, we produced the following expression for <span class="math inline">\(P^n\)</span>:
+<span class="math display">\[P^n = 
+  \begin{bmatrix}
+  \frac{b}{a+b}+(1-a-b)^n \frac{a}{a+b} &amp;   \frac{a}{a+b}-(1-a-b)^n \frac{a}{a+b}\\
+  \frac{b}{a+b}+(1-a-b)^n \frac{b}{a+b} &amp;   \frac{a}{a+b}-(1-a-b)^n \frac{b}{a+b}
+\end{bmatrix}.\]</span> Since <span class="math inline">\(|1-a-b|&lt;1\)</span>, we have <span class="math inline">\((1-a-b)^n {\rightarrow}0\)</span> as <span class="math inline">\(n{\rightarrow}\infty\)</span>,
+and, so
+<span class="math display">\[\lim_n P^n = \begin{bmatrix} \frac{b}{a+b} &amp; \frac{a}{a+b} \\ \frac{b}{a+b} &amp; \frac{a}{a+b}\end{bmatrix}\]</span>
+It follows that <span class="math inline">\((\frac{b}{a+b}, \frac{a}{a+b})\)</span> is a limiting distribution.
+Of course, we could have concluded that directly from the Convergence theorem above,
+Theorem, since our chain is clearly finite, irreducible and aperiodic.</p>
+</div>
+<div id="the-pagerank-algorithm" class="section level2" number="8.5">
+<h2><span class="header-section-number">8.5</span> The PageRank algorithm</h2>
+<p>An internet user searches for the term “Jimi Hendrix” and find out that
+it appears in about 40 million web pages. Some of these pages are
+likely to be more important than others. For example, the Wikipedia
+entry for the famous guitarist is almost certainly more relevant for an
+average user than the web page my son built for his gerbil Jimi Hendrix.
+After the difficult task of actually identifying the 60 million pages
+has been accomplished (how to do that is a problem we do not go into in
+these notes), the search engine must decide which 10 or so pages to show
+to the user first. In other words, it must rank the 60 million pages in
+some order of relevance, and then return 10 top-ranked pages. The
+<em>PageRank</em> algorithm<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> of Sergey Brin and Larry Page addressed that
+exact question. It proposes a notion of “relevance” for each web page,
+called , which reflects its relative importance among all web pages on
+the internet (there are billions of them - see <a href="https://www.worldwidewebsize.com">here</a> for the latest numbers).</p>
+<p>The main idea is that links to a page make the page more relevant. But
+also, links from more relevant pages should count more than links from
+obscure ones. Very soon, this kind of logic becomes circular, because it
+appears that you need have a notion of relevance to define the notion of
+relevance. It is the powerful notion of a stationary distribution that
+comes to rescue.</p>
+<p>In their original 1998 paper <em>The Anatomy of a Large-Scale Hypertextual
+Web Search Engine</em>, Brin and Page envision a “random surfer”. This
+hypothetical internet user starts from a given web page and navigates
+the web in the following way: he/she makes a list of all links from the
+web page he/she is currently one, picks a random link from that list
+(all links have equal probabilities of being picked) and follows it.
+Repeating this process over and over, our server follows a Markov Chain
+on the state space <span class="math inline">\(S\)</span>, where <span class="math inline">\(S\)</span> is the set of all web
+pages on the internet. Even if the starting page is my son’s gerbil’s
+web page, it is intuitively clear that our surfer will soon reach one of
+the better known pages (like <code>facebook.com</code> or <code>amazon.com</code>, or even
+<code>google.com</code> itself). The idea of Brin and Page was then to think of the
+relevance of the page as the long-term proportion of time spent on that
+web page by a random surfer. In the theoretical discussion
+above we learned that these long-term
+proportions are given by nothing other than the probabilities <span class="math inline">\(\pi_i\)</span>
+that form the stationary distribution. Moreover, stationary distribution
+is also a limiting distribution if we assume that the “Internet Markov
+Chain” described above is finite, irreducible and aperiodic, and we can
+apply Convergence Theorem.</p>
+<p>The procedure to compute the PageRank would then be similar to the
+following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Collect the information about all states (web pages) and all
+transitions (links) and form a Markov Chain. Give all transitions
+from a given web page equal probabilities.</p></li>
+<li><p>Compute the stationary distribution <span class="math inline">\((\pi_i)\)</span></p></li>
+<li><p>rank the states using the stationary distribution as weights. The
+page with the highest <span class="math inline">\(\pi_i\)</span> gets rank <span class="math inline">\(1\)</span>, then one with the
+second highest rank <span class="math inline">\(2\)</span>, etc.</p></li>
+</ol>
+<p>Of course, the computation of the stationary distribution for a Markov
+Chain with billions of states is not trivial at all. The system to be
+solved involved billions of equations and billions of unknowns. One way
+to do this numerically is to use Markov-Chain theory again, and compute
+a high power of the matrix <span class="math inline">\(P\)</span>. Since the limiting distribution exists
+and equals the stationary distribution, we expect every row of <span class="math inline">\(P^n\)</span> to
+approximate <span class="math inline">\(\pi\)</span> for <span class="math inline">\(n\)</span> large enough.</p>
+<p>Let us go back to the fundamental assumption of irreducibility that we
+need for the stationary distribution to exist and be unique. The real
+“Internet Markov Chain” is almost certainly not irreducible. There are
+pages that contain no links, there are collections of pages that only
+link to each other. To deal with this problem (and to speed up numerical
+computations) Brin and Page decided to modify the transition matrix P in
+the way that is best explained by considering the random surfer. In the
+new chain, the surfer first tosses a (biased) coin. If the coin comes up
+Heads, he/she follows the standard procedure by picking a page linked
+from the current page at random and following the link. If the coin
+shows Tails, he/she chooses a web page at random (any page on the
+internet is chosen with equal probability) and jumps to it. In other
+words, if the coin show Tails, the surfer behaves as if the current page
+has a link to every other page on the internet.</p>
+<p>The probability <span class="math inline">\(d\)</span> of Heads is typically big (the value of <span class="math inline">\(d=0.85\)</span> is
+sometimes used) but ensures that every entry of the transition matrix is
+at least <span class="math inline">\(1-d=0.15\)</span>, and, in particular, positive. This way, the chain
+is guaranteed to be irreducible, and our theorems are guaranteed to
+apply. The element <span class="math inline">\(p_{ij}\)</span> at the position <span class="math inline">\((i,j)\)</span> of the modified
+transition matrix is given by
+<span class="math display">\[p_{ij} = \begin{cases} (1-d)\tfrac{1}{N} + d \frac{1}{L_i} &amp; \text{ if $i$ links to $j$,
+  and} \\
+(1-d)\frac{1}{N}, &amp; \text{ otherwise,}\end{cases}\]</span> Where <span class="math inline">\(L_i\)</span> is the total
+number of links on page <span class="math inline">\(i\)</span> and <span class="math inline">\(N\)</span> is the total number of pages on the
+internet. If we write down the definition of the stationary distribution
+<span class="math inline">\(\pi\)</span> in this case, we obtain the following formula
+<span class="math display">\[\pi_j = \sum_i \pi_i p_{ij} = (1-d) \frac{1}{N} +  d \sum_{i,
+  p_{ij}&gt;0} \pi_i
+\frac{1}{L_i}.\]</span> In words,</p>
+<p><em>The “relevance” <span class="math inline">\(\pi_j\)</span> of the page <span class="math inline">\(j\)</span> is the convex combination of
+the “base relevance” <span class="math inline">\(\frac{1}{N}\)</span> and the weighted average of the
+“relevances” of all the pages <span class="math inline">\(i\)</span> which link to <span class="math inline">\(j\)</span>, where the weight of
+<span class="math inline">\(i\)</span> is inversely proportional to the total number of links from <span class="math inline">\(i\)</span>.</em></p>
+<p>Google uses a much more complex algorithm these days, but the PageRank
+remains one of the most important (and most lucrative) applications of
+the Markov Chain theory in history.</p>
+</div>
+<div id="additional-problems-for-chapter-8" class="section level2" number="8.6">
+<h2><span class="header-section-number">8.6</span> Additional Problems for Chapter 8</h2>
+<div style="border: 1px solid; padding: 5px;">
+<p><strong>Note:</strong> do not use simulations in any of the problems below. Using R (or other software) to manipulate matrices or perform other numerical computation is fine.</p>
+</div>
+<p><br></p>
+<!--
+  sl-prob-01
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-226" class="exercise"><strong>Problem 8.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov
+chain with the transition matrix <span class="math display">\[P=\begin{bmatrix} 
+    \frac{1}{4} &amp; \frac{1}{4} &amp; \frac{1}{2} \\
+     0 &amp; \frac{1}{3} &amp; \frac{2}{3} \\
+ \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} \\
+ \end{bmatrix}\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>Find all stationary distributions.</p></li>
+<li><p>The chain starts from the state <span class="math inline">\(i=1\)</span>. What is the expected number
+of steps before it returns to <span class="math inline">\(1\)</span>?</p></li>
+<li><p>How many times, on average, does the chain visit state <span class="math inline">\(2\)</span> between two
+consecutive visits to state <span class="math inline">\(1\)</span>?</p></li>
+<li><p>Each time the chain visits the state <span class="math inline">\(1\)</span>, <span class="math inline">\(\$1\)</span> is added to an
+account, <span class="math inline">\(\$2\)</span> for the state <span class="math inline">\(2\)</span>, and nothing in the state <span class="math inline">\(3\)</span>.
+Estimate the amount of money on the account after 10000 transitions?
+You may assume that the Ergodic theorem provides an adequate approximation.</p></li>
+</ol>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+<!--
+  sl-mc-exam-07
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-227" class="exercise"><strong>Problem 8.5  </strong></span>A county has 2 large cities and <span class="math inline">\(8\)</span> small ones. Any two cities have a direct
+flight between them, except for the two large ones (since they don’t like each
+other very much). A traveler starts in a large city and moves around randomly by
+picking one of the available direct flights from their current city at random and taking
+it. What is the expected number of flights he or she will take before returning
+to the initial city for the first time?</p>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+<!--
+  mc_prob3
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-228" class="exercise"><strong>Problem 8.6  </strong></span>Wonder Woman is moving from a vertex to a vertex of a cube, along its
+edges. Each time she reaches a vertex, she chooses one of the three edges
+that meet there with probability <span class="math inline">\(1/3\)</span>, independently of her previous
+choices. Assuming that it takes 1 min for Wonder Woman to cross an edge,
+what is the expected amount of time it will take her to return to the initial vertex?
+How about if the cube is replaced by a tetrahedron?</p>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+<!--
+  sl-prob-02
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-229" class="exercise"><strong>Problem 8.7  </strong></span>Just like we did for the knight in an example above, compute the mean return time to the
+lower left corner for other chess pieces.</p>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+<!--
+  mc_prob1
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-230" class="exercise"><strong>Problem 8.8  </strong></span>Consider the Markov chain below
+<img src="pics/mc_prob1_chain.png" width="1200" style="display: block; margin: auto;" />
+where equally colored edges represent equal probabilities.
+Find all stationary
+distributions. For each <span class="math inline">\(i\in \{1,2,\dots, 7\}\)</span>, compute the long-run
+proportion of time this chain will spend in the state <span class="math inline">\(1\)</span>.</p>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+<!--
+  friends
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-231" class="exercise"><strong>Problem 8.9  </strong></span>An Instagram influencer and die-hard foodie Ravi travels for work
+between Austin and Los Angeles. After he spends a week in Austin, he
+spends another week there with probability <span class="math inline">\(1/3\)</span> or goes to Los Angeles
+with probability <span class="math inline">\(2/3\)</span>. After a week in Los Angeles, he always spends
+the next week in Austin.</p>
+<p>His friend, Delphine, a tech enterpreneur and a passionate
+restaurant-goer herself, keeps a similar schedule. She also moves
+between Austin and Los Angeles, but, being a free spirit (and also a bit
+detached from reality), she makes her decisions by tossing a coin. No
+matter where she is, Austin or Los Angeles, she stays there with
+probability <span class="math inline">\(1/2\)</span> for another week, or switches cities with probability
+<span class="math inline">\(1/2\)</span>, as well. Moreover, the coin she uses is just a coin - it is not
+magically influenced by Ravi’s current position in any way. Similarly,
+Ravi’s decision whether to stay or not has nothing to do with Delphine’s
+coin, or the city she is in.</p>
+<p>Each time Ravi and Delphine find themselves in the same city, they go
+out on Friday night to try a new restaurant. If they happen to be in
+Austin, they pay <span class="math inline">\(\$100\)</span> for the experience. Los Angeles is more
+expensive, and the typical dinner costs <span class="math inline">\(\$200\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><p>Ravi and Delphine are in Los Angeles this week. How many weeks will
+pass (on average) before they are both in Los Angeles again?</p></li>
+<li><p>How many Austin dinners do they have, on average, between two Los
+Angeles dinners?</p></li>
+<li><p>What is the long-run average amount of money they spend on
+restaurants each week?</p></li>
+</ol>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+<!--
+  sl-prob-04
+  ------------------------------------------------
+-->
+<div class="exercise">
+<p><span id="exr:unlabeled-div-232" class="exercise"><strong>Problem 8.10  </strong></span>Go back to the Problem with airline reservation system and the computer-repair
+facility in the last chapter. If the system starts with both
+computers operational, answer the following questions:</p>
+<ol style="list-style-type: decimal">
+<li><p>What percentage of time (on average) are both machines operable?</p></li>
+<li><p>What is the long-run per-day cost associated with inoperable computers?</p></li>
+</ol>
+</div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
+</div>
+<div id="endnotes-6" class="section level2" number="8.7">
+<h2><span class="header-section-number">8.7</span> Endnotes</h2>
+
+</div>
+</div>
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="11">
+<li id="fn11"><p>It might, actually, but it will take an
+unimaginably long time.<a href="stationary-distributions.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>This phenomenon is called <strong>diffusion</strong>.<a href="stationary-distributions.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>what we describe here is a simplification of the true PageRank
+algorithm.<a href="stationary-distributions.html#fnref13" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="absorption-and-reward.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="dist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": null,
+"fontsettings": false,
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/gordanz/M362M/blob/master/source/08-Stationary-Distributions.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"toc_depth": null
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

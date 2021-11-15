@@ -5,8 +5,8 @@ language:
     chapter_name: "Chapter "
 before_chapter_script: ["before-script.R"]
 delete_merged_file: true
-# output_dir: "../docs/"
-output_dir: "../tmpdocs/"
+output_dir: "../docs/"
+# output_dir: "../tmpdocs/"
 self_contained: FALSE
 view: https://github.com/gordanz/M362M/blob/master/source/%s
 repo: https://github.com/gordanz/M362M

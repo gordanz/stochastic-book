@@ -242,6 +242,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
 <li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="stationary-distributions.html"><a href="stationary-distributions.html"><i class="fa fa-check"></i><b>8</b> Stationary Distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationarity-and-stationary-distributions"><i class="fa fa-check"></i><b>8.1</b> Stationarity and stationary distributions</a></li>
+<li class="chapter" data-level="8.2" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma"><i class="fa fa-check"></i><b>8.2</b> Stationary distributions for finite irreducible chains and Kac’s lemma</a></li>
+<li class="chapter" data-level="8.3" data-path="stationary-distributions.html"><a href="stationary-distributions.html#long-run-averages"><i class="fa fa-check"></i><b>8.3</b> Long-run averages</a></li>
+<li class="chapter" data-level="8.4" data-path="stationary-distributions.html"><a href="stationary-distributions.html#limiting-distributions"><i class="fa fa-check"></i><b>8.4</b> Limiting distributions</a></li>
+<li class="chapter" data-level="8.5" data-path="stationary-distributions.html"><a href="stationary-distributions.html#the-pagerank-algorithm"><i class="fa fa-check"></i><b>8.5</b> The PageRank algorithm</a></li>
+<li class="chapter" data-level="8.6" data-path="stationary-distributions.html"><a href="stationary-distributions.html#additional-problems-for-chapter-8"><i class="fa fa-check"></i><b>8.6</b> Additional Problems for Chapter 8</a></li>
+<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-6"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -551,7 +561,7 @@ variable with parameter <span class="math inline">\(p=0.4\)</span>, we never see
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pgeom</span>(<span class="dv">22</span>, <span class="at">prob =</span> <span class="fl">0.4</span>)</span>
 <span id="cb51-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.9999921</span></span></code></pre></div>
 <p>Different draws are <em>independent</em> of each other, so we need to raise this to the power <span class="math inline">\(1,000,000\)</span>.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb52-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">pgeom</span>(<span class="dv">22</span>, <span class="at">prob =</span> <span class="fl">0.4</span>))<span class="sc">^</span>(<span class="fl">1e+06</span>)</span>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb52-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">pgeom</span>(<span class="dv">22</span>, <span class="at">prob =</span> <span class="fl">0.4</span>))<span class="sc">^</span>(<span class="dv">1000000</span>)</span>
 <span id="cb52-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.0003717335</span></span></code></pre></div>
 <p><em>Comments (R):</em> The command we used here is <code>pgeom</code> which is a cousin of <code>rgeom</code>. In
 general, R commands that involve named probability distributions consist of two
@@ -822,7 +832,7 @@ values. Repeat for <span class="math inline">\(n=100\)</span> and <span class="m
 <div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb63-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb63-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb64-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="fl">1e+05</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb64-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb64-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><em>Comments (R):</em> It cannot be simpler! You use the command <code>hist</code>, feed it a vector of
@@ -856,7 +866,7 @@ i.e., <span class="math inline">\((b-a)\times h\)</span> equals to the proportio
 <span class="math inline">\([a,b]\)</span>. This way, the total area under the histogram is always <span class="math inline">\(1\)</span>. To draw
 such a <strong>density histogram</strong> in R we would
 need to add the additional option <code>freq = FALSE</code> to <code>hist</code>:</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb66-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="fl">1e+05</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb66-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb66-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x, <span class="at">freq =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-73-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note how the <span class="math inline">\(y\)</span>-axes label changed from “Frequency” to “Density”.
@@ -1357,7 +1367,7 @@ in this case, is <span class="math inline">\(0.25\)</span>. The error made was 0
 <span id="cb78-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
 <span id="cb78-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.2564643</span></span></code></pre></div>
 <p>with (smaller) error -0.0064643. Finally, let’s try <span class="math inline">\(n=1,000,000\)</span>:</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb79-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rexp</span>(<span class="fl">1e+06</span>, <span class="at">rate =</span> <span class="dv">4</span>)</span>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb79-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rexp</span>(<span class="dv">1000000</span>, <span class="at">rate =</span> <span class="dv">4</span>)</span>
 <span id="cb79-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(x)</span>
 <span id="cb79-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb79-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.250381</span></span></code></pre></div>
 <p>The error is even smaller -0.00038101.</p>
@@ -1726,7 +1736,7 @@ table might be a better tool for understanding its distribution:</p>
 </div>
 <div class="solution">
 <p><span id="unlabeled-div-36" class="solution"><em>Solution</em>. </span> </p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
 <span id="cb94-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(nsim)</span>
 <span id="cb94-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">rexp</span>(nsim)</span>
 <span id="cb94-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1734,7 +1744,7 @@ table might be a better tool for understanding its distribution:</p>
 <span id="cb94-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-6" aria-hidden="true" tabindex="-1"></a>x_cond <span class="ot">=</span> x[cond]</span>
 <span id="cb94-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb94-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x_cond, <span class="at">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb95-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb95-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
 <span id="cb95-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb95-2" aria-hidden="true" tabindex="-1"></a>eps <span class="ot">=</span> <span class="fl">0.1</span></span>
 <span id="cb95-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb95-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(nsim)</span>
 <span id="cb95-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb95-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">rexp</span>(nsim)</span>
@@ -1784,7 +1794,7 @@ Click for Solution
 <ol style="list-style-type: decimal">
 <li><div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb96-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rweibull</span>(<span class="dv">10000</span>, <span class="at">shape =</span> <span class="dv">2</span>, <span class="at">scale =</span> <span class="dv">3</span>)</span>
 <span id="cb96-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb96-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-307-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-320-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>Let <span class="math inline">\(X\)</span> be a normally distributed random variable, with parameters <span class="math inline">\(\mu_X\)</span> and <span class="math inline">\(\sigma_X\)</span>. When we apply a linear transformation <span class="math inline">\(Y = \alpha X + \beta\)</span> to X, the result <span class="math inline">\(Y\)</span> has a normal distribution again, but with different parameters. These parameters, call them <span class="math inline">\(\mu_Y\)</span> and <span class="math inline">\(\sigma_Y\)</span>, are easily identified by taking the expected value and the variance:</p>
 <p><span class="math display">\[\begin{align} \mu_Y &amp; = {\mathbb{E}}[Y] = \alpha {\mathbb{E}}[X] + \beta = \alpha \mu_X + \beta \\
    \sigma_Y^2 &amp; = \operatorname{Var}[Y] = \operatorname{Var}[\alpha X + \beta] = \alpha^2 \operatorname{Var}[X] = \alpha^2 \sigma_X^2 
@@ -1801,7 +1811,7 @@ exactly the opposite of taking <span class="math inline">\(z\)</span>-scores, wh
 <li><div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb99-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
 <span id="cb99-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb99-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">pnorm</span>(x)</span>
 <span id="cb99-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;F(x)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;The CDF of the standard normal&quot;</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-310-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-323-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 </ol>
 </div>
 </details>
@@ -1871,7 +1881,7 @@ Click for Solution
 <ol style="list-style-type: decimal">
 <li><div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb100-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>), <span class="at">size =</span> <span class="dv">10000</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.3</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb100-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb100-2" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(x)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-312-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-325-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note: given that we are dealing with a discrete distribution,
 a contingency table might be a better choice:</p>
 <table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -1909,15 +1919,15 @@ a contingency table might be a better choice:</p>
 </tbody>
 </table></li>
 <li><p>We apply the function <span class="math inline">\(\sin\)</span> to the simulations. The histogram of the obtained values is going to be a good (graphical) approximation to the pdf of the transformed random variable:</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb101-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rexp</span>(<span class="fl">1e+05</span>)</span>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb101-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rexp</span>(<span class="dv">100000</span>)</span>
 <span id="cb101-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb101-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">sin</span>(x)</span>
 <span id="cb101-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb101-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-314-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-327-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>Having learned that histograms look like the pdfs of the underlying distributions, we draw the histogram:</p>
 <div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb102-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rcauchy</span>(<span class="dv">10000</span>)</span>
 <span id="cb102-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb102-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">atan</span>(x) <span class="sc">*</span> <span class="dv">2</span><span class="sc">/</span>pi</span>
 <span id="cb102-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb102-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-315-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-328-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>It looks uniform (if we replace <span class="math inline">\(10,000\)</span> by
 <span class="math inline">\(100,000\)</span>&amp;_t + it will look even more uniform). We
 conclude that <span class="math inline">\(2/\pi \arctan(X)\)</span> is probably uniformly
@@ -1943,22 +1953,22 @@ Click for Solution
 </summary>
 <div class="solution">
 <p><span id="unlabeled-div-42" class="solution"><em>Solution</em>. </span>Let us perform an experiment where <span class="math inline">\(X \sim N(0,1)\)</span>. Remembering that the cdf is given by the R function <code>pnorm</code>:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb103-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="fl">1e+05</span>)</span>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb103-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>)</span>
 <span id="cb103-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb103-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">pnorm</span>(x)</span>
 <span id="cb103-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb103-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-316-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-329-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>This looks like a histogram of a uniform distribution on <span class="math inline">\((0,1)\)</span>.
 Let’s try with some other continuous distributions</p>
-<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">=</span> <span class="fu">rexp</span>(<span class="fl">1e+05</span>)</span>
-<span id="cb104-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">=</span> <span class="fu">rcauchy</span>(<span class="fl">1e+05</span>)</span>
-<span id="cb104-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-3" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">=</span> <span class="fu">runif</span>(<span class="fl">1e+05</span>)</span>
-<span id="cb104-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-4" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">=</span> <span class="fu">rgamma</span>(<span class="fl">1e+05</span>, <span class="at">shape =</span> <span class="dv">3</span>)</span>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">=</span> <span class="fu">rexp</span>(<span class="dv">100000</span>)</span>
+<span id="cb104-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">=</span> <span class="fu">rcauchy</span>(<span class="dv">100000</span>)</span>
+<span id="cb104-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-3" aria-hidden="true" tabindex="-1"></a>x3 <span class="ot">=</span> <span class="fu">runif</span>(<span class="dv">100000</span>)</span>
+<span id="cb104-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-4" aria-hidden="true" tabindex="-1"></a>x4 <span class="ot">=</span> <span class="fu">rgamma</span>(<span class="dv">100000</span>, <span class="at">shape =</span> <span class="dv">3</span>)</span>
 <span id="cb104-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb104-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">pexp</span>(x1))</span>
 <span id="cb104-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">pcauchy</span>(x2))</span>
 <span id="cb104-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">punif</span>(x3))</span>
 <span id="cb104-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb104-9" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">pgamma</span>(x4, <span class="at">shape =</span> <span class="dv">3</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-317-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-330-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>All of those point to the same conjecture, namely that <span class="math inline">\(F(X)\)</span> is
 uniformly distributed on <span class="math inline">\((0,1)\)</span>.
 To prove that, we
@@ -2016,7 +2026,7 @@ which performs one such simulation, and then use the command <code>replicate</co
 call it several times and store the results in the vector:</p>
 <div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-1" aria-hidden="true" tabindex="-1"></a>single_draw <span class="ot">=</span> <span class="cf">function</span>() {</span>
 <span id="cb105-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-2" aria-hidden="true" tabindex="-1"></a>    coin <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">prob =</span> <span class="fu">c</span>(<span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>), <span class="at">size =</span> <span class="dv">1</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb105-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (coin <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb105-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (coin <span class="sc">==</span> <span class="dv">1</span>) </span>
 <span id="cb105-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>)) <span class="cf">else</span> <span class="fu">return</span>(<span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">4</span>, <span class="at">sd =</span> <span class="dv">1</span>))</span>
 <span id="cb105-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-5" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb105-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -2024,7 +2034,7 @@ call it several times and store the results in the vector:</p>
 <span id="cb105-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-8" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">single_draw</span>())</span>
 <span id="cb105-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb105-10"><a href="simulation-of-random-variables-and-monte-carlo.html#cb105-10" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-319-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-332-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>As you can see, the histogram has two “humps”, one centered around
 <span class="math inline">\(0\)</span> and the
 other centered around <span class="math inline">\(4\)</span>. The first one is taller, which reflects the higher
@@ -2047,14 +2057,14 @@ two distributions. The first one is an exponential, and the second one is obtain
 from by putting the minus sign in front of it.<br />
 Using our strategy from part 1. above,
 we could get simulations of it as follows:</p>
-<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
 <span id="cb107-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-2" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span></span>
 <span id="cb107-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">=</span> <span class="fu">rexp</span>(nsim)</span>
 <span id="cb107-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">=</span> <span class="sc">-</span><span class="fu">rexp</span>(nsim)  <span class="co"># note the minus sign in front of rexp</span></span>
 <span id="cb107-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-5" aria-hidden="true" tabindex="-1"></a>coin <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="at">size =</span> nsim, <span class="at">prob =</span> <span class="fu">c</span>(alpha, <span class="dv">1</span> <span class="sc">-</span> alpha), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb107-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">ifelse</span>(coin, x1, x2)</span>
 <span id="cb107-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb107-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-321-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-334-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>You can do this more efficiently if you realize that every time we toss a
 coin and choose between <code>x1</code> and <code>x2</code>, we are really choosing the sign in
 front of an exponentially distributed random variable. In other words, we can
@@ -2066,7 +2076,7 @@ exponential distribution:</p>
 <span id="cb108-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb108-4" aria-hidden="true" tabindex="-1"></a>coin <span class="ot">=</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> nsim, <span class="at">prob =</span> <span class="fu">c</span>(alpha, <span class="dv">1</span> <span class="sc">-</span> alpha), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb108-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb108-5" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> coin <span class="sc">*</span> x</span>
 <span id="cb108-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb108-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(y)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-322-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-335-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 </ol>
 </div>
 </details>
@@ -2098,19 +2108,19 @@ Click for Solution
 <span id="cb109-10"><a href="simulation-of-random-variables-and-monte-carlo.html#cb109-10" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permutation_test</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y<span class="sc">^</span><span class="dv">2</span>, y<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-324-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-337-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>The first plot is very different from the other three. Therefore,the vectors are probably <em>not</em> independent.</p></li>
 <li><div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permutation_test</span>((x <span class="sc">+</span> y)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span>), (x <span class="sc">-</span> y)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">2</span>))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-325-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-338-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>The first plot could easily be confused for one of the other three. Therefore the vectors are probably independent.</p></li>
-<li><div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we have to use rep(1,length(x)) to get a vector of 1s of the same length as</span></span>
-<span id="cb112-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="co"># x.  R will not recycle it properly if you simply write 1.  Another, more</span></span>
-<span id="cb112-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="co"># &#39;hacky&#39; way would be to take advantage of recycling and use 0*x+1</span></span>
+<li><div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="co"># we have to use rep(1,length(x)) to get a vector of 1s of the same length as x.</span></span>
+<span id="cb112-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-2" aria-hidden="true" tabindex="-1"></a><span class="co"># R will not recycle it properly if you simply write 1.  Another, more &#39;hacky&#39;</span></span>
+<span id="cb112-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-3" aria-hidden="true" tabindex="-1"></a><span class="co"># way would be to take advantage of recycling and use 0*x+1</span></span>
 <span id="cb112-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb112-4" aria-hidden="true" tabindex="-1"></a><span class="fu">permutation_test</span>(x, <span class="fu">rep</span>(<span class="dv">1</span>, <span class="fu">length</span>(x)))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-326-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-339-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>The plots look very similar. Therefore, the vectors are probably independent. We could have known this without drawing any graphs. Anything is independent of a constant random variable (vector).</p></li>
 <li><div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">permutation_test</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y<span class="sc">^</span><span class="dv">2</span>, <span class="fu">atan</span>(y<span class="sc">/</span>x))</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-327-1.png" width="768" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-340-1.png" width="768" style="display: block; margin: auto;" /></p>
 <p>Plots look very similar to each other. Therefore, <code>z</code> and <code>w</code> are probably independent.</p></li>
 </ol>
 <p><em>Note:</em> The plots in b) and d) reveal that the distribution of the random vector
@@ -2361,7 +2371,7 @@ Click for Solution
 <div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-1" aria-hidden="true" tabindex="-1"></a>show_door <span class="ot">=</span> <span class="cf">function</span>(car, guess) {</span>
 <span id="cb120-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-2" aria-hidden="true" tabindex="-1"></a>    all_doors <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb120-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-3" aria-hidden="true" tabindex="-1"></a>    goat_doors <span class="ot">=</span> all_doors[all_doors <span class="sc">!=</span> car]</span>
-<span id="cb120-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-4" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb120-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (car <span class="sc">==</span> guess) {</span>
 <span id="cb120-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-6" aria-hidden="true" tabindex="-1"></a>        random_goat_door <span class="ot">=</span> <span class="fu">sample</span>(goat_doors, <span class="at">size =</span> <span class="dv">1</span>)</span>
 <span id="cb120-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb120-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(random_goat_door)</span>
@@ -2375,7 +2385,7 @@ Click for Solution
 <span id="cb121-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-2" aria-hidden="true" tabindex="-1"></a>    all_doors <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb121-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-3" aria-hidden="true" tabindex="-1"></a>    car <span class="ot">=</span> <span class="fu">sample</span>(all_doors, <span class="at">size =</span> <span class="dv">1</span>)</span>
 <span id="cb121-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-4" aria-hidden="true" tabindex="-1"></a>    guess <span class="ot">=</span> <span class="fu">sample</span>(all_doors, <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb121-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-5" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb121-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="cf">switch</span>) {</span>
 <span id="cb121-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-7" aria-hidden="true" tabindex="-1"></a>        unguessed_doors <span class="ot">=</span> all_doors[all_doors <span class="sc">!=</span> guess]</span>
 <span id="cb121-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb121-8" aria-hidden="true" tabindex="-1"></a>        shown_door <span class="ot">=</span> <span class="fu">show_door</span>(car, guess)</span>
@@ -2434,7 +2444,7 @@ Click for Solution
 <span id="cb123-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb123-3" aria-hidden="true" tabindex="-1"></a>x_pdf <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
 <span id="cb123-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb123-4" aria-hidden="true" tabindex="-1"></a>y_pdf <span class="ot">=</span> <span class="fu">dbeta</span>(x_pdf, <span class="fl">0.5</span>, <span class="fl">0.3</span>)</span>
 <span id="cb123-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb123-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(x_pdf, y_pdf, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-338-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-351-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>We use Monte Carlo to estimate the probability:</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb124-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>, <span class="at">shape1 =</span> <span class="fl">0.5</span>, <span class="at">shape2 =</span> <span class="fl">0.3</span>)</span>
 <span id="cb124-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb124-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">rbeta</span>(<span class="dv">10000</span>, <span class="at">shape1 =</span> <span class="fl">0.5</span>, <span class="at">shape2 =</span> <span class="fl">0.3</span>)</span>
@@ -2451,7 +2461,7 @@ Click for Solution
 <span id="cb125-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb125-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(w, z)</span>
 <span id="cb125-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb125-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(w, z_perm_1)</span>
 <span id="cb125-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb125-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(w, z_perm_2)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-340-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-353-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Since the first plot looks very different from the other three, we conclude that <span class="math inline">\(XY\)</span> and <span class="math inline">\(1+\log(Y)\)</span> are most likely not independent.</p></li>
 <li><p>First, we simulate <span class="math inline">\(10,000\)</span> draws from the distribution of <span class="math inline">\(M\)</span>. The function <code>min</code> is not vectorized (and it should not be!), so we cannot simply write <span class="math inline">\(m = min(x,y,z)\)</span>. Luckily there is another function, called <code>pmin</code> (where <code>p</code> stands for parallel) which returns the component-wise min. Alternatively, we could use the function <code>apply</code> to apply <code>min</code> to each row of the data frame <code>df</code> which contains the simulations of <span class="math inline">\(X,Y\)</span> and <span class="math inline">\(Z\)</span>:</p>
 <div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb126-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
@@ -2478,7 +2488,7 @@ various values of parameters and see what fits best. The function <code>try_para
 <span id="cb127-12"><a href="simulation-of-random-variables-and-monte-carlo.html#cb127-12" aria-hidden="true" tabindex="-1"></a><span class="fu">try_parameters</span>(<span class="fl">0.5</span>, <span class="dv">2</span>)</span>
 <span id="cb127-13"><a href="simulation-of-random-variables-and-monte-carlo.html#cb127-13" aria-hidden="true" tabindex="-1"></a><span class="fu">try_parameters</span>(<span class="fl">0.5</span>, <span class="dv">3</span>)</span>
 <span id="cb127-14"><a href="simulation-of-random-variables-and-monte-carlo.html#cb127-14" aria-hidden="true" tabindex="-1"></a><span class="fu">try_parameters</span>(<span class="dv">1</span>, <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-342-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-355-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Alternatively, you could have looked up the mean and the variance of the beta distribution online, and obtained the following expressions:
 <span class="math display">\[ \text{ mean}= \frac{\alpha}{\alpha+\beta}, \text{ variance} = \frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)},\]</span>
 and then tried to find <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> to match the estimated mean and variance</p>
@@ -2549,7 +2559,7 @@ Click for Solution
 <span id="cb129-19"><a href="simulation-of-random-variables-and-monte-carlo.html#cb129-19" aria-hidden="true" tabindex="-1"></a><span class="fu">hist_with_pdf</span>(<span class="dv">2</span>,<span class="fl">0.5</span>)</span>
 <span id="cb129-20"><a href="simulation-of-random-variables-and-monte-carlo.html#cb129-20" aria-hidden="true" tabindex="-1"></a><span class="fu">hist_with_pdf</span>(<span class="dv">3</span>,<span class="dv">1</span>)</span>
 <span id="cb129-21"><a href="simulation-of-random-variables-and-monte-carlo.html#cb129-21" aria-hidden="true" tabindex="-1"></a><span class="fu">hist_with_pdf</span>(<span class="dv">3</span>,<span class="fl">0.5</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-344-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-357-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>We use Monte Carlo to estimate the probability:</p>
 <div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb130-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rgamma</span>(<span class="dv">10000</span>, <span class="at">shape =</span> <span class="dv">2</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span>
 <span id="cb130-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb130-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>)</span>
@@ -2567,7 +2577,7 @@ Click for Solution
 <span id="cb131-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb131-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(w, z)</span>
 <span id="cb131-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb131-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(w, z_perm_1)</span>
 <span id="cb131-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb131-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(w, z_perm_2)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-346-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-359-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The common shape of plots 2, 3. and 4. is sufficiently different from the shape
 of plot 1. to conclude that <span class="math inline">\(XY_1\)</span> and <span class="math inline">\(XY_2\)</span> are most likely not independent.
 Note: if you were to compute the correlation between <span class="math inline">\(XY_1\)</span> and <span class="math inline">\(XY_2\)</span> you would
@@ -2581,11 +2591,11 @@ the histogram of obtained values:</p>
 <span id="cb132-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb132-4" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">rgamma</span>(nsim, <span class="at">shape =</span> <span class="dv">3</span>, <span class="at">scale =</span> <span class="dv">1</span>)</span>
 <span id="cb132-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb132-5" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> x <span class="sc">+</span> y <span class="sc">+</span> z</span>
 <span id="cb132-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb132-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(s, <span class="at">breaks =</span> <span class="dv">100</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-347-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/unnamed-chunk-360-1.png" width="672" style="display: block; margin: auto;" />
 The shape resembles the shape we obtained in 1. above, so we try the gamma distribution with various parameters.
 The function <code>try_parameters</code> below does exacly that - it superimposes the gamma pdf onto the histogram of <code>s</code>.</p>
 <div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-1" aria-hidden="true" tabindex="-1"></a>try_parameters <span class="ot">=</span> <span class="cf">function</span>(k, theta) {</span>
-<span id="cb133-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(s, <span class="at">probability =</span> T, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Trying shape = &quot;</span>, k, <span class="st">&quot; scale = &quot;</span>,</span>
+<span id="cb133-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">hist</span>(s, <span class="at">probability =</span> T, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">&quot;Trying shape = &quot;</span>, k, <span class="st">&quot; scale = &quot;</span>, </span>
 <span id="cb133-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-3" aria-hidden="true" tabindex="-1"></a>        theta))</span>
 <span id="cb133-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-4" aria-hidden="true" tabindex="-1"></a>    x_pdf <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">15</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
 <span id="cb133-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-5" aria-hidden="true" tabindex="-1"></a>    y_pdf <span class="ot">=</span> <span class="fu">dgamma</span>(x_pdf, k, theta)</span>
@@ -2599,7 +2609,7 @@ The function <code>try_parameters</code> below does exacly that - it superimpose
 <span id="cb133-13"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-13" aria-hidden="true" tabindex="-1"></a><span class="fu">try_parameters</span>(<span class="dv">1</span>, <span class="dv">3</span>)</span>
 <span id="cb133-14"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-14" aria-hidden="true" tabindex="-1"></a><span class="fu">try_parameters</span>(<span class="dv">2</span>, <span class="dv">1</span>)</span>
 <span id="cb133-15"><a href="simulation-of-random-variables-and-monte-carlo.html#cb133-15" aria-hidden="true" tabindex="-1"></a><span class="fu">try_parameters</span>(<span class="dv">4</span>, <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-348-1.png" width="672" style="display: block; margin: auto;" />
+<p><img src="_main_files/figure-html/unnamed-chunk-361-1.png" width="672" style="display: block; margin: auto;" />
 We conclude that <span class="math inline">\(X+Y+Z\)</span> is most likely gamma-distributed with <span class="math inline">\(k=6\)</span> and
 <span class="math inline">\(\theta=1\)</span>. This is indeed, the case. The sum of independen gammas with shape
 parameters <span class="math inline">\(k_1, \dots, k_n\)</span> and the same scale parameter <span class="math inline">\(\theta\)</span> is a gamma
@@ -2966,7 +2976,7 @@ Click for Solution
 <p><em>Using <code>sample</code>:</em></p>
 <p>We need to make the list of all allowed combinations (no repeats) and then sample the
 entire triplet of dice at once. I am using <code>rbind</code> to append a row to a data frame, but you can do this in many other ways.</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb144-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
+<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb144-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
 <span id="cb144-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb144-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>()</span>
 <span id="cb144-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb144-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) {</span>
 <span id="cb144-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb144-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) {</span>
@@ -2989,13 +2999,13 @@ entire triplet of dice at once. I am using <code>rbind</code> to append a row to
 <span id="cb145-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) table_th[i, i] <span class="ot">=</span> <span class="dv">0</span></span>
 <span id="cb145-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-4" aria-hidden="true" tabindex="-1"></a>(<span class="at">error =</span> table_sim <span class="sc">-</span> table_th)</span>
 <span id="cb145-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    </span></span>
-<span id="cb145-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-6" aria-hidden="true" tabindex="-1"></a><span class="do">##            1        2        3        4        5        6</span></span>
-<span id="cb145-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   1  0.0e+00  2.7e-04  1.8e-04  4.7e-05 -6.5e-04  1.1e-03</span></span>
-<span id="cb145-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   2 -7.3e-05  0.0e+00 -6.2e-04  9.3e-04 -7.4e-04  2.1e-04</span></span>
-<span id="cb145-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   3 -8.4e-04  2.2e-04  0.0e+00 -2.3e-04 -5.4e-04  7.8e-04</span></span>
-<span id="cb145-10"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   4  1.7e-05  6.4e-04 -4.7e-04  0.0e+00  5.6e-04 -4.5e-04</span></span>
-<span id="cb145-11"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   5  1.7e-05 -3.7e-04 -3.4e-04  2.8e-04  0.0e+00  7.7e-05</span></span>
-<span id="cb145-12"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   6 -2.9e-04  1.3e-03 -7.8e-04 -2.3e-05 -1.1e-04  0.0e+00</span></span></code></pre></div></li>
+<span id="cb145-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-6" aria-hidden="true" tabindex="-1"></a><span class="do">##             1         2         3         4         5         6</span></span>
+<span id="cb145-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   1  0.000000  0.000267  0.000177  0.000047 -0.000653  0.001067</span></span>
+<span id="cb145-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   2 -0.000073  0.000000 -0.000623  0.000927 -0.000743  0.000207</span></span>
+<span id="cb145-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   3 -0.000843  0.000217  0.000000 -0.000233 -0.000543  0.000777</span></span>
+<span id="cb145-10"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   4  0.000017  0.000637 -0.000473  0.000000  0.000557 -0.000453</span></span>
+<span id="cb145-11"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   5  0.000017 -0.000373 -0.000343  0.000277  0.000000  0.000077</span></span>
+<span id="cb145-12"><a href="simulation-of-random-variables-and-monte-carlo.html#cb145-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   6 -0.000293  0.001307 -0.000783 -0.000023 -0.000113  0.000000</span></span></code></pre></div></li>
 <li><div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb146-1" aria-hidden="true" tabindex="-1"></a>good <span class="ot">=</span> (sims<span class="sc">$</span>x <span class="sc">+</span> sims<span class="sc">$</span>y <span class="sc">==</span> <span class="dv">6</span>)</span>
 <span id="cb146-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb146-2" aria-hidden="true" tabindex="-1"></a>z_cond <span class="ot">=</span> sims<span class="sc">$</span>z[good]</span>
 <span id="cb146-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb146-3" aria-hidden="true" tabindex="-1"></a>(<span class="at">table_sim =</span> <span class="fu">table</span>(z_cond)<span class="sc">/</span><span class="fu">length</span>(z_cond))</span>
@@ -3059,7 +3069,7 @@ Thus, even when the test is quite accurate, the probability of getting a false p
 <span id="cb149-8"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">c</span>(x, y))</span>
 <span id="cb149-9"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-9" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb149-10"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb149-11"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-11" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
+<span id="cb149-11"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-11" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
 <span id="cb149-12"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_draw</span>())))</span>
 <span id="cb149-13"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-13" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;status&quot;</span>, <span class="st">&quot;test_result&quot;</span>)</span>
 <span id="cb149-14"><a href="simulation-of-random-variables-and-monte-carlo.html#cb149-14" aria-hidden="true" tabindex="-1"></a></span>
@@ -3101,18 +3111,18 @@ Click for Solution
 <span id="cb150-12"><a href="simulation-of-random-variables-and-monte-carlo.html#cb150-12" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb150-13"><a href="simulation-of-random-variables-and-monte-carlo.html#cb150-13" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Histograms may be used as approximations to the pdf of the (conditional) distribution:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+06</span></span>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000000</span></span>
 <span id="cb151-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-2" aria-hidden="true" tabindex="-1"></a>eps <span class="ot">=</span> <span class="fl">0.1</span></span>
 <span id="cb151-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-3" aria-hidden="true" tabindex="-1"></a>d1_cond <span class="ot">=</span> <span class="fu">simulate</span>(nsim, eps, <span class="at">conditional =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb151-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-4" aria-hidden="true" tabindex="-1"></a>d1 <span class="ot">=</span> <span class="fu">simulate</span>(nsim, eps, <span class="at">conditional =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb151-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-5" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb151-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-6" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d1, <span class="at">breaks =</span> <span class="dv">50</span>)</span>
 <span id="cb151-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb151-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(d1_cond, <span class="at">breaks =</span> <span class="dv">50</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-370-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-383-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Note that, in addition to clearly different shapes, the supports of the two distributions differ, too. Unconditionally, the distance to <span class="math inline">\((1,1,1)\)</span> can be any number from <span class="math inline">\(0\)</span> to <span class="math inline">\(\sqrt{3} \approx 1.73\)</span>. If it is known that the distance to <span class="math inline">\((0,0,0)\)</span> is <span class="math inline">\(1.5\)</span>, however, the distance to <span class="math inline">\((1,1,1)\)</span> cannot be larger than <span class="math inline">\(1\)</span>.</p>
 <p>Finally, let us compare the results we obtain by varying the parameter <span class="math inline">\(\varepsilon\)</span>, first with <code>nsim=100000</code>:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+05</span></span>
-<span id="cb152-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-2" aria-hidden="true" tabindex="-1"></a>epss <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span>, <span class="fl">1e-04</span>)</span>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">100000</span></span>
+<span id="cb152-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-2" aria-hidden="true" tabindex="-1"></a>epss <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span>, <span class="fl">0.0001</span>)</span>
 <span id="cb152-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-3" aria-hidden="true" tabindex="-1"></a>d1s <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="fu">length</span>(epss))</span>
 <span id="cb152-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (eps <span class="cf">in</span> epss) {</span>
 <span id="cb152-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-5" aria-hidden="true" tabindex="-1"></a>    sims <span class="ot">=</span> <span class="fu">simulate</span>(nsim, <span class="at">eps =</span> eps, <span class="at">conditional =</span> <span class="cn">TRUE</span>)</span>
@@ -3127,10 +3137,10 @@ Click for Solution
 <span id="cb152-14"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.02 , Draws =  647  Mean =  0.310139851430518&quot;</span></span>
 <span id="cb152-15"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.01 , Draws =  354  Mean =  0.30926108659397&quot;</span></span>
 <span id="cb152-16"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.001 , Draws =  33  Mean =  0.334224126737702&quot;</span></span>
-<span id="cb152-17"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  1e-04 , Draws =  4  Mean =  0.275311021507976&quot;</span></span></code></pre></div>
+<span id="cb152-17"><a href="simulation-of-random-variables-and-monte-carlo.html#cb152-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.0001 , Draws =  4  Mean =  0.275311021507976&quot;</span></span></code></pre></div>
 <p>The same experiment, but with <code>nsim=1000000</code> yields:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="fl">1e+06</span></span>
-<span id="cb153-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-2" aria-hidden="true" tabindex="-1"></a>epss <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span>, <span class="fl">1e-04</span>)</span>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000000</span></span>
+<span id="cb153-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-2" aria-hidden="true" tabindex="-1"></a>epss <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>, <span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span>, <span class="fl">0.0001</span>)</span>
 <span id="cb153-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-3" aria-hidden="true" tabindex="-1"></a>d1s <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="fu">length</span>(epss))</span>
 <span id="cb153-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (eps <span class="cf">in</span> epss) {</span>
 <span id="cb153-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-5" aria-hidden="true" tabindex="-1"></a>    sims <span class="ot">=</span> <span class="fu">simulate</span>(nsim, <span class="at">eps =</span> eps, <span class="at">conditional =</span> <span class="cn">TRUE</span>)</span>
@@ -3145,7 +3155,7 @@ Click for Solution
 <span id="cb153-14"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.02 , Draws =  6944  Mean =  0.3064588479179&quot;</span></span>
 <span id="cb153-15"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.01 , Draws =  3371  Mean =  0.30560770769072&quot;</span></span>
 <span id="cb153-16"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.001 , Draws =  331  Mean =  0.301734543251831&quot;</span></span>
-<span id="cb153-17"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  1e-04 , Draws =  33  Mean =  0.31500400469211&quot;</span></span></code></pre></div>
+<span id="cb153-17"><a href="simulation-of-random-variables-and-monte-carlo.html#cb153-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;Eps =  0.0001 , Draws =  33  Mean =  0.31500400469211&quot;</span></span></code></pre></div>
 </div>
 </details>
 <div class="exercise">
@@ -3199,7 +3209,7 @@ Click for Solution
 <span id="cb156-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb156-3" aria-hidden="true" tabindex="-1"></a>condition <span class="ot">=</span> d1 <span class="sc">&lt;</span> d2</span>
 <span id="cb156-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb156-4" aria-hidden="true" tabindex="-1"></a>W_cond <span class="ot">=</span> W[condition]</span>
 <span id="cb156-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(W_cond, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-375-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-388-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 <li><p>The main difficulty in this part of the problem is getting simulations from the uniform
 distributions on the sphere. One possibility is to use the rejection method, and
 proceed as in part 1., but keep only those points for which <span class="math display">\[1-\varepsilon &lt;
@@ -3227,7 +3237,7 @@ extremely simple:</p>
 <span id="cb158-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb158-5" aria-hidden="true" tabindex="-1"></a>W1 <span class="ot">=</span> <span class="fu">sqrt</span>((x <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (y <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (z <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb158-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb158-6" aria-hidden="true" tabindex="-1"></a>W1_cond <span class="ot">=</span> W1[condition]</span>
 <span id="cb158-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb158-7" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(W1_cond, <span class="at">breaks =</span> <span class="dv">50</span>, <span class="at">probability =</span> T)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-377-1.png" width="672" style="display: block; margin: auto;" /></p></li>
+<p><img src="_main_files/figure-html/unnamed-chunk-390-1.png" width="672" style="display: block; margin: auto;" /></p></li>
 </ol>
 </div>
 </details>

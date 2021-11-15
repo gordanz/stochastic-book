@@ -242,6 +242,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
 <li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="stationary-distributions.html"><a href="stationary-distributions.html"><i class="fa fa-check"></i><b>8</b> Stationary Distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationarity-and-stationary-distributions"><i class="fa fa-check"></i><b>8.1</b> Stationarity and stationary distributions</a></li>
+<li class="chapter" data-level="8.2" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma"><i class="fa fa-check"></i><b>8.2</b> Stationary distributions for finite irreducible chains and Kac’s lemma</a></li>
+<li class="chapter" data-level="8.3" data-path="stationary-distributions.html"><a href="stationary-distributions.html#long-run-averages"><i class="fa fa-check"></i><b>8.3</b> Long-run averages</a></li>
+<li class="chapter" data-level="8.4" data-path="stationary-distributions.html"><a href="stationary-distributions.html#limiting-distributions"><i class="fa fa-check"></i><b>8.4</b> Limiting distributions</a></li>
+<li class="chapter" data-level="8.5" data-path="stationary-distributions.html"><a href="stationary-distributions.html#the-pagerank-algorithm"><i class="fa fa-check"></i><b>8.5</b> The PageRank algorithm</a></li>
+<li class="chapter" data-level="8.6" data-path="stationary-distributions.html"><a href="stationary-distributions.html#additional-problems-for-chapter-8"><i class="fa fa-check"></i><b>8.6</b> Additional Problems for Chapter 8</a></li>
+<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-6"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -647,11 +657,11 @@ Click for Solution
 <div class="solution">
 <p><span id="unlabeled-div-2" class="solution"><em>Solution</em>. </span>Remember, parentheses around the whole expression tell R to print out the result</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="intro.html#cb37-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="sc">/</span><span class="dv">238746238746</span>)</span>
-<span id="cb37-2"><a href="intro.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.188548e-12</span></span>
+<span id="cb37-2"><a href="intro.html#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.000000000004188548</span></span>
 <span id="cb37-3"><a href="intro.html#cb37-3" aria-hidden="true" tabindex="-1"></a>(<span class="dv">2</span><span class="sc">^</span>(<span class="dv">45</span>))  <span class="co"># this is the same as 2**45</span></span>
-<span id="cb37-4"><a href="intro.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.518437e+13</span></span>
+<span id="cb37-4"><a href="intro.html#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 35184372088832</span></span>
 <span id="cb37-5"><a href="intro.html#cb37-5" aria-hidden="true" tabindex="-1"></a>(<span class="dv">3</span><span class="sc">^</span>(<span class="dv">28</span>))</span>
-<span id="cb37-6"><a href="intro.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2.287679e+13</span></span>
+<span id="cb37-6"><a href="intro.html#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 22876792454961</span></span>
 <span id="cb37-7"><a href="intro.html#cb37-7" aria-hidden="true" tabindex="-1"></a>(<span class="fu">sqrt</span>(<span class="dv">15</span>))</span>
 <span id="cb37-8"><a href="intro.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3.872983</span></span>
 <span id="cb37-9"><a href="intro.html#cb37-9" aria-hidden="true" tabindex="-1"></a>(<span class="fu">cos</span>(pi<span class="sc">/</span><span class="dv">8</span>))</span>
@@ -724,7 +734,7 @@ Click for Solution
 <ol style="list-style-type: decimal">
 <li><div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="intro.html#cb42-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span></span></code></pre></div></li>
 <li><div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="intro.html#cb43-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> (<span class="dv">20</span><span class="sc">:</span><span class="dv">2000</span>)<span class="sc">^</span><span class="dv">2</span></span></code></pre></div></li>
-<li><div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="fl">4e+05</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="fl">5e+05</span>])</span>
+<li><div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="intro.html#cb44-1" aria-hidden="true" tabindex="-1"></a>(<span class="at">z =</span> y[y <span class="sc">&gt;</span> <span class="dv">400000</span> <span class="sc">&amp;</span> y <span class="sc">&lt;</span> <span class="dv">500000</span>])</span>
 <span id="cb44-2"><a href="intro.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 400689 401956 403225 404496 405769 407044 408321 409600 410881 412164</span></span>
 <span id="cb44-3"><a href="intro.html#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [11] 413449 414736 416025 417316 418609 419904 421201 422500 423801 425104</span></span>
 <span id="cb44-4"><a href="intro.html#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [21] 426409 427716 429025 430336 431649 432964 434281 435600 436921 438244</span></span>
@@ -788,7 +798,7 @@ Click for Solution
 <span id="cb49-14"><a href="intro.html#cb49-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-15"><a href="intro.html#cb49-15" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
 <span id="cb49-16"><a href="intro.html#cb49-16" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)))</span>
-<span id="cb49-17"><a href="intro.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1.207418e-06</span></span>
+<span id="cb49-17"><a href="intro.html#cb49-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.000001207418</span></span>
 <span id="cb49-18"><a href="intro.html#cb49-18" aria-hidden="true" tabindex="-1"></a><span class="co"># should be 0</span></span>
 <span id="cb49-19"><a href="intro.html#cb49-19" aria-hidden="true" tabindex="-1"></a>(<span class="fu">angle</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)))</span>
 <span id="cb49-20"><a href="intro.html#cb49-20" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span>

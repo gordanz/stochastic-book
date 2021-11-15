@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="classification-of-states.html"/>
-<link rel="next" href="dist.html"/>
+<link rel="next" href="stationary-distributions.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -242,6 +242,16 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
 <li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
 </ul></li>
+<li class="chapter" data-level="8" data-path="stationary-distributions.html"><a href="stationary-distributions.html"><i class="fa fa-check"></i><b>8</b> Stationary Distributions</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationarity-and-stationary-distributions"><i class="fa fa-check"></i><b>8.1</b> Stationarity and stationary distributions</a></li>
+<li class="chapter" data-level="8.2" data-path="stationary-distributions.html"><a href="stationary-distributions.html#stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma"><i class="fa fa-check"></i><b>8.2</b> Stationary distributions for finite irreducible chains and Kac’s lemma</a></li>
+<li class="chapter" data-level="8.3" data-path="stationary-distributions.html"><a href="stationary-distributions.html#long-run-averages"><i class="fa fa-check"></i><b>8.3</b> Long-run averages</a></li>
+<li class="chapter" data-level="8.4" data-path="stationary-distributions.html"><a href="stationary-distributions.html#limiting-distributions"><i class="fa fa-check"></i><b>8.4</b> Limiting distributions</a></li>
+<li class="chapter" data-level="8.5" data-path="stationary-distributions.html"><a href="stationary-distributions.html#the-pagerank-algorithm"><i class="fa fa-check"></i><b>8.5</b> The PageRank algorithm</a></li>
+<li class="chapter" data-level="8.6" data-path="stationary-distributions.html"><a href="stationary-distributions.html#additional-problems-for-chapter-8"><i class="fa fa-check"></i><b>8.6</b> Additional Problems for Chapter 8</a></li>
+<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-6"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
+</ul></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
 <ul>
@@ -379,10 +389,10 @@ called the <strong>fundamental matrix</strong> of the Markov chain.</p>
 <p>Before we turn to the “Tennis” example, let us analyze a simpler case of
 Gambler’s ruin with <span class="math inline">\(a=3\)</span>.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-193" class="exercise"><strong>Problem 7.1  </strong></span>What is the probability that a gambler coming in at <span class="math inline">\(x=\$1\)</span> in a Gambler’s ruin problem with <span class="math inline">\(a=3\)</span> succeeds in “getting rich”? We <em>do not</em> assume that <span class="math inline">\(p=\tfrac{1}{2}\)</span>.</p>
+<p><span id="exr:unlabeled-div-200" class="exercise"><strong>Problem 7.1  </strong></span>What is the probability that a gambler coming in at <span class="math inline">\(x=\$1\)</span> in a Gambler’s ruin problem with <span class="math inline">\(a=3\)</span> succeeds in “getting rich”? We <em>do not</em> assume that <span class="math inline">\(p=\tfrac{1}{2}\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-194" class="solution"><em>Solution</em>. </span>The states <span class="math inline">\(0\)</span> and <span class="math inline">\(3\)</span> are absorbing, and all
+<p><span id="unlabeled-div-201" class="solution"><em>Solution</em>. </span>The states <span class="math inline">\(0\)</span> and <span class="math inline">\(3\)</span> are absorbing, and all
 the others are transient. Therefore <span class="math inline">\(C_1=\{0\}\)</span>, <span class="math inline">\(C_2=\{3\}\)</span> and
 <span class="math inline">\(T=T_1=\{1,2\}\)</span>. The transition matrix <span class="math inline">\(P\)</span> in the canonical form (the
 rows and columns represent the states in the order <span class="math inline">\(0,3,1,2\)</span>) <span class="math display">\[P=
@@ -416,70 +426,70 @@ to invert: <span class="math display">\[(I-Q)^{-1}= \frac{1}{1-p+p^2}\begin{bmat
 the probability of getting rich before bankruptcy is <span class="math inline">\(u_{13}=p^2/(1-p+p^2)\)</span> (the entry in the first row (<span class="math inline">\(x=1\)</span>) and the second column (<span class="math inline">\(a=3\)</span>) of <span class="math inline">\(U\)</span>.)</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-195" class="exercise"><strong>Problem 7.2  </strong></span>Find the probability of winning a whole game of Tennis, for a player whose
+<p><span id="exr:unlabeled-div-202" class="exercise"><strong>Problem 7.2  </strong></span>Find the probability of winning a whole game of Tennis, for a player whose
 probability of winning a single rally is <span class="math inline">\(p=0.45\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-196" class="solution"><em>Solution</em>. </span>In the “Tennis” example, the transition matrix is <span class="math inline">\(20\times 20\)</span>, with only 2
+<p><span id="unlabeled-div-203" class="solution"><em>Solution</em>. </span>In the “Tennis” example, the transition matrix is <span class="math inline">\(20\times 20\)</span>, with only 2
 recurrent states (each in its own class). In order to find the matrix <span class="math inline">\(U\)</span>, we (essentially) need to invert an <span class="math inline">\(18\times 18\)</span> matrix and that is a
 job for a computer. We start with an R function which produces the transition
 matrix <span class="math inline">\(P\)</span> as a function of the single-rally probability <span class="math inline">\(p\)</span>. Even though we only care about <span class="math inline">\(p=0.45\)</span> here, the extra flexibility will come in handy soon:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="absorption-and-reward.html#cb186-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0-0&quot;</span>, <span class="st">&quot;0-15&quot;</span>, <span class="st">&quot;15-0&quot;</span>, <span class="st">&quot;0-30&quot;</span>, <span class="st">&quot;15-15&quot;</span>, <span class="st">&quot;30-0&quot;</span>, <span class="st">&quot;0-40&quot;</span>, <span class="st">&quot;15-30&quot;</span>, </span>
-<span id="cb186-2"><a href="absorption-and-reward.html#cb186-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;30-15&quot;</span>, <span class="st">&quot;40-0&quot;</span>, <span class="st">&quot;15-40&quot;</span>, <span class="st">&quot;30-30&quot;</span>, <span class="st">&quot;40-15&quot;</span>, <span class="st">&quot;40-30&quot;</span>, <span class="st">&quot;30-40&quot;</span>, </span>
-<span id="cb186-3"><a href="absorption-and-reward.html#cb186-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;40-40&quot;</span>, <span class="st">&quot;40-A&quot;</span>, <span class="st">&quot;A-40&quot;</span>, <span class="st">&quot;P1&quot;</span>, <span class="st">&quot;P2&quot;</span>)</span>
-<span id="cb186-4"><a href="absorption-and-reward.html#cb186-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb186-5"><a href="absorption-and-reward.html#cb186-5" aria-hidden="true" tabindex="-1"></a>tennis_P <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
-<span id="cb186-6"><a href="absorption-and-reward.html#cb186-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="fu">c</span>( </span>
-<span id="cb186-7"><a href="absorption-and-reward.html#cb186-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-8"><a href="absorption-and-reward.html#cb186-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-9"><a href="absorption-and-reward.html#cb186-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-10"><a href="absorption-and-reward.html#cb186-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-11"><a href="absorption-and-reward.html#cb186-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-12"><a href="absorption-and-reward.html#cb186-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-13"><a href="absorption-and-reward.html#cb186-13" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
-<span id="cb186-14"><a href="absorption-and-reward.html#cb186-14" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-15"><a href="absorption-and-reward.html#cb186-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-16"><a href="absorption-and-reward.html#cb186-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
-<span id="cb186-17"><a href="absorption-and-reward.html#cb186-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
-<span id="cb186-18"><a href="absorption-and-reward.html#cb186-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-19"><a href="absorption-and-reward.html#cb186-19" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
-<span id="cb186-20"><a href="absorption-and-reward.html#cb186-20" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
-<span id="cb186-21"><a href="absorption-and-reward.html#cb186-21" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
-<span id="cb186-22"><a href="absorption-and-reward.html#cb186-22" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,</span>
-<span id="cb186-23"><a href="absorption-and-reward.html#cb186-23" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
-<span id="cb186-24"><a href="absorption-and-reward.html#cb186-24" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
-<span id="cb186-25"><a href="absorption-and-reward.html#cb186-25" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
-<span id="cb186-26"><a href="absorption-and-reward.html#cb186-26" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
-<span id="cb186-27"><a href="absorption-and-reward.html#cb186-27" aria-hidden="true" tabindex="-1"></a> <span class="at">byrow=</span>T, <span class="at">ncol =</span> <span class="dv">20</span> )</span>
-<span id="cb186-28"><a href="absorption-and-reward.html#cb186-28" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="absorption-and-reward.html#cb190-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0-0&quot;</span>, <span class="st">&quot;0-15&quot;</span>, <span class="st">&quot;15-0&quot;</span>, <span class="st">&quot;0-30&quot;</span>, <span class="st">&quot;15-15&quot;</span>, <span class="st">&quot;30-0&quot;</span>, <span class="st">&quot;0-40&quot;</span>, <span class="st">&quot;15-30&quot;</span>, </span>
+<span id="cb190-2"><a href="absorption-and-reward.html#cb190-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;30-15&quot;</span>, <span class="st">&quot;40-0&quot;</span>, <span class="st">&quot;15-40&quot;</span>, <span class="st">&quot;30-30&quot;</span>, <span class="st">&quot;40-15&quot;</span>, <span class="st">&quot;40-30&quot;</span>, <span class="st">&quot;30-40&quot;</span>, </span>
+<span id="cb190-3"><a href="absorption-and-reward.html#cb190-3" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;40-40&quot;</span>, <span class="st">&quot;40-A&quot;</span>, <span class="st">&quot;A-40&quot;</span>, <span class="st">&quot;P1&quot;</span>, <span class="st">&quot;P2&quot;</span>)</span>
+<span id="cb190-4"><a href="absorption-and-reward.html#cb190-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb190-5"><a href="absorption-and-reward.html#cb190-5" aria-hidden="true" tabindex="-1"></a>tennis_P <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
+<span id="cb190-6"><a href="absorption-and-reward.html#cb190-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">matrix</span>(<span class="fu">c</span>( </span>
+<span id="cb190-7"><a href="absorption-and-reward.html#cb190-7" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-8"><a href="absorption-and-reward.html#cb190-8" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-9"><a href="absorption-and-reward.html#cb190-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-10"><a href="absorption-and-reward.html#cb190-10" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-11"><a href="absorption-and-reward.html#cb190-11" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-12"><a href="absorption-and-reward.html#cb190-12" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-13"><a href="absorption-and-reward.html#cb190-13" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
+<span id="cb190-14"><a href="absorption-and-reward.html#cb190-14" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-15"><a href="absorption-and-reward.html#cb190-15" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-16"><a href="absorption-and-reward.html#cb190-16" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
+<span id="cb190-17"><a href="absorption-and-reward.html#cb190-17" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
+<span id="cb190-18"><a href="absorption-and-reward.html#cb190-18" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-19"><a href="absorption-and-reward.html#cb190-19" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
+<span id="cb190-20"><a href="absorption-and-reward.html#cb190-20" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
+<span id="cb190-21"><a href="absorption-and-reward.html#cb190-21" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
+<span id="cb190-22"><a href="absorption-and-reward.html#cb190-22" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,p,<span class="dv">0</span>,<span class="dv">0</span>,</span>
+<span id="cb190-23"><a href="absorption-and-reward.html#cb190-23" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,</span>
+<span id="cb190-24"><a href="absorption-and-reward.html#cb190-24" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span><span class="sc">-</span>p,<span class="dv">0</span>,<span class="dv">0</span>,p,<span class="dv">0</span>,</span>
+<span id="cb190-25"><a href="absorption-and-reward.html#cb190-25" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,</span>
+<span id="cb190-26"><a href="absorption-and-reward.html#cb190-26" aria-hidden="true" tabindex="-1"></a>    <span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>),</span>
+<span id="cb190-27"><a href="absorption-and-reward.html#cb190-27" aria-hidden="true" tabindex="-1"></a> <span class="at">byrow=</span>T, <span class="at">ncol =</span> <span class="dv">20</span> )</span>
+<span id="cb190-28"><a href="absorption-and-reward.html#cb190-28" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The positions of the initial state “0-0” in the state-space vector
 <code>S</code> is <span class="math inline">\(1\)</span>, and the
 positions of the two absorbing states “P1” and “P2” are <span class="math inline">\(19\)</span> and <span class="math inline">\(20\)</span>.
 Therefore the matrices <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are obtained by vector indexing as follows:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="absorption-and-reward.html#cb187-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">tennis_P</span>(<span class="fl">0.45</span>)</span>
-<span id="cb187-2"><a href="absorption-and-reward.html#cb187-2" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>]</span>
-<span id="cb187-3"><a href="absorption-and-reward.html#cb187-3" aria-hidden="true" tabindex="-1"></a>R <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="absorption-and-reward.html#cb191-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">tennis_P</span>(<span class="fl">0.45</span>)</span>
+<span id="cb191-2"><a href="absorption-and-reward.html#cb191-2" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>]</span>
+<span id="cb191-3"><a href="absorption-and-reward.html#cb191-3" aria-hidden="true" tabindex="-1"></a>R <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">20</span>]</span></code></pre></div>
 <p>Linear systems are solved by using the command <code>solve</code> in R:</p>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="absorption-and-reward.html#cb188-1" aria-hidden="true" tabindex="-1"></a>I <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">18</span>)  <span class="co"># the identity matrix the same size as Q</span></span>
-<span id="cb188-2"><a href="absorption-and-reward.html#cb188-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> <span class="fu">solve</span>(I <span class="sc">-</span> Q, R)</span>
-<span id="cb188-3"><a href="absorption-and-reward.html#cb188-3" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">1</span>, ]</span>
-<span id="cb188-4"><a href="absorption-and-reward.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.38 0.62</span></span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="absorption-and-reward.html#cb192-1" aria-hidden="true" tabindex="-1"></a>I <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">18</span>)  <span class="co"># the identity matrix the same size as Q</span></span>
+<span id="cb192-2"><a href="absorption-and-reward.html#cb192-2" aria-hidden="true" tabindex="-1"></a>U <span class="ot">=</span> <span class="fu">solve</span>(I <span class="sc">-</span> Q, R)</span>
+<span id="cb192-3"><a href="absorption-and-reward.html#cb192-3" aria-hidden="true" tabindex="-1"></a>U[<span class="dv">1</span>, ]</span>
+<span id="cb192-4"><a href="absorption-and-reward.html#cb192-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.38 0.62</span></span></code></pre></div>
 <p>Therefore, the probability that Player 1 wins the entire rally is about <span class="math inline">\(0.377\)</span>. Note
 that this number is smaller than <span class="math inline">\(0.45\)</span>, so it appears that the game is
 designed to make it easier for the better player to win. For more evidence,
 let’s draw the graph of this probability for several values of <span class="math inline">\(p\)</span>
 (<code>sapply</code> is the version of <code>apply</code> for vectors):</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="absorption-and-reward.html#cb189-1" aria-hidden="true" tabindex="-1"></a>prob_win <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
-<span id="cb189-2"><a href="absorption-and-reward.html#cb189-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb189-3"><a href="absorption-and-reward.html#cb189-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(p)</span>
-<span id="cb189-4"><a href="absorption-and-reward.html#cb189-4" aria-hidden="true" tabindex="-1"></a>    P <span class="ot">=</span> <span class="fu">tennis_P</span>(p)</span>
-<span id="cb189-5"><a href="absorption-and-reward.html#cb189-5" aria-hidden="true" tabindex="-1"></a>    Q <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>]</span>
-<span id="cb189-6"><a href="absorption-and-reward.html#cb189-6" aria-hidden="true" tabindex="-1"></a>    R <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">20</span>]</span>
-<span id="cb189-7"><a href="absorption-and-reward.html#cb189-7" aria-hidden="true" tabindex="-1"></a>    U <span class="ot">=</span> <span class="fu">solve</span>(<span class="fu">diag</span>(<span class="dv">18</span>) <span class="sc">-</span> Q, R)</span>
-<span id="cb189-8"><a href="absorption-and-reward.html#cb189-8" aria-hidden="true" tabindex="-1"></a>    U[<span class="dv">1</span>, <span class="dv">1</span>]</span>
-<span id="cb189-9"><a href="absorption-and-reward.html#cb189-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb189-10"><a href="absorption-and-reward.html#cb189-10" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb189-11"><a href="absorption-and-reward.html#cb189-11" aria-hidden="true" tabindex="-1"></a>prob_game <span class="ot">=</span> <span class="fu">sapply</span>(ps, prob_win)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="absorption-and-reward.html#cb193-1" aria-hidden="true" tabindex="-1"></a>prob_win <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
+<span id="cb193-2"><a href="absorption-and-reward.html#cb193-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) </span>
+<span id="cb193-3"><a href="absorption-and-reward.html#cb193-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(p)</span>
+<span id="cb193-4"><a href="absorption-and-reward.html#cb193-4" aria-hidden="true" tabindex="-1"></a>    P <span class="ot">=</span> <span class="fu">tennis_P</span>(p)</span>
+<span id="cb193-5"><a href="absorption-and-reward.html#cb193-5" aria-hidden="true" tabindex="-1"></a>    Q <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>]</span>
+<span id="cb193-6"><a href="absorption-and-reward.html#cb193-6" aria-hidden="true" tabindex="-1"></a>    R <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">19</span><span class="sc">:</span><span class="dv">20</span>]</span>
+<span id="cb193-7"><a href="absorption-and-reward.html#cb193-7" aria-hidden="true" tabindex="-1"></a>    U <span class="ot">=</span> <span class="fu">solve</span>(<span class="fu">diag</span>(<span class="dv">18</span>) <span class="sc">-</span> Q, R)</span>
+<span id="cb193-8"><a href="absorption-and-reward.html#cb193-8" aria-hidden="true" tabindex="-1"></a>    U[<span class="dv">1</span>, <span class="dv">1</span>]</span>
+<span id="cb193-9"><a href="absorption-and-reward.html#cb193-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb193-10"><a href="absorption-and-reward.html#cb193-10" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb193-11"><a href="absorption-and-reward.html#cb193-11" aria-hidden="true" tabindex="-1"></a>prob_game <span class="ot">=</span> <span class="fu">sapply</span>(ps, prob_win)</span></code></pre></div>
 <p>A graph of <code>p</code> vs. <code>prob_game</code>, where the dashed line is the line <span class="math inline">\(y=x\)</span> looks like this:</p>
 <p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Using a symbolic
@@ -545,22 +555,22 @@ the product of the matrix <span class="math inline">\(F=(I-Q)^{-1}\)</span> and 
 <span class="math inline">\(g=(0,0,\dots, 1, \dots, 0)\)</span>, <span class="math inline">\(v_i\)</span> is nothing but the <span class="math inline">\((i,j)\)</span>-entry in <span class="math inline">\(F=(I-Q)^{-1}\)</span>.</p>
 <p>Let’s illustrate these ideas on some of our example chains:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-197" class="exercise"><strong>Problem 7.3  </strong></span>What is the expected duration of a game of tennis? Compute it for
+<p><span id="exr:unlabeled-div-204" class="exercise"><strong>Problem 7.3  </strong></span>What is the expected duration of a game of tennis? Compute it for
 several values of the parameter <span class="math inline">\(p\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-198" class="solution"><em>Solution</em>. </span>The main idea is to perform a reward computation with <span class="math inline">\(g(i)=1\)</span> for all transient states <span class="math inline">\(i\)</span>. The R code is very similar to the one in the absorption example:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="absorption-and-reward.html#cb190-1" aria-hidden="true" tabindex="-1"></a>expected_duration <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
-<span id="cb190-2"><a href="absorption-and-reward.html#cb190-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
-<span id="cb190-3"><a href="absorption-and-reward.html#cb190-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">4</span>)</span>
-<span id="cb190-4"><a href="absorption-and-reward.html#cb190-4" aria-hidden="true" tabindex="-1"></a>    P <span class="ot">=</span> <span class="fu">tennis_P</span>(p)</span>
-<span id="cb190-5"><a href="absorption-and-reward.html#cb190-5" aria-hidden="true" tabindex="-1"></a>    Q <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>]</span>
-<span id="cb190-6"><a href="absorption-and-reward.html#cb190-6" aria-hidden="true" tabindex="-1"></a>    g <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">18</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb190-7"><a href="absorption-and-reward.html#cb190-7" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">=</span> <span class="fu">solve</span>(<span class="fu">diag</span>(<span class="dv">18</span>) <span class="sc">-</span> Q, g)</span>
-<span id="cb190-8"><a href="absorption-and-reward.html#cb190-8" aria-hidden="true" tabindex="-1"></a>    v[<span class="dv">1</span>, ]</span>
-<span id="cb190-9"><a href="absorption-and-reward.html#cb190-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb190-10"><a href="absorption-and-reward.html#cb190-10" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
-<span id="cb190-11"><a href="absorption-and-reward.html#cb190-11" aria-hidden="true" tabindex="-1"></a>duration_game <span class="ot">=</span> <span class="fu">sapply</span>(ps, expected_duration)</span></code></pre></div>
+<p><span id="unlabeled-div-205" class="solution"><em>Solution</em>. </span>The main idea is to perform a reward computation with <span class="math inline">\(g(i)=1\)</span> for all transient states <span class="math inline">\(i\)</span>. The R code is very similar to the one in the absorption example:</p>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="absorption-and-reward.html#cb194-1" aria-hidden="true" tabindex="-1"></a>expected_duration <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
+<span id="cb194-2"><a href="absorption-and-reward.html#cb194-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (p <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) </span>
+<span id="cb194-3"><a href="absorption-and-reward.html#cb194-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">4</span>)</span>
+<span id="cb194-4"><a href="absorption-and-reward.html#cb194-4" aria-hidden="true" tabindex="-1"></a>    P <span class="ot">=</span> <span class="fu">tennis_P</span>(p)</span>
+<span id="cb194-5"><a href="absorption-and-reward.html#cb194-5" aria-hidden="true" tabindex="-1"></a>    Q <span class="ot">=</span> P[<span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>]</span>
+<span id="cb194-6"><a href="absorption-and-reward.html#cb194-6" aria-hidden="true" tabindex="-1"></a>    g <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">18</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb194-7"><a href="absorption-and-reward.html#cb194-7" aria-hidden="true" tabindex="-1"></a>    v <span class="ot">=</span> <span class="fu">solve</span>(<span class="fu">diag</span>(<span class="dv">18</span>) <span class="sc">-</span> Q, g)</span>
+<span id="cb194-8"><a href="absorption-and-reward.html#cb194-8" aria-hidden="true" tabindex="-1"></a>    v[<span class="dv">1</span>, ]</span>
+<span id="cb194-9"><a href="absorption-and-reward.html#cb194-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb194-10"><a href="absorption-and-reward.html#cb194-10" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
+<span id="cb194-11"><a href="absorption-and-reward.html#cb194-11" aria-hidden="true" tabindex="-1"></a>duration_game <span class="ot">=</span> <span class="fu">sapply</span>(ps, expected_duration)</span></code></pre></div>
 <p>As above, here is the graph of <code>p</code> vs. <code>duration_game</code>:
 <img src="_main_files/figure-html/unnamed-chunk-276-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The maximum of the curve about equals to <span class="math inline">\(6.75\)</span>, and is achieved when the players are
@@ -570,11 +580,11 @@ The game cannot be shorter than <span class="math inline">\(4\)</span> rallies a
 duration when one player wins with certainty in each rally.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-199" class="exercise"><strong>Problem 7.4  </strong></span>What is the expected number of “deuces”, i.e., scores <span class="math inline">\((40,40)\)</span>? Compute it for
+<p><span id="exr:unlabeled-div-206" class="exercise"><strong>Problem 7.4  </strong></span>What is the expected number of “deuces”, i.e., scores <span class="math inline">\((40,40)\)</span>? Compute it for
 several values of the parameter <span class="math inline">\(p\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-200" class="solution"><em>Solution</em>. </span>This can be computed exactly as above, except that now the
+<p><span id="unlabeled-div-207" class="solution"><em>Solution</em>. </span>This can be computed exactly as above, except that now the
 reward function is given by
 <span class="math display">\[\begin{align}
   g(i) = \begin{cases} 
@@ -600,19 +610,19 @@ cases where a deuce does happen, it is quite possible it will be repeated. A siz
 </div>
 <p>We end with another example from a different area:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-201" class="exercise"><strong>Problem 7.5  </strong></span>Alice plays the following game. She picks a pattern consisting of three
+<p><span id="exr:unlabeled-div-208" class="exercise"><strong>Problem 7.5  </strong></span>Alice plays the following game. She picks a pattern consisting of three
 letters from the set <span class="math inline">\(\{H,T\}\)</span>, and then tosses a fair coin until her
 pattern appears for the first time. If she has to pay <span class="math inline">\(\$1\)</span> for each
 coin toss, what is the expected cost she is going to incur? What pattern
 should she choose to minimize that cost?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-202" class="solution"><em>Solution</em>. </span>We start by choosing a pattern, say <span class="math inline">\(HTH\)</span>, and computing the number of
+<p><span id="unlabeled-div-209" class="solution"><em>Solution</em>. </span>We start by choosing a pattern, say <span class="math inline">\(HTH\)</span>, and computing the number of
 coin tosses Alice expects to make before it appears. This is just the
 kind of computation that can be done using our absorption-and-reward
 techniques, if we can find a suitable Markov chain. It turns out that
 the following will do (green arrows stand for probability <span class="math inline">\(1/2\)</span>):</p>
-<p><img src="pics/pattern_HTH_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/pattern_HTH_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>As Alice tosses the
 coin, she keeps track of the largest initial portion of her pattern that
 appears at last several places of the sequence of past tosses. The state
@@ -637,7 +647,7 @@ of this chain (with the transient states ordered as <span class="math inline">\(
 the elements on the first row, i.e., <span class="math inline">\(10\)</span>.</p>
 <p>Let us repeat the same for the pattern <span class="math inline">\(HHH\)</span>. We build a similar Markov
 chain:</p>
-<p><img src="pics/pattern_HHH_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/pattern_HHH_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>We see that
 there is a subtle difference. One transition from the state <span class="math inline">\(H\)</span>, instead
 of going back to itself, is directed towards <span class="math inline">\(0\)</span>. It is clear from here,
@@ -664,7 +674,7 @@ minimize her cost?</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-203" class="exercise"><strong>Problem 7.6  </strong></span>The fundamental matrix associated to a finite Markov chain is
+<p><span id="exr:unlabeled-div-210" class="exercise"><strong>Problem 7.6  </strong></span>The fundamental matrix associated to a finite Markov chain is
 <span class="math inline">\(F = \begin{bmatrix} 3 &amp; 3 \\ 3/2 &amp; 3\end{bmatrix}\)</span>, with the first row (and column)
 corresponding to the state <span class="math inline">\(A\)</span> and the second to <span class="math inline">\(B\)</span>. Some of the
 following statements are true and the others are false. Find which ones
@@ -692,7 +702,7 @@ recurrent state is <span class="math inline">\(\frac{21}{4}\)</span>.</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-204" class="exercise"><strong>Problem 7.7  </strong></span>In a Markov chain with a finite number of states, the fundamental matrix
+<p><span id="exr:unlabeled-div-211" class="exercise"><strong>Problem 7.7  </strong></span>In a Markov chain with a finite number of states, the fundamental matrix
 is given by <span class="math display">\[F=\begin{bmatrix} 3 &amp; 4 \\
     \tfrac{3}{2} &amp; 4\end{bmatrix}.\]</span> The initial distribution of the
 chain is uniform on all transient states. Compute the expected value of
@@ -711,7 +721,7 @@ all recurrent states.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-205" class="exercise"><strong>Problem 7.8  </strong></span>Consider the “Gambler’s ruin” model with parameter <span class="math inline">\(p\)</span>.
+<p><span id="exr:unlabeled-div-212" class="exercise"><strong>Problem 7.8  </strong></span>Consider the “Gambler’s ruin” model with parameter <span class="math inline">\(p\)</span>.
 Write an R function that computes the
 (vector of) probabilities that the gambler will go bankrupt before her wealth reaches
 <span class="math inline">\(\$1000\)</span> for each initial wealth <span class="math inline">\(x = 0,1,\dots, 1000\)</span>.
@@ -729,7 +739,7 @@ Plot the graphs for <span class="math inline">\(p=0.4, p=0.49, p=0.499\)</span> 
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-206" class="exercise"><strong>Problem 7.9  </strong></span>A basketball player is shooting a series of free throws. The probability
+<p><span id="exr:unlabeled-div-213" class="exercise"><strong>Problem 7.9  </strong></span>A basketball player is shooting a series of free throws. The probability
 of hitting any single one is <span class="math inline">\(1/2\)</span>, and the throws are independent of
 each other. What is the expected number of throws the player will
 attempt before hitting 3 free throws in a row (including those 3)?</p>
@@ -746,7 +756,7 @@ attempt before hitting 3 free throws in a row (including those 3)?</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-207" class="exercise"><strong>Problem 7.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain
+<p><span id="exr:unlabeled-div-214" class="exercise"><strong>Problem 7.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain
 with the following transition matrix <span class="math display">\[P=
 \begin{bmatrix}
   1/2 &amp; 1/2 &amp; 0 \\
@@ -784,7 +794,7 @@ state is still <span class="math inline">\(1\)</span>)? Remember this trick for 
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-208" class="exercise"><strong>Problem 7.11  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
+<p><span id="exr:unlabeled-div-215" class="exercise"><strong>Problem 7.11  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
 of the <span class="math inline">\(n\)</span>-th roll is denoted by <span class="math inline">\(Y_n\)</span> (it is assumed that <span class="math inline">\(\{Y_n\}_{n\in{\mathbb{N}}}\)</span> are
 independent of each other). For <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>, let <span class="math inline">\(X_n\)</span> be the remainder
 (taken in the set <span class="math inline">\(\{0,1,2,3,4\}\)</span>) left after the sum
@@ -817,7 +827,7 @@ compute the period of each state.</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-209" class="exercise"><strong>Problem 7.12  </strong></span>Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence
+<p><span id="exr:unlabeled-div-216" class="exercise"><strong>Problem 7.12  </strong></span>Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence
 of die-rolls, i.e., a sequence of independent random variables with
 distribution <span class="math display">\[Y_n \sim \left( 
 \begin{array}{cccccc}
@@ -854,7 +864,7 @@ expected value of <span class="math inline">\(S\)</span>?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-210" class="exercise"><strong>Problem 7.13  </strong></span>Go back to the problem with
+<p><span id="exr:unlabeled-div-217" class="exercise"><strong>Problem 7.13  </strong></span>Go back to the problem with
 <a href="Markov-chains.html#basil">Basil the rat</a> in the he first lecture on Markov chains and answer the question 2., but this time using an absorption/reward computation.</p>
 </div>
 <!-- <details> -->
@@ -869,7 +879,7 @@ expected value of <span class="math inline">\(S\)</span>?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-211" class="exercise"><strong>Problem 7.14  </strong></span>Go back to the problem with the
+<p><span id="exr:unlabeled-div-218" class="exercise"><strong>Problem 7.14  </strong></span>Go back to the problem with the
 <a href="Markov-chains.html#professor">professor and his umbrellas</a> in the first lecture on Markov chains and answer the questions in part 2., but this time using an absorption/reward computation.</p>
 </div>
 <!-- <details> -->
@@ -884,7 +894,7 @@ expected value of <span class="math inline">\(S\)</span>?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-212" class="exercise"><strong>Problem 7.15  </strong></span>An airline reservation system has two computers. Any computer in operation may break down on any given day with probability <span class="math inline">\(p=0.3\)</span>, independently of the other computer.
+<p><span id="exr:unlabeled-div-219" class="exercise"><strong>Problem 7.15  </strong></span>An airline reservation system has two computers. Any computer in operation may break down on any given day with probability <span class="math inline">\(p=0.3\)</span>, independently of the other computer.
 There is a single repair facility which takes two days to restore a
 computer to normal. It can work on only one computer at a time, and if two computers need work at the same time, one of them has to wait and enters the facility as soon as it is free again.</p>
 <p>The system starts with one operational computer; the other one broke last night and just entered the repair facility this morning.</p>
@@ -903,16 +913,13 @@ computer to normal. It can work on only one computer at a time, and if two compu
 
 </div>
 </div>
-
-
-
             </section>
 
           </div>
         </div>
       </div>
 <a href="classification-of-states.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="stationary-distributions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
