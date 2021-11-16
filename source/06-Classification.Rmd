@@ -955,7 +955,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -965,7 +965,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 <!--3
   cl-stat-04
@@ -979,7 +979,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -987,7 +987,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1003,7 +1003,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -1012,7 +1012,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1028,7 +1028,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -1037,7 +1037,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1053,7 +1053,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -1062,7 +1062,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1079,7 +1079,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1087,7 +1087,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1103,7 +1103,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 
@@ -1111,7 +1111,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1127,7 +1127,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -1136,7 +1136,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 
@@ -1155,7 +1155,7 @@ In all examples below we assume that $0 < p < 1$.
 :::
 
 
-<!-- <details>
+<details>
 <summary> Click for Solution </summary>
 ::: {.solution}
 \ 
@@ -1164,7 +1164,7 @@ In all examples below we assume that $0 < p < 1$.
 ```
 
 :::
-</details> -->
+</details>
 
 
 

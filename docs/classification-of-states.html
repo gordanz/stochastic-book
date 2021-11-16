@@ -395,12 +395,12 @@ P_2=\begin{bmatrix}
 </div>
 <div class="solution">
 <p><span id="unlabeled-div-168" class="solution"><em>Solution</em>. </span>For the first chain, with transition graph</p>
-<p><img src="pics/period-example-1_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p><img src="pics/period-example-1_chain.png" style="display: block; margin: auto;" /></p>
 <p>the return set for each state <span class="math inline">\(i\in\{1,2,3\}\)</span> is
 given by <span class="math inline">\(R(i)= \{3,6,9,12,\dots\}\)</span>, so <span class="math inline">\(d(i)=3\)</span> for all
 <span class="math inline">\(i\in\{1,2,3\}\)</span>.</p>
 <p>Even though the transition graph of the second chain looks very similar to the first one</p>
-<p><img src="pics/period-example-2_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p><img src="pics/period-example-2_chain.png" style="display: block; margin: auto;" /></p>
 <p>the situation changes drastically:
 <span class="math display">\[\begin{align}
   R(1) &amp; =\{ 3,4,5,6, \dots \},\\
@@ -1027,7 +1027,7 @@ classes.</p></li>
 -->
 <div class="exercise">
 <p><span id="exr:unlabeled-div-191" class="exercise"><strong>Problem 6.12  </strong></span>Consider a Markov Chain whose transition graph is given below (with orange edges having probability <span class="math inline">\(1/2\)</span>, black <span class="math inline">\(1\)</span>, blue <span class="math inline">\(3/4\)</span> and green <span class="math inline">\(1/4\)</span>)</p>
-<p><img src="pics/cl-stat-02_chain.png" width="1200" style="display: block; margin: auto;" /></p>
+<p><img src="pics/cl-stat-02_chain.png" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Identify the classes.</p></li>
 <li><p>Find transient and recurrent states.</p></li>
@@ -1051,49 +1051,40 @@ probability <span class="math inline">\({\mathbb{P}}[X_{20}=3]\)</span>, if the 
 distribution of <span class="math inline">\(X_0\)</span>) is given by <span class="math inline">\({\mathbb{P}}[X_0=1]=1/2\)</span> and <span class="math inline">\({\mathbb{P}}[X_0=3]=1/2\)</span>.</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
-
-1.  The classes are $T_1=\set{1}$, $T_2=\set{2}$, $C_1=\set{3,4,5,6}$
-    and $C_2=\set{7,8}$
-
-2.  The states in $T_1$ and $T_2$ are transient, and the others are
-    recurrent.
-
-3.  The periods are all $1$.
-
-4.  For $n=1$, $\fn_{13}=0$, since you need at least two steps to go
-    from $1$ to $3$. For $n=2$, the chain needs to follow $1\to 2\to
-      3$, for $\fn_{13}=(1/2)^2$. For $n$ larger than $2$, the only
-    possibility is for the chain to stay in the state $1$ for $n-2$
-    periods, jump to $2$ and finish at $3$, so $\fn_{13}=(1/2)^n$ in
-    that case. All together, we have $$\fn_{13}=
-    \begin{cases}
-      0, & n=1 \\ (1/2)^n, & n\geq 2.
-    \end{cases}$$
-
-5.  We know from the notes that the distribution of $X_{20}$, when
-    represented as a vector $\aaa{20}=(\aa{20}_1, \aa{20}_2, \dots,
-      \aa{20}_8)$ satisfies $$\aaa{20}= \aaa{0} P^{20}.$$ By the
-    assumption $\aaa{0}=(\tot,0,\tot,0,0,0,0,0)$
-    
-    
-    
-    so
-    $\PP[X_{20}=3]= \aa{20}_3= \tot 0.15+\tot 0.3=0.225$.
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-192" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>The classes are <span class="math inline">\(T_1=\{1\}\)</span>, <span class="math inline">\(T_2=\{2\}\)</span>, <span class="math inline">\(C_1=\{3,4,5,6\}\)</span>
+and <span class="math inline">\(C_2=\{7,8\}\)</span></p></li>
+<li><p>The states in <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span> are transient, and the others are
+recurrent.</p></li>
+<li><p>The periods are all <span class="math inline">\(1\)</span>.</p></li>
+<li><p>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(f^{(n)}_{13}=0\)</span>, since you need at least two steps to go
+from <span class="math inline">\(1\)</span> to <span class="math inline">\(3\)</span>. For <span class="math inline">\(n=2\)</span>, the chain needs to follow <span class="math inline">\(1{\rightarrow}2{\rightarrow}3\)</span>, for <span class="math inline">\(f^{(n)}_{13}=(1/2)^2\)</span>. For <span class="math inline">\(n\)</span> larger than <span class="math inline">\(2\)</span>, the only
+possibility is for the chain to stay in the state <span class="math inline">\(1\)</span> for <span class="math inline">\(n-2\)</span>
+periods, jump to <span class="math inline">\(2\)</span> and finish at <span class="math inline">\(3\)</span>, so <span class="math inline">\(f^{(n)}_{13}=(1/2)^n\)</span> in
+that case. All together, we have <span class="math display">\[f^{(n)}_{13}=
+\begin{cases}
+  0, &amp; n=1 \\ (1/2)^n, &amp; n\geq 2.
+\end{cases}\]</span></p></li>
+<li><p>We know from the notes that the distribution of <span class="math inline">\(X_{20}\)</span>, when
+represented as a vector <span class="math inline">\({a}^{(20)}=({a}^{(20)}_1, {a}^{(20)}_2, \dots,  {a}^{(20)}_8)\)</span> satisfies <span class="math display">\[{a}^{(20)}= {a}^{(0)} P^{20}.\]</span> By the
+assumption <span class="math inline">\({a}^{(0)}=(\tfrac{1}{2},0,\tfrac{1}{2},0,0,0,0,0)\)</span></p>
+<p>so
+<span class="math inline">\({\mathbb{P}}[X_{20}=3]= {a}^{(20)}_3= \tfrac{1}{2}0.15+\tfrac{1}{2}0.3=0.225\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!--3
   cl-stat-04
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-192" class="exercise"><strong>Problem 6.13  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
+<p><span id="exr:unlabeled-div-193" class="exercise"><strong>Problem 6.13  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
 of the <span class="math inline">\(n\)</span>-th roll is denoted by <span class="math inline">\(Y_n\)</span> (it is assumed that <span class="math inline">\(\{Y_n\}_{n\in{\mathbb{N}}}\)</span> are
 independent of each other). For <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>, let <span class="math inline">\(X_n\)</span> be the remainder
 (taken in the set <span class="math inline">\(\{0,1,2,3,4\}\)</span>) left after the sum
@@ -1107,33 +1098,32 @@ X_n= \sum_{k=1}^n Y_k \ (\,\mathrm{mod}\, 5\,),\text{ for } n\in{\mathbb{N}},
 separate recurrent from transient ones, and compute the period of each
 state.</p>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-
-The outcomes $1,2,3,4,5,6$ leave remainders $1,2,3,4,0,1$, when divided
-by $5$, so the transition matrix $P$ of the chain is given by
-$$P=\begin{bmatrix}
-  \tfrac{1}{6} &   \tfrac{1}{3} &   \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{6} \\
-  \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{3} &   \tfrac{1}{6} &   \tfrac{1}{6} \\
-  \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{3} &   \tfrac{1}{6} \\
-  \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{3} \\
-  \tfrac{1}{3} &   \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{6} &   \tfrac{1}{6} \\
-\end{bmatrix}$$ Since $p_{ij}>0$ for all $i,j\in S$, all the states
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-194" class="solution"><em>Solution</em>. </span>The outcomes <span class="math inline">\(1,2,3,4,5,6\)</span> leave remainders <span class="math inline">\(1,2,3,4,0,1\)</span>, when divided
+by <span class="math inline">\(5\)</span>, so the transition matrix <span class="math inline">\(P\)</span> of the chain is given by
+<span class="math display">\[P=\begin{bmatrix}
+  \tfrac{1}{6} &amp;   \tfrac{1}{3} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} \\
+  \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{3} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} \\
+  \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{3} &amp;   \tfrac{1}{6} \\
+  \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{3} \\
+  \tfrac{1}{3} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} &amp;   \tfrac{1}{6} \\
+\end{bmatrix}\]</span> Since <span class="math inline">\(p_{ij}&gt;0\)</span> for all <span class="math inline">\(i,j\in S\)</span>, all the states
 belong to the same class, and, because there is at least one recurrent
 state in a finite-state-space Markov chain and because recurrence is a
-class property, all states are recurrent. Finally, $1$ is in the return
-set of every state, so the period of each state is $1$.
-
-:::
-</details> -->
+class property, all states are recurrent. Finally, <span class="math inline">\(1\)</span> is in the return
+set of every state, so the period of each state is <span class="math inline">\(1\)</span>.</p>
+</div>
+</details>
 <!--4
   cl-stat-06
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-193" class="exercise"><strong>Problem 6.14  </strong></span>Which of the following
+<p><span id="exr:unlabeled-div-195" class="exercise"><strong>Problem 6.14  </strong></span>Which of the following
 statements is true? Give a short explanation (or a counterexample where
 appropriate) for your choice. <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is a Markov chain with state
 space <span class="math inline">\(S\)</span>.</p>
@@ -1149,46 +1139,45 @@ denote it by <span class="math inline">\(A_n{\rightarrow}A\)</span>, if <span cl
 for all <span class="math inline">\(i,j\)</span>.)</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
-1.  **FALSE**. Consider a Markov chain with the transition matrix
-\begin{equation}
-    P = \begin{bmatrix}
-    0 & 1 & 0 \\
-    0 & 0 & 1 \\
-    1 & 0 & 0
-    \end{bmatrix}
-\end{equation}
-    All states intercommunicate, but $\pn_{12}>0$ if and
-    only if $n$ is of the form $n=3k+1$, for $k\in\N_0$. On the other hand
-    $\pn_{21}>0$ if and only if $n=3k+2$ , for some $k\in\N_0$. Thus,
-    $\pn_{12}$ and $\pn_{21}$ are never simultaneously positive.
-
-2.  **FALSE**. Consider a Markov chain with the following transition
-    matrix: $$P=
-    \begin{bmatrix}
-    1 & 0 \\ 1 & 0
-    \end{bmatrix}.$$ Then $1$ is an absorbing state and it is in a class
-    of its own, so it is not true that all states belong to the same
-    class.
-
-3.  **TRUE.** Suppose that there exists a transient state $i\in S$. Then
-    $\sum_{n} \pn_{ii}<\infty$, and, in particular, $\pn_{ii}\to 0$, as
-    $n\to\infty$. This is a contradiction with the assumption that
-    $\pn_{ii}\to 1$, for all $i\in S$.
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-196" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p><strong>FALSE</strong>. Consider a Markov chain with the transition matrix
+<span class="math display">\[\begin{equation}
+P = \begin{bmatrix}
+0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 1 \\
+1 &amp; 0 &amp; 0
+\end{bmatrix}
+\end{equation}\]</span>
+All states intercommunicate, but <span class="math inline">\(p^{(n)}_{12}&gt;0\)</span> if and
+only if <span class="math inline">\(n\)</span> is of the form <span class="math inline">\(n=3k+1\)</span>, for <span class="math inline">\(k\in{\mathbb{N}}_0\)</span>. On the other hand
+<span class="math inline">\(p^{(n)}_{21}&gt;0\)</span> if and only if <span class="math inline">\(n=3k+2\)</span> , for some <span class="math inline">\(k\in{\mathbb{N}}_0\)</span>. Thus,
+<span class="math inline">\(p^{(n)}_{12}\)</span> and <span class="math inline">\(p^{(n)}_{21}\)</span> are never simultaneously positive.</p></li>
+<li><p><strong>FALSE</strong>. Consider a Markov chain with the following transition
+matrix: <span class="math display">\[P=
+\begin{bmatrix}
+1 &amp; 0 \\ 1 &amp; 0
+\end{bmatrix}.\]</span> Then <span class="math inline">\(1\)</span> is an absorbing state and it is in a class
+of its own, so it is not true that all states belong to the same
+class.</p></li>
+<li><p><strong>TRUE.</strong> Suppose that there exists a transient state <span class="math inline">\(i\in S\)</span>. Then
+<span class="math inline">\(\sum_{n} p^{(n)}_{ii}&lt;\infty\)</span>, and, in particular, <span class="math inline">\(p^{(n)}_{ii}{\rightarrow}0\)</span>, as
+<span class="math inline">\(n{\rightarrow}\infty\)</span>. This is a contradiction with the assumption that
+<span class="math inline">\(p^{(n)}_{ii}{\rightarrow}1\)</span>, for all <span class="math inline">\(i\in S\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!--5
   cl-stat-07
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-194" class="exercise"><strong>Problem 6.15  </strong></span>Let <span class="math inline">\(C\)</span> be a class in a
+<p><span id="exr:unlabeled-div-197" class="exercise"><strong>Problem 6.15  </strong></span>Let <span class="math inline">\(C\)</span> be a class in a
 Markov chain. For each of the following statements either explain why it
 is true, or give an example showing that it is false.</p>
 <ol style="list-style-type: decimal">
@@ -1198,35 +1187,33 @@ is true, or give an example showing that it is false.</p>
 <li><p>For all states <span class="math inline">\(i,j\in C\)</span>, <span class="math inline">\(p_{ij}&gt;0\)</span>,</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
-1.   False. Take $C=\set{(0,0)}$ in the "Tennis example".
-
-2.   False. Take $C=\set{\text{Player 1 wins}}$ in the "Tennis example".
-
-3.   False. It is enough to take any transient class in a finite-state
-    Markov chain as a counterexample. For instance, the class
-    $\set{ (0,0) }$ consisting of a single element $(0,0)$ in the Tennis
-    chain.
-
-4.   False. This would be true if it read "for each pair of states
-    $i,j\in C$, *there exists* $n\in\N$ such that $\pn_{ij}>0$".
-    Otherwise, we can use the "Tennis chain" and the states $i=(40,Adv)$
-    and $j=(Adv,40)$. They belong to the same class, but $p_{ij}=0$ (you
-    need to pass through $(40,40)$ to go from one to another).
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-198" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>False. Take <span class="math inline">\(C=\{(0,0)\}\)</span> in the “Tennis example”.</p></li>
+<li><p>False. Take <span class="math inline">\(C=\{\text{Player 1 wins}\}\)</span> in the “Tennis example”.</p></li>
+<li><p>False. It is enough to take any transient class in a finite-state
+Markov chain as a counterexample. For instance, the class
+<span class="math inline">\(\{ (0,0) \}\)</span> consisting of a single element <span class="math inline">\((0,0)\)</span> in the Tennis
+chain.</p></li>
+<li><p>False. This would be true if it read “for each pair of states
+<span class="math inline">\(i,j\in C\)</span>, <em>there exists</em> <span class="math inline">\(n\in{\mathbb{N}}\)</span> such that <span class="math inline">\(p^{(n)}_{ij}&gt;0\)</span>”.
+Otherwise, we can use the “Tennis chain” and the states <span class="math inline">\(i=(40,Adv)\)</span>
+and <span class="math inline">\(j=(Adv,40)\)</span>. They belong to the same class, but <span class="math inline">\(p_{ij}=0\)</span> (you
+need to pass through <span class="math inline">\((40,40)\)</span> to go from one to another).</p></li>
+</ol>
+</div>
+</details>
 <!--6
   cl-stat-08
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-195" class="exercise"><strong>Problem 6.16  </strong></span>Consider a Markov chain whose
+<p><span id="exr:unlabeled-div-199" class="exercise"><strong>Problem 6.16  </strong></span>Consider a Markov chain whose
 state space has <span class="math inline">\(n\)</span> elements (<span class="math inline">\(n\in{\mathbb{N}}\)</span>). For each of the following
 statements either explain why it is true, or give an example showing
 that it is false.</p>
@@ -1237,32 +1224,29 @@ that it is false.</p>
 <li><p>there are at most <span class="math inline">\(n\)</span> classes,</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
--   False. In the "Tennis" example, there are classes that are not
-    closed.
-
--   False. Just take the Regime Switching with $0<p_{01},
-    p_{10} <1$. Both of the states are recurrent there. Or, simply take
-    a Markov chain with only one state ($n=1$).
-
--   False. In the "Tennis" example, 18 states are transient, but $n=20$.
-
--   True. Classes form a partition of the state space, and each class
-    has at least one element. Therefore, there are at most $n$ classes.
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-200" class="solution"><em>Solution</em>. </span> </p>
+<ul>
+<li><p>False. In the “Tennis” example, there are classes that are not
+closed.</p></li>
+<li><p>False. Just take the Regime Switching with <span class="math inline">\(0&lt;p_{01}, p_{10} &lt;1\)</span>. Both of the states are recurrent there. Or, simply take
+a Markov chain with only one state (<span class="math inline">\(n=1\)</span>).</p></li>
+<li><p>False. In the “Tennis” example, 18 states are transient, but <span class="math inline">\(n=20\)</span>.</p></li>
+<li><p>True. Classes form a partition of the state space, and each class
+has at least one element. Therefore, there are at most <span class="math inline">\(n\)</span> classes.</p></li>
+</ul>
+</div>
+</details>
 <!--7
   cl-stat-10
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-196" class="exercise"><strong>Problem 6.17  </strong></span>Let <span class="math inline">\(i\)</span> be a recurrent state
+<p><span id="exr:unlabeled-div-201" class="exercise"><strong>Problem 6.17  </strong></span>Let <span class="math inline">\(i\)</span> be a recurrent state
 with period 5, and let <span class="math inline">\(j\)</span> be another state. For each of the following
 statements either explain why it is true, or give an example showing
 that it is false.</p>
@@ -1273,33 +1257,29 @@ that it is false.</p>
 <li><p>if <span class="math inline">\(j\not{\rightarrow}i\)</span> then <span class="math inline">\(j\)</span> is transient,</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-
-We will use the following chain for all the counterexamples (green edges have probability $1/2$ and black edges $1$)
-
-<img src="pics/cl-stat-10_chain.png" width="1200" style="display: block; margin: auto;" />
-
-1.  False. Take $j=0$ and $i=1$ in the chain in the picture.
-
-2.   False. Take the same counterexample as above.
-
-3.   True. We know that $i$ is recurrent, and since all recurrent classes
-    are closed, and $i\to j$, $h$ must belong to the same class as $i$.
-    Period is a class property, so the period of $j$ is also $5$.
-
-4.   False. Take $j=6$, $i=0$ in the chain in the picture.
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-202" class="solution"><em>Solution</em>. </span>We will use the following chain for all the counterexamples (green edges have probability <span class="math inline">\(1/2\)</span> and black edges <span class="math inline">\(1\)</span>)</p>
+<p><img src="pics/cl-stat-10_chain.png" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li><p>False. Take <span class="math inline">\(j=0\)</span> and <span class="math inline">\(i=1\)</span> in the chain in the picture.</p></li>
+<li><p>False. Take the same counterexample as above.</p></li>
+<li><p>True. We know that <span class="math inline">\(i\)</span> is recurrent, and since all recurrent classes
+are closed, and <span class="math inline">\(i{\rightarrow}j\)</span>, <span class="math inline">\(h\)</span> must belong to the same class as <span class="math inline">\(i\)</span>.
+Period is a class property, so the period of <span class="math inline">\(j\)</span> is also <span class="math inline">\(5\)</span>.</p></li>
+<li><p>False. Take <span class="math inline">\(j=6\)</span>, <span class="math inline">\(i=0\)</span> in the chain in the picture.</p></li>
+</ol>
+</div>
+</details>
 <!--8
   cl-stat-11
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-197" class="exercise"><strong>Problem 6.18  </strong></span>Let <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> be two states such that <span class="math inline">\(i\)</span> is transient and <span class="math inline">\(i\leftrightarrow j\)</span>. For
+<p><span id="exr:unlabeled-div-203" class="exercise"><strong>Problem 6.18  </strong></span>Let <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> be two states such that <span class="math inline">\(i\)</span> is transient and <span class="math inline">\(i\leftrightarrow j\)</span>. For
 each of the following statements either explain why it is true, or give an
 example showing that it is false.</p>
 <ol style="list-style-type: decimal">
@@ -1309,58 +1289,50 @@ example showing that it is false.</p>
 <li><p>(extra credit) <span class="math inline">\(\sum_{n=1}^{\infty} p^{(n)}_{jj} = \sum_{n=1}^{\infty} p^{(n)}_{ii}\)</span>,</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-
-Consider the following chain for the counterexamples (where red edges have probability $1/2$, black $1$ and green $1/4$)
-
-<img src="pics/cl-stat-11_chain.png" width="1200" style="display: block; margin: auto;" />
-
-
-1.   False. Take $i=2$ and $j=3$ in the chain above.
-
-2.   True. Suppose that $k\to i$, but $k$ is recurrent. Since recurrent
-    classes are closed, $i$ must be in the same class as $k$. That would
-    mean, however, that $i$ is also recurrent. This is a contradiction
-    with the assumption that $i$ is transient.
-
-3.   False. Take $i=2$ in the modification of the example above in which
-    $p_{22}=0$ and $p_{21}=p_{23}=1/2$. The state $2$ is still
-    transient, but its period is $2$.
-    
-4.   False. In the chain above, take $i=1$ and $j=2$. Clearly,
-    $i\tofro j$, and both of them are transient. A theorem from the
-    notes states that $\sum_{n=1}^{\infty} \pn_{jj} <\infty$ and
-    $\sum_{n=1}^{\infty} \pn_{ii}<\infty$, but these two sums do not
-    need to be equal. Indeed, the only way for $i=1$ to come back to
-    itself in $n$ steps is to move to $2$, come back to $2$ in $n-2$
-    steps and then jump to $1$. Therefore, $\pn_{ii}= 1\times
-      \pnp{n-2}_{jj} \times 0.25$ for $n\geq 3$, $\pnp{2}_{ii}=1\times
-      0.25$ and $\pnp{1}_{ii}=p_{ii}=0$. Therefore,
-    $$\sum_{n=1}^{\infty} \pn_{ii} =\pnp{1}_{ii} +
-      \pnp{2}_{ii}+\sum_{n=3}^{\infty} \pn_{ii} = 0+0.25+ 0.25
-      \sum_{n=1}^{\infty} \pn_{jj}.$$ This equality implies that the two
-    sums are equal if and only if
-    $$0.75 \sum_{n=1}^{\infty} \pn_{ii} = 0.25,\text{ i.e., }
-      \sum_{n=1}^{\infty} \pn_{jj}=\sum_{n=1}^{\infty} \pn_{ii}=
-      \frac{1}{3}.$$ We know however, that one of the possible ways to
-    go from $2$ to $2$ in $n$ steps is to just stay in $2$ all the time.
-    The probability of this trajectory is $(1/2)^n$, and so,
-    $\pn_{jj}\geq (1/2)^n$ for all $n$. Hence,
-    $$\sum_{n=1}^{\infty} \pn_{jj}\geq \sum_{n=1}^{\infty} (1/2)^n= 1.$$
-    Therefore, the two sums cannot be equal.
-
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-204" class="solution"><em>Solution</em>. </span>Consider the following chain for the counterexamples (where red edges have probability <span class="math inline">\(1/2\)</span>, black <span class="math inline">\(1\)</span> and green <span class="math inline">\(1/4\)</span>)</p>
+<p><img src="pics/cl-stat-11_chain.png" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li><p>False. Take <span class="math inline">\(i=2\)</span> and <span class="math inline">\(j=3\)</span> in the chain above.</p></li>
+<li><p>True. Suppose that <span class="math inline">\(k{\rightarrow}i\)</span>, but <span class="math inline">\(k\)</span> is recurrent. Since recurrent
+classes are closed, <span class="math inline">\(i\)</span> must be in the same class as <span class="math inline">\(k\)</span>. That would
+mean, however, that <span class="math inline">\(i\)</span> is also recurrent. This is a contradiction
+with the assumption that <span class="math inline">\(i\)</span> is transient.</p></li>
+<li><p>False. Take <span class="math inline">\(i=2\)</span> in the modification of the example above in which
+<span class="math inline">\(p_{22}=0\)</span> and <span class="math inline">\(p_{21}=p_{23}=1/2\)</span>. The state <span class="math inline">\(2\)</span> is still
+transient, but its period is <span class="math inline">\(2\)</span>.</p></li>
+<li><p>False. In the chain above, take <span class="math inline">\(i=1\)</span> and <span class="math inline">\(j=2\)</span>. Clearly,
+<span class="math inline">\(i\leftrightarrow j\)</span>, and both of them are transient. A theorem from the
+notes states that <span class="math inline">\(\sum_{n=1}^{\infty} p^{(n)}_{jj} &lt;\infty\)</span> and
+<span class="math inline">\(\sum_{n=1}^{\infty} p^{(n)}_{ii}&lt;\infty\)</span>, but these two sums do not
+need to be equal. Indeed, the only way for <span class="math inline">\(i=1\)</span> to come back to
+itself in <span class="math inline">\(n\)</span> steps is to move to <span class="math inline">\(2\)</span>, come back to <span class="math inline">\(2\)</span> in <span class="math inline">\(n-2\)</span>
+steps and then jump to <span class="math inline">\(1\)</span>. Therefore, <span class="math inline">\(p^{(n)}_{ii}= 1\times  p^{(n-2)}_{jj} \times 0.25\)</span> for <span class="math inline">\(n\geq 3\)</span>, <span class="math inline">\(p^{(2)}_{ii}=1\times  0.25\)</span> and <span class="math inline">\(p^{(1)}_{ii}=p_{ii}=0\)</span>. Therefore,
+<span class="math display">\[\sum_{n=1}^{\infty} p^{(n)}_{ii} =p^{(1)}_{ii} +
+ p^{(2)}_{ii}+\sum_{n=3}^{\infty} p^{(n)}_{ii} = 0+0.25+ 0.25
+ \sum_{n=1}^{\infty} p^{(n)}_{jj}.\]</span> This equality implies that the two
+sums are equal if and only if
+<span class="math display">\[0.75 \sum_{n=1}^{\infty} p^{(n)}_{ii} = 0.25,\text{ i.e., }
+ \sum_{n=1}^{\infty} p^{(n)}_{jj}=\sum_{n=1}^{\infty} p^{(n)}_{ii}=
+ \frac{1}{3}.\]</span> We know however, that one of the possible ways to
+go from <span class="math inline">\(2\)</span> to <span class="math inline">\(2\)</span> in <span class="math inline">\(n\)</span> steps is to just stay in <span class="math inline">\(2\)</span> all the time.
+The probability of this trajectory is <span class="math inline">\((1/2)^n\)</span>, and so,
+<span class="math inline">\(p^{(n)}_{jj}\geq (1/2)^n\)</span> for all <span class="math inline">\(n\)</span>. Hence,
+<span class="math display">\[\sum_{n=1}^{\infty} p^{(n)}_{jj}\geq \sum_{n=1}^{\infty} (1/2)^n= 1.\]</span>
+Therefore, the two sums cannot be equal.</p></li>
+</ol>
+</div>
+</details>
 <!--9
   cl-stat-12
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-198" class="exercise"><strong>Problem 6.19  </strong></span>Suppose there exists <span class="math inline">\(n\in{\mathbb{N}}\)</span>
+<p><span id="exr:unlabeled-div-205" class="exercise"><strong>Problem 6.19  </strong></span>Suppose there exists <span class="math inline">\(n\in{\mathbb{N}}\)</span>
 such that <span class="math inline">\(P^n=I\)</span>, where <span class="math inline">\(I\)</span> is the identity matrix and <span class="math inline">\(P\)</span> is the
 transition matrix of a finite-state-space Markov chain. For each of the
 following statements either explain why it is true, or give an example
@@ -1372,41 +1344,39 @@ showing that it is false.</p>
 <li><p>The period of each state is <span class="math inline">\(n\)</span>.</p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
-1.  False. Take the Regime-switching chain with $$P=
-    \begin{bmatrix}
-    0 & 1 \\ 1 & 0
-    \end{bmatrix}$$ Then $P^2=I$, but $P\not= I$.
-
-2.   False. If $P=I$, all states are absorbing, and, therefore, each is
-    in a class of its own.
-
-3.   True. By the assumption $P^{kn}=(P^n)^k=I^k=I$, for all $k\in\N$.
-    Therefore, $\pnp{kn}_{ii}=1$ for all $k\in\N$, and so
-    $\lim_{m\to\infty} \pnp{m}_{ii}\not= 0$ (maybe it doesn't even
-    exist). In any case, the series $\sum_{m=1}^{\infty} \pnp{m}_{ii}$
-    cannot be convergent, and so, $i$ is recurrent, for all $i\in S$.
-    Alternatively, the condition $P^n=I$ means that the chain will be
-    coming back to where it started - with certainty - every $n$ steps,
-    and so, all states must be recurrent.
-
-4.   False. Any chain satisfying $P^n=I$, but with the property that the
-    $n$ above is not unique is a counterexample. For example, if $P=I$,
-    then $P^n=I$ for any $n\in\N$.
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-206" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>False. Take the Regime-switching chain with <span class="math display">\[P=
+\begin{bmatrix}
+0 &amp; 1 \\ 1 &amp; 0
+\end{bmatrix}\]</span> Then <span class="math inline">\(P^2=I\)</span>, but <span class="math inline">\(P\not= I\)</span>.</p></li>
+<li><p>False. If <span class="math inline">\(P=I\)</span>, all states are absorbing, and, therefore, each is
+in a class of its own.</p></li>
+<li><p>True. By the assumption <span class="math inline">\(P^{kn}=(P^n)^k=I^k=I\)</span>, for all <span class="math inline">\(k\in{\mathbb{N}}\)</span>.
+Therefore, <span class="math inline">\(p^{(kn)}_{ii}=1\)</span> for all <span class="math inline">\(k\in{\mathbb{N}}\)</span>, and so
+<span class="math inline">\(\lim_{m{\rightarrow}\infty} p^{(m)}_{ii}\not= 0\)</span> (maybe it doesn’t even
+exist). In any case, the series <span class="math inline">\(\sum_{m=1}^{\infty} p^{(m)}_{ii}\)</span>
+cannot be convergent, and so, <span class="math inline">\(i\)</span> is recurrent, for all <span class="math inline">\(i\in S\)</span>.
+Alternatively, the condition <span class="math inline">\(P^n=I\)</span> means that the chain will be
+coming back to where it started - with certainty - every <span class="math inline">\(n\)</span> steps,
+and so, all states must be recurrent.</p></li>
+<li><p>False. Any chain satisfying <span class="math inline">\(P^n=I\)</span>, but with the property that the
+<span class="math inline">\(n\)</span> above is not unique is a counterexample. For example, if <span class="math inline">\(P=I\)</span>,
+then <span class="math inline">\(P^n=I\)</span> for any <span class="math inline">\(n\in{\mathbb{N}}\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!--12
   four-stmts
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-199" class="exercise"><strong>Problem 6.20  </strong></span>Suppose that all classes of a Markov chain are recurrent, and let <span class="math inline">\(i,j\)</span>
+<p><span id="exr:unlabeled-div-207" class="exercise"><strong>Problem 6.20  </strong></span>Suppose that all classes of a Markov chain are recurrent, and let <span class="math inline">\(i,j\)</span>
 be two states such that <span class="math inline">\(i{\rightarrow}j\)</span>. For each of the 4 statements before,
 either explain why it is true, or give an example of a Markov chain in
 which it fails.</p>
@@ -1417,24 +1387,22 @@ which it fails.</p>
 <li><p><span class="math inline">\(\sum_{n=1}^{\infty} p^{(n)}_{jj}&lt;\infty\)</span></p></li>
 </ol>
 </div>
-<!-- <details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
-a. False. Take a chain with two states $1,2$ where $p_{11}=p_{22}=1$,
-  and set $i=j=1$, $k=2$.
-
-b. True. Recurrent classes are closed, so $i$ and $j$ belong to the same class. Therefore $j\to i$.
-
-c. False. Take a chain with $4$ states $1,2,3,4$ where
-  $p_{12}=p_{23}=p_{34}=p_{41}=1$, and set $i=1$, $j=3$.
-
-d. False. That would mean that $j$ is transient.
-
-:::
-</details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-208" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: lower-alpha">
+<li><p>False. Take a chain with two states <span class="math inline">\(1,2\)</span> where <span class="math inline">\(p_{11}=p_{22}=1\)</span>,
+and set <span class="math inline">\(i=j=1\)</span>, <span class="math inline">\(k=2\)</span>.</p></li>
+<li><p>True. Recurrent classes are closed, so <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> belong to the same class. Therefore <span class="math inline">\(j{\rightarrow}i\)</span>.</p></li>
+<li><p>False. Take a chain with <span class="math inline">\(4\)</span> states <span class="math inline">\(1,2,3,4\)</span> where
+<span class="math inline">\(p_{12}=p_{23}=p_{34}=p_{41}=1\)</span>, and set <span class="math inline">\(i=1\)</span>, <span class="math inline">\(j=3\)</span>.</p></li>
+<li><p>False. That would mean that <span class="math inline">\(j\)</span> is transient.</p></li>
+</ol>
+</div>
+</details>
 </div>
 <div id="endnotes-5" class="section level2" number="6.7">
 <h2><span class="header-section-number">6.7</span> Endnotes</h2>

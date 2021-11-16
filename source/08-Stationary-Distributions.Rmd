@@ -885,15 +885,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!-- \  -->
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
-<!-- ``` -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
+\
+```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -910,15 +910,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 <!--
@@ -933,15 +933,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -957,15 +957,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -981,15 +981,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
