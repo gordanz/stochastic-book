@@ -895,7 +895,27 @@ the Markov Chain theory in history.
 :::
 </details>
 
+<!--
+  sl-prob-01a
+  ------------------------------------------------
+-->
+<!-- ::: {.exercise} -->
 
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01a_prb.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01a_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--

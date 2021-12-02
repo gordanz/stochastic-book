@@ -915,6 +915,29 @@ In all examples below we assume that $0 < p < 1$.
 ## Additional problems for Chapter 6
 
 
+<!--1
+class-TF
+  ------------------------------------------------
+-->
+<!-- ::: {.exercise} -->
+
+<!-- ```{r child="problems/03_Classification_of_States/class-TF_prb.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
+
+<!-- ```{r child="problems/03_Classification_of_States/class-TF_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
+
 
 <!--1
   cl-stat-09
