@@ -1180,7 +1180,7 @@ Click for Solution
 <span id="cb174-2"><a href="more-about-random-walks.html#cb174-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
 <span id="cb174-3"><a href="more-about-random-walks.html#cb174-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T))</span>
 <span id="cb174-4"><a href="more-about-random-walks.html#cb174-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-418-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-424-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li></li>
 </ol>
@@ -1219,7 +1219,7 @@ Click for Solution
 <span id="cb177-2"><a href="more-about-random-walks.html#cb177-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
 <span id="cb177-3"><a href="more-about-random-walks.html#cb177-3" aria-hidden="true" tabindex="-1"></a>tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T))</span>
 <span id="cb177-4"><a href="more-about-random-walks.html#cb177-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau_abs, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-421-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-427-1.png" width="672" style="display: block; margin: auto;" /></p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="more-about-random-walks.html#cb178-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
 <span id="cb178-2"><a href="more-about-random-walks.html#cb178-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
 <span id="cb178-3"><a href="more-about-random-walks.html#cb178-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
@@ -1354,7 +1354,7 @@ set of all trajectories in <span class="math inline">\(A\)</span> such that <spa
 Since you can be back at <span class="math inline">\(0\)</span> only at even times, the sets <span class="math inline">\(A_m\)</span> with <span class="math inline">\(m\)</span> odd are empty.
 Therefore, we can focus on <span class="math inline">\(A_{2i}\)</span> for <span class="math inline">\(i=1,2, \dots, n\)</span>.
 As shown on the plot below (where <span class="math inline">\(T=20\)</span> and <span class="math inline">\(2i =10\)</span>)
-<img src="_main_files/figure-html/unnamed-chunk-423-1.png" width="672" style="display: block; margin: auto;" />
+<img src="_main_files/figure-html/unnamed-chunk-429-1.png" width="672" style="display: block; margin: auto;" />
 each trajectory in <span class="math inline">\(A_{2i}\)</span> must look like this:
 the first step is necessarily up (blue segment). After that the trajectory stays at or
 above the level <span class="math inline">\(1\)</span> until time <span class="math inline">\(x_{2i-1}\)</span>, when it must be exactly at <span class="math inline">\(1\)</span> (green segments).
@@ -1381,7 +1381,7 @@ in the problem, can be split into subclasses according to to which vertex is
 paired with <span class="math inline">\(V_1\)</span>. More precisely, let <span class="math inline">\(A_m\)</span> be the set of all pairings in
 which <span class="math inline">\(V_1\)</span> is paired with <span class="math inline">\(V_m\)</span>. We first note that no pairing can exist in
 which <span class="math inline">\(m\)</span> is odd(why?), we we can write <span class="math inline">\(m=2i\)</span>.
-<img src="_main_files/figure-html/unnamed-chunk-424-1.png" width="672" style="display: block; margin: auto;" /></p>
+<img src="_main_files/figure-html/unnamed-chunk-430-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Each pairing in <span class="math inline">\(A_{2i}\)</span>
 splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,  \dots, V_{2i-1}\)</span>“to the left”
 of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1  V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>

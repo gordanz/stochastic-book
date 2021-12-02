@@ -561,16 +561,16 @@ minimize her cost?
 
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!-- \ -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
+\
 
-<!-- ```{r child="problems/04_Absorption_and_Reward/mc_prob1_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/04_Absorption_and_Reward/mc_prob1_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -612,15 +612,15 @@ minimize her cost?
 :::
 </div>
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-03_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/04_Absorption_and_Reward/ar-prob-03_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
@@ -682,15 +682,15 @@ minimize her cost?
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-04_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/04_Absorption_and_Reward/ar-prob-04_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 <!--
@@ -802,15 +802,15 @@ minimize her cost?
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 

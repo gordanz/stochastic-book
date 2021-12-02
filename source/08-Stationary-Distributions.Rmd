@@ -1025,15 +1025,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 <!--
@@ -1048,15 +1048,15 @@ the Markov Chain theory in history.
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
 
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"} -->
-<!-- ``` -->
+```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"}
+```
 
-<!-- ::: -->
-<!-- </details> -->
+:::
+</details>
 
 
 
