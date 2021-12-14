@@ -6,8 +6,6 @@ documentclass: book
 github-repo: gordanz/M362M
 description: "A set of lecture notes for *M362M: Introduction to Stochastic Processes*"
 site: bookdown::bookdown_site
-output: 
-  bookdown::gitbook
 ---
 
 
