@@ -870,7 +870,7 @@ If you did not know about the $\chi^2$ distribution, you would not know what R
 name to put the prefix `r` in front of. What makes the simulation possible is
 the fact that $Y$ is a *transformation* of 
 a random variable we know how to simulate. In that case, we simply simulate the
-required number of draws `x` from the geometric distribution (using `rnorm`) and
+required number of draws `x` from the normal distribution (using `rnorm`) and
 then apply the transformation $x \mapsto x^2$ to the result. The transformed
 vector `y` is then nothing but the sequence of draws from the distribution of
 $X^2$. 
