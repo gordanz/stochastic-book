@@ -364,7 +364,7 @@ of the current state) and it behaves exactly like a new and independent
 chain started from $i$ would. This is a special case of so-called
 **strong Markov property** which states that the (usual) Markov property
 also holds at stopping times (and not only fixed times $n$). We will not
-prove this property it these notes, but we will gladly use it to prove
+prove this property in these notes, but we will gladly use it to prove
 the following dichotomy:
 
 ::: {.theorem name="The \"Return\" Theorem"}

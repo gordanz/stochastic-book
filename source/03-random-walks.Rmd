@@ -94,8 +94,8 @@ we will use whenever we simulate a stochastic process:
 - the result of each simulation is a `data.frame` object
 -  its columns will be the random variables $X_0$, $X_1$, \dots It is a good
 idea to name your columns `X0`, `X1`, `X2`, etc.
-- each row will represent one "draw"˜
-˜µ
+- each row will represent one "draw":
+
 This is best achieved by the following two-stage approach in R:
 
 a) write a function which will simulate a single trajectory 
@@ -105,7 +105,7 @@ as arguments to this function.
 
 b) use the function `replicate` to stack together many such simulations and 
 convert the result to a `data.frame`. Don't 
-forget to transpose first (use the function `t`) because `replicate` works column by column, 
+forget to transpose after (use the function `t`) because `replicate` works column by column, 
 and not row by row. 
 
 
@@ -231,7 +231,7 @@ ggplot(data=tf, aes(xmin=Var2-0.5, xmax = Var2+0.5, ymin = Var1 - 0.5, ymax = Va
 If we focus on what is going on in a given row of `walk`, we are going to see 
 a different cross-section of our stochastic process. This way we are fixing the
 state of the world $\omega$ (represented by a row of `walk`), i.e., the particular
-realization of our process, but
+realization of our process, by 
 varying the time parameter. A typical picture associated to a trajectory 
 of a random walk is the following
 
@@ -345,7 +345,7 @@ do.call("grid.arrange", c(pl, ncol=4))
 ```
 </center>
 
-Each trajectory corresponds to a particular combinations of the values of the 
+Each trajectory corresponds to a particular combination of the values of the 
 increments $(\delta_1,\dots, \delta_T)$, each such combination happens with probability $2^{-T}$. 
 This means that any two trajectories are equally likely. That is convenient, because
 this puts uniform probability on the collection of trajectories. We are now ready to 
@@ -405,7 +405,7 @@ the number of paths with value $1$ at $n=5$ and then divide by the total number 
 
 So, how many paths are there that take value $1$ at $n=5$? Each path is built out of steps of absolute value $1$. Some of them go up (call them up-steps) and some of them go down (down-steps). A moment's though reveals that the only way to reach $1$ in $5$ steps is if you have exactly $3$ up-steps and $2$ down-steps. Conversely, any path that has $3$ up-steps and $2$ down-steps ends at $1$. 
 
-This realization transforms the problem into the following: how many paths are there with exactly $3$ up-steps (note that we don't have to specify that there are $2$ down-steps - it will happen automatically). The only difference between different paths with exactly $3$ up-steps is the position of these up-steps. In some of them the up-steps happen right at the start, in some at the very end, and in some they are scattered around. Each path with $3$ up-steps is uniquely determined by the list of positions of those up-steps, i.e., with a size-$3$ subset of $\{1,2,3,4,5\}$. This is not a surprise at all, since each path is build out of increments, and positions of positive increments clearly determine values of all increments.
+This realization transforms the problem into the following: how many paths are there with exactly $3$ up-steps (note that we don't have to specify that there are $2$ down-steps - it will happen automatically). The only difference between different paths with exactly $3$ up-steps is the position of these up-steps. In some of them the up-steps happen right at the start, in some at the very end, and in some they are scattered around. Each path with $3$ up-steps is uniquely determined by the list of positions of those up-steps, i.e., with a size-$3$ subset of $\{1,2,3,4,5\}$. This is not a surprise at all, since each path is built out of increments, and positions of positive increments clearly determine values of all increments.
 
 The problem has now become purely mathematical: how many size-$3$ subsets of $\{1,2,3,4,5\}$ are there? The answer comes in the form of a *binomial coefficient* $\binom{5}{3}$ whose value is $10$ - there are exactly ten ways to pick three positions out of five. Therefore,
 $$ \PP[ X_{5} = 1] = 10 \times 2^{-5} = \frac{5}{16}.$$

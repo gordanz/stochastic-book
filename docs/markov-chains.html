@@ -419,7 +419,7 @@ transition probabilities are simple to write down
 \end{pmatrix}\]</span> but this representation is typically not as useful as in the finite case.</p>
 <p>Here is a (portion of) a transition graph for a simple random walk. Instead of writing probabilities
 on top of the edges, we color code them as follows: green is <span class="math inline">\(p\)</span> and orange is <span class="math inline">\(1-p\)</span>.</p>
-<p><img src="pics/random_walk_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/random_walk_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 </div>
 <div id="gambler" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> Gambler’s ruin</h3>
@@ -446,7 +446,7 @@ space is finite <span class="math inline">\(S=\{0,1,\dots, a\}\)</span> and the 
   0 &amp; 0 &amp; 0 &amp; 0 &amp; \dots &amp; 0 &amp; 0 &amp; 1 \\
 \end{pmatrix}\]</span></p>
 <p>In the picture below, green denotes the probability <span class="math inline">\(p\)</span> and orange <span class="math inline">\(1-p\)</span>. As always, black is <span class="math inline">\(1\)</span>.</p>
-<p><img src="pics/gamblers_ruin_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/gamblers_ruin_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>The initial distribution is deterministic: <span class="math display">\[{a}^{(0)}_i=
 \begin{cases}
   1,&amp; i=x,\\ 0,&amp; i\not= x.
@@ -468,7 +468,7 @@ in the same state. The transition matrix for this Markov chain with
 \end{pmatrix}\]</span> When <span class="math inline">\(p_{12}\)</span> and <span class="math inline">\(p_{21}\)</span> are large (close to <span class="math inline">\(1\)</span>) the
 system nervously jumps between the two states. When they are small,
 there are long periods of stability (staying in the same state).</p>
-<p><img src="pics/regime_switching_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/regime_switching_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>One of the assumptions behind regime-switching models is that the
 transitions (switches) can only happen in regular intervals (once a
 minute, once a day, once a year, etc.). This is a feature of all
@@ -488,7 +488,7 @@ monotone Markov chain (DMMC). The transition matrix looks like this
   \vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \ddots 
 \end{pmatrix}\]</span></p>
 <p>and the transition graph like this:</p>
-<p><img src="pics/deterministically_monotone_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/deterministically_monotone_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>It is a pretty boring chain; its main use is as a counterexample.</p>
 </div>
 <div id="not-a-markov-chain" class="section level3" number="5.2.5">
@@ -599,7 +599,7 @@ possible state space is the following:</p>
 to assign probabilities to transitions between states. Once we reach
 either <span class="math inline">\(P_1\)</span> or <span class="math inline">\(P_2\)</span> the game stops. We can assume that the
 chain remains in that state forever, i.e., the state is absorbing.</p>
-<p><img src="pics/tennis_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/tennis_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>The
 initial distribution is quite simple - we always start from the same
 state <span class="math inline">\((0,0)\)</span>, so that <span class="math inline">\({a}^{(0)}_{(0,0)}=1\)</span> and
@@ -820,48 +820,48 @@ In general, we collapse the two parts of the process - a simulation of an indepe
 </div>
 <div class="solution">
 <p><span id="unlabeled-div-134" class="solution"><em>Solution</em>. </span> </p>
-<div class="sourceCode" id="cb179"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb179-1"><a href="markov-chains.html#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># state space</span></span>
-<span id="cb179-2"><a href="markov-chains.html#cb179-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb179-3"><a href="markov-chains.html#cb179-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-4"><a href="markov-chains.html#cb179-4" aria-hidden="true" tabindex="-1"></a><span class="co"># transition matrix</span></span>
-<span id="cb179-5"><a href="markov-chains.html#cb179-5" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,</span>
-<span id="cb179-6"><a href="markov-chains.html#cb179-6" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">0</span>,   <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">0</span>,</span>
-<span id="cb179-7"><a href="markov-chains.html#cb179-7" aria-hidden="true" tabindex="-1"></a>             <span class="dv">0</span>,   <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">0</span>,   <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>,</span>
-<span id="cb179-8"><a href="markov-chains.html#cb179-8" aria-hidden="true" tabindex="-1"></a>             <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">1</span>),</span>
-<span id="cb179-9"><a href="markov-chains.html#cb179-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">byrow=</span>T, <span class="at">ncol=</span><span class="dv">4</span>)</span>
-<span id="cb179-10"><a href="markov-chains.html#cb179-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-11"><a href="markov-chains.html#cb179-11" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span> <span class="co"># number of time periods</span></span>
-<span id="cb179-12"><a href="markov-chains.html#cb179-12" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span> <span class="co"># number of simulations</span></span>
-<span id="cb179-13"><a href="markov-chains.html#cb179-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-14"><a href="markov-chains.html#cb179-14" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the next position of the chain</span></span>
-<span id="cb179-15"><a href="markov-chains.html#cb179-15" aria-hidden="true" tabindex="-1"></a>draw_next <span class="ot">=</span> <span class="cf">function</span>(s) {</span>
-<span id="cb179-16"><a href="markov-chains.html#cb179-16" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> <span class="fu">match</span>(s, S) <span class="co"># the row number of the state s</span></span>
-<span id="cb179-17"><a href="markov-chains.html#cb179-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(S, <span class="at">prob =</span> P[i, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb179-18"><a href="markov-chains.html#cb179-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb179-19"><a href="markov-chains.html#cb179-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-20"><a href="markov-chains.html#cb179-20" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate a single trajectory of length T</span></span>
-<span id="cb179-21"><a href="markov-chains.html#cb179-21" aria-hidden="true" tabindex="-1"></a><span class="co"># from the initial state</span></span>
-<span id="cb179-22"><a href="markov-chains.html#cb179-22" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(initial_state) {</span>
-<span id="cb179-23"><a href="markov-chains.html#cb179-23" aria-hidden="true" tabindex="-1"></a>  path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
-<span id="cb179-24"><a href="markov-chains.html#cb179-24" aria-hidden="true" tabindex="-1"></a>  last <span class="ot">=</span> initial_state</span>
-<span id="cb179-25"><a href="markov-chains.html#cb179-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
-<span id="cb179-26"><a href="markov-chains.html#cb179-26" aria-hidden="true" tabindex="-1"></a>    path[n] <span class="ot">=</span> <span class="fu">draw_next</span>(last)</span>
-<span id="cb179-27"><a href="markov-chains.html#cb179-27" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> path[n]</span>
-<span id="cb179-28"><a href="markov-chains.html#cb179-28" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb179-29"><a href="markov-chains.html#cb179-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(path)</span>
-<span id="cb179-30"><a href="markov-chains.html#cb179-30" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb179-31"><a href="markov-chains.html#cb179-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-32"><a href="markov-chains.html#cb179-32" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the entire chain</span></span>
-<span id="cb179-33"><a href="markov-chains.html#cb179-33" aria-hidden="true" tabindex="-1"></a>simulate_chain <span class="ot">=</span> <span class="cf">function</span>(initial_state) {</span>
-<span id="cb179-34"><a href="markov-chains.html#cb179-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">X0 =</span> initial_state,</span>
-<span id="cb179-35"><a href="markov-chains.html#cb179-35" aria-hidden="true" tabindex="-1"></a>             <span class="fu">t</span>(<span class="fu">replicate</span>(</span>
-<span id="cb179-36"><a href="markov-chains.html#cb179-36" aria-hidden="true" tabindex="-1"></a>               nsim, <span class="fu">single_trajectory</span>(initial_state)</span>
-<span id="cb179-37"><a href="markov-chains.html#cb179-37" aria-hidden="true" tabindex="-1"></a>             )))</span>
-<span id="cb179-38"><a href="markov-chains.html#cb179-38" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb179-39"><a href="markov-chains.html#cb179-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb179-40"><a href="markov-chains.html#cb179-40" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">simulate_chain</span>(<span class="dv">1</span>)</span>
-<span id="cb179-41"><a href="markov-chains.html#cb179-41" aria-hidden="true" tabindex="-1"></a>(<span class="at">p =</span> <span class="fu">mean</span>(df<span class="sc">$</span>X100 <span class="sc">==</span> <span class="dv">3</span>))</span>
-<span id="cb179-42"><a href="markov-chains.html#cb179-42" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.59</span></span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="markov-chains.html#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="co"># state space</span></span>
+<span id="cb180-2"><a href="markov-chains.html#cb180-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb180-3"><a href="markov-chains.html#cb180-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-4"><a href="markov-chains.html#cb180-4" aria-hidden="true" tabindex="-1"></a><span class="co"># transition matrix</span></span>
+<span id="cb180-5"><a href="markov-chains.html#cb180-5" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,</span>
+<span id="cb180-6"><a href="markov-chains.html#cb180-6" aria-hidden="true" tabindex="-1"></a>             <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">0</span>,   <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">0</span>,</span>
+<span id="cb180-7"><a href="markov-chains.html#cb180-7" aria-hidden="true" tabindex="-1"></a>             <span class="dv">0</span>,   <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">0</span>,   <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>,</span>
+<span id="cb180-8"><a href="markov-chains.html#cb180-8" aria-hidden="true" tabindex="-1"></a>             <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">1</span>),</span>
+<span id="cb180-9"><a href="markov-chains.html#cb180-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">byrow=</span>T, <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb180-10"><a href="markov-chains.html#cb180-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-11"><a href="markov-chains.html#cb180-11" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span> <span class="co"># number of time periods</span></span>
+<span id="cb180-12"><a href="markov-chains.html#cb180-12" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span> <span class="co"># number of simulations</span></span>
+<span id="cb180-13"><a href="markov-chains.html#cb180-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-14"><a href="markov-chains.html#cb180-14" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the next position of the chain</span></span>
+<span id="cb180-15"><a href="markov-chains.html#cb180-15" aria-hidden="true" tabindex="-1"></a>draw_next <span class="ot">=</span> <span class="cf">function</span>(s) {</span>
+<span id="cb180-16"><a href="markov-chains.html#cb180-16" aria-hidden="true" tabindex="-1"></a>  i <span class="ot">=</span> <span class="fu">match</span>(s, S) <span class="co"># the row number of the state s</span></span>
+<span id="cb180-17"><a href="markov-chains.html#cb180-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample</span>(S, <span class="at">prob =</span> P[i, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb180-18"><a href="markov-chains.html#cb180-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb180-19"><a href="markov-chains.html#cb180-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-20"><a href="markov-chains.html#cb180-20" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate a single trajectory of length T</span></span>
+<span id="cb180-21"><a href="markov-chains.html#cb180-21" aria-hidden="true" tabindex="-1"></a><span class="co"># from the initial state</span></span>
+<span id="cb180-22"><a href="markov-chains.html#cb180-22" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(initial_state) {</span>
+<span id="cb180-23"><a href="markov-chains.html#cb180-23" aria-hidden="true" tabindex="-1"></a>  path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
+<span id="cb180-24"><a href="markov-chains.html#cb180-24" aria-hidden="true" tabindex="-1"></a>  last <span class="ot">=</span> initial_state</span>
+<span id="cb180-25"><a href="markov-chains.html#cb180-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb180-26"><a href="markov-chains.html#cb180-26" aria-hidden="true" tabindex="-1"></a>    path[n] <span class="ot">=</span> <span class="fu">draw_next</span>(last)</span>
+<span id="cb180-27"><a href="markov-chains.html#cb180-27" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> path[n]</span>
+<span id="cb180-28"><a href="markov-chains.html#cb180-28" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb180-29"><a href="markov-chains.html#cb180-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(path)</span>
+<span id="cb180-30"><a href="markov-chains.html#cb180-30" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb180-31"><a href="markov-chains.html#cb180-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-32"><a href="markov-chains.html#cb180-32" aria-hidden="true" tabindex="-1"></a><span class="co"># simulate the entire chain</span></span>
+<span id="cb180-33"><a href="markov-chains.html#cb180-33" aria-hidden="true" tabindex="-1"></a>simulate_chain <span class="ot">=</span> <span class="cf">function</span>(initial_state) {</span>
+<span id="cb180-34"><a href="markov-chains.html#cb180-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">X0 =</span> initial_state,</span>
+<span id="cb180-35"><a href="markov-chains.html#cb180-35" aria-hidden="true" tabindex="-1"></a>             <span class="fu">t</span>(<span class="fu">replicate</span>(</span>
+<span id="cb180-36"><a href="markov-chains.html#cb180-36" aria-hidden="true" tabindex="-1"></a>               nsim, <span class="fu">single_trajectory</span>(initial_state)</span>
+<span id="cb180-37"><a href="markov-chains.html#cb180-37" aria-hidden="true" tabindex="-1"></a>             )))</span>
+<span id="cb180-38"><a href="markov-chains.html#cb180-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb180-39"><a href="markov-chains.html#cb180-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb180-40"><a href="markov-chains.html#cb180-40" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">simulate_chain</span>(<span class="dv">1</span>)</span>
+<span id="cb180-41"><a href="markov-chains.html#cb180-41" aria-hidden="true" tabindex="-1"></a>(<span class="at">p =</span> <span class="fu">mean</span>(df<span class="sc">$</span>X100 <span class="sc">==</span> <span class="dv">3</span>))</span>
+<span id="cb180-42"><a href="markov-chains.html#cb180-42" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.59</span></span></code></pre></div>
 <p><em>R.</em> The function <code>draw_next</code> is at the heart of the simulation. Given the current state <code>s</code>, it looks up the row of the transition matrix <code>P</code> which corresponds to <code>s</code>. This is where the function <code>match</code> comes in handy - <code>match(s,S)</code> gives you the position of th element <code>s</code> in the vector <code>S</code>. Of course, if <span class="math inline">\(S = \{ 1,2,3, \dots, n\}\)</span> then we don’t need to use <code>match</code>, as each state is “its own position”. In our case, <code>S</code> is a bit different, namely <span class="math inline">\(S=\{0,1,2,3\}\)</span>, and so <code>match(s,S)</code> is nothing by <code>s+1</code>. This is clearly an overkill in this case, but we still do it for didactical purposes.</p>
 <p>Once the row corresponding to the state <code>s</code> is identified, we use its elements as the probabilities to be fed into the command <code>sample</code>, which, in turn, returns our next state and we repeat the procedure over and over (in this case <span class="math inline">\(T=100\)</span> times).</p>
 </div>
@@ -1138,7 +1138,7 @@ initial guess <span class="math inline">\(S_0\)</span> to a smaller <span class=
            \}
   \end{equation}\]</span>
 with the following transition graph:</p>
-<p><img src="pics/deck-2-2_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/deck-2-2_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>You could further reduce the number of states to <span class="math inline">\(9\)</span> by removing the initial state <span class="math inline">\((2,2)\)</span>
 and choosing a non-deterministic distribution over the states that
 can be reached from them. There is something unsatisfying about that, though.</p></li>
@@ -1302,7 +1302,7 @@ Click for Solution
 </summary>
 <div class="solution">
 <p><span id="unlabeled-div-152" class="solution"><em>Solution</em>. </span>As you can see from the transition graph below</p>
-<p><img src="pics/manual-multi-step_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/manual-multi-step_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>You can go from <span class="math inline">\(1\)</span> to <span class="math inline">\(2\)</span> in <span class="math inline">\(6\)</span> steps in
 exactly two ways: <span class="math display">\[1 \to 2 \to 3 \to 4 \to 5 \to 1 \to 2\]</span> and
 <span class="math display">\[1 \to 1 \to 1 \to 1 \to 1 \to 1 \to 2\]</span>
@@ -1341,7 +1341,7 @@ Click for Solution
 <p><span id="unlabeled-div-154" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li><p>Here is the transition graph of the chain:
-<img src="pics/simple_prob_chain.png" style="display: block; margin: auto;" />
+<img src="pics/simple_prob_chain.png" width="1200" style="display: block; margin: auto;" />
 where orange edges have probability <span class="math inline">\(1/2\)</span>, green <span class="math inline">\(1/3\)</span> and black <span class="math inline">\(1\)</span>.</p></li>
 <li><p>This is the probability that, starting from <span class="math inline">\(1\)</span>, we will be at <span class="math inline">\(4\)</span> in exactly
 <span class="math inline">\(4\)</span> steps. To compute it, we enumerate all possible trajectories from <span class="math inline">\(1\)</span> to <span class="math inline">\(4\)</span>
@@ -1474,22 +1474,22 @@ distribution of drivers in 2090 is given by the distribution
 <span class="math inline">\(a^{(100)}\)</span> of <span class="math inline">\(X_{100}\)</span> which is, in turn, given by
 <span class="math display">\[a^{(100)}= a^{(0)} P^{100}.\]</span> Finally, we need to compute the <em>number</em> of drivers in
 each category, so we multiply the result by the total number of drivers, i.e., <span class="math inline">\(3 \times 1400 = 4200\)</span>:</p>
-<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="markov-chains.html#cb180-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(</span>
-<span id="cb180-2"><a href="markov-chains.html#cb180-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> , <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> , <span class="dv">0</span>,  </span>
-<span id="cb180-3"><a href="markov-chains.html#cb180-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">2</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">2</span><span class="sc">/</span><span class="dv">5</span> , </span>
-<span id="cb180-4"><a href="markov-chains.html#cb180-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">3</span><span class="sc">/</span><span class="dv">5</span>), </span>
-<span id="cb180-5"><a href="markov-chains.html#cb180-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow=</span>T, <span class="at">ncol=</span><span class="dv">3</span>)</span>
-<span id="cb180-6"><a href="markov-chains.html#cb180-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-7"><a href="markov-chains.html#cb180-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a0 needs to be a row matrix </span></span>
-<span id="cb180-8"><a href="markov-chains.html#cb180-8" aria-hidden="true" tabindex="-1"></a>a0 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>), <span class="at">nrow=</span><span class="dv">1</span>) </span>
-<span id="cb180-9"><a href="markov-chains.html#cb180-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-10"><a href="markov-chains.html#cb180-10" aria-hidden="true" tabindex="-1"></a>P100 <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">3</span>) <span class="co"># the 3x3 identity matrix</span></span>
-<span id="cb180-11"><a href="markov-chains.html#cb180-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
-<span id="cb180-12"><a href="markov-chains.html#cb180-12" aria-hidden="true" tabindex="-1"></a>  P100 <span class="ot">=</span> P100 <span class="sc">%*%</span> P</span>
-<span id="cb180-13"><a href="markov-chains.html#cb180-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb180-14"><a href="markov-chains.html#cb180-14" aria-hidden="true" tabindex="-1"></a>(a0 <span class="sc">%*%</span> P100) <span class="sc">*</span> <span class="dv">4200</span></span>
-<span id="cb180-15"><a href="markov-chains.html#cb180-15" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
-<span id="cb180-16"><a href="markov-chains.html#cb180-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 1200 1500 1500</span></span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="markov-chains.html#cb181-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(</span>
+<span id="cb181-2"><a href="markov-chains.html#cb181-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> , <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> , <span class="dv">0</span>,  </span>
+<span id="cb181-3"><a href="markov-chains.html#cb181-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">2</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">2</span><span class="sc">/</span><span class="dv">5</span> , </span>
+<span id="cb181-4"><a href="markov-chains.html#cb181-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">3</span><span class="sc">/</span><span class="dv">5</span>), </span>
+<span id="cb181-5"><a href="markov-chains.html#cb181-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow=</span>T, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb181-6"><a href="markov-chains.html#cb181-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-7"><a href="markov-chains.html#cb181-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a0 needs to be a row matrix </span></span>
+<span id="cb181-8"><a href="markov-chains.html#cb181-8" aria-hidden="true" tabindex="-1"></a>a0 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>), <span class="at">nrow=</span><span class="dv">1</span>) </span>
+<span id="cb181-9"><a href="markov-chains.html#cb181-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-10"><a href="markov-chains.html#cb181-10" aria-hidden="true" tabindex="-1"></a>P100 <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">3</span>) <span class="co"># the 3x3 identity matrix</span></span>
+<span id="cb181-11"><a href="markov-chains.html#cb181-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb181-12"><a href="markov-chains.html#cb181-12" aria-hidden="true" tabindex="-1"></a>  P100 <span class="ot">=</span> P100 <span class="sc">%*%</span> P</span>
+<span id="cb181-13"><a href="markov-chains.html#cb181-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-14"><a href="markov-chains.html#cb181-14" aria-hidden="true" tabindex="-1"></a>(a0 <span class="sc">%*%</span> P100) <span class="sc">*</span> <span class="dv">4200</span></span>
+<span id="cb181-15"><a href="markov-chains.html#cb181-15" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb181-16"><a href="markov-chains.html#cb181-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 1200 1500 1500</span></span></code></pre></div>
 <p>Note: if you think that computing matrix powers using for loops is in poor taste, there are several R packages you can use. Have a look at <a href="https://stats.stackexchange.com/questions/4320/compute-the-power-of-a-matrix-in-r/187477">this post</a> if you are curious.</p>
 </div>
 </details>
@@ -1537,39 +1537,39 @@ Click for Solution
 corresponding to compartments, and transitions to their adjacency.
 The graph of such a chain, on the state space <span class="math inline">\(S=\{1,2,3,4,5,F,S\}\)</span>
 would look like this (with black = <span class="math inline">\(1\)</span>, orange = <span class="math inline">\(1/2\)</span> and green=<span class="math inline">\(1/3\)</span>)</p>
-<p><img src="pics/basil_chain.png" style="display: block; margin: auto;" /></p></li>
+<p><img src="pics/basil_chain.png" width="1200" style="display: block; margin: auto;" /></p></li>
 <li><p>To be able to do Monte Carlo, we need to construct its transition
 matrix. Since there are far fewer transitions than pairs of states, it is a good idea to start with a matrix of <span class="math inline">\(0\)</span>s and then fill in the non-zero values. We also decide that <span class="math inline">\(F\)</span> and <span class="math inline">\(S\)</span> will be given the last two rows/columns, i.e., numbers <span class="math inline">\(6\)</span> and <span class="math inline">\(7\)</span>:</p>
-<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="markov-chains.html#cb181-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>,<span class="at">nrow =</span><span class="dv">7</span>, <span class="at">ncol=</span><span class="dv">7</span> )</span>
-<span id="cb181-2"><a href="markov-chains.html#cb181-2" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">1</span>,<span class="dv">2</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>; P[<span class="dv">1</span>,<span class="dv">3</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>;</span>
-<span id="cb181-3"><a href="markov-chains.html#cb181-3" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">2</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">2</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
-<span id="cb181-4"><a href="markov-chains.html#cb181-4" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">3</span>,<span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">3</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">3</span>,<span class="dv">7</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
-<span id="cb181-5"><a href="markov-chains.html#cb181-5" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">4</span>,<span class="dv">2</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">4</span>,<span class="dv">3</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">4</span>,<span class="dv">5</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
-<span id="cb181-6"><a href="markov-chains.html#cb181-6" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">5</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>; P[<span class="dv">5</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>;</span>
-<span id="cb181-7"><a href="markov-chains.html#cb181-7" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">6</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb181-8"><a href="markov-chains.html#cb181-8" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">7</span>,<span class="dv">7</span>] <span class="ot">=</span> <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="markov-chains.html#cb182-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>,<span class="at">nrow =</span><span class="dv">7</span>, <span class="at">ncol=</span><span class="dv">7</span> )</span>
+<span id="cb182-2"><a href="markov-chains.html#cb182-2" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">1</span>,<span class="dv">2</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>; P[<span class="dv">1</span>,<span class="dv">3</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>;</span>
+<span id="cb182-3"><a href="markov-chains.html#cb182-3" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">2</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">2</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
+<span id="cb182-4"><a href="markov-chains.html#cb182-4" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">3</span>,<span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">3</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">3</span>,<span class="dv">7</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
+<span id="cb182-5"><a href="markov-chains.html#cb182-5" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">4</span>,<span class="dv">2</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">4</span>,<span class="dv">3</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">4</span>,<span class="dv">5</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
+<span id="cb182-6"><a href="markov-chains.html#cb182-6" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">5</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>; P[<span class="dv">5</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>;</span>
+<span id="cb182-7"><a href="markov-chains.html#cb182-7" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">6</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb182-8"><a href="markov-chains.html#cb182-8" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">7</span>,<span class="dv">7</span>] <span class="ot">=</span> <span class="dv">1</span></span></code></pre></div>
 <p>We continue by simulating <code>nsim = 1000</code> trajectories of this chain, starting from the state <span class="math inline">\(3\)</span>. We compress and reuse the code from section <a href="markov-chains.html#mc-sim">5.4</a> above:</p>
-<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="markov-chains.html#cb182-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span>  <span class="co"># number of time periods</span></span>
-<span id="cb182-2"><a href="markov-chains.html#cb182-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span>  <span class="co"># number of simulations</span></span>
-<span id="cb182-3"><a href="markov-chains.html#cb182-3" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
-<span id="cb182-4"><a href="markov-chains.html#cb182-4" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
-<span id="cb182-5"><a href="markov-chains.html#cb182-5" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> i</span>
-<span id="cb182-6"><a href="markov-chains.html#cb182-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
-<span id="cb182-7"><a href="markov-chains.html#cb182-7" aria-hidden="true" tabindex="-1"></a>        path[n] <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">prob =</span> P[last, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb182-8"><a href="markov-chains.html#cb182-8" aria-hidden="true" tabindex="-1"></a>        last <span class="ot">=</span> path[n]</span>
-<span id="cb182-9"><a href="markov-chains.html#cb182-9" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb182-10"><a href="markov-chains.html#cb182-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
-<span id="cb182-11"><a href="markov-chains.html#cb182-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb182-12"><a href="markov-chains.html#cb182-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">X0 =</span> <span class="dv">3</span>, <span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_trajectory</span>(<span class="dv">3</span>))))</span>
-<span id="cb182-13"><a href="markov-chains.html#cb182-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb182-14"><a href="markov-chains.html#cb182-14" aria-hidden="true" tabindex="-1"></a>(<span class="at">p_shocked =</span> <span class="fu">mean</span>(df<span class="sc">$</span>X100 <span class="sc">==</span> <span class="dv">7</span>))</span>
-<span id="cb182-15"><a href="markov-chains.html#cb182-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.58</span></span></code></pre></div>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="markov-chains.html#cb183-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span>  <span class="co"># number of time periods</span></span>
+<span id="cb183-2"><a href="markov-chains.html#cb183-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span>  <span class="co"># number of simulations</span></span>
+<span id="cb183-3"><a href="markov-chains.html#cb183-3" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
+<span id="cb183-4"><a href="markov-chains.html#cb183-4" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
+<span id="cb183-5"><a href="markov-chains.html#cb183-5" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> i</span>
+<span id="cb183-6"><a href="markov-chains.html#cb183-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb183-7"><a href="markov-chains.html#cb183-7" aria-hidden="true" tabindex="-1"></a>        path[n] <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">prob =</span> P[last, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb183-8"><a href="markov-chains.html#cb183-8" aria-hidden="true" tabindex="-1"></a>        last <span class="ot">=</span> path[n]</span>
+<span id="cb183-9"><a href="markov-chains.html#cb183-9" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb183-10"><a href="markov-chains.html#cb183-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
+<span id="cb183-11"><a href="markov-chains.html#cb183-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb183-12"><a href="markov-chains.html#cb183-12" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">X0 =</span> <span class="dv">3</span>, <span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_trajectory</span>(<span class="dv">3</span>))))</span>
+<span id="cb183-13"><a href="markov-chains.html#cb183-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb183-14"><a href="markov-chains.html#cb183-14" aria-hidden="true" tabindex="-1"></a>(<span class="at">p_shocked =</span> <span class="fu">mean</span>(df<span class="sc">$</span>X100 <span class="sc">==</span> <span class="dv">7</span>))</span>
+<span id="cb183-15"><a href="markov-chains.html#cb183-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.58</span></span></code></pre></div>
 <p>So, the probability of being shocked first is about <span class="math inline">\(0.58\)</span>. To be honest, what we computed up here is not <span class="math inline">\({\mathbb{P}}[X_{\tau_{S,F}} = S]\)</span>, as the problem required, but the probability <span class="math inline">\({\mathbb{P}}[ X_{100} = S]\)</span>. In general, these are not the same, but because both <span class="math inline">\(S\)</span> and <span class="math inline">\(F\)</span> are absorbing states, the events <span class="math inline">\(X_{100}=S\)</span> and <span class="math inline">\(X_{\tau_{S,F}} = S\)</span> differ only on the event where <span class="math inline">\(\tau_{F,S}&gt;100\)</span>, i.e., when Basil has not been either shocked or fed after <span class="math inline">\(100\)</span> steps.</p>
 <p>To see what kind of an error we are making, we can examine the empirical distribution of <span class="math inline">\(X_{100}\)</span> across our <span class="math inline">\(1000\)</span> samples:</p>
-<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="markov-chains.html#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>X100)</span>
-<span id="cb183-2"><a href="markov-chains.html#cb183-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb183-3"><a href="markov-chains.html#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   6   7 </span></span>
-<span id="cb183-4"><a href="markov-chains.html#cb183-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 419 581</span></span></code></pre></div>
+<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="markov-chains.html#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>X100)</span>
+<span id="cb184-2"><a href="markov-chains.html#cb184-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb184-3"><a href="markov-chains.html#cb184-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   6   7 </span></span>
+<span id="cb184-4"><a href="markov-chains.html#cb184-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 419 581</span></span></code></pre></div>
 <p>and conclude that, on this particular set of simulations, <span class="math inline">\(\tau_{S,F}\leq 100\)</span>, so no error has been made at all. In general, approximations like this are very useful in cases where we can expect the probability of non-absorption within a given time interval to be negligible. On the other hand, if you examine a typical trajectory of <code>df</code>, you will see that most of the time it takes the value <span class="math inline">\(6\)</span> of <span class="math inline">\(7\)</span>, so a lot of the computational effort goes to waste. But don’t worry about such things in this course.</p></li>
 </ol>
 <p>So, is this enough evidence to conclude that Basil is, in fact, a smart rat? On one hand,
@@ -1640,62 +1640,62 @@ probability <span class="math inline">\(19/20\)</span> (if it does not rain) and
 rains).
 The professor can move to the state “Wet” only from h<span class="math inline">\(0\)</span>-<span class="math inline">\(5\)</span> (with
 probability <span class="math inline">\(1/20\)</span>) or from <span class="math inline">\(5\)</span>-<span class="math inline">\(0\)</span>o (with probability <span class="math inline">\(1/5\)</span>), and the state “Wet” is made absorbing. Here is the full transition graph, color-coded as follows: green is <span class="math inline">\(1/20\)</span>, pink is <span class="math inline">\(19/20\)</span>, orange is <span class="math inline">\(1/5\)</span> and purple is <span class="math inline">\(4/5\)</span>:</p>
-<p><img src="pics/professor_chain.png" style="display: block; margin: auto;" /></p>
+<p><img src="pics/professor_chain.png" width="1200" style="display: block; margin: auto;" /></p>
 <p>The state “Wet” is absorbing, and, therefore, constitutes a one-element recurrent class. All the other states belong to a separate, transient, class. The periods of the state “Wet” is 1, while the periods of all other states are <span class="math inline">\(2\)</span>.</p>
 <p>We prepare for Monte Carlo by building the state-space vector <code>S</code> and the transition matrix <code>P</code> for this chain.</p>
-<div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="markov-chains.html#cb184-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;h0-4&quot;</span>, <span class="st">&quot;h1-3&quot;</span>, <span class="st">&quot;h2-2&quot;</span>, <span class="st">&quot;h3-1&quot;</span>, <span class="st">&quot;h4-0&quot;</span>, </span>
-<span id="cb184-2"><a href="markov-chains.html#cb184-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;0-4o&quot;</span>, <span class="st">&quot;1-3o&quot;</span>, <span class="st">&quot;2-2o&quot;</span>, <span class="st">&quot;3-1o&quot;</span>, <span class="st">&quot;4-0o&quot;</span>, <span class="st">&quot;Wet&quot;</span>)</span>
-<span id="cb184-3"><a href="markov-chains.html#cb184-3" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>( </span>
-<span id="cb184-4"><a href="markov-chains.html#cb184-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>,  </span>
-<span id="cb184-5"><a href="markov-chains.html#cb184-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-6"><a href="markov-chains.html#cb184-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-7"><a href="markov-chains.html#cb184-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-8"><a href="markov-chains.html#cb184-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-9"><a href="markov-chains.html#cb184-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-10"><a href="markov-chains.html#cb184-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-11"><a href="markov-chains.html#cb184-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-12"><a href="markov-chains.html#cb184-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
-<span id="cb184-13"><a href="markov-chains.html#cb184-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.2</span>,  </span>
-<span id="cb184-14"><a href="markov-chains.html#cb184-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span> ),</span>
-<span id="cb184-15"><a href="markov-chains.html#cb184-15" aria-hidden="true" tabindex="-1"></a> <span class="at">byrow=</span>T, <span class="at">ncol =</span> <span class="dv">11</span> )</span></code></pre></div></li>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="markov-chains.html#cb185-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;h0-4&quot;</span>, <span class="st">&quot;h1-3&quot;</span>, <span class="st">&quot;h2-2&quot;</span>, <span class="st">&quot;h3-1&quot;</span>, <span class="st">&quot;h4-0&quot;</span>, </span>
+<span id="cb185-2"><a href="markov-chains.html#cb185-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;0-4o&quot;</span>, <span class="st">&quot;1-3o&quot;</span>, <span class="st">&quot;2-2o&quot;</span>, <span class="st">&quot;3-1o&quot;</span>, <span class="st">&quot;4-0o&quot;</span>, <span class="st">&quot;Wet&quot;</span>)</span>
+<span id="cb185-3"><a href="markov-chains.html#cb185-3" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>( </span>
+<span id="cb185-4"><a href="markov-chains.html#cb185-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>,  </span>
+<span id="cb185-5"><a href="markov-chains.html#cb185-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-6"><a href="markov-chains.html#cb185-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-7"><a href="markov-chains.html#cb185-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-8"><a href="markov-chains.html#cb185-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-9"><a href="markov-chains.html#cb185-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-10"><a href="markov-chains.html#cb185-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-11"><a href="markov-chains.html#cb185-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-12"><a href="markov-chains.html#cb185-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb185-13"><a href="markov-chains.html#cb185-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.2</span>,  </span>
+<span id="cb185-14"><a href="markov-chains.html#cb185-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span> ),</span>
+<span id="cb185-15"><a href="markov-chains.html#cb185-15" aria-hidden="true" tabindex="-1"></a> <span class="at">byrow=</span>T, <span class="at">ncol =</span> <span class="dv">11</span> )</span></code></pre></div></li>
 <li><p>We reuse the code from the notes to simulate <code>nsim=1000</code> paths of
 length <code>T=300</code>, - it is almost exactly the same as before, but we include it here for completion:</p>
-<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="markov-chains.html#cb185-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">300</span>  <span class="co"># number of time periods</span></span>
-<span id="cb185-2"><a href="markov-chains.html#cb185-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span>  <span class="co"># number of simulations</span></span>
-<span id="cb185-3"><a href="markov-chains.html#cb185-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-4"><a href="markov-chains.html#cb185-4" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
-<span id="cb185-5"><a href="markov-chains.html#cb185-5" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
-<span id="cb185-6"><a href="markov-chains.html#cb185-6" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> i</span>
-<span id="cb185-7"><a href="markov-chains.html#cb185-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
-<span id="cb185-8"><a href="markov-chains.html#cb185-8" aria-hidden="true" tabindex="-1"></a>        path[n] <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, <span class="at">prob =</span> P[last, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb185-9"><a href="markov-chains.html#cb185-9" aria-hidden="true" tabindex="-1"></a>        last <span class="ot">=</span> path[n]</span>
-<span id="cb185-10"><a href="markov-chains.html#cb185-10" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb185-11"><a href="markov-chains.html#cb185-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
-<span id="cb185-12"><a href="markov-chains.html#cb185-12" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb185-13"><a href="markov-chains.html#cb185-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-14"><a href="markov-chains.html#cb185-14" aria-hidden="true" tabindex="-1"></a>i0 <span class="ot">=</span> <span class="dv">3</span>  <span class="co"># the initial state is &#39;h2-2&#39; which is at position 3 in S</span></span>
-<span id="cb185-15"><a href="markov-chains.html#cb185-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb185-16"><a href="markov-chains.html#cb185-16" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">X0 =</span> i0, <span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_trajectory</span>(i0))))</span></code></pre></div>
+<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="markov-chains.html#cb186-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">300</span>  <span class="co"># number of time periods</span></span>
+<span id="cb186-2"><a href="markov-chains.html#cb186-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span>  <span class="co"># number of simulations</span></span>
+<span id="cb186-3"><a href="markov-chains.html#cb186-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-4"><a href="markov-chains.html#cb186-4" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
+<span id="cb186-5"><a href="markov-chains.html#cb186-5" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
+<span id="cb186-6"><a href="markov-chains.html#cb186-6" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> i</span>
+<span id="cb186-7"><a href="markov-chains.html#cb186-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb186-8"><a href="markov-chains.html#cb186-8" aria-hidden="true" tabindex="-1"></a>        path[n] <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, <span class="at">prob =</span> P[last, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb186-9"><a href="markov-chains.html#cb186-9" aria-hidden="true" tabindex="-1"></a>        last <span class="ot">=</span> path[n]</span>
+<span id="cb186-10"><a href="markov-chains.html#cb186-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb186-11"><a href="markov-chains.html#cb186-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
+<span id="cb186-12"><a href="markov-chains.html#cb186-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb186-13"><a href="markov-chains.html#cb186-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-14"><a href="markov-chains.html#cb186-14" aria-hidden="true" tabindex="-1"></a>i0 <span class="ot">=</span> <span class="dv">3</span>  <span class="co"># the initial state is &#39;h2-2&#39; which is at position 3 in S</span></span>
+<span id="cb186-15"><a href="markov-chains.html#cb186-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-16"><a href="markov-chains.html#cb186-16" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">X0 =</span> i0, <span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_trajectory</span>(i0))))</span></code></pre></div>
 <p>First, we check that all <span class="math inline">\(1000\)</span> trajectories reached the state 11 (“Wet”) during the first <code>T=300</code> steps:</p>
-<div class="sourceCode" id="cb186"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb186-1"><a href="markov-chains.html#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>X300)</span>
-<span id="cb186-2"><a href="markov-chains.html#cb186-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb186-3"><a href="markov-chains.html#cb186-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   11 </span></span>
-<span id="cb186-4"><a href="markov-chains.html#cb186-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1000</span></span></code></pre></div>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="markov-chains.html#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>X300)</span>
+<span id="cb187-2"><a href="markov-chains.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb187-3"><a href="markov-chains.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   11 </span></span>
+<span id="cb187-4"><a href="markov-chains.html#cb187-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1000</span></span></code></pre></div>
 <p>Good. Next, we need to find the first time a given trajectory hits 11 (the number of the state “Wet”).
 This can be done in several ways but perhaps the easiest is by combining built-in functions <code>match</code> (which finds the first occurrence of an element in a vector) and <code>apply</code> (which applies a function to each row/column in a matric/data.frame):</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="markov-chains.html#cb187-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">apply</span>(d, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">match</span>(<span class="dv">11</span>, x))</span>
-<span id="cb187-2"><a href="markov-chains.html#cb187-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tau)</span>
-<span id="cb187-3"><a href="markov-chains.html#cb187-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 39</span></span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="markov-chains.html#cb188-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">apply</span>(d, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">match</span>(<span class="dv">11</span>, x))</span>
+<span id="cb188-2"><a href="markov-chains.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tau)</span>
+<span id="cb188-3"><a href="markov-chains.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 39</span></span></code></pre></div>
 <ol style="list-style-type: lower-alpha">
 <li><p>So we get that the expected number of trips before the professor gets wet is about <span class="math inline">\(39\)</span>, which is about <span class="math inline">\(19.5\)</span> days.</p></li>
 <li><p>The second question can be answered in many ways. One possibility is to split the state “Wet” into two states, depending on the location the professor left just before he got wet. A simpler possibility is check the number of the state with index <code>tau-1</code> in the data frame <code>d</code> above:</p></li>
 </ol>
-<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="markov-chains.html#cb188-1" aria-hidden="true" tabindex="-1"></a>last_locations <span class="ot">=</span> <span class="fu">integer</span>(nsim)</span>
-<span id="cb188-2"><a href="markov-chains.html#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) last_locations[i] <span class="ot">=</span> d[i, tau[i] <span class="sc">-</span> <span class="dv">1</span>]</span>
-<span id="cb188-3"><a href="markov-chains.html#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(last_locations)</span>
-<span id="cb188-4"><a href="markov-chains.html#cb188-4" aria-hidden="true" tabindex="-1"></a><span class="do">## last_locations</span></span>
-<span id="cb188-5"><a href="markov-chains.html#cb188-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   1  10 </span></span>
-<span id="cb188-6"><a href="markov-chains.html#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="markov-chains.html#cb189-1" aria-hidden="true" tabindex="-1"></a>last_locations <span class="ot">=</span> <span class="fu">integer</span>(nsim)</span>
+<span id="cb189-2"><a href="markov-chains.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) last_locations[i] <span class="ot">=</span> d[i, tau[i] <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb189-3"><a href="markov-chains.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(last_locations)</span>
+<span id="cb189-4"><a href="markov-chains.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="do">## last_locations</span></span>
+<span id="cb189-5"><a href="markov-chains.html#cb189-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   1  10 </span></span>
+<span id="cb189-6"><a href="markov-chains.html#cb189-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
 <p>The states h<span class="math inline">\(0\)</span>-<span class="math inline">\(4\)</span> and <span class="math inline">\(0\)</span>-<span class="math inline">\(4\)</span>o have numbers <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> in the vector <code>S</code> of states. Therefore, the table obtained above tells us that just before getting wet the professor left his home in <span class="math inline">\(10\)</span> draws out of <span class="math inline">\(1000\)</span>, and his office in the remaining <span class="math inline">\(990\)</span> draws. Hence, the Monte-Carlo estimate of the required probability is <span class="math inline">\(0.99\)</span>.</p>
 <p>There is another, computationally simpler, but conceptually more tricky way of obtaining this estimate. Since there are <span class="math inline">\(11\)</span> states in the chain, the “Wet” state can only be reached from two states with numbers <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> and all states (except for “Wet”) have period <span class="math inline">\(2\)</span>, we have the following dichotomy:</p>
 <ul>
@@ -1703,11 +1703,11 @@ This can be done in several ways but perhaps the easiest is by combining built-i
 <li>if the “Wet” state was reached in an <em>even</em> number of steps, the last “dry” location must have been “Office”.</li>
 </ul>
 <p>Therefore, it is enough to count the number of even and odd elements in <code>tau</code>:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="markov-chains.html#cb189-1" aria-hidden="true" tabindex="-1"></a>tau_mod_2 <span class="ot">=</span> tau <span class="sc">%%</span> <span class="dv">2</span></span>
-<span id="cb189-2"><a href="markov-chains.html#cb189-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(tau_mod_2)</span>
-<span id="cb189-3"><a href="markov-chains.html#cb189-3" aria-hidden="true" tabindex="-1"></a><span class="do">## tau_mod_2</span></span>
-<span id="cb189-4"><a href="markov-chains.html#cb189-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   0   1 </span></span>
-<span id="cb189-5"><a href="markov-chains.html#cb189-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="markov-chains.html#cb190-1" aria-hidden="true" tabindex="-1"></a>tau_mod_2 <span class="ot">=</span> tau <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb190-2"><a href="markov-chains.html#cb190-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(tau_mod_2)</span>
+<span id="cb190-3"><a href="markov-chains.html#cb190-3" aria-hidden="true" tabindex="-1"></a><span class="do">## tau_mod_2</span></span>
+<span id="cb190-4"><a href="markov-chains.html#cb190-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   0   1 </span></span>
+<span id="cb190-5"><a href="markov-chains.html#cb190-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
 <p>We get the same probability estimate as above.</p></li>
 </ol>
 </div>
