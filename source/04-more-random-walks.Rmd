@@ -518,7 +518,7 @@ simple symmetric random walk $X$:
 
 1. $\tau = 3$. This is the simplest random time - it always takes the value $3$,
 no matter what. It is random only in the formal sense of the word (just as the
-constant random vairbale $X=3$ *is* a random variable, but not a very
+constant random variable $X=3$ *is* a random variable, but not a very
 interesting one). Constant random times, like $\tau=3$, are called
 **deterministic times**.
 
