@@ -1,4 +1,4 @@
-docs/ linguist-detectable=false
-*.html linguist-detectable=false
-*.css linguist-detectable=false
-*.Rmd linguist-language=RMarkdown
+docs/ linguist-detectable
+*.html -linguist-detectable
+*.css -linguist-detectable
+*.Rmd linguist-language=RMarkdown linguist-detectable
