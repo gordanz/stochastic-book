@@ -5,12 +5,12 @@
 ### Installing R
 
 Learning basic R is an important part of this course, and the first order of business is to download and install an R distribution on your personal computer. We will be using RStudio as an IDE (integrated development environment). Like R itself, it is free and readily available for all major platforms. To download R to your computer, go to
-[https://cloud.r-project.org](https://cloud.r-project.org) and 
-download the version of R for your operating system (Windows, Mac or Linux). If you are on a Mac, you want the "Latest release" which, at the time of writing, is 4.1.1, with code name "Kick Things". On Windows, follow the link "install R for the first time".  We are not going to do any cutting edge stuff in this class, so an older release should be fine, too, if you happen to have it already installed on your system. Once you download the installation file (.pkg on a Mac or .exe on Windows), run it and follow instructions. If you are running Linux, you don't need me to tell you what to do. Once it is successfully installed, **don't run the installed app**. We will use RStudio for that.
+[https://cran.rstudio.com](https://cran.rstudio.com) and 
+download the version of R for your operating system (Windows, Mac or Linux). If you are on a Mac, you want the "Latest release" which, at the time of writing, is 4.3.2, with code name "Eye Holes". On Windows, follow the link "install R for the first time".  We are not going to do any cutting edge stuff in this class, so an older release should be fine, too, if you happen to have it already installed on your system. Once you download the installation file (.pkg on a Mac or .exe on Windows), run it and follow instructions. If you are running Linux, you don't need me to tell you what to do. Once it is successfully installed, **don't run the installed app**. We will use RStudio for that.
 
 ### Installing RStudio
 
-To install RStudio, go to [https://rstudio.com/products/rstudio/download/](https://rstudio.com/products/rstudio/download/). There are several versions to choose from - the one you are looking for is "RStudio desktop - Free". After you download and install it, you are ready to run it. When it opens, you will see something like this
+To install RStudio, go to [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/), and follow the instructions under "2: Install RStudio". After you download and install it, you are ready to run it. When it opens, you will see something like this
 
 ```{r echo=FALSE, out.width= "100%", fig.align='center',out.extra='style="padding:10px"'}
 knitr::include_graphics('pics/RStudio_IDE.png')
@@ -325,13 +325,13 @@ Here are several simple problems. Their goal is to give you an idea of exactly h
 :::
 
 
-<details>
-  <summary>Click for Solution</summary>
-::: {.solution}
-```{r child = 'problems/00_R/R-calc_sol.Rmd'}
-```
-:::
-</details>
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child = 'problems/00_R/R-calc_sol.Rmd'} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 ::: {.exercise}
@@ -342,15 +342,15 @@ Here are several simple problems. Their goal is to give you an idea of exactly h
 :::
 
 
-<details>
-  <summary>Click for Solution</summary>
-::: {.solution}
-\ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
-```{r child = 'problems/00_R/R-vars_sol.Rmd'}
-```
-:::
-</details>
+<!-- ```{r child = 'problems/00_R/R-vars_sol.Rmd'} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 \ 
@@ -359,15 +359,15 @@ Here are several simple problems. Their goal is to give you an idea of exactly h
 ```
 :::
 
-<details>
-  <summary>Click for Solution</summary>
-::: {.solution}
-\ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
-```{r child = 'problems/00_R/R-vect_sol.Rmd'}
-```
-:::
-</details>
+<!-- ```{r child = 'problems/00_R/R-vect_sol.Rmd'} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 \ 
@@ -376,14 +376,14 @@ Here are several simple problems. Their goal is to give you an idea of exactly h
 ```
 :::
 
-<details>
-  <summary>Click for Solution</summary>
-::: {.solution}
-\ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
-```{r child = 'problems/00_R/R-func_sol.Rmd'}
-```
-:::
-</details>
+<!-- ```{r child = 'problems/00_R/R-func_sol.Rmd'} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ## Endnotes
