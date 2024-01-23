@@ -1,0 +1,63 @@
+
+.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: normal;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+.exercise {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: #FDF5E6;
+  padding:5px;
+}
+
+.sourceCode
+  { background-color: #ffffff; }
+  
+@media screen {
+  div.sourceCode { overflow: visible; }
+}
+
+.title {
+  margin-right: 350px;
+}
+
+
+/* examples, theorems and such */
+/*******************************/
+
+.exercise { 
+  padding: 10px; 
+  margin-bottom: 25px;
+}
+
+/* Backgrounds */
+.exercise{ background: #FDF5E6; }
+
+/* Titles */
+.exercise:before, .solution::before {
+    font-weight: bold; 
+    font-size: Large;
+}
+.solution { padding-left: 10px;} 
+
+part {
+  font-weight: bold;
+}
+
+part::before {
+  content: "Part" ;
+}
+
+
+
