@@ -1,4 +1,3 @@
-\usepackage{mydefs_long}
 \newcommand{\PP}{{\mathbb{P}}}
 \newcommand{\N}{{\mathbb{N}}}
 \newcommand{\Nz}{{\mathbb{N}_0}}
@@ -56,4 +55,3 @@
 \newcommand{\mat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 \newcommand{\pmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
 
-          

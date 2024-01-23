@@ -1,13 +1,17 @@
 --- 
-title: Lecture notes for \"Introduction to Stochastic Processes\"
+title: "Lecture notes for \"Introduction to Stochastic Processes\""
 author: "Gordan Zitkovic"
 date: "last updated -  `r Sys.Date()`"
-documentclass: book
+output: html_document
 github-repo: gordanz/M362M
-description: "A set of lecture notes for *M362M: Introduction to Stochastic Processes*"
+description: 'A set of lecture notes for *M362M: Introduction to Stochastic Processes*'
 site: bookdown::bookdown_site
+documentclass: book
 ---
 
+
+```{r child="mydefs.Rmd"}
+```
 
 # Preface {-}
 <img src="pics/title.png" width = 400 style="position:absolute;top:0px;left:50%;" />
