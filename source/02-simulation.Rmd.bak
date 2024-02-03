@@ -1215,15 +1215,15 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
 
- ```{r child = 'problems/00_R/Sim-Weibull_sol.Rmd'} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child = 'problems/00_R/Sim-Weibull_sol.Rmd'} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 \ 
@@ -1232,15 +1232,15 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 :::
 
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
 
- ```{r child="problems/00_R/Sim-trans_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Sim-trans_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-FX_prb.Rmd"}
@@ -1248,13 +1248,13 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 :::
 
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-FX_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-FX_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise name="Extra Credit"}
 \ 
@@ -1264,67 +1264,67 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 :::
 
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
 
- ```{r child="problems/00_R/Sim-mix_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Sim-mix_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-perm_prb.Rmd"}
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-perm_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-perm_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-disc_prb.Rmd"}
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-disc_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-disc_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-int_prb.Rmd"}
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-int_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-int_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-tricyl_prb.Rmd"}
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-tricyl_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-tricyl_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1333,13 +1333,13 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-monty_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-monty_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 \ 
@@ -1348,15 +1348,15 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \  
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
- ```{r child="problems/00_R/Sim-beta_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Sim-beta_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 ::: {.exercise}
@@ -1366,15 +1366,15 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \  
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
- ```{r child="problems/00_R/Sim-gamma_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Sim-gamma_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 ::: {.exercise}
@@ -1382,15 +1382,15 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \  
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
- ```{r child="problems/00_R/Sim-joint-cond_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Sim-joint-cond_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 ::: {.exercise}
@@ -1398,30 +1398,30 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
 
- ```{r child="problems/00_R/Sim-joint-cond_2_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Sim-joint-cond_2_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Potters-dice_prb.Rmd"}
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \ 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
 
- ```{r child="problems/00_R/Potters-dice_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- ```{r child="problems/00_R/Potters-dice_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ::: {.exercise}
 ```{r child="problems/00_R/Sim-disease_prb.Rmd"}
@@ -1429,13 +1429,13 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 :::
 
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-disease_sol.Rmd"} 
- ``` 
- ::: 
- </details> 
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-disease_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 ::: {.exercise}
@@ -1443,13 +1443,13 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/00_R/Sim-cube_sol.Rmd"} 
- ``` 
- ::: 
- </details>  
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-cube_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details>  -->
 
 ::: {.exercise}
 \ 
@@ -1458,13 +1458,13 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details> 
-   <summary>Click for Solution</summary> 
- ::: {.solution} 
- \  
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \  -->
 
- ```{r child="problems/00_R/Sim-sphere_sol.Rmd"} 
- ``` 
- ::: 
- </details>  
+<!-- ```{r child="problems/00_R/Sim-sphere_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details>  -->
 ## Endnotes

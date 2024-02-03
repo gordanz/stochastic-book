@@ -70,9 +70,9 @@ for num, line in enumerate(lines):
     outfile.write(outline)
 
 tempfile = "temp311435234"
-os.rename(filename+".bak", tempfile)
-os.rename(filename, filename+".bak")
-os.rename(tempfile, filename)
+os.rename(arg.filename+".bak", tempfile)
+os.rename(arg.filename, arg.filename+".bak")
+os.rename(tempfile, arg.filename)
 
 #
 #
