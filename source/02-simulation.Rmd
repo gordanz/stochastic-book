@@ -1448,13 +1448,13 @@ $$ X+Y \in (1-\eps, 1+\eps) $$ for a small, but positive, $\eps$. In many cases 
 ```
 :::
 
- <details>
-   <summary>Click for Solution</summary>
-::: {.solution}
-```{r child="problems/00_R/Sim-cube_sol.Rmd"}
-```
-:::
- </details>
+<!--  <details> -->
+<!--    <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- ```{r child="problems/00_R/Sim-cube_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!--  </details> -->
 
 ::: {.exercise}
 \

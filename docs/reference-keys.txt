@@ -32,7 +32,7 @@ exr:unlabeled-div-54
 exr:unlabeled-div-55
 exr:unlabeled-div-57
 exr:unlabeled-div-59
-exr:unlabeled-div-61
+exr:unlabeled-div-60
 intro
 setting-up-an-r-environment-on-your-computer
 installing-r
