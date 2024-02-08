@@ -1,6 +1,3 @@
-```{r child="mydefs.Rmd"}
-```
-
 # Random Walks
 <div style="counter-reset: thechapter 3;"> </div>
 

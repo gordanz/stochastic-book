@@ -1449,13 +1449,13 @@ $0 < X+Y < 2$ which is a poor approximation for $X+Y=1$. The rule of thumb is to
 ```
 :::
 
-<!--  <details> -->
-<!--    <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/00_R/Sim-cube_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!--  </details> -->
+ <details>
+   <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="problems/00_R/Sim-cube_sol.Rmd"}
+```
+:::
+ </details>
 
 ::: {.exercise}
 \
