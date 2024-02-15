@@ -1216,19 +1216,19 @@ $0 < X+Y < 2$ which is a poor approximation for $X+Y=1$. The rule of thumb is to
 ```
 :::
 
-<!-- <details>  -->
-<!--  <summary>Click for Solution</summary>  -->
+<details>
+ <summary>Click for Solution</summary>
 
-<!-- ::: {.solution}  -->
+::: {.solution}
 
-<!-- \  -->
+\
 
-<!-- ```{r child = 'problems/00_R/Sim-Weibull_sol.Rmd'}  -->
-<!-- ```  -->
+```{r child = 'problems/00_R/Sim-Weibull_sol.Rmd'}
+```
 
-<!-- :::  -->
+:::
 
-<!-- </details>  -->
+</details>
 
 ::: {.exercise}
 \
@@ -1324,13 +1324,13 @@ $0 < X+Y < 2$ which is a poor approximation for $X+Y=1$. The rule of thumb is to
 ```
 :::
 
-<!--  <details> -->
-<!--    <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/00_R/Sim-tricyl_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!--  </details> -->
+ <details>
+   <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="problems/00_R/Sim-tricyl_sol.Rmd"}
+```
+:::
+ </details>
 
 
 
@@ -1354,15 +1354,15 @@ $0 < X+Y < 2$ which is a poor approximation for $X+Y=1$. The rule of thumb is to
 ```
 :::
 
-<!--  <details> -->
-<!--    <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!--  \ -->
+ <details>
+   <summary>Click for Solution</summary>
+::: {.solution}
+ \
 
-<!-- ```{r child="problems/00_R/Sim-beta_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!--  </details> -->
+```{r child="problems/00_R/Sim-beta_sol.Rmd"}
+```
+:::
+ </details>
 
 
 ::: {.exercise}
@@ -1404,15 +1404,15 @@ $0 < X+Y < 2$ which is a poor approximation for $X+Y=1$. The rule of thumb is to
 ```
 :::
 
-<!--  <details> -->
-<!--    <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!--  \ -->
+ <details>
+   <summary>Click for Solution</summary>
+::: {.solution}
+ \
 
-<!-- ```{r child="problems/00_R/Sim-joint-cond_2_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!--  </details> -->
+```{r child="problems/00_R/Sim-joint-cond_2_sol.Rmd"}
+```
+:::
+ </details>
 
 ::: {.exercise}
 ```{r child="problems/00_R/Potters-dice_prb.Rmd"}
