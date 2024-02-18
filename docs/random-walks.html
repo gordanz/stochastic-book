@@ -561,18 +561,26 @@ processes are simple random walks?</p>
 </ol>
 <p>How about the case <span class="math inline">\(p\ne \tfrac{1}{2}\)</span>?</p>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- \ -->
-<!---->
-<!-- ```{r child="problems/01_Random_Walks/walk6_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!---->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-72" class="solution"><em>Solution</em>. </span><br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>No - the support of the distribution of <span class="math inline">\(X_1\)</span> is <span class="math inline">\(\{-2,2\}\)</span> and
+not <span class="math inline">\(\{-1,1\}\)</span>.</p></li>
+<li><p>No - <span class="math inline">\(X_1^2=1\)</span>, and not <span class="math inline">\(\pm 1\)</span> with equal probabilities.</p></li>
+<li><p>Yes - all parts of the definition check out.</p></li>
+<li><p>Yes - all parts of the definition check out.</p></li>
+</ol>
+<p>The answers are the same if <span class="math inline">\(p\ne \tfrac{1}{2}\)</span>, but, in 3., <span class="math inline">\(-X_n\)</span> comes with
+probability <span class="math inline">\(1-p\)</span> of an up-step, and not <span class="math inline">\(p\)</span>.</p>
+</div>
+</details>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-72" class="exercise"><strong>Problem 3.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk.</p>
+<p><span id="exr:unlabeled-div-73" class="exercise"><strong>Problem 3.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk.</p>
 <ol style="list-style-type: decimal">
 <li><p>Find the distribution of the product <span class="math inline">\(X_1 X_2\)</span></p></li>
 <li><p>Compute <span class="math inline">\({\mathbb{P}}[ |X_1 X_2 X_3|]=2\)</span></p></li>
@@ -586,107 +594,197 @@ processes are simple random walks?</p>
 </ul></li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!---->
-<!---->
-<!-- ::: {.solution} -->
-<!-- \ -->
-<!---->
-<!-- ```{r child="problems/01_Random_Walks/simple-1_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!---->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-74" class="solution"><em>Solution</em>. </span><br />
+</p>
+<ol style="list-style-type: decimal">
+<li>The possible paths when the time horizon is
+<span class="math inline">\(T=2\)</span> are <span class="math display">\[(0,1,2), (0,1,0), (0,-1,-2) \text{ and } (0,-1,0)\]</span>
+The values of the product <span class="math inline">\(X_1 X_2\)</span> on those paths
+are <span class="math inline">\(2, 0, 2\)</span>, and <span class="math inline">\(0\)</span>, respectively. Each happens with probability
+<span class="math inline">\(0.25\)</span>. Therefore <span class="math inline">\({\mathbb{P}}[ X_1 X_2 = 0] = {\mathbb{P}}[ X_1 X_2 = 2] = \tfrac{1}{2}\)</span>, i.e., its distribution is given by</li>
+</ol>
+<table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:right;">
+0
+</th>
+<th style="text-align:right;">
+2
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+0.5
+</td>
+<td style="text-align:right;">
+0.5
+</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: decimal">
+<li><p><span class="math inline">\(|X_1 X_2 X_3|=2\)</span> only in the following two cases
+<span class="math display">\[ X_1=1, X_2=2, X_3=1 \text{ or } X_1=-1, X_2=-2, X_3=-1.\]</span>
+Each of those paths has probability <span class="math inline">\(1/8\)</span> of happening, so <span class="math inline">\({\mathbb{P}}[ |X_1 X_2 X_3| = 2] = 1/4\)</span>.</p></li>
+<li><p>The only chance for <span class="math inline">\(X\)</span> to hit <span class="math inline">\(2\)</span> or <span class="math inline">\(−2\)</span> before or at T = 3 is at
+time <span class="math inline">\(n = 2\)</span>. Since <span class="math inline">\(X_2 \in \{ -2, 0, 2\}\)</span>, this happens with probability
+<span class="math inline">\({\mathbb{P}}[ X_2 \in \{-2,2\}] = 1 - {\mathbb{P}}[X_2 = 0] = 0.5\)</span>.</p></li>
+<li><p>The only independent pair is <span class="math inline">\(X_4 - X_2\)</span> and <span class="math inline">\(X_6 - X_5\)</span> because
+the two random variables are build out of
+completely different increments: <span class="math inline">\(X_4 - X_2 = \delta_3+\delta_4\)</span> while <span class="math inline">\(X_6-X_5 = \delta_6\)</span>. The others are not independent. For example, if we are told that <span class="math inline">\(X_1+X_3 = 4\)</span>, it necessarily
+follows that <span class="math inline">\(\delta_1= \delta_2=\delta_3=1\)</span>.
+Hence, <span class="math inline">\(X_2+X_4 = 2\delta_1+2\delta_2+\delta_3+\delta_4 = 5+\delta_4\)</span> which
+cannot be less than <span class="math inline">\(4\)</span>. On the other hand, without any information, <span class="math inline">\(X_2+X_4\)</span> can easily
+be negative.</p></li>
+</ol>
+</div>
+</details>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-73" class="exercise"><strong>Problem 3.5  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk.</p>
+<p><span id="exr:unlabeled-div-75" class="exercise"><strong>Problem 3.5  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk.</p>
 <ol style="list-style-type: decimal">
 <li><p>Compute <span class="math inline">\({\mathbb{P}}[ X_{32} = 4| X_8 = 6]\)</span>.</p></li>
 <li><p>Compute <span class="math inline">\({\mathbb{P}}[ X_9 = 3 \text{ and } X_{15}=5 ]\)</span></p></li>
 <li><p>(extra credit) Compute <span class="math inline">\({\mathbb{P}}[ X_7 + X_{12} = X_1 + X_{16}]\)</span></p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!---->
-<!---->
-<!-- ::: {.solution} -->
-<!-- \ -->
-<!---->
-<!-- ```{r child="problems/01_Random_Walks/simple-1b_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!---->
-<!---->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-76" class="solution"><em>Solution</em>. </span><br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p>This is the same as <span class="math inline">\({\mathbb{P}}[ X_{32}- X_8 = -2 | X_8=6]\)</span>. The random variables <span class="math inline">\(X_8\)</span> and <span class="math inline">\(X_{32}-X_8\)</span> are independent (as they are built out of different <span class="math inline">\(\delta\)</span>s), so we can remove the conditioning.
+It remains to compute <span class="math inline">\({\mathbb{P}}[X_{32} - X_8 = -2]\)</span>. For that, we note that <span class="math inline">\(X_{32} - X_8\)</span> is a sum of <span class="math inline">\(24\)</span> independent coin tosses, so its distribution is the same as that of <span class="math inline">\(X_{24}\)</span>. Therefore, by our formula for the distribution of <span class="math inline">\(X_n\)</span>, we have
+<span class="math display">\[ {\mathbb{P}}[X_{32}= 4 | X_8 = 6] = {\mathbb{P}}[X_{24} = -2] = \binom{24}{11} 2^{-24}.\]</span></p></li>
+<li><p>We have
+<span class="math display">\[\begin{align}
+{\mathbb{P}}[ X_9 = 3 \text{ and } X_{15}=5 ] &amp; = {\mathbb{P}}[ X_{15} = 5 | X_9 = 3] \times {\mathbb{P}}[ X_9=3] \\ &amp; = {\mathbb{P}}[ X_6 = 2] \times {\mathbb{P}}[X_9=3] = \binom{6}{4} 2^{-6} \binom{9}{6} 2^{-9},
+\end{align}\]</span>
+where we used the same ideas as in 1. above</p></li>
+<li><p>We rewrite everything using <span class="math inline">\(\delta\)</span>s:
+<span class="math display">\[\begin{align} X_7+X_{12} = X_1+X_{16} &amp;\Leftrightarrow X_7-X_1 = X_{16}-X_{12} \Leftrightarrow \delta_2+\dots+\delta_7 = \delta_{13} + \dots+\delta_{16}\\ &amp; \Leftrightarrow (-\delta_2) + \dots + (-\delta_7) + \delta_{13}+ \dots + \delta_{16} = 0.
+\end{align}\]</span>
+Since <span class="math inline">\(-\delta_k\)</span> has the same distribution as <span class="math inline">\(\delta_k\)</span> (both are coin tosses) and remains independent of all other <span class="math inline">\(\delta_i\)</span>, the left-hand side of the last expression in the chain of equivalences above is a sum of <span class="math inline">\(10\)</span> indepenedent coin tosses. Therefore, the probability that it equals <span class="math inline">\(0\)</span> is the same as <span class="math inline">\({\mathbb{P}}[X_{10}=0] = \binom{10}{5} 2^{-10}\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!--
   same_value_three_points
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-74" class="exercise"><strong>Problem 3.6  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk. For <span class="math inline">\(n\in{\mathbb{N}}\)</span> compute the probability that <span class="math inline">\(X_{2n}\)</span>, <span class="math inline">\(X_{4n}\)</span> and <span class="math inline">\(X_{6n}\)</span> take the same value.</p>
+<p><span id="exr:unlabeled-div-77" class="exercise"><strong>Problem 3.6  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk. For <span class="math inline">\(n\in{\mathbb{N}}\)</span> compute the probability that <span class="math inline">\(X_{2n}\)</span>, <span class="math inline">\(X_{4n}\)</span> and <span class="math inline">\(X_{6n}\)</span> take the same value.</p>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!---->
-<!---->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/same_value_three_points_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!---->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-78" class="solution"><em>Solution</em>. </span>Increments <span class="math inline">\(X_{4n}-X_{2n}\)</span> and
+<span class="math inline">\(X_{6n} - X_{4n}\)</span> are independent, and each is a sum of <span class="math inline">\(2n\)</span> independent
+coin tosses (therefore has the same distribution as <span class="math inline">\(X_{2n}\)</span>). Hence,
+<span class="math display">\[\begin{aligned}
+    {\mathbb{P}}[ X_{2n} = X_{4n} \text{ and }X_{4n} = X_{6n} ]
+    &amp;=
+    {\mathbb{P}}[ X_{4n} - X_{2n} = 0  \text{ and }X_{6n} - X_{4n} = 0  ]\\
+    &amp;=
+    {\mathbb{P}}[ X_{4n} - X_{2n} = 0] \times {\mathbb{P}}[ X_{6n} - X_{4n}=0]\\
+    &amp;={\mathbb{P}}[ X_{2n}=0] \times {\mathbb{P}}[ X_{2n} =0 ]\\ &amp; = \binom{2n}{n} 2^{-2n}
+    \binom{2n}{n} 2^{-2n} =  \binom{2n}{n}^2 2^{-4n}.
+  \end{aligned}\]</span></p>
+</div>
+</details>
 <!--
   R-impl-all paths
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-75" class="exercise"><strong>Problem 3.7  (Extra Credit) </strong></span>Write an R function (call it <code>all_paths</code>) which takes an integer argument <code>T</code> and returns a list of all possible paths of a random walk with time horizon <span class="math inline">\(T\)</span>.
+<p><span id="exr:unlabeled-div-79" class="exercise"><strong>Problem 3.7  (Extra Credit) </strong></span>Write an R function (call it <code>all_paths</code>) which takes an integer argument <code>T</code> and returns a list of all possible paths of a random walk with time horizon <span class="math inline">\(T\)</span>.
 (Note: Since vectors cannot have other vectors as elements, you will need to use a data structure called <code>list</code> for this. It behaves very much like a vector, so it should not be a problem.)</p>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!---->
-<!---->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/R-impl-all-paths_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!---->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-80" class="solution"><em>Solution</em>. </span>The implementation below uses the function <code>combn</code> which returns the list of all
+subsets of a certain size of a certain vector. Since each path is determined by
+the positions of its up-steps, we need to loop through all numbers <span class="math inline">\(i\)</span> from <span class="math inline">\(0\)</span>
+to <span class="math inline">\(T\)</span> and then list all subsets of the size <span class="math inline">\(i\)</span>. The next step is to turn a set
+of positions to a path of a random walk. This can be done in many ways; one is
+implemented implemented in <code>choice_to_path</code> using vector indexing.</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="random-walks.html#cb151-1" aria-hidden="true" tabindex="-1"></a>choice_to_path <span class="ot">=</span> <span class="cf">function</span>(comb, T) {</span>
+<span id="cb151-2"><a href="random-walks.html#cb151-2" aria-hidden="true" tabindex="-1"></a>    increments <span class="ot">=</span> <span class="fu">rep</span>(<span class="sc">-</span><span class="dv">1</span>, T)</span>
+<span id="cb151-3"><a href="random-walks.html#cb151-3" aria-hidden="true" tabindex="-1"></a>    increments[comb] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb151-4"><a href="random-walks.html#cb151-4" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">cumsum</span>(increments)</span>
+<span id="cb151-5"><a href="random-walks.html#cb151-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
+<span id="cb151-6"><a href="random-walks.html#cb151-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb151-7"><a href="random-walks.html#cb151-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb151-8"><a href="random-walks.html#cb151-8" aria-hidden="true" tabindex="-1"></a>all_paths <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
+<span id="cb151-9"><a href="random-walks.html#cb151-9" aria-hidden="true" tabindex="-1"></a>    Omega <span class="ot">=</span> <span class="fu">list</span>(<span class="dv">2</span><span class="sc">^</span>T)</span>
+<span id="cb151-10"><a href="random-walks.html#cb151-10" aria-hidden="true" tabindex="-1"></a>    index <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb151-11"><a href="random-walks.html#cb151-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span>T) {</span>
+<span id="cb151-12"><a href="random-walks.html#cb151-12" aria-hidden="true" tabindex="-1"></a>        choices <span class="ot">=</span> <span class="fu">combn</span>(T, i, <span class="at">simplify =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb151-13"><a href="random-walks.html#cb151-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (choice <span class="cf">in</span> choices) {</span>
+<span id="cb151-14"><a href="random-walks.html#cb151-14" aria-hidden="true" tabindex="-1"></a>            Omega[[index]] <span class="ot">=</span> <span class="fu">choice_to_path</span>(choice, T)</span>
+<span id="cb151-15"><a href="random-walks.html#cb151-15" aria-hidden="true" tabindex="-1"></a>            index <span class="ot">=</span> index <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb151-16"><a href="random-walks.html#cb151-16" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb151-17"><a href="random-walks.html#cb151-17" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb151-18"><a href="random-walks.html#cb151-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(Omega)</span>
+<span id="cb151-19"><a href="random-walks.html#cb151-19" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+</div>
+</details>
 <!--
   var_cov_corr
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-76" class="exercise"><strong>Problem 3.8  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> and
+<p><span id="exr:unlabeled-div-81" class="exercise"><strong>Problem 3.8  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> and
 <span class="math inline">\(k\in{\mathbb{N}}\)</span>, compute <span class="math inline">\(\operatorname{Var}[X_n]\)</span>, <span class="math inline">\(\operatorname{Cov}[X_n, X_{n+k}]\)</span> and
 <span class="math inline">\(\operatorname{corr}[X_n, X_{n+k}]\)</span>, where <span class="math inline">\(\operatorname{Cov}\)</span> stands for the covariance and
 <span class="math inline">\(\operatorname{corr}\)</span> for the correlation. (Note: look up <span class="math inline">\(\operatorname{Cov}\)</span> and <span class="math inline">\(\operatorname{corr}\)</span> if you forgot what they are).</p>
 <p>Compute <span class="math inline">\(\lim_{n\to\infty} \operatorname{corr}[X_n, X_{n+k}]\)</span> and <span class="math inline">\(\lim_{k\to\infty} \operatorname{corr}[X_n, X_{n+k}]\)</span>. How would you interpret the results you obtained?</p>
 </div>
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!---->
-<!---->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/var_cov_corr_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!---->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-82" class="solution"><em>Solution</em>. </span>We have <span class="math inline">\(\operatorname{Var}[\delta_i] = 1\)</span> for each <span class="math inline">\(i\in{\mathbb{N}}\)</span>, so
+<span class="math display">\[\operatorname{Var}[X_n] = \sum_{i=1}^n \operatorname{Var}[\delta_i] = n.\]</span> Since
+<span class="math inline">\({\mathbb{E}}[X_n] = {\mathbb{E}}[X_{n+k}]=0\)</span> and <span class="math inline">\(X_{n+k} - X_n\)</span> is independent of <span class="math inline">\(X_n\)</span>,
+we have <span class="math display">\[\begin{aligned}
+        \operatorname{Cov}[X_n,X_{n+k}] &amp;= {\mathbb{E}}[ X_n X_{n+k}] = {\mathbb{E}}[ X_n (X_{n+k} - X_n)] + {\mathbb{E}}[X_n^2] = {\mathbb{E}}[X_n] {\mathbb{E}}[X_{n+k} - X_n] + {\mathbb{E}}[X_n^2]\\ &amp;= {\mathbb{E}}[X_n^2] = n.
+    \end{aligned}\]</span> Finally, <span class="math display">\[\begin{aligned}
+         \operatorname{corr}[X_n, X_{n+k}] = \frac{\operatorname{Cov}[X_n, X_{n+k}]}{\sqrt{\operatorname{Var}[X_n]} \sqrt{\operatorname{Var}[X_{n+k}]}}
+         = \frac{n}{\sqrt{n(n+k)}} = \sqrt{\frac{n}{n+k}}.
+    \end{aligned}\]</span>
+When we let <span class="math inline">\(n\to\infty\)</span>, we get <span class="math inline">\(1\)</span>. This means that the positions of the
+random walk, <span class="math inline">\(k\)</span> steps apart, get closer and close to perfect correlation as
+<span class="math inline">\(n\to\infty\)</span>. If you know <span class="math inline">\(X_n\)</span> and <span class="math inline">\(n\)</span> is large, you almost know <span class="math inline">\(X_{n+k}\)</span>, at
+least at the typical scale of <span class="math inline">\(X_n\)</span>.</p>
+<p>When we let <span class="math inline">\(k\to\infty\)</span>, we get <span class="math inline">\(0\)</span>. That means that as the gap between two
+points in time gets larger, the values get less and less correlated. In a sense,
+the random walk tends to forget its past after a large number of steps.</p>
+</div>
+</details>
 <!--
   area_under_walk
   ------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-77" class="exercise"><strong>Problem 3.9  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk with <span class="math inline">\({\mathbb{P}}[X_1=1]=p\in (0,1)\)</span>, and
+<p><span id="exr:unlabeled-div-83" class="exercise"><strong>Problem 3.9  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple random walk with <span class="math inline">\({\mathbb{P}}[X_1=1]=p\in (0,1)\)</span>, and
 let <span class="math inline">\(A_n\)</span> be the (signed) area under its graph (in the picture below, <span class="math inline">\(A_n\)</span> is
 the area of the blue part minus the area of the orange part).</p>
-<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
-## ℹ Please use `linewidth` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-## generated.</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-529-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-555-1.png" width="90%" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Find a formula for <span class="math inline">\(A_n\)</span> in terms of <span class="math inline">\(X_1,\dots, X_n\)</span>.</p></li>
 <li><p>Compute <span class="math inline">\({\mathbb{E}}[A_n]\)</span> and <span class="math inline">\(\operatorname{Var}[A_n]\)</span>, for <span class="math inline">\(n\in{\mathbb{N}}\)</span>. (You will find the
@@ -700,16 +798,14 @@ and compare them to the exact values obtained in 2. above.</p></li>
 </div>
 <!-- <details> -->
 <!--   <summary>Click for Solution</summary> -->
-<!---->
 <!-- ::: {.solution} -->
 <!-- \ -->
-<!---->
 <!-- ```{r child="problems/01_Random_Walks/area_under_walk_sol.Rmd"} -->
 <!-- ``` -->
 <!-- ::: -->
 <!-- </details> -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-78" class="exercise"><strong>Problem 3.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{0 \leq n \leq 100}\)</span> be the simple symmetric random walk with
+<p><span id="exr:unlabeled-div-84" class="exercise"><strong>Problem 3.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{0 \leq n \leq 100}\)</span> be the simple symmetric random walk with
 time horizon <span class="math inline">\(T = 100\)</span>. We define the following random variables</p>
 <ul>
 <li><span class="math inline">\(L\)</span> is the <em>time of the last zero</em>, i.e., the last time, before or at <span class="math inline">\(T\)</span>, that <span class="math inline">\(X\)</span> visited <span class="math inline">\(0\)</span></li>
@@ -741,10 +837,8 @@ guess is correct.</p></li>
 </div>
 <!-- <details> -->
 <!--   <summary>Click for Solution</summary> -->
-<!---->
 <!-- ::: {.solution} -->
 <!-- \ -->
-<!---->
 <!-- ```{r child="problems/01_Random_Walks/three-rv_sol.Rmd"} -->
 <!-- ``` -->
 <!-- ::: -->
