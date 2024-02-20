@@ -1,0 +1,46 @@
+---
+title: ' '
+output:
+  html_document:
+    highlight: tango
+    css: ~/.s/style.css
+---
+
+<style>
+.sourceCode
+  { background-color: initial; }
+</style>
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\PP}{\mathbb{P}}
+
+# In-term I, M362M Spring 2024
+
+
+Submit your solution in pdf (knitted from Rmd) just like you would submit your HW. Additionally, **submit the Rmd file you used to knit the pdf**.   Submitting only the pdf file will result in a 50\% penalty.
+
+If you have any questions, please post them on Ed Discussion.
+
+In all problems, choose the number `nsim` of simulations as large as possible without the code taking more than a few seconds. 
+
+
+## Problem 1.
+
+```{r child="~/.s/problems/00_R/Sim-joint-cond-3_prb.Rmd"}
+```
+
+<!-- *Solution* -->
+
+<!-- ```{r child="~/.s/problems/00_R/Sim-joint-cond-3_sol.Rmd"} -->
+<!-- ``` -->
+
+## Problem 2.
+
+```{r child="~/.s/problems/00_R/Money-growth_prb.Rmd"}
+```
+
+<!-- *Solution* -->
+
+<!-- ```{r child="~/.s/problems/00_R/Money-growth_sol.Rmd"} -->
+<!-- ``` -->
+
+
