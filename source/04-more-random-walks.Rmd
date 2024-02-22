@@ -146,8 +146,8 @@ ggplot()+
   geom_line(aes(x=c(-0, 11),y=3), color="Brown", linetype="dashed") +
   geom_line(aes(x=c(5, 5),y=c(0.25,3)), color="gray", linetype="dotdash") +
   geom_text( aes(x = 5, y=0, label=paste(TeX("$\\tau_l(\\omega)")) ),family="serif", parse=TRUE)+
-  geom_text(aes(x = 11.5, y=5, label=paste("omega")), linewidth = 5, family="serif", parse=TRUE)+
-  geom_text(aes(x = 11.5, y=1, label=paste("bar(omega)")),linewidth = 5, family="serif", parse=TRUE)+
+  geom_text(aes(x = 11.5, y=5, label=paste("omega")), size = 5, family="serif", parse=TRUE)+
+  geom_text(aes(x = 11.5, y=1, label=paste("bar(omega)")),size = 5, family="serif", parse=TRUE)+
   xlab("time")+ylab("")+
   theme_bw()+scale_x_continuous(breaks=0:11)+scale_y_continuous(breaks=0:6)
 
