@@ -885,15 +885,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\
-```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 <!--
   sl-prob-01a
@@ -907,15 +907,15 @@ the Markov Chain theory in history.
 <!-- ::: -->
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!-- \ -->
-<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01a_sol.Rmd"} -->
-<!-- ``` -->
-
-<!-- ::: -->
-<!-- </details> -->
+<!-- <!-- <details> --> -->
+<!-- <!-- <summary> Click for Solution </summary> --> -->
+<!-- <!-- ::: {.solution} --> -->
+<!-- <!-- \ --> -->
+<!-- <!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01a_sol.Rmd"} --> -->
+<!-- <!-- ``` --> -->
+<!--  -->
+<!-- <!-- ::: --> -->
+<!-- <!-- </details> --> -->
 
 
 <!--
@@ -930,15 +930,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -953,15 +953,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -977,15 +977,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1001,15 +1001,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1025,15 +1025,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -1048,15 +1048,15 @@ the Markov Chain theory in history.
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 

@@ -927,16 +927,16 @@ class-TF
 <!-- ::: -->
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!-- \  -->
-
-<!-- ```{r child="problems/03_Classification_of_States/class-TF_sol.Rmd"} -->
-<!-- ``` -->
-
-<!-- ::: -->
-<!-- </details> -->
+<!-- <!-- <details> --> -->
+<!-- <!-- <summary> Click for Solution </summary> --> -->
+<!-- <!-- ::: {.solution} --> -->
+<!-- <!-- \  --> -->
+<!--  -->
+<!-- <!-- ```{r child="problems/03_Classification_of_States/class-TF_sol.Rmd"} --> -->
+<!-- <!-- ``` --> -->
+<!--  -->
+<!-- <!-- ::: --> -->
+<!-- <!-- </details> --> -->
 
 
 <!--1
@@ -951,16 +951,16 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-```{r child="problems/03_Classification_of_States/cl-stat-09_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-09_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -978,17 +978,17 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-
-```{r child="problems/03_Classification_of_States/cl-stat-02_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-02_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 <!--3
   cl-stat-04
@@ -1002,15 +1002,15 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/03_Classification_of_States/cl-stat-04_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-04_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1026,16 +1026,16 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-```{r child="problems/03_Classification_of_States/cl-stat-06_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-06_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1051,16 +1051,16 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-```{r child="problems/03_Classification_of_States/cl-stat-07_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-07_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1076,16 +1076,16 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-```{r child="problems/03_Classification_of_States/cl-stat-08_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-08_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1102,15 +1102,15 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/03_Classification_of_States/cl-stat-10_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-10_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1126,15 +1126,15 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/03_Classification_of_States/cl-stat-11_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-11_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1150,16 +1150,16 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-```{r child="problems/03_Classification_of_States/cl-stat-12_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/cl-stat-12_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -1178,16 +1178,16 @@ class-TF
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-\ 
-
-```{r child="problems/03_Classification_of_States/four-stmts_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!--  -->
+<!-- ```{r child="problems/03_Classification_of_States/four-stmts_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 

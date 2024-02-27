@@ -1,5 +1,3 @@
-```{r child="mydefs.Rmd"}
-```
 
 # Markov Chains
 <div style="counter-reset: thechapter 5;"> </div>
@@ -683,15 +681,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"}
-```
-
-:::
-</details> 
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -706,15 +704,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -729,15 +727,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -753,15 +751,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"}
-```
-
-:::
-</details> 
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -776,15 +774,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -802,15 +800,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/deck-2-2_sol.Rmd"}
-```
-
-:::
-</details> 
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/deck-2-2_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -825,15 +823,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -851,15 +849,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -874,15 +872,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"}
-```
-
-:::
-</details> 
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
@@ -897,15 +895,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/simple_prob_sol.Rmd"}
-```
-
-:::
-</details> 
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/simple_prob_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -921,15 +919,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -945,15 +943,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 
 
@@ -970,15 +968,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/basil_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/basil_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 </div>
 
@@ -996,17 +994,17 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<details>
-<summary> Click for Solution </summary>
-::: {.solution}
-
-```{r child="problems/02_Basic_Chains/professor_sol.Rmd"}
-```
-
-:::
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/02_Basic_Chains/professor_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 
 </div>
 
-## Endnotes
+<!-- ## Endnotes -->
 
