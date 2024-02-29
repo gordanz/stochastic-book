@@ -235,7 +235,7 @@ $\binom{2N-1}{N} 2^{-(2N-1)}$.
 ::: {.solution}
 The first question is exactly the opposite of the question in our previous example, so the answer is
   $$ 1 - \PP[M_T=0] = 1- \PP[X_T=0] - \PP[X_T=1].$$
-  As above, this evaluates to $\binom{2N}{N} 2^{-2N}$ when $T=2N$ is even (we skip the case of odd $T$ because it is very similar). 
+  As above, this evaluates to $1-\binom{2N}{N} 2^{-2N}$ when $T=2N$ is even (we skip the case of odd $T$ because it is very similar). 
   When $N\to\infty$, we expect $\binom{2N}{N}$ to go to $+\infty$ and $2^{-2N}$ to go to 
   $0$, so it is not immediately clear which term will win. 
   One way to make a guess is to think about it probabilistically: we are looking at the 
@@ -973,15 +973,15 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 <!--``` -->
 <!--::: -->
 
-<!-- <!--  <details>  --> -->
-<!-- <!--    <summary>Click for Solution</summary>  --> -->
-<!-- <!-- ::: {.solution}  --> -->
-<!-- <!--  \  --> -->
+<!--  <details>  -->
+<!--    <summary>Click for Solution</summary>  -->
+<!-- ::: {.solution}  -->
+<!--  \  -->
 <!--  -->
-<!-- <!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"}  --> -->
-<!-- <!-- ```  --> -->
-<!-- <!-- :::  --> -->
-<!-- <!--  </details>  --> -->
+<!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"}  -->
+<!-- ```  -->
+<!-- :::  -->
+<!--  </details>  -->
 
 
 
@@ -994,13 +994,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!--  <!-- <details>  --> -->
-<!--  <!--   <summary>Click for Solution</summary>  --> -->
-<!--  <!--::: {.solution}  --> -->
-<!--  <!--```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"}  --> -->
-<!--  <!--```  --> -->
-<!--  <!--:::  --> -->
-<!--  <!--  </details>  --> -->
+<!--  <details>  -->
+<!--    <summary>Click for Solution</summary>  -->
+<!-- ::: {.solution}  -->
+<!-- ```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"}  -->
+<!-- ```  -->
+<!-- :::  -->
+<!--   </details>  -->
 
 
 <!--
@@ -1012,13 +1012,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!--  <!-- <details>  --> -->
-<!--  <!--   <summary>Click for Solution</summary>  --> -->
-<!--  <!--::: {.solution}  --> -->
-<!--  <!--```{r child="problems/01_Random_Walks/catalan_sol.Rmd"}  --> -->
-<!--  <!--```  --> -->
-<!--  <!--:::  --> -->
-<!--  <!-- </details>  --> -->
+<!--  <details>  -->
+<!--    <summary>Click for Solution</summary>  -->
+<!-- ::: {.solution}  -->
+<!-- ```{r child="problems/01_Random_Walks/catalan_sol.Rmd"}  -->
+<!-- ```  -->
+<!-- :::  -->
+<!--  </details>  -->
 
 <!--
   no_return_to_zero
@@ -1029,13 +1029,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!-- <!--  <details>  --> -->
-<!-- <!--    <summary>Click for Solution</summary>  --> -->
-<!-- <!-- ::: {.solution}  --> -->
-<!-- <!-- ```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"}  --> -->
-<!-- <!-- ```  --> -->
-<!-- <!-- :::  --> -->
-<!-- <!--  </details>  --> -->
+<!--  <details>  -->
+<!--    <summary>Click for Solution</summary>  -->
+<!-- ::: {.solution}  -->
+<!-- ```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"}  -->
+<!-- ```  -->
+<!-- :::  -->
+<!--  </details>  -->
 
 
 <!--

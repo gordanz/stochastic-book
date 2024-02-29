@@ -535,29 +535,31 @@ if we define $$V=
   1 & 0 \\ 0 & (1-a-b)
 \end{pmatrix}$$ we have $$\Pr V =
 V D,\text{ i.e., } \Pr= V D V^{-1}.$$ This representation is very useful
-for taking (matrix) powers: $$\label{equ:60C4}
+for taking (matrix) powers: 
+$$\label{equ:60C4}
  \begin{split}
     \Pr^n &= (V D V^{-1})( V D V^{-1}) \dots (V D V^{-1})= V D^n V^{-1}
-  \\ & =
-   V
-   \begin{pmatrix}
+  \\ & =   V \begin{pmatrix}
      1  & 0 \\ 0 & (1-a-b)^n
    \end{pmatrix} V^{-1}
- \end{split}$$ We assumed that all $p_{ij}$ are positive which means, in particular, that $a+b>0$ and 
- $$V^{-1} = \tfrac{1}{a+b}
+ \end{split}$$ 
+We assumed that all $p_{ij}$ are positive which means, in particular, that $a+b>0$, so that
+\begin{align}
+ V^{-1} = \tfrac{1}{a+b}
 \begin{pmatrix}
   b & a \\ 1 & -1
-\end{pmatrix},$$ and so 
-\begin{align}
+\end{pmatrix},
+\end{align}
+
+and so 
+ \begin{align}
  \Pr^n &= V D^n V^{-1}= 
 \begin{pmatrix}
 1 & a \\ 1 & -b
 \end{pmatrix}
-\ 
 \begin{pmatrix}
 1 & 0 \\ 0 & (1-a-b)^n
 \end{pmatrix}
-\ 
 \tfrac{1}{a+b}
 \begin{pmatrix}
   b & a \\ 1 & -1
@@ -572,8 +574,7 @@ for taking (matrix) powers: $$\label{equ:60C4}
   \begin{pmatrix}
     a & -a \\ b & -b
   \end{pmatrix}\\
-&=
-\begin{pmatrix}
+&=\begin{pmatrix}
   \frac{b}{a+b}+(1-a-b)^n \frac{a}{a+b} &   \frac{a}{a+b}-(1-a-b)^n \frac{a}{a+b}\\
   \frac{b}{a+b}+(1-a-b)^n \frac{b}{a+b} &   \frac{a}{a+b}-(1-a-b)^n \frac{b}{a+b}
 \end{pmatrix}
