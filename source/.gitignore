@@ -4,6 +4,7 @@
 _publish.R
 _book
 _bookdown_files
+_main_files
 
 problems*
 *.bak
