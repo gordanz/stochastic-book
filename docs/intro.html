@@ -522,17 +522,17 @@ When we index <code>x</code> using it, only the values of <code>x</code> on posi
 </tbody>
 </table>
 <p>Let’s put what we learned about functions and if-else statements together to write a function <code>distance_or_zero</code> whose arguments are coordinates <code>x</code> and <code>y</code> of a point in the plane, and whose output is the distance from the point (x,y) to the origin if this distance happens to be between 1 and 2, and and 0 otherwise. We will use similar functions later when we discuss Monte Carlo methods:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="intro.html#cb36-1" aria-hidden="true" tabindex="-1"></a>distance_or_zero <span class="ot">=</span>  <span class="cf">function</span>(x,y){</span>
-<span id="cb36-2"><a href="intro.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  distance <span class="ot">=</span> <span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>y<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb36-3"><a href="intro.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (distance <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> distance <span class="sc">&gt;=</span><span class="dv">1</span>) {</span>
-<span id="cb36-4"><a href="intro.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(distance)</span>
-<span id="cb36-5"><a href="intro.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb36-6"><a href="intro.html#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="dv">0</span>)</span>
-<span id="cb36-7"><a href="intro.html#cb36-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="intro.html#cb36-1" aria-hidden="true" tabindex="-1"></a>distance_or_zero <span class="ot">=</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb36-2"><a href="intro.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    distance <span class="ot">=</span> <span class="fu">sqrt</span>(x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> y<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb36-3"><a href="intro.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (distance <span class="sc">&lt;=</span> <span class="dv">2</span> <span class="sc">&amp;</span> distance <span class="sc">&gt;=</span> <span class="dv">1</span>) {</span>
+<span id="cb36-4"><a href="intro.html#cb36-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(distance)</span>
+<span id="cb36-5"><a href="intro.html#cb36-5" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb36-6"><a href="intro.html#cb36-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">return</span>(<span class="dv">0</span>)</span>
+<span id="cb36-7"><a href="intro.html#cb36-7" aria-hidden="true" tabindex="-1"></a>    }</span>
 <span id="cb36-8"><a href="intro.html#cb36-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb36-9"><a href="intro.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">distance_or_zero</span>(<span class="fl">1.2</span>,<span class="fl">1.6</span>)</span>
+<span id="cb36-9"><a href="intro.html#cb36-9" aria-hidden="true" tabindex="-1"></a><span class="fu">distance_or_zero</span>(<span class="fl">1.2</span>, <span class="fl">1.6</span>)</span>
 <span id="cb36-10"><a href="intro.html#cb36-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2</span></span>
-<span id="cb36-11"><a href="intro.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">distance_or_zero</span>(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb36-11"><a href="intro.html#cb36-11" aria-hidden="true" tabindex="-1"></a><span class="fu">distance_or_zero</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb36-12"><a href="intro.html#cb36-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0</span></span></code></pre></div>
 </div>
 </div>

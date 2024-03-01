@@ -509,8 +509,8 @@ a vector as an argument, it will “apply itself” to each component of the vec
 separately, and return the vector of results. Many (but not all) functions in R
 are vectorized<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
 <p>As a sanity check, let’s apply <code>pnrom</code> (which computes the cdf of the normal) to these quantile values:</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb43-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span>  <span class="fu">qnorm</span>( <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.95</span>), <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb43-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>( p , <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb43-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fu">qnorm</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.4</span>, <span class="fl">0.6</span>, <span class="fl">0.95</span>), <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb43-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(p, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
 <span id="cb43-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.05 0.10 0.40 0.60 0.95</span></span></code></pre></div>
 <p>As expected, we got the original values back - the normal quantile function and its cdf are inverses of each other.</p>
 <p><em>Comments (Math):</em> Computing the cdf of a standard normal is the same thing reading a
@@ -650,7 +650,7 @@ wanted to simulate <span class="math inline">\(10\)</span> draws from the follow
 </tbody>
 </table>
 <p>we would use the additional argument <code>prob</code>:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>( <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>,<span class="fl">0.7</span>, <span class="fl">0.1</span>))</span>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.7</span>, <span class="fl">0.1</span>))</span>
 <span id="cb48-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] 1 2 2 1 1 2 2 3 2 2</span></span></code></pre></div>
 <p>Note how it is mostly <span class="math inline">\(2\)</span>s, as expected.</p>
 </div>
@@ -710,10 +710,10 @@ probability density of a normal distribution. Here is a histogram of <span class
 simulations from our normal distribution with its density function (pdf)
 superimposed:</p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-1" aria-hidden="true" tabindex="-1"></a>sims <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">10000</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb54-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">6</span>,<span class="dv">8</span>,<span class="at">by=</span><span class="fl">0.02</span>)</span>
+<span id="cb54-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">6</span>, <span class="dv">8</span>, <span class="at">by =</span> <span class="fl">0.02</span>)</span>
 <span id="cb54-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
-<span id="cb54-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sims, <span class="at">freq=</span><span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span>
-<span id="cb54-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x,y, <span class="at">type=</span><span class="st">&quot;l&quot;</span>, <span class="at">lwd=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">&quot;red&quot;</span> )</span></code></pre></div>
+<span id="cb54-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(sims, <span class="at">freq =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb54-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb54-5" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -736,8 +736,8 @@ Use the permutation test to check of independence between <code>x</code> and <co
 </ol>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb55-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>)</span>
 <span id="cb55-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb55-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">2000</span>)</span>
-<span id="cb55-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb55-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> x<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>z</span>
-<span id="cb55-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span></code></pre></div>
+<span id="cb55-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb55-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> z</span>
+<span id="cb55-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="2" style="list-style-type: decimal">
 <li></li>
@@ -848,7 +848,7 @@ and <span class="math inline">\(Y\)</span> are independent, but in the second th
 </ol>
 <p>They are probably not correlated since the sample correlation between <code>x</code>
 and <code>y</code> is close to <span class="math inline">\(0\)</span>:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb57-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">cor</span>(x,y))</span>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb57-1" aria-hidden="true" tabindex="-1"></a>(<span class="fu">cor</span>(x, y))</span>
 <span id="cb57-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -0.02880239</span></span></code></pre></div>
 <p>but they do not look independent.</p>
 <p>To apply the permutation test, we first plot the scatterplot of <code>x</code> vs. <code>y</code> as
@@ -858,10 +858,10 @@ times:</p>
 <div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-1" aria-hidden="true" tabindex="-1"></a>y_perm_1 <span class="ot">=</span> <span class="fu">sample</span>(y)</span>
 <span id="cb58-2"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-2" aria-hidden="true" tabindex="-1"></a>y_perm_2 <span class="ot">=</span> <span class="fu">sample</span>(y)</span>
 <span id="cb58-3"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-3" aria-hidden="true" tabindex="-1"></a>y_perm_3 <span class="ot">=</span> <span class="fu">sample</span>(y)</span>
-<span id="cb58-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y)</span>
-<span id="cb58-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y_perm_1)</span>
-<span id="cb58-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y_perm_2)</span>
-<span id="cb58-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x,y_perm_3)</span></code></pre></div>
+<span id="cb58-4"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb58-5"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y_perm_1)</span>
+<span id="cb58-6"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y_perm_2)</span>
+<span id="cb58-7"><a href="simulation-of-random-variables-and-monte-carlo.html#cb58-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, y_perm_3)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-75-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The conclusion is clear, the first (upper-left) plot is very different than the
 other three. Therefore, <code>x</code> and <code>y</code> are probably not independent.</p>
