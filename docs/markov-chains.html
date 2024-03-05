@@ -662,11 +662,11 @@ the law of total probability, we have
 vector, so the above relationship can be expressed using vector-matrix
 multiplication <span class="math display">\[{a}^{(n)}={a}^{(0)}{\mathbf P}^n.\]</span></p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-118" class="exercise"><strong>Problem 5.1  </strong></span>Find an explicit expression for <span class="math inline">\({\mathbf P}^{(n)}\)</span> in the case of the regime-switching
+<p><span id="exr:unlabeled-div-123" class="exercise"><strong>Problem 5.1  </strong></span>Find an explicit expression for <span class="math inline">\({\mathbf P}^{(n)}\)</span> in the case of the regime-switching
 chain introduced above. Feel free to assume that <span class="math inline">\(p_{ij}&gt;0\)</span> for all <span class="math inline">\(i,j\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-119" class="solution"><em>Solution</em>. </span>It is often difficult to compute <span class="math inline">\({\mathbf P}^n\)</span> for a general transition
+<p><span id="unlabeled-div-124" class="solution"><em>Solution</em>. </span>It is often difficult to compute <span class="math inline">\({\mathbf P}^n\)</span> for a general transition
 matrix <span class="math inline">\({\mathbf P}\)</span> and a large <span class="math inline">\(n\)</span>. We will see later that it will be easier
 to find the limiting values <span class="math inline">\(\lim_{n\to\infty}p^{(n)}_{ij}\)</span>. The regime-switching
 chain is one of the few examples where everything can be done by hand.</p>
@@ -770,10 +770,10 @@ following lectures.</p>
 and a value of an independent random variable may be something other than addition.
 In general, we collapse the two parts of the process - a simulation of an independent random variable and its combination with the present position - into one. Given our position, we pick the row of the transition matrix that corresponds to it and then use its elements as the probabilities that govern our position tomorrow. It will all be clear once you read through the solution of the following problem.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-120" class="exercise"><strong>Problem 5.2  </strong></span>Simulate <span class="math inline">\(1000\)</span> trajectories of a gambler’s ruin Markov chain with <span class="math inline">\(a=3\)</span>, <span class="math inline">\(p=2/3\)</span> and <span class="math inline">\(x=1\)</span> (see subsection <a href="markov-chains.html#gambler">5.2.2</a> above for the meaning of these constants). Use the Monte Carlo method to estimate the probability that the gambler will leave the casino with <span class="math inline">\(\$3\)</span> in her pocket in at most <span class="math inline">\(T=100\)</span> time periods.</p>
+<p><span id="exr:unlabeled-div-125" class="exercise"><strong>Problem 5.2  </strong></span>Simulate <span class="math inline">\(1000\)</span> trajectories of a gambler’s ruin Markov chain with <span class="math inline">\(a=3\)</span>, <span class="math inline">\(p=2/3\)</span> and <span class="math inline">\(x=1\)</span> (see subsection <a href="markov-chains.html#gambler">5.2.2</a> above for the meaning of these constants). Use the Monte Carlo method to estimate the probability that the gambler will leave the casino with <span class="math inline">\(\$3\)</span> in her pocket in at most <span class="math inline">\(T=100\)</span> time periods.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-121" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-126" class="solution"><em>Solution</em>. </span> </p>
 <div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="markov-chains.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="co"># state space</span></span>
 <span id="cb153-2"><a href="markov-chains.html#cb153-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb153-3"><a href="markov-chains.html#cb153-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -827,7 +827,7 @@ In general, we collapse the two parts of the process - a simulation of an indepe
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-122" class="exercise"><strong>Problem 5.3  </strong></span>Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence
+<p><span id="exr:unlabeled-div-127" class="exercise"><strong>Problem 5.3  </strong></span>Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence
 of die-rolls, i.e., a sequence of independent random variables which take values <span class="math inline">\(1,2,\dots, 6\)</span>, each with probability <span class="math inline">\(1/6\)</span>. Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a stochastic process defined by
 <span class="math display">\[X_n=\max (Y_0,Y_1,
 \dots, Y_n), \ n\in{\mathbb{N}}_0.\]</span> In words, <span class="math inline">\(X_n\)</span> is the maximal value rolled
@@ -835,21 +835,34 @@ so far. Is <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> a 
 transition matrix and the initial distribution. If it is not, give an example
 of how the Markov property is violated.</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/max-roll-so-far_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-128" class="solution"><em>Solution</em>. </span>It turns out that <span class="math inline">\(\{X_n\}_{n\in{\mathbb{N}}}\)</span> is, indeed, a Markov chain.
+The value of <span class="math inline">\(X_{n+1}\)</span> is either going to be equal to <span class="math inline">\(X_n\)</span> if <span class="math inline">\(Y_{n+1}\)</span>
+happens to be less than or equal to it, or it moves up to <span class="math inline">\(Y_{n+1}\)</span>,
+otherwise, i.e., <span class="math inline">\(X_{n+1}=\max(X_n,Y_{n+1})\)</span>. Therefore, the
+distribution of <span class="math inline">\(X_{n+1}\)</span> depends on the previous values
+<span class="math inline">\(X_0,X_1,\dots, X_n\)</span> only through <span class="math inline">\(X_n\)</span>, and, so, <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is a Markov
+chain on the state space <span class="math inline">\(S=\{1,2,3,4,5,6\}\)</span>. The transition matrix
+is given by <span class="math display">\[P=\begin{pmatrix}
+1/6 &amp; 1/6 &amp; 1/6 &amp; 1/6 &amp; 1/6 &amp; 1/6 \\
+0   &amp; 1/3 &amp; 1/6 &amp; 1/6 &amp; 1/6 &amp; 1/6 \\
+0   &amp; 0   &amp; 1/2 &amp; 1/6 &amp; 1/6 &amp; 1/6 \\
+0   &amp; 0   &amp; 0   &amp; 2/3 &amp; 1/6 &amp; 1/6 \\
+0   &amp; 0   &amp; 0   &amp; 0   &amp; 5/6 &amp; 1/6 \\
+0   &amp; 0   &amp; 0   &amp; 0   &amp; 0   &amp; 1 \\
+\end{pmatrix}\]</span></p>
+</div>
+</details>
 <!--
   Y-Z-Markov-chains
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-123" class="exercise"><strong>Problem 5.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. For <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>, define
+<p><span id="exr:unlabeled-div-129" class="exercise"><strong>Problem 5.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. For <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>, define
 <span class="math inline">\(Y_n = 2X_n+1\)</span>, and let <span class="math inline">\(Z_n\)</span> be the amount of time <span class="math inline">\(X_n\)</span> spent
 strictly above <span class="math inline">\(0\)</span> up to (and including) time <span class="math inline">\(n\)</span>, i.e.
 <span class="math display">\[Z_0=0, Z_{n+1} - Z_n = \begin{cases} 1, &amp; X_{n+1}&gt;0 \\ 0, &amp; X_
@@ -870,7 +883,7 @@ Is <span class="math inline">\(Y\)</span> a Markov chain? Is <span class="math i
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-124" class="exercise"><strong>Problem 5.5  </strong></span>Let <span class="math inline">\(\{\delta_n\}_{n\in{\mathbb{N}}}\)</span> be a sequence of independent coin tosses (i.e., random
+<p><span id="exr:unlabeled-div-130" class="exercise"><strong>Problem 5.5  </strong></span>Let <span class="math inline">\(\{\delta_n\}_{n\in{\mathbb{N}}}\)</span> be a sequence of independent coin tosses (i.e., random
 variables with values <span class="math inline">\(T\)</span> or <span class="math inline">\(H\)</span> with equal probabilities). Let <span class="math inline">\(X_0=0\)</span>,
 and, for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, let <span class="math inline">\(X_n\)</span> be the number of times two consecutive
 <span class="math inline">\(\delta\)</span>s take the same value in the first <span class="math inline">\(n+1\)</span> tosses. For example, if
@@ -881,42 +894,70 @@ describe its state space, the transition probabilities and the initial
 distribution. If it is not, show exactly how the Markov property is
 violated.</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/number-of-consecutives_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-131" class="solution"><em>Solution</em>. </span>Yes, the process <span class="math inline">\(X\)</span> is a Markov chain, on the state space <span class="math inline">\(S={\mathbb{N}}_0\)</span>.
+To show that we make the following simple observation: we have
+<span class="math inline">\(X_{n}-X_{n-1}=1\)</span> if <span class="math inline">\(\delta_n=\delta_{n+1}\)</span> and <span class="math inline">\(X_n-X_{n-1}=0\)</span>, otherwise
+(for <span class="math inline">\(n\in{\mathbb{N}}\)</span>). Therefore,
+<span class="math display">\[{\mathbb{P}}[ X_{n+1}=i_n+1 | X_{n}=i_n, \dots, X_1=i_1, X_0=0] =
+{\mathbb{P}}[ \delta_{n+2}=\delta_{n+1} | X_{n}=i_n, \dots, X_1=i_1,X_0=0].\]</span> Even if
+we knew the exact values of all <span class="math inline">\(\delta_1,\dots, \delta_n,\delta_{n+1}\)</span>, the
+(conditional) probability that <span class="math inline">\(\delta_{n+2}=\delta_{n+1}\)</span> would still be
+<span class="math inline">\(1/2\)</span>, regardless of these values. Therefore,
+<span class="math display">\[{\mathbb{P}}[ X_{n+1}=i_n+1| X_n=i_n,\dots, X_1=i_1, X_0=0] = \tfrac{1}{2},\]</span> and,
+similarly, <span class="math display">\[{\mathbb{P}}[ X_{n+1}=i_n| X_n=i_n,\dots, X_1=i_1, X_0=0] = \tfrac{1}{2}.\]</span>
+Therefore, the conditional probability given all the past depends on the
+past only through the value of <span class="math inline">\(X_n\)</span> (the current position), and we
+conclude that <span class="math inline">\(X\)</span> is, indeed, a Markov process. Its initial distribution
+is deterministic <span class="math inline">\({\mathbb{P}}[X_0=0]=1\)</span>, and the transition probabilities, as
+computed above, are <span class="math display">\[p_{ij}={\mathbb{P}}[ X_{n+1}=j| X_n=i] = \begin{cases}
+  1/2, &amp;\text{ if } j=i+1, \\
+  1/2, &amp;\text{ if } j=i, \\
+  0, &amp;\text{ otherwise.}
+  \end{cases}\]</span> In fact, <span class="math inline">\(2 X_n - n\)</span> is a simple symmetric random walk.</p>
+</div>
+</details>
 <!--
   lazy-chain
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-125" class="exercise"><strong>Problem 5.6  </strong></span>Let <span class="math inline">\(X\)</span> be a Markov chain on <span class="math inline">\(N\)</span> states, with the <span class="math inline">\(N\times N\)</span> transition
+<p><span id="exr:unlabeled-div-132" class="exercise"><strong>Problem 5.6  </strong></span>Let <span class="math inline">\(X\)</span> be a Markov chain on <span class="math inline">\(N\)</span> states, with the <span class="math inline">\(N\times N\)</span> transition
 matrix <span class="math inline">\(P\)</span>. We construct a new Markov chain <span class="math inline">\(Y\)</span> from the transition mechanism of <span class="math inline">\(X\)</span> as
 follows: at
 each point in time, we toss a biased coin (probability of <em>heads</em>
 <span class="math inline">\(p\in (0,1)\)</span>), independently of everything else.
 If it shows <em>heads</em> we move according to the transition matrix of <span class="math inline">\(X\)</span>. If it shows <em>tails</em>, we remain in the same state. What is the transition matrix of <span class="math inline">\(Y\)</span>?</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/lazy-chain_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-133" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(Q=(q_{ij})\)</span> denote the transition probability for the chain <span class="math inline">\(Y\)</span>.
+When <span class="math inline">\(i\ne j\)</span>, the chain <span class="math inline">\(Y\)</span> will go from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> in one step if and only if the
+coin shows <em>heads</em> and the chain <span class="math inline">\(X\)</span> wants to jump from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span>. Since the
+two events are independent, the
+probability of the former is <span class="math inline">\(p\)</span>, and of the later is <span class="math inline">\(p_{ij}\)</span>, we have
+<span class="math inline">\(q_{ij} = p p_{ij}\)</span>.</p>
+<p>In the case <span class="math inline">\(i=j\)</span>, the chain <span class="math inline">\(Y\)</span> will transition from <span class="math inline">\(i\)</span> to <span class="math inline">\(i\)</span> (i.e.,
+stay in <span class="math inline">\(i\)</span>) if either the coin shows <em>heads</em>, or if the coin shows
+<em>tails</em> and the chain <span class="math inline">\(X\)</span> decides to stay in <span class="math inline">\(i\)</span>. Therefore,
+<span class="math inline">\(q_{ii} = p + (1-p) p_{ij}\)</span>, i.e.,
+<span class="math display">\[ Q = p \operatorname{Id}+(1-p) P,\]</span>
+where <span class="math inline">\(\operatorname{Id}\)</span> denotes <span class="math inline">\(N\times N\)</span> identity matrix.</p>
+</div>
+</details>
 <!--
   blue-red-100
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-126" class="exercise"><strong>Problem 5.7  </strong></span>The red container has 100 red balls, and
+<p><span id="exr:unlabeled-div-134" class="exercise"><strong>Problem 5.7  </strong></span>The red container has 100 red balls, and
 the blue container has 100 blue balls. In each step</p>
 <p>- a container is selected (with equal probabilities),</p>
 <p>- a ball is selected from it (all balls in the container are equally
@@ -935,21 +976,64 @@ the matrix, it is way too large; just write a general expression for
 </ol>
 <p>(Note: this is a version of the famous Ehrenfest Chain from statistical physics.)</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/blue-red-100_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-135" class="solution"><em>Solution</em>. </span>There are many ways in which one can solve this problem. Below is just
+one of them.</p>
+<ol style="list-style-type: decimal">
+<li><p>In order to describe the situation being modeled, we need to keep
+track of the number of balls of each color in each container.
+Therefore, one possibility is to take the set of all quadruplets
+<span class="math inline">\((r,b,R,B)\)</span>, <span class="math inline">\(r,b,R,b\in \{0,1,2,\dots, 100\}\)</span> and this state
+space would have <span class="math inline">\(101^4\)</span> elements. We know, however, that the total
+number of red balls, and the total number of blue balls is always
+equal to 100, so the knowledge of the composition of the red (say)
+container is enough to reconstruct the contents of the blue
+container. In other words, we can use the number of balls of each
+color in the red container only as our state, i.e.
+<span class="math display">\[S= \{ (r,b)\, : \, r,b=0,1,\dots, 100\}.\]</span> This state space has
+<span class="math inline">\(101\times 101=10201\)</span> elements.</p></li>
+<li><p>The initial distribution is deterministic: <span class="math inline">\({\mathbb{P}}[X_0=(100,0)]=1\)</span>
+and <span class="math inline">\({\mathbb{P}}[X_0=i]=0\)</span>, for <span class="math inline">\(i\in  S\setminus\{(100,0)\}\)</span>. In the vector notation,
+<span class="math display">\[{a}^{(0)}=(0,0, \dots, 0, 1, 0, \dots,
+  0),\]</span> where <span class="math inline">\(1\)</span> is at the place corresponding to <span class="math inline">\((100,0)\)</span>.</p></li>
+<li><p>Let us consider several separate cases, with the understanding that
+<span class="math inline">\(p_{ij}=0\)</span>, for all <span class="math inline">\(i,j\)</span> not mentioned explicitly below:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><em>One of the containers is empty.</em> In that case, we are either in
+<span class="math inline">\((0,0)\)</span> or in <span class="math inline">\((100,100)\)</span>. Let us describe the situation for
+<span class="math inline">\((0,0)\)</span> first. If we choose the red container - and that happens
+with probability <span class="math inline">\(\tfrac{1}{2}\)</span> - we stay in <span class="math inline">\((0,0)\)</span>:
+<span class="math display">\[p_{(0,0),(0,0)}=\tfrac{1}{2}.\]</span> If the blue container is chosen, a
+ball of either color will be chosen with probability
+<span class="math inline">\(\tfrac{100}{200}=\tfrac{1}{2}\)</span>, so
+<span class="math display">\[p_{(0,0),(1,0)}=p_{(0,0),(0,1)}=\tfrac{1}{4}.\]</span> By the same
+reasoning, <span class="math display">\[p_{(100,100),(0,0)}=\tfrac{1}{2}\text{ and }
+p_{(100,100),(99,100)}=p_{(100,100),(100,99)}=\tfrac{1}{4}.\]</span></p></li>
+<li><p><em>We are in the state</em> <span class="math inline">\((0,100)\)</span>. By the description of the
+model, this is an absorbing state, so <span class="math inline">\(p_{(0,100),(0,100)}=1.\)</span></p></li>
+<li><p><em>All other cases</em> Suppose we are in the state <span class="math inline">\((r,b)\)</span> where
+<span class="math inline">\((r,b)\not\in\{(0,100),(0,0),(100,100)\}\)</span>. If the red
+container is chosen, then the probability of getting a red ball
+is <span class="math inline">\(\tfrac{r}{r+b}\)</span>, so
+<span class="math display">\[p_{(r,b),(r-1,b)}= \tfrac{1}{2}\tfrac{r}{r+b}.\]</span> Similarly,
+<span class="math display">\[p_{(r,b),(r,b-1)}= \tfrac{1}{2}\tfrac{b}{r+b}.\]</span> In the blue
+container there are <span class="math inline">\(100-r\)</span> red and <span class="math inline">\(100-b\)</span> blue balls. Thus,
+<span class="math display">\[p_{(r,b),(r+1,b)}= \tfrac{1}{2}\tfrac{100-r}{200-r-b},\]</span> and
+<span class="math display">\[p_{(r,b),(r,b+1)}= \tfrac{1}{2}\tfrac{100-b}{200-r-b}.\]</span></p></li>
+</ol></li>
+</ol>
+</div>
+</details>
 <!--
   deck-2-2
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-127" class="exercise"><strong>Problem 5.8  </strong></span>A “deck” of cards starts with 2 red and 2 black cards. A “move” consists
+<p><span id="exr:unlabeled-div-136" class="exercise"><strong>Problem 5.8  </strong></span>A “deck” of cards starts with 2 red and 2 black cards. A “move” consists
 of the following:</p>
 <p>- pick a random card from the deck (if the deck is empty, do nothing),</p>
 <p>- if the card is black <em>and</em> the card drawn on the previous move was also black, return it back to the deck,</p>
@@ -977,7 +1061,7 @@ eventually?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-128" class="exercise"><strong>Problem 5.9  (Extra Credit) </strong></span>A country has <span class="math inline">\(m+1\)</span> cities (<span class="math inline">\(m\in{\mathbb{N}}\)</span>), one of which is the capital.
+<p><span id="exr:unlabeled-div-137" class="exercise"><strong>Problem 5.9  (Extra Credit) </strong></span>A country has <span class="math inline">\(m+1\)</span> cities (<span class="math inline">\(m\in{\mathbb{N}}\)</span>), one of which is the capital.
 There is a direct railway connection between each city and the capital,
 but there are no tracks between any two “non-capital” cities. A traveler
 starts in the capital and takes a train to a randomly chosen non-capital
@@ -1003,22 +1087,70 @@ precisely, find a simple function <span class="math inline">\(f(m)\)</span> of <
 <span class="math inline">\(\lim_{m\to\infty} \frac{{\mathbb{E}}[\tau_m]}{f(m)} = 1\)</span>.</p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/train-m-cities_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-138" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>The natural state space for <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is <span class="math inline">\(S=\{1,2,\dots,  m\}\)</span>. It is clear that <span class="math inline">\({\mathbb{P}}[X_{n+1}=j|X_n=i]=0,\)</span> unless, <span class="math inline">\(i=j\)</span>
+or <span class="math inline">\(i=j+1\)</span>. If we start from the state <span class="math inline">\(i\)</span>, the process will remain
+in <span class="math inline">\(i\)</span> if the traveler visits one of the already-visited cities, and
+move to <span class="math inline">\(i+1\)</span> is the visited city has never been visited before.
+Thanks to the uniform distribution in the choice of the next city,
+the probability that a never-visited city will be selected is
+<span class="math inline">\(\tfrac{m-i}{m}\)</span>, and it does not depend on the (names of the)
+cities already visited, or on the times of their first visits; it
+only depends on their number. Consequently, the extra information
+about <span class="math inline">\(X_1,X_2,\dots, X_{n-1}\)</span> will not change the probability of
+visiting <span class="math inline">\(j\)</span> in any way, which is exactly what the Markov property
+is all about. Therefore, <span class="math inline">\(\{X_n\}_{n\in{\mathbb{N}}}\)</span> is Markov and its transition
+probabilities are given by <span class="math display">\[p_{ij}={\mathbb{P}}[X_{n+1}=j|X_{n}=i]=
+  \begin{cases}
+    0, &amp; j\not \in \{i,i+1\}\\
+    \tfrac{m-i}{m}, &amp; j=i+1\\
+    \tfrac{i}{m}, &amp; j=i.
+  \end{cases}\]</span> (<em>Note:</em> the situation would not be nearly as nice if
+the distribution of the choice of the next city were non-uniform. In
+that case, the list of the (names of the) already-visited cities
+would matter, and it is not clear that the described process has the
+Markov property (does it?). )</p></li>
+<li><p>For <span class="math inline">\(m=1\)</span>, <span class="math inline">\(\tau_m=0\)</span>, so its distribution is deterministic and
+concentrated on <span class="math inline">\(0\)</span>. The case <span class="math inline">\(m=2\)</span> is only slightly more
+complicated. After having visited his first city, the visitor has a
+probability of <span class="math inline">\(\tfrac{1}{2}\)</span> of visiting it again, on each consecutive day.
+After a geometrically distributed number of days, he will visit
+another city and <span class="math inline">\(\tau_2\)</span> will be realized. Therefore the
+distribution <span class="math inline">\(\{p_n\}_{n\in {\mathbb{N}}_0}\)</span> of <span class="math inline">\(\tau_2\)</span> is given by
+<span class="math display">\[p_0=0, p_1=\tfrac{1}{2}, p_2=(\tfrac{1}{2})^2, p_3=(\tfrac{1}{2})^3,\dots\]</span></p></li>
+<li><p>For <span class="math inline">\(m&gt;1\)</span>, we can write <span class="math inline">\(\tau_m\)</span> as
+<span class="math display">\[\tau_m=\tau_1+(\tau_2-\tau_1)+\dots +(\tau_m-\tau_{m-1}),\]</span> so
+that
+<span class="math display">\[{\mathbb{E}}[\tau_m]={\mathbb{E}}[\tau_1]+{\mathbb{E}}[\tau_2-\tau_1]+\dots+{\mathbb{E}}[\tau_m-\tau_{m-1}].\]</span>
+We know that <span class="math inline">\(\tau_1=0\)</span> and for <span class="math inline">\(k=1,2,\dots, m-1\)</span>, the difference
+<span class="math inline">\(\tau_{k+1}-\tau_{k}\)</span> denotes the waiting time before a
+never-before-visited city is visited, given that the number of
+already-visited cities is <span class="math inline">\(k\)</span>. This random variable is geometric
+with success probability given by <span class="math inline">\(\tfrac{m-k}{m}\)</span>, so its
+expectation is given by
+<span class="math display">\[{\mathbb{E}}[\tau_{k+1}-\tau_k]= \frac{1}{ \tfrac{m-k}{m}}=\frac{m}{m-k}.\]</span>
+Therefore, <span class="math display">\[{\mathbb{E}}[\tau_m]=\sum_{k=1}^{m-1} \frac{m}{m-k}= m
+  (1+\tfrac{1}{2}+\tfrac{1}{3}+\dots+\tfrac{1}{m-1}).\]</span> By comparing it with
+the integral <span class="math inline">\(\int_1^m \frac{1}{x}\, dx\)</span>, it is possible to conclude that
+<span class="math inline">\(H_m=1+\tfrac{1}{2}+\dots+\tfrac{1}{m-1}\)</span> behaves like <span class="math inline">\(\log m\)</span>, i.e., that
+<span class="math display">\[\lim_{m\to\infty} \frac{H_m}{\log m} = 1.\]</span> Therefore
+<span class="math inline">\({\mathbb{E}}[\tau_m] \sim f(m)\)</span>, where <span class="math inline">\(f(m) = m \log m\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!-- multi-step -->
 <!--
   glass-milk
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-129" class="exercise"><strong>Problem 5.10  </strong></span>We start with two cups, call them <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Cup <span class="math inline">\(A\)</span> contains <span class="math inline">\(12\)</span> oz of milk, and cup <span class="math inline">\(B\)</span> <span class="math inline">\(12\)</span> oz of water. The
+<p><span id="exr:unlabeled-div-139" class="exercise"><strong>Problem 5.10  </strong></span>We start with two cups, call them <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. Cup <span class="math inline">\(A\)</span> contains <span class="math inline">\(12\)</span> oz of milk, and cup <span class="math inline">\(B\)</span> <span class="math inline">\(12\)</span> oz of water. The
 following procedure is then performed <em>twice</em>: first, half of the
 content of the glass <span class="math inline">\(A\)</span> is transferred into class <span class="math inline">\(B\)</span>. Then, the
 contents of glass <span class="math inline">\(B\)</span> are thoroughly mixed, and a third of its entire
@@ -1026,40 +1158,56 @@ content transferred back to <span class="math inline">\(A\)</span>. Finally, the
 are thoroughly mixed. What is the final amount of milk in glass A? What
 does this have to do with Markov chains?</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/glass-milk_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-140" class="solution"><em>Solution</em>. </span>If there are <span class="math inline">\(a\)</span> oz of milk and <span class="math inline">\(b\)</span> oz of water in the glass <span class="math inline">\(A\)</span> at time
+<span class="math inline">\(n\)</span> (with <span class="math inline">\(a+b=12\)</span>), then there are <span class="math inline">\(b\)</span> oz of milk and <span class="math inline">\(a\)</span> oz of water
+in the glass <span class="math inline">\(B\)</span>. After half of the content of glass <span class="math inline">\(A\)</span> is moved to
+<span class="math inline">\(B\)</span>, it will contain <span class="math inline">\(b+\tfrac{1}{2}a\)</span> oz of milk and <span class="math inline">\(a+\tfrac{1}{2}b\)</span> oz of water.
+Transferring a third of that back to <span class="math inline">\(a\)</span> leaves <span class="math inline">\(B\)</span> with
+<span class="math inline">\((2/3 b + 1/3 a)\)</span> oz of milk and <span class="math inline">\((2/3 a + 1/3 b)\)</span> oz of water.
+Equivalently, <span class="math inline">\(A\)</span> contains <span class="math inline">\((2/3 a + 1/3 b)\)</span> oz of milk and
+<span class="math inline">\((1/3 a + 2/3 b)\)</span> oz of water. This corresponds to the action of a
+Markov chain with the transition matrix
+<span class="math inline">\(P = \begin{bmatrix} 2/3 &amp; 1/3 \\ 1/3 &amp; 2/3 \end{bmatrix}\)</span>. We get the required amounts by
+computing <span class="math display">\[\begin{aligned}
+    (12,0) P^2 = (12,0) \begin{bmatrix} 5/9 &amp; 4/9 \\ 4/9 &amp; 5/9\end{bmatrix} = (20/3, 16/3).\end{aligned}\]</span></p>
+</div>
+</details>
 <!--
   manual-multi-step
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-130" class="exercise"><strong>Problem 5.11  </strong></span>The state space of a Markov chain is <span class="math inline">\(S = \{1,2,3,4,5\}\)</span>, and the
+<p><span id="exr:unlabeled-div-141" class="exercise"><strong>Problem 5.11  </strong></span>The state space of a Markov chain is <span class="math inline">\(S = \{1,2,3,4,5\}\)</span>, and the
 non-zero transition probabilities are given by <span class="math inline">\(p_{11} = 1/2\)</span>,
 <span class="math inline">\(p_{12}=1/2\)</span>, <span class="math inline">\(p_{23}=p_{34}=p_{45}=p_{51}=1\)</span>. Compute
 <span class="math inline">\(p^{(6)}_{12}\)</span> without using software.</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/manual-multi-step_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-142" class="solution"><em>Solution</em>. </span>As you can see from the transition graph below</p>
+<p><img src="pics/manual-multi-step_chain.png" style="display: block; margin: auto;" /></p>
+<p>You can go from <span class="math inline">\(1\)</span> to <span class="math inline">\(2\)</span> in <span class="math inline">\(6\)</span> steps in
+exactly two ways: <span class="math display">\[1 \to 2 \to 3 \to 4 \to 5 \to 1 \to 2\]</span> and
+<span class="math display">\[1 \to 1 \to 1 \to 1 \to 1 \to 1 \to 2\]</span>
+The probability of the first
+path is <span class="math inline">\(2^{-2}\)</span> and the probability of the second path is <span class="math inline">\(2^{-6}\)</span> -
+they add up to <span class="math inline">\(\tfrac{17}{64}\)</span>.</p>
+</div>
+</details>
 <!--
   simple-step
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-131" class="exercise"><strong>Problem 5.12  </strong></span>A Markov chain has four states <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> and <span class="math inline">\(4\)</span> and
+<p><span id="exr:unlabeled-div-143" class="exercise"><strong>Problem 5.12  </strong></span>A Markov chain has four states <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> and <span class="math inline">\(4\)</span> and
 the following transition probabilities (the ones not listed are <span class="math inline">\(0\)</span>)
 <span class="math display">\[\begin{align}
 p_{11} = 1/3, \,  p_{12} = 1/3, \,  p_{13} = 1/3, \,  
@@ -1076,40 +1224,126 @@ to be the initial state (i.e., the value of <span class="math inline">\(X_0\)</s
 Compute the probability <span class="math inline">\({\mathbb{P}}[X_1 = 4]\)</span>.</p></li>
 </ol>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/simple_prob_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-144" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>Here is the transition graph of the chain:
+<img src="pics/simple_prob_chain.png" style="display: block; margin: auto;" />
+where orange edges have probability <span class="math inline">\(1/2\)</span>, green <span class="math inline">\(1/3\)</span> and black <span class="math inline">\(1\)</span>.</p></li>
+<li><p>This is the probability that, starting from <span class="math inline">\(1\)</span>, we will be at <span class="math inline">\(4\)</span> in exactly
+<span class="math inline">\(4\)</span> steps. To compute it, we enumerate all possible trajectories from <span class="math inline">\(1\)</span> to <span class="math inline">\(4\)</span>
+of length <span class="math inline">\(4\)</span>, and then add their probabilities. These trajectories, and their
+probabilities, are given in the table below:</p>
+<table>
+<colgroup>
+<col width="47%" />
+<col width="52%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>trajectory</th>
+<th>probability</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1 {\rightarrow}1 {\rightarrow}1 {\rightarrow}3 {\rightarrow}4\)</span></td>
+<td><span class="math inline">\(\Big(\frac{1}{3}\Big)^3 \times \Big( \frac{1}{2} \Big)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1 {\rightarrow}1 {\rightarrow}3 {\rightarrow}3 {\rightarrow}4\)</span></td>
+<td><span class="math inline">\(\Big(\frac{1}{3}\Big)^2 \times \Big( \frac{1}{2} \Big)^2\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1 {\rightarrow}1 {\rightarrow}3 {\rightarrow}4 {\rightarrow}4\)</span></td>
+<td><span class="math inline">\(\Big(\frac{1}{3}\Big)^2 \times \Big( \frac{1}{2} \Big) \times 1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1 {\rightarrow}3 {\rightarrow}3 {\rightarrow}3 {\rightarrow}4\)</span></td>
+<td><span class="math inline">\(\Big(\frac{1}{3}\Big)\times \Big( \frac{1}{2} \Big)^3\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(1 {\rightarrow}3 {\rightarrow}3 {\rightarrow}4 {\rightarrow}4\)</span></td>
+<td><span class="math inline">\(\Big(\frac{1}{3}\Big)\times \Big( \frac{1}{2} \Big)^2 \times 1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1 {\rightarrow}3 {\rightarrow}4 {\rightarrow}4 {\rightarrow}4\)</span></td>
+<td><span class="math inline">\(\Big(\frac{1}{3}\Big)\times \Big( \frac{1}{2} \Big) \times 1^3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Therefore, the required probability is
+<span class="math display">\[\begin{align}
+  \Big(\frac{1}{3}\Big)^3 \times \Big( \frac{1}{2} \Big) +
+  \Big(\frac{1}{3}\Big)^2 \times \Big( \frac{1}{2} \Big)^2 +
+  \Big(\frac{1}{3}\Big)^2 \times \Big( \frac{1}{2} \Big)+
+  \Big(\frac{1}{3}\Big)\times \Big( \frac{1}{2} \Big)^3 +
+  \Big(\frac{1}{3}\Big)\times \Big( \frac{1}{2} \Big)^2 +
+  \Big(\frac{1}{3}\Big)\times  \Big( \frac{1}{2} \Big).
+  \end{align}\]</span></p>
+<p>It evaluates to <span class="math inline">\(85/216\)</span>, or, approximately <span class="math inline">\(0.394\)</span></p></li>
+<li><p>Once you leave state <span class="math inline">\(3\)</span> there is no coming back. Therefore, the only way to be there <span class="math inline">\(19\)</span> steps later is for all <span class="math inline">\(19\)</span> steps to be <span class="math inline">\(3 {\rightarrow}3\)</span>. The probability of the <span class="math inline">\(3 {\rightarrow}3\)</span> transition is <span class="math inline">\(1/2\)</span>, so the required probability is <span class="math inline">\((1/2)^{19}\)</span>.</p></li>
+<li><p>We use the law of total probability:
+<span class="math display">\[\begin{align}
+  {\mathbb{P}}[ X_1 = 4] &amp;=
+  {\mathbb{P}}[ X_1 = 4| X_0 = 1]\times {\mathbb{P}}[ X_0=1] +
+  {\mathbb{P}}[ X_1 = 4| X_0 = 2]\times {\mathbb{P}}[X_0=2]\\ &amp;+
+  {\mathbb{P}}[ X_1 = 4| X_0 = 3]\times {\mathbb{P}}[X_0=3] +
+  {\mathbb{P}}[ X_1 = 4| X_0 = 4]\times {\mathbb{P}}[X_0=4]\\
+  &amp;=
+  p_{14}\times \frac{1}{4} +
+  p_{24}\times \frac{1}{4} +
+  p_{34}\times \frac{1}{4} +
+  p_{44}\times \frac{1}{4} =
+  \frac{1}{2}\times \frac{1}{4} + 1\times \frac{1}{4} = \frac{3}{8}
+  \end{align}\]</span></p></li>
+</ol>
+</div>
+</details>
 <!--
   gambler-multi-step
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-132" class="exercise"><strong>Problem 5.13  </strong></span>In a <em>Gambler’s ruin</em> problem with the state space <span class="math inline">\(S=\{0,1,2,3,4\}\)</span>
+<p><span id="exr:unlabeled-div-145" class="exercise"><strong>Problem 5.13  </strong></span>In a <em>Gambler’s ruin</em> problem with the state space <span class="math inline">\(S=\{0,1,2,3,4\}\)</span>
 and the probability <span class="math inline">\(p=1/3\)</span> of winning in a single game, compute the <span class="math inline">\(4\)</span>-step
 transition probabilities
 <span class="math display">\[p^{(4)}_{2 2} = {\mathbb{P}}[ X_{n+4}=2| X_n =2] \text{ and } p^{(4)}_{2 4} = {\mathbb{P}}[ X_{n+4}=4| X_n =2].\]</span></p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/gambler-multi-step_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-146" class="solution"><em>Solution</em>. </span>There are four <span class="math inline">\(4\)</span>-step trajectories that
+start in <span class="math inline">\(2\)</span> and end in <span class="math inline">\(2\)</span>, with positive probabilities (remember, once
+you hit <span class="math inline">\(0\)</span> or <span class="math inline">\(4\)</span> you get stuck there), namely <span class="math display">\[\begin{aligned}
+    &amp; 2 {\rightarrow}1 {\rightarrow}2 {\rightarrow}1 {\rightarrow}2, \quad
+    2 {\rightarrow}1 {\rightarrow}2 {\rightarrow}3 {\rightarrow}2, \quad  \\
+    &amp; 2 {\rightarrow}3 {\rightarrow}2 {\rightarrow}1 {\rightarrow}2, \quad
+    2 {\rightarrow}3 {\rightarrow}2 {\rightarrow}3 {\rightarrow}2.\end{aligned}\]</span> Each has probability
+<span class="math inline">\((1/3)\times(2/3)\times(1/3)\times(2/3) = 4/81\)</span> so the total probability
+is <span class="math inline">\(16/81\)</span>.</p>
+<p>The (possible) trajectories that go from <span class="math inline">\(2\)</span> to <span class="math inline">\(4\)</span> in exactly 4 steps
+are <span class="math display">\[\begin{aligned}
+    2 {\rightarrow}1 {\rightarrow}2 {\rightarrow}3 {\rightarrow}4, \quad
+    2 {\rightarrow}3 {\rightarrow}2 {\rightarrow}3 {\rightarrow}4\   \text{ and }\
+    2 {\rightarrow}3 {\rightarrow}4 {\rightarrow}4 {\rightarrow}4.\end{aligned}\]</span> The first two have the
+same probability, namely
+<span class="math inline">\((2/3)\times(1/3)\times(2/3)\times(2/3) = 8/81\)</span>, and the third one
+<span class="math inline">\((1/3)\times(2/3)\times(1)\times(1) = 18/81\)</span> so <span class="math inline">\(p^{(4)}_{24} = 26/81\)</span>.</p>
+</div>
+</details>
 <!--
   car-insurance
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-133" class="exercise"><strong>Problem 5.14  </strong></span>A car-insurance company classifies drivers in three categories: <em>bad</em>,
+<p><span id="exr:unlabeled-div-147" class="exercise"><strong>Problem 5.14  </strong></span>A car-insurance company classifies drivers in three categories: <em>bad</em>,
 <em>neutral</em> and <em>good</em>. The reclassification is done in January of each
 year and the probabilities for transitions between different categories
 is given by
@@ -1120,22 +1354,43 @@ with 1400 drivers in each category. Estimate the number of drivers in
 each category in 2090. Assume that the total number of drivers does not
 change in time and use R for your computations.</p>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/car-insurance_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-148" class="solution"><em>Solution</em>. </span>Equal numbers of drivers in each category corresponds to the uniform
+initial distribution, <span class="math inline">\(a^{(0)}=(1/3,1/3,1/3)\)</span>. The
+distribution of drivers in 2090 is given by the distribution
+<span class="math inline">\(a^{(100)}\)</span> of <span class="math inline">\(X_{100}\)</span> which is, in turn, given by
+<span class="math display">\[a^{(100)}= a^{(0)} P^{100}.\]</span> Finally, we need to compute the <em>number</em> of drivers in
+each category, so we multiply the result by the total number of drivers, i.e., <span class="math inline">\(3 \times 1400 = 4200\)</span>:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="markov-chains.html#cb154-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(</span>
+<span id="cb154-2"><a href="markov-chains.html#cb154-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> , <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span> , <span class="dv">0</span>,  </span>
+<span id="cb154-3"><a href="markov-chains.html#cb154-3" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">2</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">2</span><span class="sc">/</span><span class="dv">5</span> , </span>
+<span id="cb154-4"><a href="markov-chains.html#cb154-4" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">1</span><span class="sc">/</span><span class="dv">5</span> , <span class="dv">3</span><span class="sc">/</span><span class="dv">5</span>), </span>
+<span id="cb154-5"><a href="markov-chains.html#cb154-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">byrow=</span>T, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb154-6"><a href="markov-chains.html#cb154-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-7"><a href="markov-chains.html#cb154-7" aria-hidden="true" tabindex="-1"></a><span class="co"># a0 needs to be a row matrix </span></span>
+<span id="cb154-8"><a href="markov-chains.html#cb154-8" aria-hidden="true" tabindex="-1"></a>a0 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>), <span class="at">nrow=</span><span class="dv">1</span>) </span>
+<span id="cb154-9"><a href="markov-chains.html#cb154-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-10"><a href="markov-chains.html#cb154-10" aria-hidden="true" tabindex="-1"></a>P100 <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">3</span>) <span class="co"># the 3x3 identity matrix</span></span>
+<span id="cb154-11"><a href="markov-chains.html#cb154-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>)</span>
+<span id="cb154-12"><a href="markov-chains.html#cb154-12" aria-hidden="true" tabindex="-1"></a>  P100 <span class="ot">=</span> P100 <span class="sc">%*%</span> P</span>
+<span id="cb154-13"><a href="markov-chains.html#cb154-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb154-14"><a href="markov-chains.html#cb154-14" aria-hidden="true" tabindex="-1"></a>(a0 <span class="sc">%*%</span> P100) <span class="sc">*</span> <span class="dv">4200</span></span>
+<span id="cb154-15"><a href="markov-chains.html#cb154-15" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb154-16"><a href="markov-chains.html#cb154-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 1200 1500 1500</span></span></code></pre></div>
+<p>Note: if you think that computing matrix powers using for loops is in poor taste, there are several R packages you can use. Have a look at <a href="https://stats.stackexchange.com/questions/4320/compute-the-power-of-a-matrix-in-r/187477">this post</a> if you are curious.</p>
+</div>
+</details>
 <!--
   basil
   ------------------------------------------------
 -->
 <div id="basil">
 <div class="exercise">
-<p><span id="exr:unlabeled-div-134" class="exercise"><strong>Problem 5.15  </strong></span>A zoologist, Dr. Gurkensaft,
+<p><span id="exr:unlabeled-div-149" class="exercise"><strong>Problem 5.15  </strong></span>A zoologist, Dr. Gurkensaft,
 claims to have trained Basil the Rat so that it can avoid being shocked
 and find food, even in highly confusing situations. Another scientist,
 Dr. Hasenpfeffer does not agree. She says that Basil is stupid and
@@ -1178,7 +1433,7 @@ getting to food, under the assumption that Basil is stupid
 -->
 <div id="professor">
 <div class="exercise">
-<p><span id="exr:unlabeled-div-135" class="exercise"><strong>Problem 5.16  </strong></span>A math professor has <span class="math inline">\(4\)</span> umbrellas. He keeps some of them at home and some in
+<p><span id="exr:unlabeled-div-150" class="exercise"><strong>Problem 5.16  </strong></span>A math professor has <span class="math inline">\(4\)</span> umbrellas. He keeps some of them at home and some in
 the office. Every morning, when he leaves home, he checks the weather and takes
 an umbrella with him if it rains. In case all the umbrellas are in the office,
 he gets wet. The same procedure is repeated in the afternoon when he leaves the
@@ -1196,15 +1451,97 @@ whether it rained the last time he checked.</p>
 </ol></li>
 </ol>
 </div>
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/professor_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-151" class="solution"><em>Solution</em>. </span> </p>
+<ol style="list-style-type: decimal">
+<li><p>We model the situation by a Markov chain whose stats are all of the
+form h<span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span> or <span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span>o, or “Wet”
+where h<span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span> means that the professor
+is at home, there are <span class="math inline">\(m\)</span> umbrellas at home and <span class="math inline">\(n\)</span> umbrellas at the office. Similarly,
+<span class="math inline">\(m\)</span>-<span class="math inline">\(n\)</span>o means that there are <span class="math inline">\(m\)</span> umbrellas at home, <span class="math inline">\(n\)</span> at the office and the
+professor is at the office.</p>
+<p>The transitions between the states are simple to figure out. For example, from
+the state h<span class="math inline">\(4\)</span>-<span class="math inline">\(1\)</span> the professor will move to the state <span class="math inline">\(4\)</span>-<span class="math inline">\(1\)</span>o with
+probability <span class="math inline">\(19/20\)</span> (if it does not rain) and <span class="math inline">\(3\)</span>-<span class="math inline">\(2\)</span>o with probability <span class="math inline">\(1/20\)</span>? (if it
+rains).
+The professor can move to the state “Wet” only from h<span class="math inline">\(0\)</span>-<span class="math inline">\(5\)</span> (with
+probability <span class="math inline">\(1/20\)</span>) or from <span class="math inline">\(5\)</span>-<span class="math inline">\(0\)</span>o (with probability <span class="math inline">\(1/5\)</span>), and the state “Wet” is made absorbing. Here is the full transition graph, color-coded as follows: green is <span class="math inline">\(1/20\)</span>, pink is <span class="math inline">\(19/20\)</span>, orange is <span class="math inline">\(1/5\)</span> and purple is <span class="math inline">\(4/5\)</span>:</p>
+<p><img src="pics/professor_chain.png" style="display: block; margin: auto;" /></p>
+<p>The state “Wet” is absorbing, and, therefore, constitutes a one-element recurrent class. All the other states belong to a separate, transient, class. The periods of the state “Wet” is 1, while the periods of all other states are <span class="math inline">\(2\)</span>.</p>
+<p>We prepare for Monte Carlo by building the state-space vector <code>S</code> and the transition matrix <code>P</code> for this chain.</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="markov-chains.html#cb155-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;h0-4&quot;</span>, <span class="st">&quot;h1-3&quot;</span>, <span class="st">&quot;h2-2&quot;</span>, <span class="st">&quot;h3-1&quot;</span>, <span class="st">&quot;h4-0&quot;</span>, </span>
+<span id="cb155-2"><a href="markov-chains.html#cb155-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;0-4o&quot;</span>, <span class="st">&quot;1-3o&quot;</span>, <span class="st">&quot;2-2o&quot;</span>, <span class="st">&quot;3-1o&quot;</span>, <span class="st">&quot;4-0o&quot;</span>, <span class="st">&quot;Wet&quot;</span>)</span>
+<span id="cb155-3"><a href="markov-chains.html#cb155-3" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>( </span>
+<span id="cb155-4"><a href="markov-chains.html#cb155-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>,  </span>
+<span id="cb155-5"><a href="markov-chains.html#cb155-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-6"><a href="markov-chains.html#cb155-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-7"><a href="markov-chains.html#cb155-7" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-8"><a href="markov-chains.html#cb155-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.05</span>, <span class="fl">0.95</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-9"><a href="markov-chains.html#cb155-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-10"><a href="markov-chains.html#cb155-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-11"><a href="markov-chains.html#cb155-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-12"><a href="markov-chains.html#cb155-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="fl">0.2</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>,  </span>
+<span id="cb155-13"><a href="markov-chains.html#cb155-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.8</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.2</span>,  </span>
+<span id="cb155-14"><a href="markov-chains.html#cb155-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span> ),</span>
+<span id="cb155-15"><a href="markov-chains.html#cb155-15" aria-hidden="true" tabindex="-1"></a> <span class="at">byrow=</span>T, <span class="at">ncol =</span> <span class="dv">11</span> )</span></code></pre></div></li>
+<li><p>We reuse the code from the notes to simulate <code>nsim=1000</code> paths of
+length <code>T=300</code>, - it is almost exactly the same as before, but we include it here for completion:</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="markov-chains.html#cb156-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">300</span>  <span class="co"># number of time periods</span></span>
+<span id="cb156-2"><a href="markov-chains.html#cb156-2" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span>  <span class="co"># number of simulations</span></span>
+<span id="cb156-3"><a href="markov-chains.html#cb156-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-4"><a href="markov-chains.html#cb156-4" aria-hidden="true" tabindex="-1"></a>single_trajectory <span class="ot">=</span> <span class="cf">function</span>(i) {</span>
+<span id="cb156-5"><a href="markov-chains.html#cb156-5" aria-hidden="true" tabindex="-1"></a>    path <span class="ot">=</span> <span class="fu">numeric</span>(T)</span>
+<span id="cb156-6"><a href="markov-chains.html#cb156-6" aria-hidden="true" tabindex="-1"></a>    last <span class="ot">=</span> i</span>
+<span id="cb156-7"><a href="markov-chains.html#cb156-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb156-8"><a href="markov-chains.html#cb156-8" aria-hidden="true" tabindex="-1"></a>        path[n] <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, <span class="at">prob =</span> P[last, ], <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb156-9"><a href="markov-chains.html#cb156-9" aria-hidden="true" tabindex="-1"></a>        last <span class="ot">=</span> path[n]</span>
+<span id="cb156-10"><a href="markov-chains.html#cb156-10" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb156-11"><a href="markov-chains.html#cb156-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(path)</span>
+<span id="cb156-12"><a href="markov-chains.html#cb156-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb156-13"><a href="markov-chains.html#cb156-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-14"><a href="markov-chains.html#cb156-14" aria-hidden="true" tabindex="-1"></a>i0 <span class="ot">=</span> <span class="dv">3</span>  <span class="co"># the initial state is &#39;h2-2&#39; which is at position 3 in S</span></span>
+<span id="cb156-15"><a href="markov-chains.html#cb156-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb156-16"><a href="markov-chains.html#cb156-16" aria-hidden="true" tabindex="-1"></a>d <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">X0 =</span> i0, <span class="fu">t</span>(<span class="fu">replicate</span>(nsim, <span class="fu">single_trajectory</span>(i0))))</span></code></pre></div>
+<p>First, we check that all <span class="math inline">\(1000\)</span> trajectories reached the state 11 (“Wet”) during the first <code>T=300</code> steps:</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="markov-chains.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>X300)</span>
+<span id="cb157-2"><a href="markov-chains.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb157-3"><a href="markov-chains.html#cb157-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   11 </span></span>
+<span id="cb157-4"><a href="markov-chains.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1000</span></span></code></pre></div>
+<p>Good. Next, we need to find the first time a given trajectory hits 11 (the number of the state “Wet”).
+This can be done in several ways but perhaps the easiest is by combining built-in functions <code>match</code> (which finds the first occurrence of an element in a vector) and <code>apply</code> (which applies a function to each row/column in a matric/data.frame):</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="markov-chains.html#cb158-1" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">apply</span>(d, <span class="dv">1</span>, <span class="cf">function</span>(x) <span class="fu">match</span>(<span class="dv">11</span>, x))</span>
+<span id="cb158-2"><a href="markov-chains.html#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(tau)</span>
+<span id="cb158-3"><a href="markov-chains.html#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 39</span></span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>So we get that the expected number of trips before the professor gets wet is about <span class="math inline">\(39\)</span>, which is about <span class="math inline">\(19.5\)</span> days.</p></li>
+<li><p>The second question can be answered in many ways. One possibility is to split the state “Wet” into two states, depending on the location the professor left just before he got wet. A simpler possibility is check the number of the state with index <code>tau-1</code> in the data frame <code>d</code> above:</p></li>
+</ol>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="markov-chains.html#cb159-1" aria-hidden="true" tabindex="-1"></a>last_locations <span class="ot">=</span> <span class="fu">integer</span>(nsim)</span>
+<span id="cb159-2"><a href="markov-chains.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nsim) last_locations[i] <span class="ot">=</span> d[i, tau[i] <span class="sc">-</span> <span class="dv">1</span>]</span>
+<span id="cb159-3"><a href="markov-chains.html#cb159-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(last_locations)</span>
+<span id="cb159-4"><a href="markov-chains.html#cb159-4" aria-hidden="true" tabindex="-1"></a><span class="do">## last_locations</span></span>
+<span id="cb159-5"><a href="markov-chains.html#cb159-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   1  10 </span></span>
+<span id="cb159-6"><a href="markov-chains.html#cb159-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
+<p>The states h<span class="math inline">\(0\)</span>-<span class="math inline">\(4\)</span> and <span class="math inline">\(0\)</span>-<span class="math inline">\(4\)</span>o have numbers <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> in the vector <code>S</code> of states. Therefore, the table obtained above tells us that just before getting wet the professor left his home in <span class="math inline">\(10\)</span> draws out of <span class="math inline">\(1000\)</span>, and his office in the remaining <span class="math inline">\(990\)</span> draws. Hence, the Monte-Carlo estimate of the required probability is <span class="math inline">\(0.99\)</span>.</p>
+<p>There is another, computationally simpler, but conceptually more tricky way of obtaining this estimate. Since there are <span class="math inline">\(11\)</span> states in the chain, the “Wet” state can only be reached from two states with numbers <span class="math inline">\(1\)</span> and <span class="math inline">\(10\)</span> and all states (except for “Wet”) have period <span class="math inline">\(2\)</span>, we have the following dichotomy:</p>
+<ul>
+<li>if the “Wet” state was reached in an <em>odd</em> number of steps, the last “dry” location must have been “Home”, and</li>
+<li>if the “Wet” state was reached in an <em>even</em> number of steps, the last “dry” location must have been “Office”.</li>
+</ul>
+<p>Therefore, it is enough to count the number of even and odd elements in <code>tau</code>:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="markov-chains.html#cb160-1" aria-hidden="true" tabindex="-1"></a>tau_mod_2 <span class="ot">=</span> tau <span class="sc">%%</span> <span class="dv">2</span></span>
+<span id="cb160-2"><a href="markov-chains.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(tau_mod_2)</span>
+<span id="cb160-3"><a href="markov-chains.html#cb160-3" aria-hidden="true" tabindex="-1"></a><span class="do">## tau_mod_2</span></span>
+<span id="cb160-4"><a href="markov-chains.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   0   1 </span></span>
+<span id="cb160-5"><a href="markov-chains.html#cb160-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  10 990</span></span></code></pre></div>
+<p>We get the same probability estimate as above.</p></li>
+</ol>
+</div>
+</details>
 </div>
 <!-- ## Endnotes -->
 

@@ -956,27 +956,6 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 </details> 
 
 
-<!--
-  time_until_hit
-  ------------------------------------------------
--->
-<!--::: {.exercise} -->
-<!-- \  -->
-
-<!--```{r child="problems/01_Random_Walks/time_until_hit_prb.Rmd"} -->
-<!--``` -->
-<!--::: -->
-
-<!-- <details>   -->
-<!--   <summary>Click for Solution</summary>   -->
-<!-- ::: {.solution}   -->
-<!-- \   -->
-
-<!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"}   -->
-<!-- ```   -->
-<!-- :::   -->
-<!-- </details>   -->
-
 
 
 <!-- 
@@ -988,13 +967,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!-- <details> -->
-<!--  <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- ```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+ <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="problems/01_Random_Walks/Luke_cookies_sol.Rmd"}
+```
+:::
+</details>
 
 
 <!--
@@ -1006,13 +985,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!-- <details>   -->
-<!--   <summary>Click for Solution</summary>   -->
-<!-- ::: {.solution}   -->
-<!-- ```{r child="problems/01_Random_Walks/catalan_sol.Rmd"}   -->
-<!-- ```   -->
-<!-- :::   -->
-<!-- </details>   -->
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="problems/01_Random_Walks/catalan_sol.Rmd"}
+```
+:::
+</details>
 
 <!--
   no_return_to_zero
@@ -1023,13 +1002,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!-- <details>   -->
-<!--   <summary>Click for Solution</summary>   -->
-<!-- ::: {.solution}   -->
-<!-- ```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"}   -->
-<!-- ```   -->
-<!-- :::   -->
-<!-- </details>   -->
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+```{r child="problems/01_Random_Walks/no_return_to_zero_sol.Rmd"}
+```
+:::
+</details>
 
 
 <!--
@@ -1075,13 +1054,13 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-  <details> 
-    <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_2_sol.Rmd"} 
- ``` 
- ::: 
-  </details> 
+<details> 
+<summary>Click for Solution</summary> 
+::: {.solution} 
+```{r child="problems/01b_Advanced_Random_Walks/stopping_times_2_sol.Rmd"} 
+``` 
+::: 
+</details> 
 
 <!--
   stopping_times_3
@@ -1092,14 +1071,34 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-  <details> 
+<details> 
     <summary>Click for Solution</summary> 
- ::: {.solution} 
- ```{r child="problems/01b_Advanced_Random_Walks/stopping_times_3_sol.Rmd"} 
- ``` 
- ::: 
-  </details> 
+::: {.solution} 
+```{r child="problems/01b_Advanced_Random_Walks/stopping_times_3_sol.Rmd"} 
+``` 
+</details>
 
+<!--
+  time_until_hit
+  ------------------------------------------------
+-->
+
+::: {.exercise}
+\
+
+```{r child="problems/01_Random_Walks/time_until_hit_prb.Rmd"}
+```
+:::
+
+<!-- <details> -->
+<!--   <summary>Click for Solution</summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+
+<!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"} -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- </details> -->
 
 ## Endnotes
 
