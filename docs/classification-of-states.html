@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Classification of States | Lecture notes for “Introduction to Stochastic Processes”</title>
   <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Classification of States | Lecture notes for “Introduction to Stochastic Processes”" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,11 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -104,14 +104,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -309,29 +309,29 @@ any other state. The consequents of <span class="math inline">\((0,0)\)</span> a
 are consequents of <span class="math inline">\((0,0)\)</span>. The consequents of <span class="math inline">\((40,40)\)</span> are <span class="math inline">\((40,40)\)</span> itself, <span class="math inline">\((40,Adv)\)</span>,
 <span class="math inline">\((Adv, 40)\)</span>, “P1 wins” and “P2 wins”.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-152" class="exercise"><strong>Problem 6.1  </strong></span>Explain why
+<p><span id="exr:unlabeled-div-154" class="exercise"><strong>Problem 6.1  </strong></span>Explain why
 <span class="math inline">\(i {\rightarrow}j\)</span> if and only if <span class="math inline">\(p^{(n)}_{ij}&gt;0\)</span> for some <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-153" class="solution"><em>Solution</em>. </span>Leaving a rigorous mathematical proof aside, we note that the statement
+<p><span id="unlabeled-div-155" class="solution"><em>Solution</em>. </span>Leaving a rigorous mathematical proof aside, we note that the statement
 is intuitively easy to understand. If <span class="math inline">\(i{\rightarrow}j\)</span> then there must exist
 some time <span class="math inline">\(n\)</span> such that <span class="math inline">\({\mathbb{P}}_i[\tau_j = n]&gt;0\)</span>. This, in turn, implies
 that it is possible to go from <span class="math inline">\(i\)</span> to <span class="math inline">\(j\)</span> in exactly <span class="math inline">\(n\)</span> steps, where
 “possible” means “with positive probability”. In our notation, that is
 exactly what <span class="math inline">\(p^{(n)}_{ij}&gt;0\)</span> means.</p>
 <p>Conversely, if <span class="math inline">\(p^{(n)}_{ij}&gt;0\)</span> then
-<span class="math inline">\({\mathbb{P}}_i[ \tau_j &lt;\infty] \geq {\mathbb{P}}_i[\tau_j \leq n] \geq {\mathbb{P}}_i[ X_n = j]=p^{(n)}_{ij}&gt;0.\)</span></p>
+<span class="math inline">\({\mathbb{P}}_i[ \tau_j &lt;\infty] \geq {\mathbb{P}}_i[\tau_j \leq n] \geq  {\mathbb{P}}_i[ X_n = j]=p^{(n)}_{ij}&gt;0.\)</span></p>
 </div>
 <p>Two immediate properties of the relation <span class="math inline">\({\rightarrow}\)</span> are listed in the problem below:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-154" class="exercise"><strong>Problem 6.2  </strong></span>Explain why the following statements are true for all states <span class="math inline">\(i,j,k\)</span> of a Markov chain.</p>
+<p><span id="exr:unlabeled-div-156" class="exercise"><strong>Problem 6.2  </strong></span>Explain why the following statements are true for all states <span class="math inline">\(i,j,k\)</span> of a Markov chain.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(i{\rightarrow}i\)</span>,</p></li>
 <li><p><span class="math inline">\(i{\rightarrow}j, j{\rightarrow}k\)</span> implies <span class="math inline">\(i {\rightarrow}k\)</span>.</p></li>
 </ol>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-155" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-157" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li><p>If we start from state <span class="math inline">\(i\in S\)</span> we are already there! More rigorously, note that <span class="math inline">\(0\)</span>
 is allowed as a value for <span class="math inline">\(\tau_{B}\)</span> in its definition above, i.e., <span class="math inline">\(\tau_i=0\)</span> when <span class="math inline">\(X_0=i\)</span>.</p></li>
@@ -358,7 +358,7 @@ divisor of the <strong>return set</strong> <span class="math display">\[R(i)= \{
 of the state <span class="math inline">\(i\)</span>. When <span class="math inline">\(R(i)=\emptyset\)</span>, we set <span class="math inline">\(d(i)=1\)</span>. A state
 <span class="math inline">\(i\in S\)</span> is called <strong>aperiodic</strong> if <span class="math inline">\(d(i)=1\)</span>.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-156" class="exercise"><strong>Problem 6.3  </strong></span>Consider two Markov chains with three states and the transition matrices
+<p><span id="exr:unlabeled-div-158" class="exercise"><strong>Problem 6.3  </strong></span>Consider two Markov chains with three states and the transition matrices
 <span class="math display">\[P_1=\begin{bmatrix}
 0 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 1 \\
@@ -372,7 +372,7 @@ P_2=\begin{bmatrix}
 <p>Find return sets and periods of each state <span class="math inline">\(i\)</span> of each chain.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-157" class="solution"><em>Solution</em>. </span>For the first chain, with transition graph</p>
+<p><span id="unlabeled-div-159" class="solution"><em>Solution</em>. </span>For the first chain, with transition graph</p>
 <p><img src="pics/period-example-1_chain.png" style="display: block; margin: auto;" /></p>
 <p>the return set for each state <span class="math inline">\(i\in\{1,2,3\}\)</span> is
 given by <span class="math inline">\(R(i)= \{3,6,9,12,\dots\}\)</span>, so <span class="math inline">\(d(i)=3\)</span> for all
@@ -391,7 +391,8 @@ so that <span class="math inline">\(d(i)=1\)</span> for <span class="math inline
 <div id="classes" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Classes<a href="classification-of-states.html#classes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We say that the states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> in <span class="math inline">\(S\)</span> <strong>intercommunicate</strong>, denoted
-by <span class="math inline">\(i\leftrightarrow j\)</span> if <span class="math inline">\(i{\rightarrow}j\)</span> <em>and</em> <span class="math inline">\(j{\rightarrow}i\)</span>. A set <span class="math inline">\(B\subseteq S\)</span> of states is called
+by <span class="math inline">\(i\leftrightarrow j\)</span> if <span class="math inline">\(i{\rightarrow}
+  j\)</span> <em>and</em> <span class="math inline">\(j{\rightarrow}i\)</span>. A set <span class="math inline">\(B\subseteq S\)</span> of states is called
 <strong>irreducible</strong> if <span class="math inline">\(i\leftrightarrow j\)</span> for all <span class="math inline">\(i,j\in S\)</span>.</p>
 <p>Unlike the relation of communication, the relation of intercommunication
 is symmetric. Moreover, we have the following immediate property:
@@ -428,17 +429,19 @@ natural concept: A set <span class="math inline">\(B\subseteq S\)</span> of stat
 impossible to get out of. A state
 <span class="math inline">\(i\in S\)</span> such that the set <span class="math inline">\(\{i\}\)</span> is closed is called <strong>absorbing</strong>.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-158" class="exercise"><strong>Problem 6.4  </strong></span>Show that a set <span class="math inline">\(B\)</span> of
+<p><span id="exr:unlabeled-div-160" class="exercise"><strong>Problem 6.4  </strong></span>Show that a set <span class="math inline">\(B\)</span> of
 states is closed if and only if <span class="math inline">\(p_{ij}=0\)</span> for all <span class="math inline">\(i\in B\)</span> and all
 <span class="math inline">\(j\in B^c=S\setminus B\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-159" class="solution"><em>Solution</em>. </span>Suppose, first, that <span class="math inline">\(B\)</span> is closed. Then for <span class="math inline">\(i\in B\)</span> and <span class="math inline">\(j\in  B^c\)</span>, we have <span class="math inline">\(i\not{\rightarrow}j\)</span>, i.e., <span class="math inline">\(p^{(n)}_{ij}=0\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>. In
+<p><span id="unlabeled-div-161" class="solution"><em>Solution</em>. </span>Suppose, first, that <span class="math inline">\(B\)</span> is closed. Then for <span class="math inline">\(i\in B\)</span> and <span class="math inline">\(j\in
+  B^c\)</span>, we have <span class="math inline">\(i\not{\rightarrow}j\)</span>, i.e., <span class="math inline">\(p^{(n)}_{ij}=0\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>. In
 particular, <span class="math inline">\(p_{ij}=0\)</span>.</p>
 <p>Conversely, suppose that <span class="math inline">\(p_{ij}=0\)</span> for all <span class="math inline">\(i\in B\)</span>, <span class="math inline">\(j\in B^c\)</span>. We
 need to show that <span class="math inline">\(k\not{\rightarrow}l\)</span> (i.e. <span class="math inline">\(p^{(n)}_{kl}=0\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>) for
 all <span class="math inline">\(k\in B\)</span>, <span class="math inline">\(l\in B^c\)</span>. Suppose, to the contrary, that there exist
-<span class="math inline">\(k\in B\)</span> and <span class="math inline">\(l\in B^c\)</span> such that <span class="math inline">\(p^{(n)}_{kl}&gt;0\)</span> for some <span class="math inline">\(n\in {\mathbb{N}}\)</span>. That means that we can find a sequence of states
+<span class="math inline">\(k\in B\)</span> and <span class="math inline">\(l\in B^c\)</span> such that <span class="math inline">\(p^{(n)}_{kl}&gt;0\)</span> for some <span class="math inline">\(n\in
+{\mathbb{N}}\)</span>. That means that we can find a sequence of states
 <span class="math display">\[k=i_0, i_1, \dots, i_n=l \text{ such that } p_{i_{m-1} i_{m}}&gt;0
 \text{ forall }m = 1,\dots, n.\]</span> The first state, <span class="math inline">\(k=i_0\)</span> is in <span class="math inline">\(B\)</span> and the
 last one, <span class="math inline">\(l=i_n\)</span>, is in <span class="math inline">\(B^c\)</span>. Therefore there must exist an index <span class="math inline">\(m\)</span>
@@ -461,10 +464,11 @@ the <em>tennis</em> chain of the previous lecture and:</p>
 </ol>
 <p>Not everything is lost as the following relationship always holds:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-160" class="exercise"><strong>Problem 6.5  </strong></span>Show that every closed set <span class="math inline">\(B\)</span> is a union of one or more classes.</p>
+<p><span id="exr:unlabeled-div-162" class="exercise"><strong>Problem 6.5  </strong></span>Show that every closed set <span class="math inline">\(B\)</span> is a union of one or more classes.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-161" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(\hat{B}\)</span> be the union of all classes <span class="math inline">\(C\)</span> such that <span class="math inline">\(C\cap  B\not=\emptyset\)</span>. In other words, take all the elements of <span class="math inline">\(B\)</span> and
+<p><span id="unlabeled-div-163" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(\hat{B}\)</span> be the union of all classes <span class="math inline">\(C\)</span> such that <span class="math inline">\(C\cap
+  B\not=\emptyset\)</span>. In other words, take all the elements of <span class="math inline">\(B\)</span> and
 throw in all the states which intercommunicate with at least one of them. I claim that
 <span class="math inline">\(\hat{B}=B\)</span>. Clearly, <span class="math inline">\(B\subset \hat{B}\)</span>, so we need to show that
 <span class="math inline">\(\hat{B}\subseteq B\)</span>. Suppose, to the contrary, that there exists
@@ -534,7 +538,7 @@ also holds at stopping times (and not only fixed times <span class="math inline"
 prove this property in these notes, but we will gladly use it to prove
 the following dichotomy:</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-162" class="theorem"><strong>Theorem 6.1  (The "Return" Theorem) </strong></span>Let
+<p><span id="thm:unlabeled-div-164" class="theorem"><strong>Theorem 6.1  (The "Return" Theorem) </strong></span>Let
 <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain on a countable state space <span class="math inline">\(S\)</span>, with the
 (deterministic) initial state <span class="math inline">\(X_0=i\)</span>. Then exactly one of the following
 two statements hold with probability 1:</p>
@@ -547,7 +551,7 @@ two statements hold with probability 1:</p>
 <p>In the first case, <span class="math inline">\(i\)</span> is recurrent and, in the second, it is transient.</p>
 </div>
 <div class="proof">
-<p><span id="unlabeled-div-163" class="proof"><em>Proof</em>. </span>If <span class="math inline">\(f_i=1\)</span>, then <span class="math inline">\(X\)</span> is guaranteed to return to <span class="math inline">\(i\)</span> at least once. When
+<p><span id="unlabeled-div-165" class="proof"><em>Proof</em>. </span>If <span class="math inline">\(f_i=1\)</span>, then <span class="math inline">\(X\)</span> is guaranteed to return to <span class="math inline">\(i\)</span> at least once. When
 that happens, however, the strong Markov property “deletes” the past,
 and the process “renews” itself. This puts us back in the original
 situation where we are looking at a chain which starts at <span class="math inline">\(i\)</span> and is
@@ -564,11 +568,11 @@ variable with parameter <span class="math inline">\(f_i\)</span>.</p>
 </div>
 <p>The following interesting fact follows (almost) directly from the Return Theorem:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-164" class="exercise"><strong>Problem 6.6  </strong></span>Suppose that the state space <span class="math inline">\(S\)</span> is finite. Show that there exists at least
+<p><span id="exr:unlabeled-div-166" class="exercise"><strong>Problem 6.6  </strong></span>Suppose that the state space <span class="math inline">\(S\)</span> is finite. Show that there exists at least
 one recurrent state.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-165" class="solution"><em>Solution</em>. </span>We argue by contradiction and assume that all the states are transient.
+<p><span id="unlabeled-div-167" class="solution"><em>Solution</em>. </span>We argue by contradiction and assume that all the states are transient.
 We claim that, in that case, the total number of visits <span class="math inline">\(N_i\)</span> to each
 state <span class="math inline">\(i\)</span> is always finite, no matter what state <span class="math inline">\(i_0\)</span> we start from.
 Indeed, if <span class="math inline">\(i=i_0\)</span> that is precisely the
@@ -588,11 +592,11 @@ the random walk with <span class="math inline">\(p\not=\tfrac{1}{2}\)</span>. Al
 <p>Perhaps the most important consequence of the Return Theorem is the following
 criterion for recurrence of Markov chains on finite or countable state spaces:</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-166" class="theorem"><strong>Theorem 6.2  (The Recurrence Criterion) </strong></span>A state <span class="math inline">\(i\in S\)</span>
+<p><span id="thm:unlabeled-div-168" class="theorem"><strong>Theorem 6.2  (The Recurrence Criterion) </strong></span>A state <span class="math inline">\(i\in S\)</span>
 is recurrent if and only if <span class="math display">\[\sum_{n\in{\mathbb{N}}} p^{(n)}_{ii}=\infty.\]</span></p>
 </div>
 <div class="proof">
-<p><span id="unlabeled-div-167" class="proof"><em>Proof</em>. </span>Let <span class="math inline">\(N_i\)</span> denote the total number (finite or <span class="math inline">\(\infty\)</span>) of visits to the state
+<p><span id="unlabeled-div-169" class="proof"><em>Proof</em>. </span>Let <span class="math inline">\(N_i\)</span> denote the total number (finite or <span class="math inline">\(\infty\)</span>) of visits to the state
 <span class="math inline">\(i\)</span>, with the initial visit at time <span class="math inline">\(0\)</span> not counted. We can write <span class="math inline">\(N_i\)</span> as an
 infinite sum as follows <span class="math display">\[N_i = \sum_{n=1}^{\infty} \mathbf{1}_{\{X_n = i\}}.\]</span> Taking the
 expectation yields <span class="math display">\[{\mathbb{E}}[N_i] = {\mathbb{E}}_i[ \sum_{n=1}^{\infty} \mathbf{1}_{\{X_n=i\}}] =
@@ -649,7 +653,7 @@ randomly and uniformly and moves there. For
 illustration, here is a picture of a path of a two-dimensional random walk; as time progresses, the color of the edges goes from black to orange, edges traversed
 multiple times are darker, dots mark the position of the walk at time <span class="math inline">\(n=0\)</span> (the black round dot) and at time <span class="math inline">\(n=1000\)</span> (orange square dot):</p>
 <center>
-<img src="_main_files/figure-html/unnamed-chunk-233-1.png" width="130%" style="display: block; margin: auto;" />
+<img src="_main_files/figure-html/unnamed-chunk-235-1.png" width="130%" style="display: block; margin: auto;" />
 </center>
 <p>Polya’s (and our) goal was to study the recurrence properties of the
 <span class="math inline">\(d\)</span>-dimensional random walk. We already
@@ -672,7 +676,8 @@ In words, <span class="math inline">\(\xi_i= +k\)</span> if the <span class="mat
 <span class="math inline">\(\{1,-1,2,-2, \dots, d,-d\}\)</span> into each of <span class="math inline">\(n=2m\)</span> boxes so that the
 number of boxes with <span class="math inline">\(k\)</span> in them equals to the number of boxes with <span class="math inline">\(-k\)</span>
 in them?</em></p>
-<p>To get the answer, we start by fixing a possible “count” <span class="math inline">\((i_1,\dots,  i_d)\)</span>, satisfying <span class="math inline">\(i_1+\dots+i_d=m\)</span> of the number of times each
+<p>To get the answer, we start by fixing a possible “count” <span class="math inline">\((i_1,\dots,
+        i_d)\)</span>, satisfying <span class="math inline">\(i_1+\dots+i_d=m\)</span> of the number of times each
 of the values in <span class="math inline">\(\{1,2,\dots, d\}\)</span> occurs. These values have to be
 placed in <span class="math inline">\(m\)</span> of the <span class="math inline">\(2m\)</span> slots and their negatives (possibly in a
 different order) in the remaining <span class="math inline">\(m\)</span> slots. So, first, we choose the
@@ -729,7 +734,7 @@ transient for all <span class="math inline">\(d\geq 3\)</span>, too (why?).</p><
 </ol>
 <p>To summarize</p>
 <div class="theorem">
-<p><span id="thm:unlabeled-div-168" class="theorem"><strong>Theorem 6.3  (Polya's theorem) </strong></span>The simple symmetric random walk is recurrent for <span class="math inline">\(d=1,2\)</span>, but transient
+<p><span id="thm:unlabeled-div-170" class="theorem"><strong>Theorem 6.3  (Polya's theorem) </strong></span>The simple symmetric random walk is recurrent for <span class="math inline">\(d=1,2\)</span>, but transient
 for <span class="math inline">\(d\geq 3\)</span>.</p>
 </div>
 <p>In the words of Shizuo Kakutani</p>
@@ -750,10 +755,10 @@ class, whenever it holds for any one particular state in the that class.</p>
 <p>Put differently, a property is a class property if and only if either
 all states in a class have it or none does.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-169" class="exercise"><strong>Problem 6.7  (Extra Credit) </strong></span>Show that transience and recurrence are class properties.</p>
+<p><span id="exr:unlabeled-div-171" class="exercise"><strong>Problem 6.7  (Extra Credit) </strong></span>Show that transience and recurrence are class properties.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-170" class="solution"><em>Solution</em>. </span>We use the recurrence criterion proved above.</p>
+<p><span id="unlabeled-div-172" class="solution"><em>Solution</em>. </span>We use the recurrence criterion proved above.</p>
 <p>Suppose that the state <span class="math inline">\(i\)</span> is recurrent, and that <span class="math inline">\(j\)</span> is in its class,
 i.e., that <span class="math inline">\(i\leftrightarrow j\)</span>. Then, there exist natural numbers <span class="math inline">\(m\)</span> and <span class="math inline">\(k\)</span>
 such that <span class="math inline">\(p^{(m)}_{ij}&gt;0\)</span> and <span class="math inline">\(p^{(k)}_{ji}&gt;0\)</span>. By the
@@ -772,11 +777,11 @@ class property, and since transience is just the opposite of recurrence,
 it is clear that transience is also a class property, too.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-171" class="exercise"><strong>Problem 6.8  (Extra Credit) </strong></span>Show that period is a class property, i.e., all elements of a class have the same
+<p><span id="exr:unlabeled-div-173" class="exercise"><strong>Problem 6.8  (Extra Credit) </strong></span>Show that period is a class property, i.e., all elements of a class have the same
 period.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-172" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(d=d(i)\)</span> be the period of the state <span class="math inline">\(i\)</span>, and let <span class="math inline">\(j\leftrightarrow i\)</span>. Then,
+<p><span id="unlabeled-div-174" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(d=d(i)\)</span> be the period of the state <span class="math inline">\(i\)</span>, and let <span class="math inline">\(j\leftrightarrow i\)</span>. Then,
 there exist natural numbers <span class="math inline">\(m\)</span> and <span class="math inline">\(k\)</span> such that <span class="math inline">\(p^{(m)}_{ij}&gt;0\)</span> and
 <span class="math inline">\(p^{(k)}_{ji}&gt;0\)</span>. By Chapman-Kolmogorov,
 <span class="math display">\[p^{(m+k)}_{ii}\geq p^{(m)}_{ij}p^{(k)}_{ji}&gt;0,\]</span> and so <span class="math inline">\(m+k\in R(i)\)</span>.
@@ -809,7 +814,7 @@ enumerated because there are at most countably many of them.</p>
 important, so we pack all transient states together in a set
 <span class="math inline">\(T=T_1\cup T_2\cup \dots\)</span>.</p>
 <div class="definition">
-<p><span id="def:unlabeled-div-173" class="definition"><strong>Definition 6.1  </strong></span>Let <span class="math inline">\(S\)</span> be the state space of a Markov chain <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Let
+<p><span id="def:unlabeled-div-175" class="definition"><strong>Definition 6.1  </strong></span>Let <span class="math inline">\(S\)</span> be the state space of a Markov chain <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Let
 <span class="math inline">\(C_1,C_2, \dots\)</span> be its recurrent classes, <span class="math inline">\(T_1,T_2,\dots\)</span> the
 transient classes, and let <span class="math inline">\(T=T_1\cup T_2\cup \dots\)</span> be their union. The
 decomposition <span class="math display">\[S= T \cup C_1 \cup C_2 \cup C_3 \cup \dots,\]</span> is called
@@ -819,10 +824,10 @@ the <strong>canonical decomposition</strong> of the (state space of the) Markov 
 interpreted as Markov chains themselves. To see why, we start with the following
 problem:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-174" class="exercise"><strong>Problem 6.9  </strong></span>Show that recurrent classes are necessarily closed.</p>
+<p><span id="exr:unlabeled-div-176" class="exercise"><strong>Problem 6.9  </strong></span>Show that recurrent classes are necessarily closed.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-175" class="solution"><em>Solution</em>. </span>We argue by contradiction and assume that that <span class="math inline">\(C\)</span> is a recurrent class
+<p><span id="unlabeled-div-177" class="solution"><em>Solution</em>. </span>We argue by contradiction and assume that that <span class="math inline">\(C\)</span> is a recurrent class
 which is not closed. Then, there
 exist states <span class="math inline">\(i\in C\)</span> and <span class="math inline">\(j\in C^c\)</span> such that <span class="math inline">\(i{\rightarrow}j\)</span>. On the other
 hand, since <span class="math inline">\(j\not\in C\)</span> and <span class="math inline">\(C\)</span> is a class, we cannot have <span class="math inline">\(j{\rightarrow}i\)</span>.
@@ -835,11 +840,11 @@ the Return Theorem above.</p>
 <p>The fact we just proved implies the following nice dichotomy, valid for
 every finite-state-space chain:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-176" class="exercise"><strong>Problem 6.10  </strong></span>A class of a Markov chain on a <em>finite</em> state space is recurrent if and
+<p><span id="exr:unlabeled-div-178" class="exercise"><strong>Problem 6.10  </strong></span>A class of a Markov chain on a <em>finite</em> state space is recurrent if and
 only if it is closed.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-177" class="solution"><em>Solution</em>. </span>We know that recurrent classes are closed. In order to show the
+<p><span id="unlabeled-div-179" class="solution"><em>Solution</em>. </span>We know that recurrent classes are closed. In order to show the
 converse, we need to prove that transient classes are not closed.
 Suppose, to the contrary, the there exists a finite state-space Markov
 chain with a closed transient class <span class="math inline">\(T\)</span>. Since <span class="math inline">\(T\)</span> is closed, we can see
@@ -865,7 +870,8 @@ P_1 &amp; 0   &amp; 0   &amp; \dots &amp; 0 \\
 Q_1 &amp; Q_2 &amp; Q_3 &amp; \dots &amp; \dots
 \end{bmatrix},\]</span> where the entries should be interpreted as matrices:
 <span class="math inline">\(P_1\)</span> is the transition matrix within the first class, i.e.,
-<span class="math inline">\(P_1=(p_{ij},i\in C_1, j\in C_1)\)</span>, etc. <span class="math inline">\(Q_k\)</span> contains the transition probabilities from the
+<span class="math inline">\(P_1=(p_{ij},i\in C_1,
+j\in C_1)\)</span>, etc. <span class="math inline">\(Q_k\)</span> contains the transition probabilities from the
 transient states to the states in the (recurrent) class <span class="math inline">\(C_k\)</span>. We learned, above, that recurrent classes are closed, which implies implies that each <span class="math inline">\(P_k\)</span> is a stochastic
 matrix, or, equivalently, that all the entries in the row of <span class="math inline">\(P_k\)</span>
 outside of <span class="math inline">\(P_k\)</span> are zeros.</p>
@@ -982,7 +988,7 @@ class-TF
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-178" class="exercise"><strong>Problem 6.11  </strong></span>Let <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> be two (different) classes. For each of the following statements either explain
+<p><span id="exr:unlabeled-div-180" class="exercise"><strong>Problem 6.11  </strong></span>Let <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> be two (different) classes. For each of the following statements either explain
 why it is true, or give an example showing that it is false.</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(i{\rightarrow}j\)</span> or <span class="math inline">\(j{\rightarrow}i\)</span>, for all <span class="math inline">\(i\in C_1\)</span>, and <span class="math inline">\(j\in C_2\)</span>,</p></li>
@@ -1008,7 +1014,7 @@ some <span class="math inline">\(k\in C_2\)</span> and <span class="math inline"
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-179" class="exercise"><strong>Problem 6.12  </strong></span>Consider a Markov Chain whose transition graph is given below (with orange edges having probability <span class="math inline">\(1/2\)</span>, black <span class="math inline">\(1\)</span>, blue <span class="math inline">\(3/4\)</span> and green <span class="math inline">\(1/4\)</span>)</p>
+<p><span id="exr:unlabeled-div-181" class="exercise"><strong>Problem 6.12  </strong></span>Consider a Markov Chain whose transition graph is given below (with orange edges having probability <span class="math inline">\(1/2\)</span>, black <span class="math inline">\(1\)</span>, blue <span class="math inline">\(3/4\)</span> and green <span class="math inline">\(1/4\)</span>)</p>
 <p><img src="pics/cl-stat-02_chain.png" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Identify the classes.</p></li>
@@ -1049,7 +1055,7 @@ distribution of <span class="math inline">\(X_0\)</span>) is given by <span clas
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-180" class="exercise"><strong>Problem 6.13  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
+<p><span id="exr:unlabeled-div-182" class="exercise"><strong>Problem 6.13  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
 of the <span class="math inline">\(n\)</span>-th roll is denoted by <span class="math inline">\(Y_n\)</span> (it is assumed that <span class="math inline">\(\{Y_n\}_{n\in{\mathbb{N}}}\)</span> are
 independent of each other). For <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>, let <span class="math inline">\(X_n\)</span> be the remainder
 (taken in the set <span class="math inline">\(\{0,1,2,3,4\}\)</span>) left after the sum
@@ -1077,7 +1083,7 @@ state.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-181" class="exercise"><strong>Problem 6.14  </strong></span>Which of the following
+<p><span id="exr:unlabeled-div-183" class="exercise"><strong>Problem 6.14  </strong></span>Which of the following
 statements is true? Give a short explanation (or a counterexample where
 appropriate) for your choice. <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is a Markov chain with state
 space <span class="math inline">\(S\)</span>.</p>
@@ -1108,7 +1114,7 @@ for all <span class="math inline">\(i,j\)</span>.)</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-182" class="exercise"><strong>Problem 6.15  </strong></span>Let <span class="math inline">\(C\)</span> be a class in a
+<p><span id="exr:unlabeled-div-184" class="exercise"><strong>Problem 6.15  </strong></span>Let <span class="math inline">\(C\)</span> be a class in a
 Markov chain. For each of the following statements either explain why it
 is true, or give an example showing that it is false.</p>
 <ol style="list-style-type: decimal">
@@ -1133,7 +1139,7 @@ is true, or give an example showing that it is false.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-183" class="exercise"><strong>Problem 6.16  </strong></span>Consider a Markov chain whose
+<p><span id="exr:unlabeled-div-185" class="exercise"><strong>Problem 6.16  </strong></span>Consider a Markov chain whose
 state space has <span class="math inline">\(n\)</span> elements (<span class="math inline">\(n\in{\mathbb{N}}\)</span>). For each of the following
 statements either explain why it is true, or give an example showing
 that it is false.</p>
@@ -1159,7 +1165,7 @@ that it is false.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-184" class="exercise"><strong>Problem 6.17  </strong></span>Let <span class="math inline">\(i\)</span> be a recurrent state
+<p><span id="exr:unlabeled-div-186" class="exercise"><strong>Problem 6.17  </strong></span>Let <span class="math inline">\(i\)</span> be a recurrent state
 with period 5, and let <span class="math inline">\(j\)</span> be another state. For each of the following
 statements either explain why it is true, or give an example showing
 that it is false.</p>
@@ -1184,7 +1190,7 @@ that it is false.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-185" class="exercise"><strong>Problem 6.18  </strong></span>Let <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> be two states such that <span class="math inline">\(i\)</span> is transient and <span class="math inline">\(i\leftrightarrow j\)</span>. For
+<p><span id="exr:unlabeled-div-187" class="exercise"><strong>Problem 6.18  </strong></span>Let <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> be two states such that <span class="math inline">\(i\)</span> is transient and <span class="math inline">\(i\leftrightarrow j\)</span>. For
 each of the following statements either explain why it is true, or give an
 example showing that it is false.</p>
 <ol style="list-style-type: decimal">
@@ -1208,7 +1214,7 @@ example showing that it is false.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-186" class="exercise"><strong>Problem 6.19  </strong></span>Suppose there exists <span class="math inline">\(n\in{\mathbb{N}}\)</span>
+<p><span id="exr:unlabeled-div-188" class="exercise"><strong>Problem 6.19  </strong></span>Suppose there exists <span class="math inline">\(n\in{\mathbb{N}}\)</span>
 such that <span class="math inline">\(P^n=I\)</span>, where <span class="math inline">\(I\)</span> is the identity matrix and <span class="math inline">\(P\)</span> is the
 transition matrix of a finite-state-space Markov chain. For each of the
 following statements either explain why it is true, or give an example
@@ -1235,7 +1241,7 @@ showing that it is false.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-187" class="exercise"><strong>Problem 6.20  </strong></span>Suppose that all classes of a Markov chain are recurrent, and let <span class="math inline">\(i,j\)</span>
+<p><span id="exr:unlabeled-div-189" class="exercise"><strong>Problem 6.20  </strong></span>Suppose that all classes of a Markov chain are recurrent, and let <span class="math inline">\(i,j\)</span>
 be two states such that <span class="math inline">\(i{\rightarrow}j\)</span>. For each of the 4 statements before,
 either explain why it is true, or give an example of a Markov chain in
 which it fails.</p>
@@ -1295,6 +1301,7 @@ which it fails.</p>
 
 
 
+
 <div class="footnotes">
 <hr />
 <ol start="8">
@@ -1302,7 +1309,8 @@ which it fails.</p>
 “’right”, for <span class="math inline">\(1,-1,2\)</span> or <span class="math inline">\(-2\)</span>, respectively. In dimension <span class="math inline">\(3\)</span>, we
 could have added “forward” and “backward”, but we run out of words
 for directions for larger <span class="math inline">\(d\)</span>.<a href="classification-of-states.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p> <span class="math inline">\(\binom{m}{i_1  \dots i_d}\)</span> is called the <em>multinomial coefficient</em>. It
+<li id="fn9"><p> <span class="math inline">\(\binom{m}{i_1
+            \dots i_d}\)</span> is called the <em>multinomial coefficient</em>. It
 counts the number of ways we can color <span class="math inline">\(m\)</span> objects into one of <span class="math inline">\(d\)</span>
 colors such that there are <span class="math inline">\(i_1\)</span> objects of color <span class="math inline">\(1\)</span>, <span class="math inline">\(i_2\)</span> of
 color <span class="math inline">\(2\)</span>, etc. It is a generalization of the binomial coefficient

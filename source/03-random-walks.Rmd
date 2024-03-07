@@ -692,16 +692,16 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
-<!-- ::: {.solution} -->
-<!-- \ -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/area_under_walk_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+```{r child="problems/01_Random_Walks/area_under_walk_sol.Rmd"}
+```
+:::
+</details>
 
 
 ::: {.exercise}
@@ -709,15 +709,15 @@ ggplot(walk_jittered, aes(x=t, y=X, group = omega, color=weight))+geom_line(size
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
+<details>
+  <summary>Click for Solution</summary>
 
-<!-- ::: {.solution} -->
-<!-- \ -->
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/three-rv_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+```{r child="problems/01_Random_Walks/three-rv_sol.Rmd"}
+```
+:::
+</details>
 
 ## Endnotes

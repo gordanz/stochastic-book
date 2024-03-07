@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 More about Random Walks | Lecture notes for “Introduction to Stochastic Processes”</title>
   <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 More about Random Walks | Lecture notes for “Introduction to Stochastic Processes”" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,11 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -104,14 +104,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -279,10 +279,10 @@ probabilities.</p>
 and ask what the probabilities <span class="math inline">\({\mathbb{P}}[M_n = k]\)</span> for <span class="math inline">\(k=0,\dots, n\)</span> are.
 An easy numerical solution to this problem can be given by simulation. We reuse the function
 <code>simulate_walk</code> defined at the beginning of the chapter, but also employ a new function, called <code>apply</code> which “applies” a function to each row (or column) of a data frame or a matrix. It seems to be tailor-made for our purpose<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> because we want to compute the maximum of each row of the simulation matrix (remember - the row means keep the realization fixed, but vary the time-index <span class="math inline">\(n\)</span>). The syntax of <code>apply</code> is simple - it needs the data frame, the margin (rows are coded as 1 and columns as 2; so when the margin is 1, the function is applied row-wise and when the margin is 2, the function is applied column-wise) and the function to be applied (<code>max</code> in our case). The output is a vector of size <code>nsim</code> with all row-wise maxima:</p>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="more-about-random-walks.html#cb152-1" aria-hidden="true" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="dv">100000</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
-<span id="cb152-2"><a href="more-about-random-walks.html#cb152-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">apply</span>(walk, <span class="dv">1</span>, max)</span>
-<span id="cb152-3"><a href="more-about-random-walks.html#cb152-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(M, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-172-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="more-about-random-walks.html#cb161-1" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="dv">100000</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
+<span id="cb161-2"><a href="more-about-random-walks.html#cb161-2" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">apply</span>(walk, <span class="dv">1</span>, max)</span>
+<span id="cb161-3"><a href="more-about-random-walks.html#cb161-3" tabindex="-1"></a><span class="fu">hist</span>(M, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-174-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The overall shape of the distribution is as we expected; the support is <span class="math inline">\(\{0,1,2,\dots, 12\}\)</span> and the
 probabilities tend to decrease as <span class="math inline">\(k\)</span> gets larger. The unexpected feature is that <span class="math inline">\({\mathbb{P}}[ M_{12} = 1]\)</span> seems
 to be the same as <span class="math inline">\({\mathbb{P}}[ M_{12} = 2]\)</span>. It drops after that for <span class="math inline">\(k=3\)</span>, but it looks like
@@ -310,7 +310,7 @@ We can further split <span class="math inline">\(A_l\)</span> into three disjoin
 In the picture below, the red trajectory is in <span class="math inline">\(A_l^{&gt;}\)</span>, the green trajectory in <span class="math inline">\(A_l^=\)</span>
 the orange one in <span class="math inline">\(A_l^{&lt;}\)</span>, while the blue one is not in <span class="math inline">\(A_l\)</span> at all.</p>
 <center>
-<p><img src="_main_files/figure-html/unnamed-chunk-173-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-175-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </center>
 <p>With the set of all trajectories <span class="math inline">\(\Omega\)</span> partitioned into four disjoint classes, namely <span class="math inline">\(A^&gt;_l, A^=_l, A^&lt;_l\)</span> and <span class="math inline">\((A_l)^c\)</span>, we are ready to reveal the main idea behind the reflection principle:</p>
 <center style="margin-bottom: 20px;">
@@ -328,7 +328,7 @@ in the following way:</p>
 <p>Equivalently the increments of <span class="math inline">\(\omega\)</span> and <span class="math inline">\(\bar{\omega}\)</span> are exactly the same up to time <span class="math inline">\(\tau(\omega)\)</span>, and exactly the opposite afterwards. In the picture below - the orange trajectory is <span class="math inline">\(\omega\)</span> and the green trajectory is its
 “reflection” <span class="math inline">\(\bar{\omega}\)</span>; note that they overlap until time <span class="math inline">\(5\)</span>:</p>
 <center>
-<p><img src="_main_files/figure-html/unnamed-chunk-174-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="80%" style="display: block; margin: auto;" /></p>
 </center>
 <p>Convince yourself that this procedure establishes
 a bijection between the sets <span class="math inline">\(A_l^{&gt;}\)</span> and <span class="math inline">\(A_l^{&lt;}\)</span>, making these two
@@ -384,21 +384,21 @@ In a similar way, for <span class="math inline">\(n\)</span> odd, we have
 \end{align}\]</span></p>
 <p>Here is a example of a typical problem where the reflection principle (i.e., the formula for <span class="math inline">\({\mathbb{P}}[M_n=k]\)</span>) is used:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-85" class="exercise"><strong>Problem 4.1  </strong></span>Let <span class="math inline">\(X\)</span> be a simple symmetric random walk.
+<p><span id="exr:unlabeled-div-87" class="exercise"><strong>Problem 4.1  </strong></span>Let <span class="math inline">\(X\)</span> be a simple symmetric random walk.
 What is the probability that <span class="math inline">\(X_n\leq 0\)</span> for all <span class="math inline">\(0\leq n \leq T\)</span>?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-86" class="solution"><em>Solution</em>. </span>This is really a question about the maximum, but in disguise. The walk will stay negative or <span class="math inline">\(0\)</span> if and only if its running maximum <span class="math inline">\(M_T\)</span> at time <span class="math inline">\(T\)</span> takes the value <span class="math inline">\(0\)</span>. By our formula for <span class="math inline">\({\mathbb{P}}[M_n=l]\)</span> we have
+<p><span id="unlabeled-div-88" class="solution"><em>Solution</em>. </span>This is really a question about the maximum, but in disguise. The walk will stay negative or <span class="math inline">\(0\)</span> if and only if its running maximum <span class="math inline">\(M_T\)</span> at time <span class="math inline">\(T\)</span> takes the value <span class="math inline">\(0\)</span>. By our formula for <span class="math inline">\({\mathbb{P}}[M_n=l]\)</span> we have
 <span class="math display">\[ {\mathbb{P}}[M_T=0] = {\mathbb{P}}[X_T=0] + {\mathbb{P}}[X_T = 1].\]</span>
 When <span class="math inline">\(T=2N\)</span> this evaluates to <span class="math inline">\(\binom{2N}{N} 2^{-2N}\)</span>, and when <span class="math inline">\(T=2N-1\)</span> to
 <span class="math inline">\(\binom{2N-1}{N} 2^{-(2N-1)}\)</span>.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-87" class="exercise"><strong>Problem 4.2  </strong></span>What is the probability that a simple symmetric random walk will reach the level <span class="math inline">\(l=1\)</span> in <span class="math inline">\(T\)</span> steps or fewer?
+<p><span id="exr:unlabeled-div-89" class="exercise"><strong>Problem 4.2  </strong></span>What is the probability that a simple symmetric random walk will reach the level <span class="math inline">\(l=1\)</span> in <span class="math inline">\(T\)</span> steps or fewer?
 What happens when <span class="math inline">\(T\to\infty\)</span>?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-88" class="solution"><em>Solution</em>. </span>The first question is exactly the opposite of the question in our previous example, so the answer is
+<p><span id="unlabeled-div-90" class="solution"><em>Solution</em>. </span>The first question is exactly the opposite of the question in our previous example, so the answer is
 <span class="math display">\[ 1 - {\mathbb{P}}[M_T=0] = 1- {\mathbb{P}}[X_T=0] - {\mathbb{P}}[X_T=1].\]</span>
 As above, this evaluates to <span class="math inline">\(1-\binom{2N}{N} 2^{-2N}\)</span> when <span class="math inline">\(T=2N\)</span> is even (we skip the case of odd <span class="math inline">\(T\)</span> because it is very similar).
 When <span class="math inline">\(N\to\infty\)</span>, we expect <span class="math inline">\(\binom{2N}{N}\)</span> to go to <span class="math inline">\(+\infty\)</span> and <span class="math inline">\(2^{-2N}\)</span> to go to
@@ -439,7 +439,7 @@ following remarkable result</p>
 to a classical problem in probability and combinatorics. Feel free to skip it
 if you want to.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-89" class="exercise"><strong>Problem 4.3  (Extra Credit) </strong></span>Suppose that two
+<p><span id="exr:unlabeled-div-91" class="exercise"><strong>Problem 4.3  (Extra Credit) </strong></span>Suppose that two
 candidates, Daisy and Oscar, are running for office, and <span class="math inline">\(T \in{\mathbb{N}}\)</span>
 voters cast their ballots. Votes are counted the old-fashioned way,
 namely by the same official, one by one, until all <span class="math inline">\(T\)</span> of them have been
@@ -451,7 +451,7 @@ is the probability that at no time during the counting has Oscar been in
 the lead?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-90" class="solution"><em>Solution</em>. </span>We assume that the order in which the official counts the votes is
+<p><span id="unlabeled-div-92" class="solution"><em>Solution</em>. </span>We assume that the order in which the official counts the votes is
 completely independent of the actual votes, and that each voter chooses
 Daisy with probability <span class="math inline">\(p\in (0,1)\)</span> and Oscar with probability <span class="math inline">\(q=1-p\)</span>.
 We don’t know <em>a priori</em> what <span class="math inline">\(p\)</span> is, and, as it turns out, we don’t need to!</p>
@@ -491,7 +491,7 @@ all paths which finish at <span class="math inline">\(k\)</span>, but cross (or,
 reflection of any trajectory corresponding to <span class="math inline">\(\omega \in H\)</span> around the
 level <span class="math inline">\(l=-1\)</span> after its last hitting time of that level produces a
 trajectory that starts at <span class="math inline">\(0\)</span> and ends at <span class="math inline">\(-k-2\)</span>, and vice versa.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-175-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-177-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>The
 number of paths from <span class="math inline">\(0\)</span> to <span class="math inline">\(-k-2\)</span> is easy to count - it is equal to
 <span class="math inline">\(\binom{T}{(T+k)/2+1}\)</span>. Putting everything together, we get
@@ -513,17 +513,17 @@ below zero is called the <strong><span class="math inline">\(n\)</span>-th Catal
 \end{align}\]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-91" class="exercise"><strong>Problem 4.4  (Extra Credit) </strong></span>Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, compute <span class="math inline">\({\mathbb{P}}[ \tau_1 = 2n+1 ]\)</span> for a simple, but possibly biased, random walk. (Note: Clearly, <span class="math inline">\({\mathbb{P}}[ \tau_1=2n]=0\)</span>.)</p>
+<p><span id="exr:unlabeled-div-93" class="exercise"><strong>Problem 4.4  (Extra Credit) </strong></span>Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, compute <span class="math inline">\({\mathbb{P}}[ \tau_1 = 2n+1 ]\)</span> for a simple, but possibly biased, random walk. (Note: Clearly, <span class="math inline">\({\mathbb{P}}[ \tau_1=2n]=0\)</span>.)</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-92" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(A\)</span> denote the set of all trajectories of length <span class="math inline">\(2n+1\)</span> that hit <span class="math inline">\(1\)</span> for the first time at time <span class="math inline">\(2n+1\)</span>, and let <span class="math inline">\(A&#39;\)</span> be the set of all trajectories of length <span class="math inline">\(2n\)</span> which stay at or below <span class="math inline">\(0\)</span> at all times and take the value <span class="math inline">\(0\)</span> at time <span class="math inline">\(2n\)</span>.
+<p><span id="unlabeled-div-94" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(A\)</span> denote the set of all trajectories of length <span class="math inline">\(2n+1\)</span> that hit <span class="math inline">\(1\)</span> for the first time at time <span class="math inline">\(2n+1\)</span>, and let <span class="math inline">\(A&#39;\)</span> be the set of all trajectories of length <span class="math inline">\(2n\)</span> which stay at or below <span class="math inline">\(0\)</span> at all times and take the value <span class="math inline">\(0\)</span> at time <span class="math inline">\(2n\)</span>.
 Clearly, each trajectory in <span class="math inline">\(A\)</span> is a trajectory in <span class="math inline">\(A&#39;\)</span> with <span class="math inline">\(1\)</span> attached at the very end, so that <span class="math inline">\(\# A = \# A&#39;\)</span>.</p>
 <p>By the (last part) of the previous problem, <span class="math inline">\(\# A&#39; = \frac{1}{n+1} \binom{2n}{n}\)</span> (the <span class="math inline">\(n^{\text{th}}\)</span> Catalan number).
 As above, all paths in <span class="math inline">\(A\)</span> have the same probability weight, namely <span class="math inline">\(p^{n+1} q^n\)</span>, so
 <span class="math display">\[ {\mathbb{P}}[ \tau_1 = 2n+1]= p^{n+1} q^n \frac{1}{n+1} \binom{2n}{n}.\]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-93" class="exercise"><strong>Problem 4.5  (Extra Credit) </strong></span>Given <span class="math inline">\(p\in (0,1)\)</span>,</p>
+<p><span id="exr:unlabeled-div-95" class="exercise"><strong>Problem 4.5  (Extra Credit) </strong></span>Given <span class="math inline">\(p\in (0,1)\)</span>,</p>
 <ol style="list-style-type: decimal">
 <li>compute <span class="math inline">\({\mathbb{P}}[\tau_1&lt;\infty]\)</span>;</li>
 <li>decide whether or not <span class="math inline">\({\mathbb{E}}[\tau_1]&lt;\infty\)</span>;</li>
@@ -531,7 +531,7 @@ As above, all paths in <span class="math inline">\(A\)</span> have the same prob
 </ol>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-94" class="solution"><em>Solution</em>. </span><br />
+<p><span id="unlabeled-div-96" class="solution"><em>Solution</em>. </span><br />
 </p>
 <ol style="list-style-type: decimal">
 <li><p>Using the previous problem, we need to sum the following series
@@ -540,7 +540,7 @@ As above, all paths in <span class="math inline">\(A\)</span> have the same prob
 \sum_{n=0}^{\infty} (pq)^n \frac{1}{n+1} \binom{2n}{n}.\]</span> The sum looks
 difficult, so let us plot a numerical approximation of its value for different
 values of the parameter <span class="math inline">\(p\)</span> (the true value is plotted in orange):</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-176-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-178-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>We conjecture that <span class="math inline">\({\mathbb{P}}[ \tau_1 &lt;\infty ] = 1\)</span> for <span class="math inline">\(p\geq \tfrac{1}{2}\)</span>, but <span class="math inline">\({\mathbb{P}}[ \tau_1&lt;\infty]&lt;1\)</span> for <span class="math inline">\(p&lt;\tfrac{1}{2}\)</span>.
 Indeed, using methods beyond the scope of these notes, it can be shown that our conjecture is true and that
 <span class="math display">\[ {\mathbb{P}}[ \tau_1&lt;\infty ] =\begin{cases} 1, &amp; p \geq \tfrac{1}{2}\\ \frac{p}{q}, &amp; p&lt;\tfrac{1}{2}. \end{cases} \]</span></p></li>
@@ -595,7 +595,8 @@ maximal value in the interval <span class="math inline">\(\{0,1,\dots, 100\}\)</
 times</strong>. Here is a more precise, mathematical, definition. You should note that
 we allow our stopping times to take the value <span class="math inline">\(+\infty\)</span>. The usual
 interpretation is that whatever the stopping time is modeling never happens.</p>
-<p><strong>Definition.</strong> A random variable <span class="math inline">\(\tau\)</span> taking values in <span class="math inline">\({\mathbb{N}}_0\cup\{+\infty\} = \{0,1,2,\dots, +\infty\}\)</span> is said to be a <strong>stopping time</strong> with respect to
+<p><strong>Definition.</strong> A random variable <span class="math inline">\(\tau\)</span> taking values in <span class="math inline">\({\mathbb{N}}_0\cup\{+\infty\}
+= \{0,1,2,\dots, +\infty\}\)</span> is said to be a <strong>stopping time</strong> with respect to
 the process <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> if for each <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> there exists a function
 <span class="math inline">\(G^n:{\mathbb{R}}^{n+1}\to \{0,1\}\)</span> such that <span class="math display">\[\mathbf{1}_{\{\tau=n\}}=G^n(X_0,X_1,\dots, X_n),
 \text{ for all } n\in{\mathbb{N}}_0.\]</span></p>
@@ -656,13 +657,13 @@ things must happen:</p>
 particular trajectory of a symmetric simple random walk is depicted
 below:</p></li>
 </ol>
-<p><img src="_main_files/figure-html/unnamed-chunk-177-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-179-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li><p>How about something that is <em>not</em> a stopping time? Let <span class="math inline">\(T\in{\mathbb{N}}\)</span> be
 an arbitrary time-horizon and let <span class="math inline">\(\tau_{\max}\)</span> be the last time during
 <span class="math inline">\(0,\dots, T\)</span> that the random walk visits its maximum during
 <span class="math inline">\(0,\dots, T\)</span>:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-178-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-180-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>If you bought a share of a stock
 at time <span class="math inline">\(n=0\)</span>, had to sell it some time before or at <span class="math inline">\(T\)</span> and had the
 ability to predict the future, this is one of the points you would
@@ -673,7 +674,8 @@ knowledge of the values of the random walk after <span class="math inline">\(n\)
 precisely, let us sketch the proof of the fact that <span class="math inline">\(\tau_{\max}\)</span> is not a
 stopping time. Suppose, to the contrary, that it is, and let <span class="math inline">\(G^n\)</span>
 be the associated family of decision functions. Consider the following two
-trajectories: <span class="math inline">\((0,1,2,3,\dots,  T-1,T)\)</span> and <span class="math inline">\((0,1,2,3,\dots, T-1,T-2)\)</span>. They differ only in the
+trajectories: <span class="math inline">\((0,1,2,3,\dots,
+  T-1,T)\)</span> and <span class="math inline">\((0,1,2,3,\dots, T-1,T-2)\)</span>. They differ only in the
 direction of the last step. They also differ in the fact that
 <span class="math inline">\(\tau_{\max}=T\)</span> for the first one and <span class="math inline">\(\tau_{\max}=T-1\)</span> for the second one. On the
 other hand, by the definition of the decision functions, we have
@@ -696,12 +698,12 @@ This is exactly what you would expect; the elementary outcome <span class="math 
 <span class="math display">\[ {\mathbb{E}}[X_{\tau}] = {\mathbb{E}}[\tau] \mu \text{ where } \mu = {\mathbb{E}}[\xi_1] = {\mathbb{E}}[\xi_2] = \dots \]</span></p>
 <p>Before we prove this theorem, here is a handy identity:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-95" class="exercise"><strong>Problem 4.6  </strong></span>(The “tail formula” for the expectation) Let <span class="math inline">\(\tau\)</span> be an
+<p><span id="exr:unlabeled-div-97" class="exercise"><strong>Problem 4.6  </strong></span>(The “tail formula” for the expectation) Let <span class="math inline">\(\tau\)</span> be an
 <span class="math inline">\({\mathbb{N}}_0\)</span>-valued random variable. Show that
 <span class="math display">\[{\mathbb{E}}[\tau]=\sum_{k=1}^{\infty} {\mathbb{P}}[\tau \geq k].\]</span></p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-96" class="solution"><em>Solution</em>. </span>Clearly, <span class="math inline">\({\mathbb{P}}[\tau\geq k] = {\mathbb{P}}[ \tau=k] + {\mathbb{P}}[\tau=k+1]+\dots\)</span>.
+<p><span id="unlabeled-div-98" class="solution"><em>Solution</em>. </span>Clearly, <span class="math inline">\({\mathbb{P}}[\tau\geq k] = {\mathbb{P}}[ \tau=k] + {\mathbb{P}}[\tau=k+1]+\dots\)</span>.
 Therefore,</p>
 <p><span class="math display">\[
 \begin{array}{cccccccc}
@@ -716,12 +718,13 @@ Hence
 <span class="math display">\[\sum_{k=1}^{\infty} {\mathbb{P}}[ \tau\geq k] = \sum_{n=1}^{\infty} n {\mathbb{P}}[\tau=n] = {\mathbb{E}}[\tau].\]</span></p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-97" class="exercise"><strong>Problem 4.7  (Extra Credit) </strong></span>Prove Wald’s identity.</p>
+<p><span id="exr:unlabeled-div-99" class="exercise"><strong>Problem 4.7  (Extra Credit) </strong></span>Prove Wald’s identity.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-98" class="solution"><em>Solution</em>. </span>Here is another representation of the random variable <span class="math inline">\(X_{\tau}\)</span>:
+<p><span id="unlabeled-div-100" class="solution"><em>Solution</em>. </span>Here is another representation of the random variable <span class="math inline">\(X_{\tau}\)</span>:
 <span class="math display">\[X_{\tau} = \sum_{k=1}^{\tau} \xi_k=\sum_{k=1}^{\infty} \xi_k \mathbf{1}_{\{k\leq \tau\}}.\]</span> The idea
-behind it is simple: add all the values of <span class="math inline">\(\xi_k\)</span> for <span class="math inline">\(k\leq \tau\)</span> and keep adding zeros (since <span class="math inline">\(\xi_k \mathbf{1}_{\{k\leq \tau\}}=0\)</span> for <span class="math inline">\(k&gt;\tau\)</span>)
+behind it is simple: add all the values of <span class="math inline">\(\xi_k\)</span> for <span class="math inline">\(k\leq
+\tau\)</span> and keep adding zeros (since <span class="math inline">\(\xi_k \mathbf{1}_{\{k\leq \tau\}}=0\)</span> for <span class="math inline">\(k&gt;\tau\)</span>)
 after that. Taking expectation of both sides and switching <span class="math inline">\({\mathbb{E}}\)</span> and
 <span class="math inline">\(\sum\)</span> (this can be justified, but the argument is technical and we omit
 it here) yields: <span class="math display">\[
@@ -760,10 +763,10 @@ where the last equality follows from the fact that all <span class="math inline"
 where we use the “tail formula” to get the last equality.</p>
 </div>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-99" class="exercise"><strong>Problem 4.8  </strong></span>Show, by giving an example, that Wald’s identity does not necessarily hold if <span class="math inline">\(\tau\)</span> is not a stopping time.</p>
+<p><span id="exr:unlabeled-div-101" class="exercise"><strong>Problem 4.8  </strong></span>Show, by giving an example, that Wald’s identity does not necessarily hold if <span class="math inline">\(\tau\)</span> is not a stopping time.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-100" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(X\)</span> be a simple symmetric random walk, and let <span class="math inline">\(\tau\)</span> be a random time constructed like this:
+<p><span id="unlabeled-div-102" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(X\)</span> be a simple symmetric random walk, and let <span class="math inline">\(\tau\)</span> be a random time constructed like this:
 <span class="math display">\[\begin{align}
     \tau = \begin{cases} 1, &amp; X_1=1 \\ 0,&amp; X_1=-1. \end{cases}
   \end{align}\]</span>
@@ -779,7 +782,7 @@ Its occurrence depends on whether <span class="math inline">\(X_1=1\)</span> or 
 </div>
 <p>A famous use of Wald’s identity is in the solution of the following classical problem:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-101" class="exercise"><strong>Problem 4.9  </strong></span>A gambler starts with <span class="math inline">\(\$x\)</span> dollars and repeatedly plays a game in
+<p><span id="exr:unlabeled-div-103" class="exercise"><strong>Problem 4.9  </strong></span>A gambler starts with <span class="math inline">\(\$x\)</span> dollars and repeatedly plays a game in
 which she wins a dollar with probability <span class="math inline">\(\tfrac{1}{2}\)</span> and loses a dollar with
 probability <span class="math inline">\(\tfrac{1}{2}\)</span>. She decides to stop when one of the following two
 things happens:</p>
@@ -792,7 +795,7 @@ the following question: what is the probability that the gambler will
 make <span class="math inline">\(a\)</span> dollars before she goes bankrupt?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-102" class="solution"><em>Solution</em>. </span>Let the gambler’s “wealth” <span class="math inline">\(\{W_n\}_{n\in {\mathbb{N}}_0}\)</span> be
+<p><span id="unlabeled-div-104" class="solution"><em>Solution</em>. </span>Let the gambler’s “wealth” <span class="math inline">\(\{W_n\}_{n\in {\mathbb{N}}_0}\)</span> be
 modeled by a simple random walk starting
 from <span class="math inline">\(x\)</span>, whose increments <span class="math inline">\(\xi_k=\delta_k\)</span> are coin-tosses. Then
 <span class="math inline">\(W_n=x+X_n\)</span>, where <span class="math inline">\(X_n = \sum_{k=1}^n \xi_k\)</span> is a SSRW. Let <span class="math inline">\(\tau\)</span> be the
@@ -828,11 +831,11 @@ situation is different when <span class="math inline">\(p\not=\tfrac{1}{2}\)</sp
 <p>In order to be able to use Wald’s identity, we need to check its conditions. We have already seen that
 <span class="math inline">\(\tau\)</span> needs to be a stopping time, and not just any old random time. There are also two conditions about the expected values of <span class="math inline">\(\tau\)</span> and of <span class="math inline">\(\xi_1\)</span>. If you read the above solution carefully, you will realize that we never checked whether <span class="math inline">\({\mathbb{E}}[\tau]&lt;\infty\)</span>. We should have, but we did not because we still don’t have the mathematical tools to do it. We will see later that, indeed, <span class="math inline">\({\mathbb{E}}[\tau]&lt;\infty\)</span> for this particular stopping time. In general, the condition that <span class="math inline">\({\mathbb{E}}[\tau]&lt;\infty\)</span> is important, as the following simple example shows:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-103" class="exercise"><strong>Problem 4.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk, and let <span class="math inline">\(\tau_1\)</span> be the first hitting time of the level <span class="math inline">\(1\)</span>.
+<p><span id="exr:unlabeled-div-105" class="exercise"><strong>Problem 4.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk, and let <span class="math inline">\(\tau_1\)</span> be the first hitting time of the level <span class="math inline">\(1\)</span>.
 Use Wald’s identity to show that <span class="math inline">\({\mathbb{E}}[\tau]=+\infty\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-104" class="solution"><em>Solution</em>. </span>Suppose, to the contrary, that <span class="math inline">\({\mathbb{E}}[\tau]&lt;\infty\)</span>. Since <span class="math inline">\({\mathbb{E}}[\delta_1]&lt;\infty\)</span> and <span class="math inline">\(\tau_1\)</span> is a stopping time, Wald’s identity applies:
+<p><span id="unlabeled-div-106" class="solution"><em>Solution</em>. </span>Suppose, to the contrary, that <span class="math inline">\({\mathbb{E}}[\tau]&lt;\infty\)</span>. Since <span class="math inline">\({\mathbb{E}}[\delta_1]&lt;\infty\)</span> and <span class="math inline">\(\tau_1\)</span> is a stopping time, Wald’s identity applies:
 <span class="math display">\[ {\mathbb{E}}[X_{\tau_1}] = {\mathbb{E}}[ \delta_1] \cdot {\mathbb{E}}[\tau_1].\]</span>
 The right hand side is then equal to <span class="math inline">\(0\)</span> because <span class="math inline">\({\mathbb{E}}[\delta_1]=0\)</span>. On the other hand, <span class="math inline">\(X_{\tau_1}=1\)</span>: the value of <span class="math inline">\(X_n\)</span> when it first hits the level <span class="math inline">\(1\)</span> is, of course, <span class="math inline">\(1\)</span>. This leads to a contradiction <span class="math inline">\(1={\mathbb{E}}[X_{\tau_1}] = {\mathbb{E}}[\delta_1] {\mathbb{E}}[\tau_1] = 0\)</span>. Therefore, our initial assumption that <span class="math inline">\({\mathbb{E}}[\tau_1]&lt;\infty\)</span> was wrong!</p>
 </div>
@@ -859,7 +862,7 @@ stopping time for <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</s
 <h2><span class="header-section-number">4.4</span> Additional problems for Chapter 4<a href="more-about-random-walks.html#additional-problems-for-chapter-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <!-- assorted-rw -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-105" class="exercise"><strong>Problem 4.11  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb N}_0}\)</span> be a simple symmetric random walk.</p>
+<p><span id="exr:unlabeled-div-107" class="exercise"><strong>Problem 4.11  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb N}_0}\)</span> be a simple symmetric random walk.</p>
 <ol style="list-style-type: decimal">
 <li><p>Compute <span class="math inline">\({\mathbb{P}}[ X_1 + X_2 + X_3 &gt; 0]\)</span>.</p></li>
 <li><p>Compute <span class="math inline">\({\mathbb{P}}[ X_3 = 1, X_9 = 1 \text{ and } X_{15} = 3]\)</span>.</p></li>
@@ -872,7 +875,7 @@ stopping time for <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</s
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-106" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-108" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li><p>There are <span class="math inline">\(8\)</span> possible trajectories <span class="math inline">\((0,x_1,x_2,x_3)\)</span> of length <span class="math inline">\(3\)</span> that a random walk can take.
 Out of the <span class="math inline">\(8\)</span>, only the following three have <span class="math inline">\(x_1+x_2+x_3&gt;0\)</span>:
@@ -1025,7 +1028,7 @@ table above.</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-107" class="exercise"><strong>Problem 4.12  </strong></span> </p>
+<p><span id="exr:unlabeled-div-109" class="exercise"><strong>Problem 4.12  </strong></span> </p>
 <ol style="list-style-type: decimal">
 <li><p>Let <span class="math inline">\(\{X_n\}_{0\leq n \leq 10}\)</span> be a simple symmetric random walk with
 time horizon <span class="math inline">\(T=10\)</span>. What is the probability it will never reach the
@@ -1048,7 +1051,7 @@ the length of such a sequence is at most 10?</p></li>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-108" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-110" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li>This is the same as asking that its maximum <span class="math inline">\(M_{10}\)</span> up to time <span class="math inline">\(T=10\)</span>
 be <span class="math inline">\(\leq 4\)</span>. This can be further computed using the formula from class:</li>
@@ -1068,7 +1071,8 @@ be <span class="math inline">\(\leq 4\)</span>. This can be further computed usi
 <li><p>Let the outcomes of the coin tosses be denoted by <span class="math inline">\(\gamma_1 = H\)</span>,
 <span class="math inline">\(\gamma_2, \gamma_3, \dots\)</span>. We define the random variables
 <span class="math inline">\(\delta_1,\delta_2,\dots\)</span> as follows: <span class="math inline">\(\delta_1 = 1\)</span> if <span class="math inline">\(\gamma_2 = T\)</span>
-and <span class="math inline">\(\delta_1 = -1\)</span>, otherwise. Similarly, <span class="math inline">\(\delta_2 = 1\)</span> if <span class="math inline">\(\gamma_3 = \gamma_2\)</span> and <span class="math inline">\(-1\)</span> otherwise. It is clear that
+and <span class="math inline">\(\delta_1 = -1\)</span>, otherwise. Similarly, <span class="math inline">\(\delta_2 = 1\)</span> if <span class="math inline">\(\gamma_3 =
+\gamma_2\)</span> and <span class="math inline">\(-1\)</span> otherwise. It is clear that
 <span class="math inline">\(\delta_1,\delta_2,\dots\)</span> is an iid sequence of coin tosses (just like
 in the definition of) of a simple symmetric random walk. After <span class="math inline">\(n\)</span>
 tosses ( the first one), our gambler has
@@ -1099,7 +1103,7 @@ parity is wrong), the required probability is also equal to
 <li><p>Let <span class="math inline">\(X_n\)</span>, <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> be the number of heads <em>minus</em> the number of tails
 obtained so far. Then, <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is a simple symmetric random walk, and
 we stop tossing the coin when <span class="math inline">\(X\)</span> hits <span class="math inline">\(3\)</span> for the first time. This will
-happen during the first 10 tosses, if and only if <span class="math inline">\(M_{10} \geq 3\)</span>,
+happen during the first 10 tosses, if and only if <span class="math inline">\(M_{10} \geq  3\)</span>,
 where <span class="math inline">\(M_n\)</span> denotes the (running) maximum of <span class="math inline">\(X\)</span>. According to the
 reflection principle, <span class="math display">\[\nonumber
   \begin{split}
@@ -1121,7 +1125,7 @@ reflection principle, <span class="math display">\[\nonumber
   -------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-109" class="exercise"><strong>Problem 4.13  </strong></span>Luke starts a random walk, where each step takes him to the left or to
+<p><span id="exr:unlabeled-div-111" class="exercise"><strong>Problem 4.13  </strong></span>Luke starts a random walk, where each step takes him to the left or to
 the right, with the two alternatives being equally likely and
 independent of the previous steps. <span class="math inline">\(11\)</span> steps to his right is a cookie
 jar, and Luke gets to take a (single) cookie every time he reaches that
@@ -1146,11 +1150,12 @@ bowl of broccoli soup and with at least one cookie in his hand?</p></li>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-110" class="solution"><em>Solution</em>. </span>Let the position at time <span class="math inline">\(n\)</span> be denoted by <span class="math inline">\(X_n\)</span>, so that
+<p><span id="unlabeled-div-112" class="solution"><em>Solution</em>. </span>Let the position at time <span class="math inline">\(n\)</span> be denoted by <span class="math inline">\(X_n\)</span>, so that
 <span class="math inline">\(\{X_n\}_{0\leq n \leq 15}\)</span> is a simple symmetric random walk with the
 time horizon <span class="math inline">\(T=15\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li><p>This is simply <span class="math inline">\({\mathbb{P}}[ X_{15} = 11] = \binom{15}{2} 2^{-15} =  \binom{15}{13} 2^{-15}\)</span>.</p></li>
+<li><p>This is simply <span class="math inline">\({\mathbb{P}}[ X_{15} = 11] = \binom{15}{2} 2^{-15} =
+      \binom{15}{13} 2^{-15}\)</span>.</p></li>
 <li><p>The only way for Luke to return with <span class="math inline">\(3\)</span> cookies is to go straight
 to <span class="math inline">\(11\)</span>, step away from it, return, step away from it and return
 again. There are exactly <span class="math inline">\(4\)</span> paths that do that. They all start with
@@ -1163,7 +1168,8 @@ the following 4 ways
 the maximal (i.e., right-most) position of his walk is <span class="math inline">\(11\)</span> or
 above. Therefore, the required probability is
 <span class="math inline">\({\mathbb{P}}[ M_{15} \geq 11]\)</span>. Using the formula
-<span class="math inline">\({\mathbb{P}}[ M_T=k] = {\mathbb{P}}[X_T = k]  + {\mathbb{P}}[ X_T = k+1]\)</span> we get <span class="math display">\[\begin{aligned}
+<span class="math inline">\({\mathbb{P}}[ M_T=k] = {\mathbb{P}}[X_T = k]
+      + {\mathbb{P}}[ X_T = k+1]\)</span> we get <span class="math display">\[\begin{aligned}
         {\mathbb{P}}[ M_{15} \geq 11]
         &amp;= {\mathbb{P}}[ M_{15} = 11] + {\mathbb{P}}[ M_{15} = 12] +
         \dots + {\mathbb{P}}[ M_{15}=15]\\ &amp; = {\mathbb{P}}[ X_{15}=11] + 2 {\mathbb{P}}[ X_{15} = 13] + 2
@@ -1174,7 +1180,8 @@ above. Therefore, the required probability is
 <li><p>Here, we want Luke to reach the position <span class="math inline">\(11\)</span> (to get a cookie), but
 not the position <span class="math inline">\(12\)</span> (where the bowl of broccoli soup is). This
 corresponds to the maximum being exactly <span class="math inline">\(11\)</span>. By the formula
-<span class="math inline">\({\mathbb{P}}[ M_T = k] =  {\mathbb{P}}[X_T=k] + {\mathbb{P}}[X_T = k+1]\)</span>, we get
+<span class="math inline">\({\mathbb{P}}[ M_T = k] =
+       {\mathbb{P}}[X_T=k] + {\mathbb{P}}[X_T = k+1]\)</span>, we get
 <span class="math display">\[{\mathbb{P}}[ M_{15}=11] = {\mathbb{P}}[X_{15}=11] = \binom{15}{2}2^{-15}.\]</span></p></li>
 </ol>
 </div>
@@ -1184,11 +1191,12 @@ corresponds to the maximum being exactly <span class="math inline">\(11\)</span>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-111" class="exercise"><strong>Problem 4.14  (Extra Credit) </strong></span>Let <span class="math inline">\(C_n = \frac{1}{n+1}\binom{2n}{n}\)</span> denote the <span class="math inline">\(n\)</span>-th Catalan number, as defined at the end of the discussion of the Balot problem above.</p>
+<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Problem 4.14  (Extra Credit) </strong></span>Let <span class="math inline">\(C_n = \frac{1}{n+1}\binom{2n}{n}\)</span> denote the <span class="math inline">\(n\)</span>-th Catalan number, as defined at the end of the discussion of the Balot problem above.</p>
 <ol style="list-style-type: decimal">
 <li><p>Use the reflection principle to show that <span class="math inline">\(C_n\)</span> is the number
 trajectories <span class="math inline">\((x_0,\dots, x_{2n})\)</span> of a random
-walk with time horizon <span class="math inline">\(T=2n\)</span> such that <span class="math inline">\(x_k  \geq 0\)</span>, for all <span class="math inline">\(k\in\{0,1,\dots, 2n\}\)</span> and <span class="math inline">\(x_{2n}=0\)</span>.</p></li>
+walk with time horizon <span class="math inline">\(T=2n\)</span> such that <span class="math inline">\(x_k
+  \geq 0\)</span>, for all <span class="math inline">\(k\in\{0,1,\dots, 2n\}\)</span> and <span class="math inline">\(x_{2n}=0\)</span>.</p></li>
 <li><p>Prove the <em>Segner’s recurrence formula</em>
 <span class="math inline">\(C_{n+1} = \sum_{i=0}^n C_{i} C_{n-i}\)</span>. .</p></li>
 <li><p>Show that <span class="math inline">\(C_n\)</span> is the number of ways the vertices of a regular
@@ -1201,7 +1209,7 @@ vertices do not intersect.</p></li>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-112" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-114" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li><p>Let <span class="math inline">\(\hat{C}_n\)</span> be the number of all with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}\)</span> such that <span class="math inline">\(x_k&lt;0\)</span>
 for some <span class="math inline">\(k\)</span>. This way, <span class="math inline">\(C_n = \binom{2n}{n} - \hat{C}_n\)</span>, since the total number
@@ -1211,7 +1219,8 @@ trajectory with <span class="math inline">\(x_{2n} = -2\)</span>. Conversely, ea
 <span class="math inline">\(x_{2n}=-2\)</span> will cross the level <span class="math inline">\(-1\)</span> at some point <span class="math inline">\(k\)</span>, and its reflection
 (around <span class="math inline">\(-1\)</span>) will be a trajectory with <span class="math inline">\(x_0=0\)</span> to <span class="math inline">\(x_{2n}=0\)</span>. Therefore,
 <span class="math inline">\(\hat{C}_n = \binom{2n}{n+1}\)</span> because there are exactly <span class="math inline">\(\binom{2n}{n+1}\)</span>
-trajectories with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}=-2\)</span> (<span class="math inline">\(n+1\)</span> down-steps and <span class="math inline">\(2n - (n+1) =  n-1\)</span> up-steps). Putting it all together, we get
+trajectories with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}=-2\)</span> (<span class="math inline">\(n+1\)</span> down-steps and <span class="math inline">\(2n - (n+1) =
+  n-1\)</span> up-steps). Putting it all together, we get
 <span class="math display">\[\begin{align}
    C_n &amp;= \binom{2n}{n} -
   \binom{2n}{n+1} = \frac{(2n)!}{n! n!} - \frac{(2n)!}{ (n+1)! (n-1)!} = \frac{
@@ -1226,7 +1235,7 @@ set of all trajectories in <span class="math inline">\(A\)</span> such that <spa
 Since you can be back at <span class="math inline">\(0\)</span> only at even times, the sets <span class="math inline">\(A_m\)</span> with <span class="math inline">\(m\)</span> odd are empty.
 Therefore, we can focus on <span class="math inline">\(A_{2i}\)</span> for <span class="math inline">\(i=1,2, \dots, n\)</span>.
 As shown on the plot below (where <span class="math inline">\(T=20\)</span> and <span class="math inline">\(2i =10\)</span>)
-<img src="_main_files/figure-html/unnamed-chunk-637-1.png" width="672" style="display: block; margin: auto;" />
+<img src="_main_files/figure-html/unnamed-chunk-663-1.png" width="672" style="display: block; margin: auto;" />
 each trajectory in <span class="math inline">\(A_{2i}\)</span> must look like this:
 the first step is necessarily up (blue segment). After that the trajectory stays at or
 above the level <span class="math inline">\(1\)</span> until time <span class="math inline">\(x_{2i-1}\)</span>, when it must be exactly at <span class="math inline">\(1\)</span> (green segments).
@@ -1253,11 +1262,14 @@ in the problem, can be split into subclasses according to to which vertex is
 paired with <span class="math inline">\(V_1\)</span>. More precisely, let <span class="math inline">\(A_m\)</span> be the set of all pairings in
 which <span class="math inline">\(V_1\)</span> is paired with <span class="math inline">\(V_m\)</span>. We first note that no pairing can exist in
 which <span class="math inline">\(m\)</span> is odd(why?), we we can write <span class="math inline">\(m=2i\)</span>.
-<img src="_main_files/figure-html/unnamed-chunk-638-1.png" width="672" style="display: block; margin: auto;" /></p>
+<img src="_main_files/figure-html/unnamed-chunk-664-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Each pairing in <span class="math inline">\(A_{2i}\)</span>
-splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,  \dots, V_{2i-1}\)</span>“to the left”
-of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1  V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>
-to the right (there are <span class="math inline">\(2n -  2i\)</span> of those. No pairing can use one point “to the left” and one point “to
+splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,
+\dots, V_{2i-1}\)</span>“to the left”
+of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1
+V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>
+to the right (there are <span class="math inline">\(2n -
+2i\)</span> of those. No pairing can use one point “to the left” and one point “to
 the right”, because the segment joining them would necessarily intersect
 <span class="math inline">\(V_1 V_{2i}\)</span>. Hence, the problem is reduced to two smaller, but similar,
 problems. We can pair the points “to the left” in <span class="math inline">\(B_{i-1}\)</span> ways (the red segments), and those
@@ -1280,7 +1292,7 @@ square without intersections.</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-113" class="exercise"><strong>Problem 4.15  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, what
+<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Problem 4.15  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a simple symmetric random walk. Given <span class="math inline">\(n\in{\mathbb{N}}\)</span>, what
 is the probability that <span class="math inline">\(X\)</span> does not visit <span class="math inline">\(0\)</span> during the time interval
 <span class="math inline">\(1,\dots, n\)</span>.</p>
 </div>
@@ -1289,7 +1301,7 @@ is the probability that <span class="math inline">\(X\)</span> does not visit <s
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-114" class="solution"><em>Solution</em>. </span>Let us denote the required probability by <span class="math inline">\(p_n\)</span>, i.e.,
+<p><span id="unlabeled-div-116" class="solution"><em>Solution</em>. </span>Let us denote the required probability by <span class="math inline">\(p_n\)</span>, i.e.,
 <span class="math display">\[p_n={\mathbb{P}}[ X_1\not= 0, X_2\not=0, \dots, X_n\not=0].\]</span> For <span class="math inline">\(n=1\)</span>,
 <span class="math inline">\(p_1=1\)</span>, since <span class="math inline">\(X_1\)</span> is either <span class="math inline">\(1\)</span> or <span class="math inline">\(-1\)</span>. For <span class="math inline">\(n&gt;1\)</span>, let <span class="math inline">\(\delta_1\)</span> be
 the first increment <span class="math inline">\(\delta_1=X_1-X_0=X_1\)</span>. If <span class="math inline">\(\delta_1=-1\)</span>, we need to
@@ -1315,7 +1327,7 @@ where <span class="math inline">\(\lfloor x \rfloor\)</span> denotes the largest
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-115" class="exercise"><strong>Problem 4.16  </strong></span>Let <span class="math inline">\(\tau_{-1}\)</span> be the hitting time of the level <span class="math inline">\({-1}\)</span> for a simple biased
+<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Problem 4.16  </strong></span>Let <span class="math inline">\(\tau_{-1}\)</span> be the hitting time of the level <span class="math inline">\({-1}\)</span> for a simple biased
 random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Choose the correct answer(s) (they will depend on the value of the
 parameter <span class="math inline">\(p\)</span>):</p>
 <ol style="list-style-type: lower-alpha">
@@ -1331,7 +1343,7 @@ parameter <span class="math inline">\(p\)</span>):</p>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-116" class="solution"><em>Solution</em>. </span>Hitting the level <span class="math inline">\(-1\)</span> for a biased random walk with parameter <span class="math inline">\(p\)</span> is equivalent to hitting the level <span class="math inline">\(1\)</span> for a biased random walk with parameter <span class="math inline">\(1-p\)</span>. The correct answers are: a and d, for <span class="math inline">\(p&lt;1/2\)</span>, c, for <span class="math inline">\(p=1/2\)</span> and b for <span class="math inline">\(p&lt;1/2\)</span>.</p>
+<p><span id="unlabeled-div-118" class="solution"><em>Solution</em>. </span>Hitting the level <span class="math inline">\(-1\)</span> for a biased random walk with parameter <span class="math inline">\(p\)</span> is equivalent to hitting the level <span class="math inline">\(1\)</span> for a biased random walk with parameter <span class="math inline">\(1-p\)</span>. The correct answers are: a and d, for <span class="math inline">\(p&lt;1/2\)</span>, c, for <span class="math inline">\(p=1/2\)</span> and b for <span class="math inline">\(p&lt;1/2\)</span>.</p>
 <!-- ```{r echo=F} -->
 <!-- df = data.frame( p = c("$<\\frac{1}{2}$","$=\\frac{1}{2}$", "$>\\frac{1}{2}$"), -->
 <!--                  answers = c ("b.", "c.", "a., d.") ) -->
@@ -1345,7 +1357,7 @@ Click for Solution
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-117" class="exercise"><strong>Problem 4.17  </strong></span>Let <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\tilde{\tau}\)</span> be two stopping times. Which of the following are necessarily stopping times, as well:</p>
+<p><span id="exr:unlabeled-div-119" class="exercise"><strong>Problem 4.17  </strong></span>Let <span class="math inline">\(\tau\)</span> and <span class="math inline">\(\tilde{\tau}\)</span> be two stopping times. Which of the following are necessarily stopping times, as well:</p>
 <ol style="list-style-type: decimal">
 <li><span class="math inline">\(\max(\tau,\widetilde{\tau})\)</span></li>
 <li><span class="math inline">\(\min(\tau, \widetilde{\tau})\)</span></li>
@@ -1358,7 +1370,7 @@ Click for Solution
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-118" class="solution"><em>Solution</em>. </span><part> 1. </part>
+<p><span id="unlabeled-div-120" class="solution"><em>Solution</em>. </span><part> 1. </part>
 Yes. Wait for both of them to happen and then stop.</p>
 <p><part> 2. </part>
 Yes. Wait for one of them to happen and stop immediately.</p>
@@ -1373,7 +1385,7 @@ No. Let <span class="math inline">\(\tau=\tau_2\)</span> and <span class="math 
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-119" class="exercise"><strong>Problem 4.18  </strong></span>Either one of the following <span class="math inline">\(4\)</span> random times is <em>not</em> a stopping
+<p><span id="exr:unlabeled-div-121" class="exercise"><strong>Problem 4.18  </strong></span>Either one of the following <span class="math inline">\(4\)</span> random times is <em>not</em> a stopping
 time for a simple random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>, or they all are. Choose the
 one which is not in the first case, or choose e. if you think they all
 are.</p>
@@ -1392,7 +1404,7 @@ whatever happens <em>last</em></li>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-120" class="solution"><em>Solution</em>. </span>The correct answer is e. The first, second, third, or … hitting times of a level are
+<p><span id="unlabeled-div-122" class="solution"><em>Solution</em>. </span>The correct answer is e. The first, second, third, or … hitting times of a level are
 stopping times, and so are their minima or maxima. Note that for two
 stopping times <span class="math inline">\(\tau_1\)</span> and <span class="math inline">\(\tau_2\)</span>, the one that happens <em>first</em> is
 <span class="math inline">\(\min(\tau_1,\tau_2)\)</span> and the one that happens <em>last</em> is <span class="math inline">\(\max(\tau_1,\tau_2)\)</span>.</p>
@@ -1403,7 +1415,7 @@ stopping times <span class="math inline">\(\tau_1\)</span> and <span class="math
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-121" class="exercise"><strong>Problem 4.19  </strong></span>At most one of the following <span class="math inline">\(4\)</span> random times <em>is</em> a stopping time
+<p><span id="exr:unlabeled-div-123" class="exercise"><strong>Problem 4.19  </strong></span>At most one of the following <span class="math inline">\(4\)</span> random times <em>is</em> a stopping time
 for a simple random walk <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span>. Either choose the one which you
 think is a stopping time, or choose e. if you think there are no
 stopping times among them.</p>
@@ -1431,7 +1443,7 @@ general) whether or not <span class="math inline">\(X_{2} - X_1\)</span> equals 
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-122" class="exercise"><strong>Problem 4.20  </strong></span><br />
+<p><span id="exr:unlabeled-div-124" class="exercise"><strong>Problem 4.20  </strong></span><br />
 </p>
 <p>The purpose of this problem is to understand how long we have to wait util a simple symmetric random walk hits the level <span class="math inline">\(1\)</span>. Theory presented so far guarantees that this will happen sooner or later, but it gives no indication of the length of the wait. As usual, we denote by <span class="math inline">\(\tau_1\)</span> the (random) first time the SSRW <span class="math inline">\(\{X_n\}_{n\in{\mathbb{N}}_0}\)</span> hits the level <span class="math inline">\(1\)</span>.</p>
 <ol style="list-style-type: decimal">
