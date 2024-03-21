@@ -1090,15 +1090,15 @@ The proof is similar (but more difficult) than the proof of Wald's (first) ident
 ```
 :::
 
-<!-- <details> -->
-<!--   <summary>Click for Solution</summary> -->
-<!-- ::: {.solution} -->
-<!-- \ -->
+<details>
+  <summary>Click for Solution</summary>
+::: {.solution}
+\
 
-<!-- ```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"} -->
-<!-- ``` -->
-<!-- ::: -->
-<!-- </details> -->
+```{r child="problems/01_Random_Walks/time_until_hit_sol.Rmd"}
+```
+:::
+</details>
 
 ## Endnotes
 

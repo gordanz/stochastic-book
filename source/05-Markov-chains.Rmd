@@ -705,15 +705,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/Y-Z-Markov-chains_sol.Rmd"}
+```
+
+:::
+</details>
 
 
 <!--
@@ -969,15 +969,15 @@ Once the row corresponding to the state `s` is identified, we use its elements a
 :::
 
 
-<!-- <details> -->
-<!-- <summary> Click for Solution </summary> -->
-<!-- ::: {.solution} -->
-<!--  -->
-<!-- ```{r child="problems/02_Basic_Chains/basil_sol.Rmd"} -->
-<!-- ``` -->
-<!--  -->
-<!-- ::: -->
-<!-- </details> -->
+<details>
+<summary> Click for Solution </summary>
+::: {.solution}
+
+```{r child="problems/02_Basic_Chains/basil_sol.Rmd"}
+```
+
+:::
+</details>
 
 </div>
 
