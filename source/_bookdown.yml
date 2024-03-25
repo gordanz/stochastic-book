@@ -18,7 +18,7 @@ rmd_files: [
    "04-more-random-walks.Rmd",
    "05-Markov-chains.Rmd",
    "06-Classification.Rmd",
-   # "07-Absorption-and-Reward.Rmd",
+   "07-Absorption-and-Reward.Rmd",
    # "08-Stationary-Distributions.Rmd",
    # "distributions.Rmd"
     ]

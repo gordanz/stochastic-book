@@ -1,6 +1,3 @@
-```{r child="mydefs.Rmd"}
-```
-
 # Absorption and Reward
 <div style="counter-reset: thechapter 7;"> </div>
 
@@ -636,15 +633,15 @@ minimize her cost?
 <!-- ::: -->
 
 
-<!-- <!-- <details> --> -->
-<!-- <!-- <summary> Click for Solution </summary> --> -->
-<!-- <!-- ::: {.solution} --> -->
-<!--  -->
-<!-- <!-- ```{r child="problems/04_Absorption_and_Reward/bold-play_sol.Rmd"} --> -->
-<!-- <!-- ``` --> -->
-<!--  -->
-<!-- <!-- ::: --> -->
-<!-- <!-- </details> --> -->
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+
+<!-- ```{r child="problems/04_Absorption_and_Reward/bold-play_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--
