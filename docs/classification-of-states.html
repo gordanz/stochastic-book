@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Classification of States | Lecture notes for “Introduction to Stochastic Processes”</title>
   <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
-  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Classification of States | Lecture notes for “Introduction to Stochastic Processes”" />
   <meta property="og:type" content="book" />
@@ -30,7 +30,7 @@
   
   
 <link rel="prev" href="markov-chains.html"/>
-
+<link rel="next" href="absorption-and-reward.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,11 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #204a87; } /* Attribute */
+code span.at { color: #c4a000; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #8f5902; } /* Constant */
+code span.cn { color: #000000; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -104,14 +104,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.fu { color: #000000; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.sc { color: #000000; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -236,6 +236,12 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.6" data-path="classification-of-states.html"><a href="classification-of-states.html#additional-problems-for-chapter-6"><i class="fa fa-check"></i><b>6.6</b> Additional problems for Chapter 6</a></li>
 <li class="chapter" data-level="6.7" data-path="classification-of-states.html"><a href="classification-of-states.html#endnotes-4"><i class="fa fa-check"></i><b>6.7</b> Endnotes</a></li>
 </ul></li>
+<li class="chapter" data-level="7" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html"><i class="fa fa-check"></i><b>7</b> Absorption and Reward</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#absorption"><i class="fa fa-check"></i><b>7.1</b> Absorption</a></li>
+<li class="chapter" data-level="7.2" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#expected-reward"><i class="fa fa-check"></i><b>7.2</b> Expected reward</a></li>
+<li class="chapter" data-level="7.3" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html#additional-problems-for-chapter-7"><i class="fa fa-check"></i><b>7.3</b> Additional Problems for Chapter 7</a></li>
+</ul></li>
 </ul>
 
       </nav>
@@ -320,7 +326,7 @@ that it is possible to go from <span class="math inline">\(i\)</span> to <span c
 “possible” means “with positive probability”. In our notation, that is
 exactly what <span class="math inline">\(p^{(n)}_{ij}&gt;0\)</span> means.</p>
 <p>Conversely, if <span class="math inline">\(p^{(n)}_{ij}&gt;0\)</span> then
-<span class="math inline">\({\mathbb{P}}_i[ \tau_j &lt;\infty] \geq {\mathbb{P}}_i[\tau_j \leq n] \geq  {\mathbb{P}}_i[ X_n = j]=p^{(n)}_{ij}&gt;0.\)</span></p>
+<span class="math inline">\({\mathbb{P}}_i[ \tau_j &lt;\infty] \geq {\mathbb{P}}_i[\tau_j \leq n] \geq {\mathbb{P}}_i[ X_n = j]=p^{(n)}_{ij}&gt;0.\)</span></p>
 </div>
 <p>Two immediate properties of the relation <span class="math inline">\({\rightarrow}\)</span> are listed in the problem below:</p>
 <div class="exercise">
@@ -391,8 +397,7 @@ so that <span class="math inline">\(d(i)=1\)</span> for <span class="math inline
 <div id="classes" class="section level2 hasAnchor" number="6.2">
 <h2><span class="header-section-number">6.2</span> Classes<a href="classification-of-states.html#classes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We say that the states <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> in <span class="math inline">\(S\)</span> <strong>intercommunicate</strong>, denoted
-by <span class="math inline">\(i\leftrightarrow j\)</span> if <span class="math inline">\(i{\rightarrow}
-  j\)</span> <em>and</em> <span class="math inline">\(j{\rightarrow}i\)</span>. A set <span class="math inline">\(B\subseteq S\)</span> of states is called
+by <span class="math inline">\(i\leftrightarrow j\)</span> if <span class="math inline">\(i{\rightarrow}j\)</span> <em>and</em> <span class="math inline">\(j{\rightarrow}i\)</span>. A set <span class="math inline">\(B\subseteq S\)</span> of states is called
 <strong>irreducible</strong> if <span class="math inline">\(i\leftrightarrow j\)</span> for all <span class="math inline">\(i,j\in S\)</span>.</p>
 <p>Unlike the relation of communication, the relation of intercommunication
 is symmetric. Moreover, we have the following immediate property:
@@ -434,14 +439,12 @@ states is closed if and only if <span class="math inline">\(p_{ij}=0\)</span> fo
 <span class="math inline">\(j\in B^c=S\setminus B\)</span>.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-165" class="solution"><em>Solution</em>. </span>Suppose, first, that <span class="math inline">\(B\)</span> is closed. Then for <span class="math inline">\(i\in B\)</span> and <span class="math inline">\(j\in
-  B^c\)</span>, we have <span class="math inline">\(i\not{\rightarrow}j\)</span>, i.e., <span class="math inline">\(p^{(n)}_{ij}=0\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>. In
+<p><span id="unlabeled-div-165" class="solution"><em>Solution</em>. </span>Suppose, first, that <span class="math inline">\(B\)</span> is closed. Then for <span class="math inline">\(i\in B\)</span> and <span class="math inline">\(j\in  B^c\)</span>, we have <span class="math inline">\(i\not{\rightarrow}j\)</span>, i.e., <span class="math inline">\(p^{(n)}_{ij}=0\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>. In
 particular, <span class="math inline">\(p_{ij}=0\)</span>.</p>
 <p>Conversely, suppose that <span class="math inline">\(p_{ij}=0\)</span> for all <span class="math inline">\(i\in B\)</span>, <span class="math inline">\(j\in B^c\)</span>. We
 need to show that <span class="math inline">\(k\not{\rightarrow}l\)</span> (i.e. <span class="math inline">\(p^{(n)}_{kl}=0\)</span> for all <span class="math inline">\(n\in{\mathbb{N}}\)</span>) for
 all <span class="math inline">\(k\in B\)</span>, <span class="math inline">\(l\in B^c\)</span>. Suppose, to the contrary, that there exist
-<span class="math inline">\(k\in B\)</span> and <span class="math inline">\(l\in B^c\)</span> such that <span class="math inline">\(p^{(n)}_{kl}&gt;0\)</span> for some <span class="math inline">\(n\in
-{\mathbb{N}}\)</span>. That means that we can find a sequence of states
+<span class="math inline">\(k\in B\)</span> and <span class="math inline">\(l\in B^c\)</span> such that <span class="math inline">\(p^{(n)}_{kl}&gt;0\)</span> for some <span class="math inline">\(n\in {\mathbb{N}}\)</span>. That means that we can find a sequence of states
 <span class="math display">\[k=i_0, i_1, \dots, i_n=l \text{ such that } p_{i_{m-1} i_{m}}&gt;0
 \text{ forall }m = 1,\dots, n.\]</span> The first state, <span class="math inline">\(k=i_0\)</span> is in <span class="math inline">\(B\)</span> and the
 last one, <span class="math inline">\(l=i_n\)</span>, is in <span class="math inline">\(B^c\)</span>. Therefore there must exist an index <span class="math inline">\(m\)</span>
@@ -467,8 +470,7 @@ the <em>tennis</em> chain of the previous lecture and:</p>
 <p><span id="exr:unlabeled-div-166" class="exercise"><strong>Problem 6.5  </strong></span>Show that every closed set <span class="math inline">\(B\)</span> is a union of one or more classes.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-167" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(\hat{B}\)</span> be the union of all classes <span class="math inline">\(C\)</span> such that <span class="math inline">\(C\cap
-  B\not=\emptyset\)</span>. In other words, take all the elements of <span class="math inline">\(B\)</span> and
+<p><span id="unlabeled-div-167" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(\hat{B}\)</span> be the union of all classes <span class="math inline">\(C\)</span> such that <span class="math inline">\(C\cap  B\not=\emptyset\)</span>. In other words, take all the elements of <span class="math inline">\(B\)</span> and
 throw in all the states which intercommunicate with at least one of them. I claim that
 <span class="math inline">\(\hat{B}=B\)</span>. Clearly, <span class="math inline">\(B\subset \hat{B}\)</span>, so we need to show that
 <span class="math inline">\(\hat{B}\subseteq B\)</span>. Suppose, to the contrary, that there exists
@@ -676,8 +678,7 @@ In words, <span class="math inline">\(\xi_i= +k\)</span> if the <span class="mat
 <span class="math inline">\(\{1,-1,2,-2, \dots, d,-d\}\)</span> into each of <span class="math inline">\(n=2m\)</span> boxes so that the
 number of boxes with <span class="math inline">\(k\)</span> in them equals to the number of boxes with <span class="math inline">\(-k\)</span>
 in them?</em></p>
-<p>To get the answer, we start by fixing a possible “count” <span class="math inline">\((i_1,\dots,
-        i_d)\)</span>, satisfying <span class="math inline">\(i_1+\dots+i_d=m\)</span> of the number of times each
+<p>To get the answer, we start by fixing a possible “count” <span class="math inline">\((i_1,\dots,  i_d)\)</span>, satisfying <span class="math inline">\(i_1+\dots+i_d=m\)</span> of the number of times each
 of the values in <span class="math inline">\(\{1,2,\dots, d\}\)</span> occurs. These values have to be
 placed in <span class="math inline">\(m\)</span> of the <span class="math inline">\(2m\)</span> slots and their negatives (possibly in a
 different order) in the remaining <span class="math inline">\(m\)</span> slots. So, first, we choose the
@@ -870,8 +871,7 @@ P_1 &amp; 0   &amp; 0   &amp; \dots &amp; 0 \\
 Q_1 &amp; Q_2 &amp; Q_3 &amp; \dots &amp; \dots
 \end{bmatrix},\]</span> where the entries should be interpreted as matrices:
 <span class="math inline">\(P_1\)</span> is the transition matrix within the first class, i.e.,
-<span class="math inline">\(P_1=(p_{ij},i\in C_1,
-j\in C_1)\)</span>, etc. <span class="math inline">\(Q_k\)</span> contains the transition probabilities from the
+<span class="math inline">\(P_1=(p_{ij},i\in C_1, j\in C_1)\)</span>, etc. <span class="math inline">\(Q_k\)</span> contains the transition probabilities from the
 transient states to the states in the (recurrent) class <span class="math inline">\(C_k\)</span>. We learned, above, that recurrent classes are closed, which implies implies that each <span class="math inline">\(P_k\)</span> is a stochastic
 matrix, or, equivalently, that all the entries in the row of <span class="math inline">\(P_k\)</span>
 outside of <span class="math inline">\(P_k\)</span> are zeros.</p>
@@ -1268,40 +1268,6 @@ which it fails.</p>
 
 </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="footnotes">
 <hr />
 <ol start="8">
@@ -1309,8 +1275,7 @@ which it fails.</p>
 “’right”, for <span class="math inline">\(1,-1,2\)</span> or <span class="math inline">\(-2\)</span>, respectively. In dimension <span class="math inline">\(3\)</span>, we
 could have added “forward” and “backward”, but we run out of words
 for directions for larger <span class="math inline">\(d\)</span>.<a href="classification-of-states.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p> <span class="math inline">\(\binom{m}{i_1
-            \dots i_d}\)</span> is called the <em>multinomial coefficient</em>. It
+<li id="fn9"><p> <span class="math inline">\(\binom{m}{i_1  \dots i_d}\)</span> is called the <em>multinomial coefficient</em>. It
 counts the number of ways we can color <span class="math inline">\(m\)</span> objects into one of <span class="math inline">\(d\)</span>
 colors such that there are <span class="math inline">\(i_1\)</span> objects of color <span class="math inline">\(1\)</span>, <span class="math inline">\(i_2\)</span> of
 color <span class="math inline">\(2\)</span>, etc. It is a generalization of the binomial coefficient
@@ -1325,8 +1290,8 @@ and its value is given by
           </div>
         </div>
       </div>
-<a href="markov-chains.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="markov-chains.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="absorption-and-reward.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
