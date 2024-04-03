@@ -174,7 +174,7 @@ knitr::include_graphics('pics/period-example-2_chain.png')
 the situation changes drastically:
 \begin{align}
   R(1) & =\{ 3,4,5,6, \dots \},\\
-  R(2) & =\{ 2,3,4,5,6, \dots \},\\
+  R(2) & =\{ 3,4,5,6, \dots \},\\
   R(3) & =\{ 1,2,3,4,5,6, \dots \},
 \end{align}
 so that $d(i)=1$ for $i\in\set{1,2,3}$.
