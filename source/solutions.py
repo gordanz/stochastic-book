@@ -46,7 +46,7 @@ def comment(line):
     return("<!-- "+line.rstrip()+" -->"+"\n")
 
 def uncomment(line):
-    aux = re.sub("<!--","",line, flags=re.DOTALL)
+    aux = re.sub("<!--\\s*","",line, flags=re.DOTALL)
     return(re.sub("-->","",aux, flags=re.DOTALL))
 
 
