@@ -1,5 +1,3 @@
-```{r child="mydefs.Rmd"}
-```
 
 # Stationary Distributions
 <div style="counter-reset: thechapter 8;"> </div>
@@ -11,13 +9,16 @@ social sciences, systems change states many times per second. In a rare
 few, the time scale of the steps can be measured in hours or days. What
 is of interest, however, is the long-term behavior of the system,
 measured in thousands, millions, or even billions of steps. Here is an
-example: for a typical liquid stock traded on the New York Stock
-Exchange, there is a trade every few seconds (or, even, milliseconds),
-and each trade changes the price (state) of the stock a little bit. What
+example: the New York Stock
+Exchange typically sees of millions  of trades
+per day,
+and each trade changes the price (state) of a stock a little bit. What
 is of interest to an investor is, however, the distribution of the
 stock-price in 6 months, in a year or, in 30 years - just in time for
-retirement. A back-of-an-envelope calculation shows that there are,
-approximately, 50 million trades in 30 years. So, a grasp of very-long
+retirement. A back-of-an-envelope calculation shows that, assuming the same
+frequency, the  number of trades over 30 years would be of the 
+order of a billion. 
+So, a grasp of very-long
 time behavior of a Markov chain is one of the most important achievments
 of probability in general, and stochastic-process theory in particular.
 We only scratch the surface in this lecture.
@@ -907,15 +908,15 @@ the Markov Chain theory in history.
 <!-- ::: -->
 
 
-<!-- <!-- <details> --> -->
-<!-- <!-- <summary> Click for Solution </summary> --> -->
-<!-- <!-- ::: {.solution} --> -->
-<!-- <!-- \ --> -->
-<!-- <!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01a_sol.Rmd"} --> -->
-<!-- <!-- ``` --> -->
-<!--  -->
-<!-- <!-- ::: --> -->
-<!-- <!-- </details> --> -->
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01a_sol.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+<!-- </details> -->
 
 
 <!--

@@ -19,6 +19,6 @@ rmd_files: [
    "05-Markov-chains.Rmd",
    "06-Classification.Rmd",
    "07-Absorption-and-Reward.Rmd",
-   # "08-Stationary-Distributions.Rmd",
+   "08-Stationary-Distributions.Rmd",
    # "distributions.Rmd"
     ]

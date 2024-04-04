@@ -4,19 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Stationary Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;</title>
+  <title>Chapter 8 Stationary Distributions | Lecture notes for “Introduction to Stochastic Processes”</title>
   <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Stationary Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;" />
+  <meta property="og:title" content="Chapter 8 Stationary Distributions | Lecture notes for “Introduction to Stochastic Processes”" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
   <meta name="github-repo" content="gordanz/M362M" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Stationary Distributions | Lecture notes for &quot;Introduction to Stochastic Processes&quot;" />
+  <meta name="twitter:title" content="Chapter 8 Stationary Distributions | Lecture notes for “Introduction to Stochastic Processes”" />
   
   <meta name="twitter:description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
   
@@ -31,9 +30,9 @@
   
   
 <link rel="prev" href="absorption-and-reward.html"/>
-<link rel="next" href="dist.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -49,13 +48,11 @@
 
 
 
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
-<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet" />
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script>
 
 
 <style type="text/css">
@@ -122,6 +119,10 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -210,7 +211,6 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3" data-path="markov-chains.html"><a href="markov-chains.html#chapman-kolmogorov-equations"><i class="fa fa-check"></i><b>5.3</b> Chapman-Kolmogorov equations</a></li>
 <li class="chapter" data-level="5.4" data-path="markov-chains.html"><a href="markov-chains.html#mc-sim"><i class="fa fa-check"></i><b>5.4</b> How to simulate Markov chains</a></li>
 <li class="chapter" data-level="5.5" data-path="markov-chains.html"><a href="markov-chains.html#additional-problems-for-chapter-5"><i class="fa fa-check"></i><b>5.5</b> Additional problems for Chapter 5</a></li>
-<li class="chapter" data-level="5.6" data-path="markov-chains.html"><a href="markov-chains.html#endnotes-4"><i class="fa fa-check"></i><b>5.6</b> Endnotes</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="classification-of-states.html"><a href="classification-of-states.html"><i class="fa fa-check"></i><b>6</b> Classification of States</a>
 <ul>
@@ -234,7 +234,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.5.4" data-path="classification-of-states.html"><a href="classification-of-states.html#the-game-of-tennis"><i class="fa fa-check"></i><b>6.5.4</b> The game of tennis</a></li>
 </ul></li>
 <li class="chapter" data-level="6.6" data-path="classification-of-states.html"><a href="classification-of-states.html#additional-problems-for-chapter-6"><i class="fa fa-check"></i><b>6.6</b> Additional problems for Chapter 6</a></li>
-<li class="chapter" data-level="6.7" data-path="classification-of-states.html"><a href="classification-of-states.html#endnotes-5"><i class="fa fa-check"></i><b>6.7</b> Endnotes</a></li>
+<li class="chapter" data-level="6.7" data-path="classification-of-states.html"><a href="classification-of-states.html#endnotes-4"><i class="fa fa-check"></i><b>6.7</b> Endnotes</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="absorption-and-reward.html"><a href="absorption-and-reward.html"><i class="fa fa-check"></i><b>7</b> Absorption and Reward</a>
 <ul>
@@ -250,13 +250,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="stationary-distributions.html"><a href="stationary-distributions.html#limiting-distributions"><i class="fa fa-check"></i><b>8.4</b> Limiting distributions</a></li>
 <li class="chapter" data-level="8.5" data-path="stationary-distributions.html"><a href="stationary-distributions.html#the-pagerank-algorithm"><i class="fa fa-check"></i><b>8.5</b> The PageRank algorithm</a></li>
 <li class="chapter" data-level="8.6" data-path="stationary-distributions.html"><a href="stationary-distributions.html#additional-problems-for-chapter-8"><i class="fa fa-check"></i><b>8.6</b> Additional Problems for Chapter 8</a></li>
-<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-6"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
-</ul></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="dist.html"><a href="dist.html"><i class="fa fa-check"></i><b>A</b> Probability Distributions</a>
-<ul>
-<li class="chapter" data-level="A.1" data-path="dist.html"><a href="dist.html#discrete-distributions"><i class="fa fa-check"></i><b>A.1</b> Discrete distributions:</a></li>
-<li class="chapter" data-level="A.2" data-path="dist.html"><a href="dist.html#continuous-distributions"><i class="fa fa-check"></i><b>A.2</b> Continuous distributions:</a></li>
+<li class="chapter" data-level="8.7" data-path="stationary-distributions.html"><a href="stationary-distributions.html#endnotes-5"><i class="fa fa-check"></i><b>8.7</b> Endnotes</a></li>
 </ul></li>
 </ul>
 
@@ -267,7 +261,7 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture notes for "Introduction to Stochastic Processes"</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Lecture notes for “Introduction to Stochastic Processes”</a>
           </h1>
         </div>
 
@@ -275,8 +269,8 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="stationary-distributions" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Stationary Distributions</h1>
+<div id="stationary-distributions" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Stationary Distributions<a href="stationary-distributions.html#stationary-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div style="counter-reset: thechapter 8;">
 
 </div>
@@ -286,18 +280,21 @@ social sciences, systems change states many times per second. In a rare
 few, the time scale of the steps can be measured in hours or days. What
 is of interest, however, is the long-term behavior of the system,
 measured in thousands, millions, or even billions of steps. Here is an
-example: for a typical liquid stock traded on the New York Stock
-Exchange, there is a trade every few seconds (or, even, milliseconds),
-and each trade changes the price (state) of the stock a little bit. What
+example: the New York Stock
+Exchange typically sees of millions of trades
+per day,
+and each trade changes the price (state) of a stock a little bit. What
 is of interest to an investor is, however, the distribution of the
 stock-price in 6 months, in a year or, in 30 years - just in time for
-retirement. A back-of-an-envelope calculation shows that there are,
-approximately, 50 million trades in 30 years. So, a grasp of very-long
+retirement. A back-of-an-envelope calculation shows that, assuming the same
+frequency, the number of trades over 30 years would be of the
+order of a billion.
+So, a grasp of very-long
 time behavior of a Markov chain is one of the most important achievments
 of probability in general, and stochastic-process theory in particular.
 We only scratch the surface in this lecture.</p>
-<div id="stationarity-and-stationary-distributions" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Stationarity and stationary distributions</h2>
+<div id="stationarity-and-stationary-distributions" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Stationarity and stationary distributions<a href="stationary-distributions.html#stationarity-and-stationary-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Definition.</strong> A stochastic process <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is said to be <strong>stationary</strong>
 if the random vectors
 <span class="math display">\[(X_0,X_{1},X_{2},\dots, X_{k})\text{ and }
@@ -352,19 +349,19 @@ have the same distribution (Bernoulli with <span class="math inline">\(p=\tfrac{
 <span class="math inline">\(k\)</span>-tuples? Why do <span class="math inline">\((X_0,X_1, \dots, X_k)\)</span> and <span class="math inline">\((X_m,X_{m+1},\dots, X_{m+k})\)</span> have the same
 distribution? For <span class="math inline">\(i_0,i_1,\dots, i_k\in \{0,1\}\)</span>, by the Markov
 property, we have <span class="math display">\[\label{equ:380C}
- \begin{split}
+\begin{split}
     {\mathbb{P}}[ X_0=i_0, X_1=i_i, \dots, X_{k}=i_k]
     &amp;=
-    {\mathbb{P}}[X_0= i_0] p_{i_0 i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}\\ 
+    {\mathbb{P}}[X_0= i_0] p_{i_0 i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}\\
     &amp;= \tfrac{1}{2}p_{i_0 i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}.
- \end{split}\]</span> In the same manner, <span class="math display">\[\label{equ:2D2C}
- \begin{split}
+\end{split}\]</span> In the same manner, <span class="math display">\[\label{equ:2D2C}
+\begin{split}
     {\mathbb{P}}[ X_m=i_0, X_1=i_i, \dots, X_{m+k}=i_k]&amp;=
-   {\mathbb{P}}[X_m= i_0] p_{i_0 
+   {\mathbb{P}}[X_m= i_0] p_{i_0
      i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}}\\ &amp;=
-   \tfrac{1}{2}p_{i_0 
+   \tfrac{1}{2}p_{i_0
      i_1} p_{i_1 i_2}\dots p_{i_{k-1}  i_{k}},
- \end{split}\]</span> so the two distributions are identical.</p></li>
+\end{split}\]</span> so the two distributions are identical.</p></li>
 </ol>
 <p>The second example above is quite instructive. We took a Markov chain
 and gave it an initial distribution with the property that <span class="math inline">\(X_0\)</span> and
@@ -376,7 +373,7 @@ distribution is so important that it even has a name:</p>
 <p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i)_{i\in S}\)</span> on the state space <span class="math inline">\(S\)</span> of a
 Markov chain with transition matrix <span class="math inline">\(P\)</span> is called a <strong>stationary distribution</strong>
 if
-<span class="math display">\[{\mathbb{P}}[X_1=i]=\pi_i \text{ for all } i\in S, 
+<span class="math display">\[{\mathbb{P}}[X_1=i]=\pi_i \text{ for all } i\in S,
 \text{ whenever }
 {\mathbb{P}}[X_0=i]=\pi_i,\text{ for all } i\in S.\]</span></p>
 <p>In words, <span class="math inline">\(\pi\)</span> is called a stationary distribution if the distribution
@@ -402,14 +399,14 @@ Indeed, the distribution <span class="math inline">\({a}^{(m)}\)</span> of <span
 P^{m-1}=\dots=\pi.\]</span> Next, we pick <span class="math inline">\(m,k\in{\mathbb{N}}_0\)</span> and a <span class="math inline">\(k+1\)</span>-tuple
 <span class="math inline">\(i_0, i_1, \dots, i_k\)</span> of elements of <span class="math inline">\(S\)</span>. By the Markov property, we
 have <span class="math display">\[\label{equ:5716}
- \begin{split}
+\begin{split}
    {\mathbb{P}}[ X_m=i_0, X_{m+1}=i_1,\dots, X_{m+k}=i_{k}]&amp;=
    {\mathbb{P}}[X_m=i_0] p_{i_0  i_1} p_{i_1 i_2} \dots p_{i_{k-1} i_{k}}\\ &amp;=
    \pi_{i_0}  p_{i_0  i_1} p_{i_1 i_2} \dots p_{i_{k-1} i_{k}}.
- \end{split}\]</span> This last expression does not depend on <span class="math inline">\(m\)</span>, so we can
+\end{split}\]</span> This last expression does not depend on <span class="math inline">\(m\)</span>, so we can
 conclude that <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is stationary.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-239" class="exercise"><strong>Problem 8.1  </strong></span>A model of social mobility of families posits three different social
+<p><span id="exr:unlabeled-div-214" class="exercise"><strong>Problem 8.1  </strong></span>A model of social mobility of families posits three different social
 classes (strata), namely “lower”, “middle”, and “upper”. The transitions
 between these classes (states) for a given family are governed by the
 following transition matrix:
@@ -417,17 +414,17 @@ following transition matrix:
 Find all stationary distributions of this chain.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-240" class="solution"><em>Solution</em>. </span>To compute <span class="math inline">\(\pi\)</span>, we start by writing down the following system of
+<p><span id="unlabeled-div-215" class="solution"><em>Solution</em>. </span>To compute <span class="math inline">\(\pi\)</span>, we start by writing down the following system of
 three linear equations: <span class="math display">\[\begin{array}{rcrcrcr}
     \pi_1 &amp;=&amp; \frac{1}{2}\, \pi_1    &amp; +&amp; \frac{1}{3}\, \pi_2        &amp;&amp; \\
     \pi_2 &amp;=&amp; \frac{1}{2}\, \pi_1  &amp; +&amp; \frac{1}{3}\, \pi_2  &amp;+&amp;
     \frac{1}{2}\, \pi_3 \\
     \pi_3 &amp;=&amp;              &amp;&amp;   \frac{1}{3}\, \pi_2  &amp;+&amp;
-    \frac{2}{3}\, \pi_3 
+    \frac{2}{3}\, \pi_3
 \end{array}\]</span>
 We solve the system and obtain that any triplet
 <span class="math inline">\((\pi_1,\pi_2,\pi_3)\)</span> with <span class="math display">\[\label{equ:in-pi2}
- \pi_1 = \frac{2}{3} \pi_2 \text{ and }\pi_3 = \pi_2\]</span> is a solution. Of course,
+\pi_1 = \frac{2}{3} \pi_2 \text{ and }\pi_3 = \pi_2\]</span> is a solution. Of course,
 <span class="math inline">\(\pi\)</span> needs to be a probability distribution, so we also need to require
 that <span class="math inline">\(\pi_1+\pi_2+\pi_3 = 1\)</span>. We plug in the expressions
 for <span class="math inline">\(\pi_1\)</span> and <span class="math inline">\(\pi_3\)</span> in terms of <span class="math inline">\(\pi_2\)</span> obtained above into
@@ -459,10 +456,10 @@ distribution concentrated at <span class="math inline">\(a/2\)</span>; a graphic
 (histogram) of the distributions of <span class="math inline">\(X_0\)</span>, <span class="math inline">\(X_{1}\)</span>, <span class="math inline">\(X_{3}\)</span>, <span class="math inline">\(X_{25}\)</span>,
 <span class="math inline">\(X_{100}\)</span> and <span class="math inline">\(X_{500}\)</span> when <span class="math inline">\(a=10\)</span> represents the behavior of the
 system very well :</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-303-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-273-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>How about if we start from a different initial distribution? Here are
 the same plots when the initial distribution is concentrated at <span class="math inline">\(0\)</span>:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-304-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>As you can see, the distribution changes rapidly at first, but then,
 once it has reached the “equilibrium” it changes remarkably little
 (compare <span class="math inline">\(X_{100}\)</span> and <span class="math inline">\(X_{500}\)</span>; when <span class="math inline">\(X_0=a/2\)</span>, even <span class="math inline">\(X_{25}\)</span> is not
@@ -524,7 +521,7 @@ statements are equivalent:</p>
 P_1      &amp; 0      &amp; 0        &amp; 0   \\
 \vdots   &amp; \ddots &amp; \vdots   &amp; 0   \\
 0        &amp; 0      &amp; P_m      &amp; 0  \\
- &amp; R &amp;  &amp; Q 
+&amp; R &amp;  &amp; Q
 \end{bmatrix},\]</span> is the canonical form of the transition matrix,
 <span class="math inline">\(\pi_{C_k}=(\pi_i, i\in C_k)\)</span>, <span class="math inline">\(k=1,2,\dots, m\)</span> and
 <span class="math inline">\(\pi_T=(\pi_i, i\in T)\)</span>.</p>
@@ -534,14 +531,14 @@ We write the equation <span class="math inline">\(\pi=\pi P\)</span> coordinatew
 <span class="math inline">\(i\in C_k\)</span>, <span class="math inline">\(k\in\{1,2,\dots, m\}\)</span>, and <span class="math inline">\(i\in T\)</span>, we get the following
 sytem of matrix equations (alternatively, just write the system
 <span class="math inline">\(\pi= \pi P\)</span> in the block-matrix form according to the cannonical
-decomposition above): <span class="math display">\[\pi_{C_k} = \pi_{C_K} P_{C_k} + \pi_T R,\ 
+decomposition above): <span class="math display">\[\pi_{C_k} = \pi_{C_K} P_{C_k} + \pi_T R,\
 k=1,\dots, m,  \text{ and } \pi_T =
 \pi_T Q.\]</span> The last equality can be read as follows: <span class="math inline">\(\pi_T\)</span> is in a row
 null-space of <span class="math inline">\(I-Q\)</span>. We know, however, that <span class="math inline">\(I-Q\)</span> admits an inverse, and
 so it is a regular square matrix. Its row null-space (as well as its
 column null-space) must be trivial, and, consequently, <span class="math inline">\(\pi_T=0\)</span>.</p>
 <p>Having established that <span class="math inline">\(\pi_T=0\)</span>, we can de-couple the system of
-equations above and write it as <span class="math display">\[\pi_{C_k} = \pi_{C_K} P_{k},\ 
+equations above and write it as <span class="math display">\[\pi_{C_k} = \pi_{C_K} P_{k},\
 k=1,\dots, m,  \text{ and } \pi_T = (0,0,\dots, 0),\]</span> which is exactly
 what we needed to prove.</p>
 <p>The other implication - the proof of which consists of a verification of
@@ -558,8 +555,8 @@ need to be a real distribution on <span class="math inline">\(C_k\)</span>, sinc
 unless <span class="math inline">\(\pi_{C_k}=(0,0,\dots, 0)\)</span>, we can always multiply all its elements by a constant to make the
 sum equal to <span class="math inline">\(1\)</span>.</p>
 </div>
-<div id="stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Stationary distributions for finite irreducible chains and Kac’s lemma</h2>
+<div id="stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Stationary distributions for finite irreducible chains and Kac’s lemma<a href="stationary-distributions.html#stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We now know what the general structure of the set of all stationary
 distributions is, but we still have no clue as to whether they actually
 exist. Indeed, our results so far had the following form: “If <span class="math inline">\(\pi\)</span> is a
@@ -610,14 +607,14 @@ one first computes the unique stationary distribution <span class="math inline">
 the equation <span class="math inline">\(\pi=\pi P\)</span> and then uses it to determine <span class="math inline">\(m_i\)</span> or the
 <span class="math inline">\(\nu_{ij}\)</span>’s. Here is a simple problem:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-241" class="exercise"><strong>Problem 8.2  </strong></span>Suppose that traffic
+<p><span id="exr:unlabeled-div-216" class="exercise"><strong>Problem 8.2  </strong></span>Suppose that traffic
 statistics on a given road are as follows: on average, three out of every four
 trucks are followed by a car, but only one out of every five cars is
 followed by a truck. A truck passes by you. How many cars do you expect
 to see before another truck passes?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-242" class="solution"><em>Solution</em>. </span>The type of the vehicle passing by you (car or truck) can be modeled by
+<p><span id="unlabeled-div-217" class="solution"><em>Solution</em>. </span>The type of the vehicle passing by you (car or truck) can be modeled by
 a Markov chain with two states and the transition matrix:
 <span class="math display">\[P = \begin{bmatrix} \frac{4}{5} &amp; \frac{1}{5} \\ \frac{3}{4} &amp;
 \frac{1}{4} \end{bmatrix},\]</span> with the first row (column) corresponding to the
@@ -660,7 +657,7 @@ follows:</p>
 <li><p>The set of states <span class="math inline">\(S\)</span> is the set of vertices <span class="math inline">\(V\)</span> of the graph <span class="math inline">\(G\)</span>.</p></li>
 <li><p>To move from a state (vertex) to the next one, chose one of its
 neighbors, uniformly at random, and jump to it. More precisely,
-<span class="math display">\[p_{ij} = \begin{cases} 0 &amp; i \not \sim j \\ 
+<span class="math display">\[p_{ij} = \begin{cases} 0 &amp; i \not \sim j \\
           1/d(i) &amp; i \sim j.  \end{cases}\]</span></p></li>
 </ol>
 <p>As long as the underlying graph is connected (you can move from any
@@ -702,13 +699,13 @@ happens to be <span class="math inline">\(336\)</span>.</p>
 <p>Kac’s theorem can now be used to answer the following, classical
 question:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-243" class="exercise"><strong>Problem 8.3  </strong></span>A knight starts from the lower left corner of a chessboard, and moves
+<p><span id="exr:unlabeled-div-218" class="exercise"><strong>Problem 8.3  </strong></span>A knight starts from the lower left corner of a chessboard, and moves
 around by selecting one of its legal moves at random at each step, and
 taking it. What is expected number of moves it will take before it
 returns to the lower left corner?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-244" class="solution"><em>Solution</em>. </span>The question is asking for the value of
+<p><span id="unlabeled-div-219" class="solution"><em>Solution</em>. </span>The question is asking for the value of
 <span class="math inline">\(m_i = {\mathbb{E}}_i[ T_i(1)]\)</span> where
 <span class="math inline">\(i\)</span> is the “lower left corner”. By Kac’s theorem this
 equals to <span class="math inline">\(1/\pi_i = 336/2 = 168\)</span>. If the knight started from one of the
@@ -718,8 +715,8 @@ two visits to the lower left corner. The answer is simply the degree of that
 state divided by <span class="math inline">\(2\)</span> (the degree of the lower left corner).</p>
 </div>
 </div>
-<div id="long-run-averages" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> Long-run averages</h2>
+<div id="long-run-averages" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> Long-run averages<a href="stationary-distributions.html#long-run-averages" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the most important properties of stationary distributions is that
 they describe the long-term behavior of a Markov chain. Before we
 explain how, let us recall the classical Law of Large Numbers (LLN) for
@@ -774,8 +771,8 @@ stationary distribution <span class="math inline">\(\pi\)</span> can be interpre
 run.</em></p>
 </blockquote>
 </div>
-<div id="limiting-distributions" class="section level2" number="8.4">
-<h2><span class="header-section-number">8.4</span> Limiting distributions</h2>
+<div id="limiting-distributions" class="section level2 hasAnchor" number="8.4">
+<h2><span class="header-section-number">8.4</span> Limiting distributions<a href="stationary-distributions.html#limiting-distributions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When we discussed the example of ink diffusing in a glass, we noticed
 how the distribution of ink
 quickly reaches the uniform equilibrium state. It is no coincidence that
@@ -815,7 +812,7 @@ it satisfies <span class="math inline">\(\pi=\pi P\)</span>, i.e., that
 <span class="math display">\[\pi_{j}= \sum_{i\in S} \pi_i p_{ij}.\]</span> We use the Chapman-Kolmogorov
 equation <span class="math inline">\(p^{(n+1)}_{ij}= \sum_{k\in S} p^{(n)}_{ik} p_{kj}\)</span> and start from the observation that
 <span class="math inline">\(\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}\)</span> to get exactly what we need:
-<span class="math display">\[\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}= \lim_{n{\rightarrow}\infty} 
+<span class="math display">\[\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}= \lim_{n{\rightarrow}\infty}
 \sum_{k\in S} p^{(n)}_{ik} p_{kj} =
 \sum_{k\in S} (\lim_{n{\rightarrow}\infty} p^{(n)}_{ik}) p_{kj} =
 \sum_{k\in S} \pi_k p_{kj}. \text{ QED}\]</span></p>
@@ -864,7 +861,7 @@ we considered a two-state “Regime-switching”
 Markov chain with the following transition matrix:
 <span class="math display">\[P =  \begin{bmatrix}1-a &amp; a \\ b &amp; 1-b\end{bmatrix},\]</span> where <span class="math inline">\(0&lt;a,b&lt;1\)</span>. Using
 diagonalization, we produced the following expression for <span class="math inline">\(P^n\)</span>:
-<span class="math display">\[P^n = 
+<span class="math display">\[P^n =
   \begin{bmatrix}
   \frac{b}{a+b}+(1-a-b)^n \frac{a}{a+b} &amp;   \frac{a}{a+b}-(1-a-b)^n \frac{a}{a+b}\\
   \frac{b}{a+b}+(1-a-b)^n \frac{b}{a+b} &amp;   \frac{a}{a+b}-(1-a-b)^n \frac{b}{a+b}
@@ -875,8 +872,8 @@ It follows that <span class="math inline">\((\frac{b}{a+b}, \frac{a}{a+b})\)</sp
 Of course, we could have concluded that directly from the Convergence theorem above,
 Theorem, since our chain is clearly finite, irreducible and aperiodic.</p>
 </div>
-<div id="the-pagerank-algorithm" class="section level2" number="8.5">
-<h2><span class="header-section-number">8.5</span> The PageRank algorithm</h2>
+<div id="the-pagerank-algorithm" class="section level2 hasAnchor" number="8.5">
+<h2><span class="header-section-number">8.5</span> The PageRank algorithm<a href="stationary-distributions.html#the-pagerank-algorithm" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>An internet user searches for the term “Jimi Hendrix” and find out that
 it appears in about 40 million web pages. Some of these pages are
 likely to be more important than others. For example, the Wikipedia
@@ -972,8 +969,8 @@ the “base relevance” <span class="math inline">\(\frac{1}{N}\)</span> and th
 remains one of the most important (and most lucrative) applications of
 the Markov Chain theory in history.</p>
 </div>
-<div id="additional-problems-for-chapter-8" class="section level2" number="8.6">
-<h2><span class="header-section-number">8.6</span> Additional Problems for Chapter 8</h2>
+<div id="additional-problems-for-chapter-8" class="section level2 hasAnchor" number="8.6">
+<h2><span class="header-section-number">8.6</span> Additional Problems for Chapter 8<a href="stationary-distributions.html#additional-problems-for-chapter-8" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div style="border: 1px solid; padding: 5px;">
 <p><strong>Note:</strong> do not use simulations in any of the problems below. Using R (or other software) to manipulate matrices or perform other numerical computation is fine.</p>
 </div>
@@ -983,12 +980,12 @@ the Markov Chain theory in history.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-245" class="exercise"><strong>Problem 8.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov
-chain with the transition matrix <span class="math display">\[P=\begin{bmatrix} 
+<p><span id="exr:unlabeled-div-220" class="exercise"><strong>Problem 8.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov
+chain with the transition matrix <span class="math display">\[P=\begin{bmatrix}
     \frac{1}{4} &amp; \frac{1}{4} &amp; \frac{1}{2} \\
      0 &amp; \frac{1}{3} &amp; \frac{2}{3} \\
- \frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} \\
- \end{bmatrix}\]</span></p>
+\frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3} \\
+\end{bmatrix}\]</span></p>
 <ol style="list-style-type: decimal">
 <li><p>Find all stationary distributions.</p></li>
 <li><p>The chain starts from the state <span class="math inline">\(i=1\)</span>. What is the expected number
@@ -1001,55 +998,15 @@ Estimate the amount of money on the account after 10000 transitions?
 You may assume that the Ergodic theorem provides an adequate approximation.</p></li>
 </ol>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-246" class="solution"><em>Solution</em>. </span><br />
-</p>
-<ol style="list-style-type: decimal">
-<li><p>Stationary distributions <span class="math inline">\(\pi=(\pi_1,\pi_2,\pi_3)\)</span> satisfy <span class="math inline">\(\pi  P=\pi\)</span>, i.e., <span class="math display">\[%   \label{equ:}
-  \nonumber 
-   \begin{split}
- \tfrac{1}{4} \pi_1 \hspace{6.7ex} + \tfrac{1}{3} \pi_3 &amp; = \pi_1 \\
- \tfrac{1}{4} \pi_1 + \tfrac{1}{3} \pi_2 + \tfrac{1}{3} \pi_3 &amp; = \pi_2 \\
- \tfrac{1}{2} \pi_1 + \tfrac{2}{3} \pi_2 + \tfrac{1}{3} \pi_3 &amp; = \pi_3. 
-   \end{split}\]</span> We also know that <span class="math inline">\(\pi_1+\pi_2+\pi_3=1\)</span>, and that
-the matrix <span class="math inline">\(P\)</span> is stochastic. Therefore, the third equation below is
-a linear combination of the first two, and can be exculded from
-consideration (this is always the case in problems with stationary
-distributions).</p>
-<p>The first equation yields that <span class="math inline">\(\pi_3=\frac{9}{4} \pi_1\)</span>, and the
-second one that
-<span class="math inline">\(\pi_2 = \tfrac{3}{2} ( \tfrac{1}{4}\pi_1+\tfrac{1}{3} \pi_3)= \tfrac{3}{2} \pi_1\)</span>. It remains to find <span class="math inline">\(\pi_1\)</span> such that
-<span class="math inline">\(\pi_1+\pi_2+\pi_3=1\)</span>, i.e, <span class="math inline">\(\pi_1+ \tfrac{3}{2} \pi_1+ \frac{9}{4} \pi_1=1\)</span>, i.e., <span class="math inline">\(\pi_1=(1+\tfrac{3}{2}+\frac{9}{4})^{-1}= \tfrac{4}{19}\)</span>. Therefore, <span class="math display">\[\pi=
-(\tfrac{4}{19},\tfrac{6}{19},\tfrac{9}{19})\]</span> is the only stationary
-distribution.</p></li>
-<li><p>By Kac’s theorem, the number of steps between two returns to a state <span class="math inline">\(i\)</span> (in an
-irreducible finite chain) is given by
-<span class="math display">\[{\mathbb{E}}_i[\tau_i(1)]=\frac{1}{\pi_i}.\]</span> Therefore,
-<span class="math inline">\({\mathbb{E}}_1[\tau_1(1)]= \tfrac{19}{4}\)</span>.</p></li>
-<li><p>Also by Kac’s theorem, the number of visits to the state <span class="math inline">\(j\)</span> between two consecutive visits
-to the state <span class="math inline">\(i\)</span> (in an irreducible finite chain) is given by
-<span class="math display">\[{\mathbb{E}}_i[ \sum_{n=0}^{\tau_1(1)} \mathbf{1}_{\{ X_n=j\}}]=
-\tfrac{\pi_j}{\pi_i}.\]</span> Therefore, our chain will visit the state
-<span class="math inline">\(2\)</span> on average <span class="math inline">\(1.5\)</span> times between every two visits to the state
-<span class="math inline">\(1\)</span>.</p></li>
-<li><p>The chain in question is irreducible and finite, so the law of large
-numbers applies:
-<span class="math display">\[\lim_{N{\rightarrow}\infty} \frac{1}{N} \sum_{n=0}^{N-1} f(X_n)=
-\sum_{i\in\S} f(i) \pi_i.\]</span> In our case <span class="math inline">\(f(1)=1\)</span>, <span class="math inline">\(f(2)=2\)</span> and
-<span class="math inline">\(f(3)=0\)</span>, so the amount of money <span class="math inline">\(M=\sum_{n=0}^{10000} f(X_n)\)</span> can
-be approximated as <span class="math display">\[\label{equ:2919}
- \begin{split}
-    M&amp;= 10001 \times \tfrac{1}{10001} \sum_{n=0}^{10000} f(X_n)\approx
-   10001 \times (\ 1 \tfrac{4}{19}+ \ 2 \tfrac{6}{19})\\ &amp;= 10001 \times
-   \ \tfrac{16}{19}\approx \ 8422.%
- \end{split}\]</span></p></li>
-</ol>
-</div>
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 <!--
   sl-prob-01a
   ------------------------------------------------
@@ -1071,159 +1028,87 @@ be approximated as <span class="math display">\[\label{equ:2919}
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-247" class="exercise"><strong>Problem 8.5  </strong></span>A county has 2 large cities and <span class="math inline">\(8\)</span> small ones. Any two cities have a direct
+<p><span id="exr:unlabeled-div-221" class="exercise"><strong>Problem 8.5  </strong></span>A county has 2 large cities and <span class="math inline">\(8\)</span> small ones. Any two cities have a direct
 flight between them, except for the two large ones (since they don’t like each
 other very much). A traveler starts in a large city and moves around randomly by
 picking one of the available direct flights from their current city at random and taking
 it. What is the expected number of flights he or she will take before returning
 to the initial city for the first time?</p>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-248" class="solution"><em>Solution</em>. </span>This can be modeled as a random walk on a graph with <span class="math inline">\(10\)</span> vertices <span class="math inline">\(S=\{1,2,\dots, 10\}\)</span> where any two vertices are connected by an edge except for <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. We need to compute <span class="math inline">\(m_1 = {\mathbb{E}}_1[T_1(1)]\)</span> which is, by Kac’s theorem, given by <span class="math inline">\(1/\pi_1\)</span>, where <span class="math inline">\(\pi\)</span> is the (unique) stationary distribution. The degrees of vertices <span class="math inline">\(3,4,\dots, 10\)</span> are <span class="math inline">\(9\)</span> and the degrees of <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> are <span class="math inline">\(8\)</span>. Therefore, <span class="math inline">\(\sum_{i\in S} d(i) = 90\)</span> and, so,
-<span class="math display">\[ m_1 = \frac{1}{\pi_1} = \frac{\sum_{i\in S} d(i)}{ d(1)}= \frac{90}{8} = 11.25.\]</span></p>
-</div>
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-mc-exam-07_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 <!--
   mc_prob3
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-249" class="exercise"><strong>Problem 8.6  </strong></span>Wonder Woman is moving from a vertex to a vertex of a cube, along its
+<p><span id="exr:unlabeled-div-222" class="exercise"><strong>Problem 8.6  </strong></span>Wonder Woman is moving from a vertex to a vertex of a cube, along its
 edges. Each time she reaches a vertex, she chooses one of the three edges
 that meet there with probability <span class="math inline">\(1/3\)</span>, independently of her previous
 choices. Assuming that it takes 1 min for Wonder Woman to cross an edge,
 what is the expected amount of time it will take her to return to the initial vertex?
 How about if the cube is replaced by a tetrahedron?</p>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-250" class="solution"><em>Solution</em>. </span>The situation can be modeled by a random walk on a graph whose vertices
-are the <span class="math inline">\(8\)</span> vertices of a cube, with two vertices connected by an edge
-if and only if they share an edge of the cube. We know that random walks
-on graphs admit stationary distributions proportional to the degrees of
-the graph’s vertices. In our case each vertex has degree <span class="math inline">\(3\)</span>, so the
-(unique) stationary distribution is uniform <span class="math inline">\((1/8, \dots ,1/8)\)</span>. The
-expected return times are reciprocals of the probabilities in the
-stationary distributions, so the answer is <span class="math inline">\(8\)</span>.</p>
-<p>In the case of a tetrahedron, the stationary distribution is
-<span class="math inline">\((1/4,\dots,1/4)\)</span> and the answer is <span class="math inline">\(4\)</span>. In fact, the answer is equal to
-the number of vertices for any regular polyhedron.</p>
-</div>
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob3_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 <!--
   sl-prob-02
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-251" class="exercise"><strong>Problem 8.7  </strong></span>Just like we did for the knight in an example above, compute the mean return time to the
+<p><span id="exr:unlabeled-div-223" class="exercise"><strong>Problem 8.7  </strong></span>Just like we did for the knight in an example above, compute the mean return time to the
 lower left corner for other chess pieces.</p>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-252" class="solution"><em>Solution</em>. </span>Assuming that they all start from the lower left corner, the mean return
-times are given by in the following table:</p>
-<table>
-<thead>
-<tr class="header">
-<th align="center"><strong>chess piece</strong></th>
-<th align="right"><strong>mean return time</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">bishop</td>
-<td align="right"><span class="math inline">\(\tfrac{280}{7} = 50\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">rook</td>
-<td align="right"><span class="math inline">\(\tfrac{896}{14} = 64\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">queen</td>
-<td align="right"><span class="math inline">\(\tfrac{1456}{21} \approx 69.3\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">knight</td>
-<td align="right"><span class="math inline">\(\tfrac{336}{2} = 118\)</span></td>
-</tr>
-<tr class="odd">
-<td align="center">king</td>
-<td align="right"><span class="math inline">\(\tfrac{420}{3} = 140\)</span></td>
-</tr>
-<tr class="even">
-<td align="center">pawn</td>
-<td align="right"><span class="math inline">\(+\infty\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>We assume that pawns don’t get promoted once they reach the last row; they just stay there.</p>
-</div>
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-02_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 <!--
   mc_prob1
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-253" class="exercise"><strong>Problem 8.8  </strong></span>Consider the Markov chain below
-<img src="pics/mc_prob1_chain.png" width="1200" style="display: block; margin: auto;" />
+<p><span id="exr:unlabeled-div-224" class="exercise"><strong>Problem 8.8  </strong></span>Consider the Markov chain below
+<img src="pics/mc_prob1_chain.png" style="display: block; margin: auto;" />
 where equally colored edges represent equal probabilities.
 Find all stationary
 distributions. For each <span class="math inline">\(i\in \{1,2,\dots, 7\}\)</span>, compute the long-run
 proportion of time this chain will spend in the state <span class="math inline">\(1\)</span>.</p>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-254" class="solution"><em>Solution</em>. </span>This chain has two recurrent classes <span class="math inline">\(C_1=\{1,2,3\}\)</span> and <span class="math inline">\(C_2 =  \{6,7\}\)</span>. Their transition matrices <span class="math inline">\(C_1\)</span> are given by
-<span class="math display">\[P_{C_1}=\begin{bmatrix}1/2 &amp; 0 &amp; 1/2 \\ 1/4 &amp; 1/2 &amp; 1/4 \\ 0 &amp; 1/2 &amp;
-  1/2\end{bmatrix} \text{ and }P_{C_2} = \begin{bmatrix} 0 &amp; 1 \\ 1/2 &amp; 1/2\end{bmatrix}.\]</span> The unique
-stationary distribution <span class="math inline">\(((\pi_{C_1})_1,(\pi_{C_1})_2,(\pi_{C_1})_3)\)</span>
-for <span class="math inline">\(P_{C_1}\)</span> satisfies the following system of equations
-<span class="math display">\[\begin{aligned}
-  (\pi_{C_1})_1 &amp; = 1/2 (\pi_{C_1})_1 + 1/4 (\pi_{C_1})_2 \\
-  (\pi_{C_1})_2 &amp; = 1/2 (\pi_{C_1})_2 + 1/2 (\pi_{C_1})_3 \\
-  (\pi_{C_1})_3 &amp; = 1/2 (\pi_{C_1})_1 + 1/4 (\pi_{C_1})_2 + 1/2 (\pi_{C_1})_3,\end{aligned}\]</span>
-and it follows that <span class="math inline">\((\pi_{C_1})_2 = 2 (\pi_{C_1})_1\)</span> and
-<span class="math inline">\((\pi_{C_1})_3 = (\pi_{C_1})_2\)</span>. Since
-<span class="math inline">\((\pi_{C_1})_1+(\pi_{C_1})_2+(\pi_{C_1})_3=1\)</span>, we get
-<span class="math inline">\((\pi_{C_1}) = (1/5, 2/5, 2/5)\)</span>. Similarly, the system equations for
-<span class="math inline">\(\pi_{C_2}\)</span> is given by <span class="math display">\[\begin{aligned}
-  (\pi_{C_2})_1 &amp;= 1/2 (\pi_{C_2})_2 \\
-  (\pi_{C_2})_2 &amp;= (\pi_{C_2})_1 + 1/2 (\pi_{C_2})_2.\end{aligned}\]</span>
-Together with <span class="math inline">\((\pi_{C_2})_1 + (\pi_{C_2})_2 = 1\)</span>, we get <span class="math inline">\(\pi_{C_2} = (1/3, 2/3)\)</span>.</p>
-<p>The states <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span> are transient, so any stationary distribution
-must be of the form
-<span class="math display">\[\pi = ( \alpha \frac{1}{5}, \alpha \frac{2}{5}, \alpha \frac{2}{5}, 0, 0,
-(1-\alpha) \frac{1}{3}, (1-\alpha) \frac{2}{3}),\]</span> for some <span class="math inline">\(\alpha \in [0,1]\)</span>.</p>
-<p>If the initial state <span class="math inline">\(i\)</span> is <span class="math inline">\(6\)</span> or <span class="math inline">\(7\)</span>, the chain will never visit <span class="math inline">\(1\)</span>,
-so the long run proportion is <span class="math inline">\(0\)</span>. If we start from <span class="math inline">\(1,2,3\)</span> or <span class="math inline">\(4\)</span>, the
-chain will get absorbed in the class <span class="math inline">\(C_1\)</span> and the long-run proportion
-of time spent at <span class="math inline">\(1\)</span> is given by <span class="math inline">\((\pi_{C_1})_1 = 1/5\)</span>.</p>
-<p>What happens when we start from <span class="math inline">\(5\)</span> is a little bit more subtle. If the
-first step taken is towards <span class="math inline">\(6\)</span>, the answer is <span class="math inline">\(0\)</span>, and if the first
-step is towards <span class="math inline">\(4\)</span>, the answer is <span class="math inline">\(1/5\)</span>. Therefore, this long run
-proportion is not a constant. It is a random variable whose value is
-<span class="math inline">\(\frac{1}{5} \mathbf{1}_{\{X_1 = 4\}}\)</span>.</p>
-</div>
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/mc_prob1_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 <!--
   friends
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-255" class="exercise"><strong>Problem 8.9  </strong></span>An Instagram influencer and die-hard foodie Ravi travels for work
+<p><span id="exr:unlabeled-div-225" class="exercise"><strong>Problem 8.9  </strong></span>An Instagram influencer and die-hard foodie Ravi travels for work
 between Austin and Los Angeles. After he spends a week in Austin, he
 spends another week there with probability <span class="math inline">\(1/3\)</span> or goes to Los Angeles
 with probability <span class="math inline">\(2/3\)</span>. After a week in Los Angeles, he always spends
@@ -1251,60 +1136,21 @@ Angeles dinners?</p></li>
 restaurants each week?</p></li>
 </ol>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-256" class="solution"><em>Solution</em>. </span>We model the positions of Ravi and Delphine by a Markov chain with <span class="math inline">\(4\)</span>
-states AA, AL, LA and LL (with the two letters denoting the cities they
-happen do find themselves in a given week). Ravi’s and Delphine’s
-positions, considered separately, are also Markov Chains, with the state
-space <span class="math inline">\(\{A,L\}\)</span> and the transition matrices
-<span class="math display">\[P^{R} = \begin{bmatrix} 1/3 &amp; 2/3 \\ 1 &amp; 0\end{bmatrix} \text{ and }P^{D} = \begin{bmatrix} 1/2 &amp; 1/2 \\ 1/2 &amp;
-  1/2\end{bmatrix}.\]</span> Since Ravi’s and Delphine’s transitions are independent, the
-transition probabilities of the “joint” chain on
-<span class="math inline">\(S = \{\text{AA, AL, LA, LL}\}\)</span> are simply products of the transition
-probability of the two individual chains. For example
-<span class="math inline">\(P_{AA, AL} = P^{\text{Ravi}}_{A, A}\times P^{\text{Delphine}}_{A,L} = 1/3 \times 1/2 = 1/6\)</span>.
-Therefore, the full transition matrix for the “joint” chain is given by
-<span class="math display">\[P = \begin{bmatrix} 
-    1/6 &amp; 1/6 &amp; 1/3 &amp; 1/3 \\
-    1/6 &amp; 1/6 &amp; 1/3 &amp; 1/3 \\
-    1/2 &amp;  1/2 &amp; 0 &amp; 0 \\
-    1/2 &amp;  1/2 &amp; 0 &amp; 0
-\end{bmatrix}\]</span> with the states in the following order AA, AL, LA and LL. All the
-questions above use the stationary probability of this chain, so we
-compute it first. The system of equations for
-<span class="math inline">\(\pi = (\pi_{AA}, \pi_{AL}, \pi_{LA}, \pi_{LL})\)</span> is <span class="math display">\[\begin{aligned}
-  \pi_{AA} &amp;= 1/6 \pi_{AA} + 1/6 \pi_{AL} + 1/2 \pi_{LA} + 1/2 \pi_{LL} \\ 
-  \pi_{AL} &amp;= 1/6 \pi_{AA} + 1/6 \pi_{AL} + 1/2 \pi_{LA} + 1/2 \pi_{LL} \\ 
-  \pi_{LA} &amp;= 1/3 \pi_{AA} + 1/3 \pi_{AL}\\
-  \pi_{LL} &amp;= 1/3 \pi_{AA} + 1/3 \pi_{AL}\\
-\text{ as well as} \\
-  1 = &amp; \pi_{AA}+\pi_{AL} + \pi_{LA} + \pi_{LL}.\end{aligned}\]</span> The
-first two equations immediately imply that <span class="math inline">\(\pi_{AA} = \pi_{AL}\)</span>, and
-the second two that <span class="math inline">\(\pi_{LA} = \pi_{LL}\)</span>. Moreover, by the third
-equation, we have <span class="math inline">\(\pi_{LA} = 2/3 \pi_{AA}\)</span>; similarly,
-<span class="math inline">\(\pi_{LL} = 2/3 \pi_{AL} = 2/3 \pi_{AA}\)</span>. We plug all of that into the last equation to get
-<span class="math display">\[1 =  \pi_{AA}  + \pi_{AA} + 2/3 \pi_{AA} + 2/3 \pi_{AA},\]</span> which gives
-<span class="math inline">\(\pi_{AA} = 3/10\)</span>, and, then, <span class="math inline">\(\pi_{AL} = 3/10\)</span>, <span class="math inline">\(\pi_{LA} = 1/5\)</span> and <span class="math inline">\(\pi_{LL} = 1/5\)</span>.</p>
-<ol style="list-style-type: decimal">
-<li><p>By Kac’s theorem, the mean return time to LL is <span class="math inline">\(1/\pi_{LL} = 5\)</span>
-weeks.</p></li>
-<li><p>Also by Kac’s theorem, the average number of visits to AA between
-two visits to LL is <span class="math inline">\(\pi_{AA}/\pi_{LL} = 1.5\)</span></p></li>
-<li><p>By the ergodic theorem, the long-run amount of money spent each week
-is <span class="math inline">\(\pi_{AA} \times \$100 + \pi_{LL}\times \$200 = \$ 70\)</span>.</p></li>
-</ol>
-</div>
-</details>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/friends_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 <!--
   sl-prob-04
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-257" class="exercise"><strong>Problem 8.10  </strong></span>Go back to the <a href="absorption-and-reward.html#facility">airline-reservation problem</a>
+<p><span id="exr:unlabeled-div-226" class="exercise"><strong>Problem 8.10  </strong></span>Go back to the <a href="absorption-and-reward.html#facility">airline-reservation problem</a>
 in the Absorption and Reward chapter. Answer the following questions, assuming that
 the system starts with both computers operational:</p>
 <ol style="list-style-type: decimal">
@@ -1312,57 +1158,56 @@ the system starts with both computers operational:</p>
 <li><p>What is the long-run per-day cost associated with inoperable computers?</p></li>
 </ol>
 </div>
-<details>
-<summary>
-Click for Solution
-</summary>
-<div class="solution">
-<p><span id="unlabeled-div-258" class="solution"><em>Solution</em>. </span>Most of the work has been done in the solution to the original problem in the previous chapter; please read it if
-you don’t remember what the names of the states mean. The Markov chain that
-we constructed there has the following graph
-<img src="pics/facility_chain.png" width="1200" style="display: block; margin: auto;" /></p>
-<p>Since both questions asked need the stationary distribution, let us compute it first. There are two difficulties. The first one is that the equation <span class="math inline">\(\pi = \pi P\)</span> is not in the format R’s <code>solve</code> command likes. That is easily fixed by transposing everything, i.e., by solving the equation <span class="math inline">\((I - P^T) \pi^T = 0\)</span>. The second problem is that the system of equations <span class="math inline">\(\pi = \pi P\)</span> is underdetermined (if you sum all the equations you will get <span class="math inline">\(1=1\)</span>) so that the additional requirement <span class="math inline">\(\pi_1+\dots+\pi_5=1\)</span> must be added.
-We take care of both of these things by first forming the matrix <span class="math inline">\(M = I - P^T\)</span> and then replacing its last row by a row of 1s. We also need to replace the <span class="math inline">\(0\)</span> vector on the right hand side by the vector <span class="math inline">\((0,0,0,0,1)\)</span>. This way, the last equation becomes exactly <span class="math inline">\(\pi_1+\dots+\pi_5 = 1\)</span>. Here is how all of this is done in R:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="stationary-distributions.html#cb207-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.3</span></span>
-<span id="cb207-2"><a href="stationary-distributions.html#cb207-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0-0-1-1&quot;</span>, <span class="st">&quot;0-1-0-1&quot;</span>, <span class="st">&quot;1-0-1-0&quot;</span>, <span class="st">&quot;1-1-0-0&quot;</span>, <span class="st">&quot;2-0-0-0&quot;</span>)</span>
-<span id="cb207-3"><a href="stationary-distributions.html#cb207-3" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p, </span>
-<span id="cb207-4"><a href="stationary-distributions.html#cb207-4" aria-hidden="true" tabindex="-1"></a>    p<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), <span class="dv">0</span>, (<span class="dv">1</span> <span class="sc">-</span> p)<span class="sc">^</span><span class="dv">2</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb207-5"><a href="stationary-distributions.html#cb207-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-6"><a href="stationary-distributions.html#cb207-6" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">5</span>) <span class="sc">-</span> <span class="fu">t</span>(P)</span>
-<span id="cb207-7"><a href="stationary-distributions.html#cb207-7" aria-hidden="true" tabindex="-1"></a>M[<span class="dv">5</span>, ] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb207-8"><a href="stationary-distributions.html#cb207-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-9"><a href="stationary-distributions.html#cb207-9" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb207-10"><a href="stationary-distributions.html#cb207-10" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">5</span>, <span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb207-11"><a href="stationary-distributions.html#cb207-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb207-12"><a href="stationary-distributions.html#cb207-12" aria-hidden="true" tabindex="-1"></a>(<span class="at">p_stat =</span> <span class="fu">t</span>(<span class="fu">solve</span>(M, v)))</span>
-<span id="cb207-13"><a href="stationary-distributions.html#cb207-13" aria-hidden="true" tabindex="-1"></a><span class="do">##       [,1] [,2] [,3] [,4] [,5]</span></span>
-<span id="cb207-14"><a href="stationary-distributions.html#cb207-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 0.028 0.12 0.32 0.22 0.31</span></span></code></pre></div>
-<p>The vector <code>p_stat</code> contains the (unique) stationary distribution, so we can start by answering the two questions posed in the problem.</p>
-<ol style="list-style-type: decimal">
-<li><p>The percentage of time both machines are operable is <span class="math inline">\(\pi_{2-0-0-0}\)</span>. The order of 2-0-0-0 is <span class="math inline">\(5\)</span>, so the answer is approximately <span class="math inline">\(0.3066\)</span>.</p></li>
-<li><p>This is the job for the Ergodic theorem. The reward (cost) function associated with the
-<span class="math inline">\(5\)</span> states is
-<span class="math display">\[\begin{align}
-  f(\text{0-0-1-1}) &amp;= 30,000 \\
-  f(\text{0-1-0-1}) &amp;= 30,000 \\
-  f(\text{1-0-1-0}) &amp;= 10,000 \\
-  f(\text{1-1-0-0}) &amp;= 10,000 \\
-  f(\text{2-0-0-0}) &amp;= 0
-\end{align}\]</span></p></li>
-</ol>
-<p>To get the expected long-term reward-per-day, we need to compute the product of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(f\)</span> (understood as a column vector):</p>
-<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="stationary-distributions.html#cb208-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">30000</span>, <span class="dv">30000</span>, <span class="dv">10000</span>, <span class="dv">10000</span>, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb208-2"><a href="stationary-distributions.html#cb208-2" aria-hidden="true" tabindex="-1"></a>p_stat <span class="sc">%*%</span> f</span>
-<span id="cb208-3"><a href="stationary-distributions.html#cb208-3" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1]</span></span>
-<span id="cb208-4"><a href="stationary-distributions.html#cb208-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 9952</span></span></code></pre></div>
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!--  -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-04_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
 </div>
-</details>
-</div>
-<div id="endnotes-6" class="section level2" number="8.7">
-<h2><span class="header-section-number">8.7</span> Endnotes</h2>
+<div id="endnotes-5" class="section level2 hasAnchor" number="8.7">
+<h2><span class="header-section-number">8.7</span> Endnotes<a href="stationary-distributions.html#endnotes-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1381,12 +1226,11 @@ algorithm.<a href="stationary-distributions.html#fnref13" class="footnote-back">
           </div>
         </div>
       </div>
-<a href="absorption-and-reward.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="dist.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="absorption-and-reward.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
 <script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
@@ -1413,7 +1257,7 @@ gitbook.start({
 },
 "download": null,
 "search": {
-"engine": "lunr",
+"engine": "fuse",
 "options": null
 },
 "toc": {
@@ -1430,7 +1274,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');
