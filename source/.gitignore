@@ -7,4 +7,7 @@ _bookdown_files
 _main_files
 
 problems*
+404.html
+*_files
+libs*
 *.bak
