@@ -47,6 +47,7 @@ n = 40
 T = 4
 Dt = T/n
 ts = Dt*(1:n)
+ts0 = c(0,ts)
 boxes = ts[rbinom(n,1,p) == 1]-Dt/2
 df = data.frame(boxes)
 ggplot(df,aes(x=boxes))+
@@ -69,15 +70,15 @@ ggplot(df,aes(x=boxes))+
 ```   
 
 One way to describe the obtained allocation of balls to boxes is through the 
-so-called **counting process** $\{N_n\}_{n\in\mathbb N}$, where $N_n$ is the total number of balls in the boxes numbered $1,2,\dots, n$.
+so-called **counting process** $\{N_n\}_{n\in\mathbb N_0}$, where $N_n$ is the total number of balls in the boxes numbered $1,2,\dots, n$ and $N_0=0$. 
 The realization of the counting process 
 corresponding to the allocation from above looks like this.
 
 ```{r echo=FALSE, fig.align = "center"}
 library(ggplot2)
 library(ggh4x)
-has = hist(boxes, breaks=ts, plot=FALSE)$counts
-df = data.frame(n=1:length(has), count = cumsum(has))
+has = hist(boxes, breaks=ts0, plot=FALSE)$counts
+df = data.frame(n=0:length(has), count = c(0,cumsum(has)))
 
 ggplot(df,aes(x=n, y=count))+
   geom_point()+
@@ -87,33 +88,58 @@ ggplot(df,aes(x=n, y=count))+
 ```   
 Note that $N$ is still a discrete process. To make it continuous, we give it 
 the time-index $[0,\infty)$ and for $t\geq 0$ define $N_t$ as the number of 
-balls in the boxes contained in $[0,t]$, i.e., in the first $\lfloor t/\Delta t
-\rfloor$ boxes. This amounts to taking the trajectory of the discrete process $N$, 
+balls in the boxes completely contained in $[0,t]$, i.e., in the first $\lfloor t/\Delta t \rfloor$ boxes. This amounts to taking the trajectory of the discrete process $N$, 
 multiplying the times index by $\Delta t$ and keeping its value constant throughout each interval $[k \Delta t, (k+1) \Delta t)$:
 
 ```{r, echo=FALSE, warnings=FALSE, message=FALSE, fig.align='center', fig.width=7}
 library(tidyverse)
 treshold = 0.4
-df = tibble(x=ts,y1=c(0,cumsum(has))) %>% 
-  mutate(repeat_times = c((diff(y1)>treshold)+1, 1)) %>% 
-  uncount(repeat_times) %>% 
-  mutate(xend = lead(x, default=0)) %>% 
-  mutate(y2 = lead(y1, default=0)) %>% 
-  mutate(is_jump = lag(x == xend, default=FALSE))  %>% 
-  mutate( y = if_else(is_jump, y2, y1)) %>% 
-  mutate( xend = lead(x,default = 0), yend = lead(y, default=0)) %>% 
-  mutate( is_jump = lead(is_jump,default=FALSE)) %>% 
-  select(x,y,xend,yend, is_jump) %>% 
-  filter(row_number() <= n()-1) 
-ggplot(df, aes(x=x, y=y, xend=xend, yend=yend, linetype=is_jump)) +
+points = tibble(x=c(0,ts),y=c(0,cumsum(has)), is_black=FALSE, is_white = FALSE)
+points$is_black[1]=TRUE
+points$is_black[nrow(points)]=TRUE
+i = 1
+while (i < nrow(points)) {
+  if (abs(points$y[i+1]-points$y[i])>treshold) {
+    x0 = points$x[i]
+    y0 = points$y[i+1]
+    points$is_white[i]=TRUE
+    points = points %>% 
+      add_row(x=x0, y=y0, is_black=TRUE, is_white=FALSE, .before=i+1)
+    points  
+     i=i+2}
+  else {
+    i=i+1
+  }
+}
+
+lpoints = lead(points) %>% 
+  rename_with(
+    ~ paste0(.x,"end", recycle0 = TRUE)
+  )
+
+lines = bind_cols(points, lpoints) %>%
+  mutate( is_jump = is_white) %>% 
+  filter( row_number() <= n()-1 ) 
+
+ggplot(lines, aes(x=x, y=y, xend=xend, yend=yend, linetype=is_jump)) +
   geom_segment()+
   scale_linetype_manual(name = "Linetype", values=c(1, 0))+
-  geom_point(data = subset(df, is_jump),aes(x=xend,y=yend))+
-  geom_point(data = subset(df, is_jump),aes(x=x,y=y), shape=21, fill="white")+
+  geom_point(data = subset(lines, is_black), aes(x=x,y=y), size=1)+
+  geom_point(data = subset(lines, is_whiteend), aes(x=xend,y=yend), shape=21, size=1, fill="white")+
   theme_minimal()+
   theme(legend.position="none")
   
 ```
+
+The black and white points are added to stress the fact that at the value at each discontinuity is equal to the limit from the right.
+
+The Poisson process will appear in the limit the counting processes as $\Delta t
+\to 0$. This limit will exist, however, only if we let $p \to 0$ at the same
+time. To see why, we take $t = n \Delta t$ and observe that 
+$N_t$ has the binomial distribution 
+with parameters $n$ and $p$, and, consequently $\EE[ N_t] = np$. 
+Letting $\Delta t \to 0$ while keeping $p$ and $t$ fixed amounts to letting $n\to \infty$ and, with it, the expected value of $\EE[ N_t]$. The way to keep this expectation from exploding is to simulataneously decrease keep it from
+
 
 
 
