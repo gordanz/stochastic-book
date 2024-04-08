@@ -1,0 +1,147 @@
+---
+knit: |
+  (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = paste0(
+        xfun::sans_ext(input), '-', Sys.Date(), '.html'
+      ),
+      envir = globalenv()
+    )
+  })
+---
+
+```{r child="mydefs.Rmd"}
+```
+
+# The Poisson Process
+<div style="counter-reset: thechapter 9;"> </div>
+
+All stochastic processes we have seen so far were *discrete*, i.e., their time
+set was $\N_0=\set{0,1,\dots}$ or its subset. The Poisson process is the first
+**continuous-time** process we are going to encounter. That means that the time
+set is the set $[0,\infty)$ of all nonnegative real numbers. The general theory
+of continuous-time processes is significantly more complex than the theory of
+discrete processes, but there are a few examples, like the Poisson process, that
+are both simple to describe and analyze and have numerous applications.  
+
+
+Before we give a rigorous definition of the the Poisson process, let us describe
+how it works heuristically. We start with a number $\Delta t>0$ and conside the
+sequence 
+\begin{align}
+[0,\Delta t],\  [\Delta t, 2 \Delta t], \ [2 \Delta t, 3\Delta t],\  \dots
+\end{align}
+of intervals in $[0,\infty)$ - we think of them as boxes. For each of
+these boxes, we toss a biased coin with the probability $p\in (0,1)$ of
+obtaining heads ($H$) and place a ball in the box if an only if $H$ is obtained. Here is
+a simple simulation of the this procedure; we take $\Delta t = 0.05$, $p=0.2$
+and display the contents of the first $40$ boxed, i.e., up to $t=2$:
+
+```{r echo=FALSE, fig.height=0.6, fig.width=10, fig.align = "center"}
+library(ggplot2)
+library(ggh4x)
+set.seed(5224)
+p = 0.2
+n = 40
+T = 4
+Dt = T/n
+ts = Dt*(1:n)
+boxes = ts[rbinom(n,1,p) == 1]-Dt/2
+df = data.frame(boxes)
+ggplot(df,aes(x=boxes))+
+  geom_dotplot(binwidth = Dt-0.001, dotsize = 0.8, fill = "red", stroke = 0.8) +
+  scale_x_continuous(
+    minor_breaks = seq(0,T,by = Dt), 
+    breaks = seq(0,T,by = 1),
+    limits=c(0,T),
+    guide = "axis_minor")+
+  scale_y_continuous(NULL, breaks = NULL)+
+  theme(
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank(),
+    axis.title.x = element_blank(),
+    axis.line.x = element_line(linewidth = 0.0),
+    axis.text.x = element_text(hjust = 1, size = 11), 
+    ggh4x.axis.ticks.length.minor = rel(1))
+```   
+
+One way to describe the obtained allocation of balls to boxes is through the 
+so-called **counting process** $\{N_n\}_{n\in\mathbb N}$, where $N_n$ is the total number of balls in the boxes numbered $1,2,\dots, n$.
+The realization of the counting process 
+corresponding to the allocation from above looks like this.
+
+```{r echo=FALSE, fig.align = "center"}
+library(ggplot2)
+library(ggh4x)
+has = hist(boxes, breaks=ts, plot=FALSE)$counts
+df = data.frame(n=1:length(has), count = cumsum(has))
+
+ggplot(df,aes(x=n, y=count))+
+  geom_point()+
+  scale_y_continuous(breaks = seq(0,max(df$count)+1,5))+
+  theme_minimal()
+
+```   
+Note that $N$ is still a discrete process. To make it continuous, we give it 
+the time-index $[0,\infty)$ and for $t\geq 0$ define $N_t$ as the number of 
+balls in the boxes contained in $[0,t]$, i.e., in the first $\lfloor t/\Delta t
+\rfloor$ boxes. This amounts to taking the trajectory of the discrete process $N$, 
+multiplying the times index by $\Delta t$ and keeping its value constant throughout each interval $[k \Delta t, (k+1) \Delta t)$:
+
+```{r, echo=FALSE, warnings=FALSE, message=FALSE, fig.align='center', fig.width=7}
+library(tidyverse)
+treshold = 0.4
+df = tibble(x=ts,y1=c(0,cumsum(has))) %>% 
+  mutate(repeat_times = c((diff(y1)>treshold)+1, 1)) %>% 
+  uncount(repeat_times) %>% 
+  mutate(xend = lead(x, default=0)) %>% 
+  mutate(y2 = lead(y1, default=0)) %>% 
+  mutate(is_jump = lag(x == xend, default=FALSE))  %>% 
+  mutate( y = if_else(is_jump, y2, y1)) %>% 
+  mutate( xend = lead(x,default = 0), yend = lead(y, default=0)) %>% 
+  mutate( is_jump = lead(is_jump,default=FALSE)) %>% 
+  select(x,y,xend,yend, is_jump) %>% 
+  filter(row_number() <= n()-1) 
+ggplot(df, aes(x=x, y=y, xend=xend, yend=yend, linetype=is_jump)) +
+  geom_segment()+
+  scale_linetype_manual(name = "Linetype", values=c(1, 0))+
+  geom_point(data = subset(df, is_jump),aes(x=xend,y=yend))+
+  geom_point(data = subset(df, is_jump),aes(x=x,y=y), shape=21, fill="white")+
+  theme_minimal()+
+  theme(legend.position="none")
+  
+```
+
+
+
+
+## Additional Problems for Chapter 8
+
+<!--
+  sl-prob-01
+  ------------------------------------------------
+-->
+
+<!-- ::: {.exercise} -->
+
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_prb.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
+
+## Endnotes
+
