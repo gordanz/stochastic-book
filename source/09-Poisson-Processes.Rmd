@@ -14,6 +14,52 @@ knit: |
 ```{r child="mydefs.Rmd"}
 ```
 
+```{r echo=FALSE, warning=FALSE, message=FALSE}
+library(tidyverse)
+plot_cadlag <- function(x,y,blacks=TRUE,whites=TRUE, treshold=0.5, point_size=1, ...) {
+  points = tibble(x,y, is_black=FALSE, is_white = FALSE)
+  points$is_black[1]=TRUE
+  points$is_black[nrow(points)]=TRUE
+  
+  i = 1
+  while (i < nrow(points)) {
+    if (abs(points$y[i+1]-points$y[i])>treshold) {
+      x0 = points$x[i]
+      y0 = points$y[i+1]
+      points$is_white[i]=TRUE
+      points = points %>% 
+        add_row(x=x0, y=y0, is_black=TRUE, is_white=FALSE, .before=i+1)
+      points  
+       i=i+2}
+    else {
+      i=i+1
+    }
+  }
+  lpoints = lead(points) %>% 
+    rename_with(
+      ~ paste0(.x,"end", recycle0 = TRUE)
+    )
+  
+  lines = bind_cols(points, lpoints) %>%
+    mutate( is_jump = is_white) %>% 
+    filter( row_number() <= n()-1 ) 
+
+  out = ggplot(lines, aes(x=x, y=y, xend=xend, yend=yend, linetype=is_jump)) +
+    geom_segment()+
+    scale_linetype_manual(name = "Linetype", values=c(1, 0));
+  if (blacks) {
+    out = out +  geom_point(data = subset(lines, is_black), aes(x=x,y=y), size=point_size)
+  }
+  
+  if (whites) {
+   out = out +  geom_point(data = subset(lines, is_whiteend), aes(x=xend,y=yend), shape=21, size=point_size, fill="white")
+  }
+  out = out + theme(legend.position="none")
+  return(out)
+}  
+```
+
+
 # The Poisson Process
 <div style="counter-reset: thechapter 9;"> </div>
 
@@ -93,40 +139,10 @@ multiplying the times index by $\Delta t$ and keeping its value constant through
 
 ```{r, echo=FALSE, warnings=FALSE, message=FALSE, fig.align='center', fig.width=7}
 library(tidyverse)
-treshold = 0.4
-points = tibble(x=c(0,ts),y=c(0,cumsum(has)), is_black=FALSE, is_white = FALSE)
-points$is_black[1]=TRUE
-points$is_black[nrow(points)]=TRUE
-i = 1
-while (i < nrow(points)) {
-  if (abs(points$y[i+1]-points$y[i])>treshold) {
-    x0 = points$x[i]
-    y0 = points$y[i+1]
-    points$is_white[i]=TRUE
-    points = points %>% 
-      add_row(x=x0, y=y0, is_black=TRUE, is_white=FALSE, .before=i+1)
-    points  
-     i=i+2}
-  else {
-    i=i+1
-  }
-}
-
-lpoints = lead(points) %>% 
-  rename_with(
-    ~ paste0(.x,"end", recycle0 = TRUE)
-  )
-
-lines = bind_cols(points, lpoints) %>%
-  mutate( is_jump = is_white) %>% 
-  filter( row_number() <= n()-1 ) 
-
-ggplot(lines, aes(x=x, y=y, xend=xend, yend=yend, linetype=is_jump)) +
-  geom_segment()+
-  scale_linetype_manual(name = "Linetype", values=c(1, 0))+
-  geom_point(data = subset(lines, is_black), aes(x=x,y=y), size=1)+
-  geom_point(data = subset(lines, is_whiteend), aes(x=xend,y=yend), shape=21, size=1, fill="white")+
+plot_cadlag(x=c(0,ts),y=c(0,cumsum(has))) +
   theme_minimal()+
+  scale_y_continuous(breaks = seq(0,sum(has)+1,2))+
+  scale_x_continuous(breaks = ts0[c(TRUE,FALSE)], limits=c(0,max(ts)))+
   theme(legend.position="none")
   
 ```
@@ -134,11 +150,29 @@ ggplot(lines, aes(x=x, y=y, xend=xend, yend=yend, linetype=is_jump)) +
 The black and white points are added to stress the fact that at the value at each discontinuity is equal to the limit from the right.
 
 The Poisson process will appear in the limit the counting processes as $\Delta t
-\to 0$. This limit will exist, however, only if we let $p \to 0$ at the same
-time. To see why, we take $t = n \Delta t$ and observe that 
+\to 0$. This limit will exist, however, only if we let $p \to 0$ at the same rate.
+To see why, we take $t = n \Delta t$ and observe that 
 $N_t$ has the binomial distribution 
 with parameters $n$ and $p$, and, consequently $\EE[ N_t] = np$. 
-Letting $\Delta t \to 0$ while keeping $p$ and $t$ fixed amounts to letting $n\to \infty$ and, with it, the expected value of $\EE[ N_t]$. The way to keep this expectation from exploding is to simulataneously decrease keep it from
+Letting $\Delta t \to 0$ while keeping $p$ and $t$ fixed amounts to letting
+$n\to \infty$ and, with it, the expected value of $\EE[ N_t]$. The way to keep
+this expectation from exploding is to decrease the probability $p$ to $0$ so
+that $p/ \Delta t \to \ld$ for some $\ld>0$.
+While we will not prove it in these notes (or even explain exactly what it means), the corresponding counting processes will converge towards 
+a continuous-time stochastic process, called the  **Poisson
+process** with parameter $\ld>0$ which is constructed as follows. We start with a
+sequence of  independent random variables with the exponential
+distribution with parameter $\ld$ and define the random variables $P_0,P_1,\dots$
+by
+\begin{align}
+  P_0 = 0 \eand  P_n = \sum_{k=1}^n T_k \efor n\in\N.
+\end{align}
+and then set
+\begin{align}
+N_t = \max \{ n\in\N_0 \, : \, P_n \leq t\}
+\end{align}
+Even though the notation is a bit different from before, it will not be hard to see 
+
 
 
 
