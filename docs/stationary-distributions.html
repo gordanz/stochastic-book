@@ -406,7 +406,7 @@ have <span class="math display">\[\label{equ:5716}
 \end{split}\]</span> This last expression does not depend on <span class="math inline">\(m\)</span>, so we can
 conclude that <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is stationary.</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-214" class="exercise"><strong>Problem 8.1  </strong></span>A model of social mobility of families posits three different social
+<p><span id="exr:unlabeled-div-230" class="exercise"><strong>Problem 8.1  </strong></span>A model of social mobility of families posits three different social
 classes (strata), namely “lower”, “middle”, and “upper”. The transitions
 between these classes (states) for a given family are governed by the
 following transition matrix:
@@ -414,7 +414,7 @@ following transition matrix:
 Find all stationary distributions of this chain.</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-215" class="solution"><em>Solution</em>. </span>To compute <span class="math inline">\(\pi\)</span>, we start by writing down the following system of
+<p><span id="unlabeled-div-231" class="solution"><em>Solution</em>. </span>To compute <span class="math inline">\(\pi\)</span>, we start by writing down the following system of
 three linear equations: <span class="math display">\[\begin{array}{rcrcrcr}
     \pi_1 &amp;=&amp; \frac{1}{2}\, \pi_1    &amp; +&amp; \frac{1}{3}\, \pi_2        &amp;&amp; \\
     \pi_2 &amp;=&amp; \frac{1}{2}\, \pi_1  &amp; +&amp; \frac{1}{3}\, \pi_2  &amp;+&amp;
@@ -456,10 +456,10 @@ distribution concentrated at <span class="math inline">\(a/2\)</span>; a graphic
 (histogram) of the distributions of <span class="math inline">\(X_0\)</span>, <span class="math inline">\(X_{1}\)</span>, <span class="math inline">\(X_{3}\)</span>, <span class="math inline">\(X_{25}\)</span>,
 <span class="math inline">\(X_{100}\)</span> and <span class="math inline">\(X_{500}\)</span> when <span class="math inline">\(a=10\)</span> represents the behavior of the
 system very well :</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-273-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-289-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>How about if we start from a different initial distribution? Here are
 the same plots when the initial distribution is concentrated at <span class="math inline">\(0\)</span>:</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-274-1.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-290-1.png" width="80%" style="display: block; margin: auto;" /></p>
 <p>As you can see, the distribution changes rapidly at first, but then,
 once it has reached the “equilibrium” it changes remarkably little
 (compare <span class="math inline">\(X_{100}\)</span> and <span class="math inline">\(X_{500}\)</span>; when <span class="math inline">\(X_0=a/2\)</span>, even <span class="math inline">\(X_{25}\)</span> is not
@@ -607,14 +607,14 @@ one first computes the unique stationary distribution <span class="math inline">
 the equation <span class="math inline">\(\pi=\pi P\)</span> and then uses it to determine <span class="math inline">\(m_i\)</span> or the
 <span class="math inline">\(\nu_{ij}\)</span>’s. Here is a simple problem:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-216" class="exercise"><strong>Problem 8.2  </strong></span>Suppose that traffic
+<p><span id="exr:unlabeled-div-232" class="exercise"><strong>Problem 8.2  </strong></span>Suppose that traffic
 statistics on a given road are as follows: on average, three out of every four
 trucks are followed by a car, but only one out of every five cars is
 followed by a truck. A truck passes by you. How many cars do you expect
 to see before another truck passes?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-217" class="solution"><em>Solution</em>. </span>The type of the vehicle passing by you (car or truck) can be modeled by
+<p><span id="unlabeled-div-233" class="solution"><em>Solution</em>. </span>The type of the vehicle passing by you (car or truck) can be modeled by
 a Markov chain with two states and the transition matrix:
 <span class="math display">\[P = \begin{bmatrix} \frac{4}{5} &amp; \frac{1}{5} \\ \frac{3}{4} &amp;
 \frac{1}{4} \end{bmatrix},\]</span> with the first row (column) corresponding to the
@@ -699,13 +699,13 @@ happens to be <span class="math inline">\(336\)</span>.</p>
 <p>Kac’s theorem can now be used to answer the following, classical
 question:</p>
 <div class="exercise">
-<p><span id="exr:unlabeled-div-218" class="exercise"><strong>Problem 8.3  </strong></span>A knight starts from the lower left corner of a chessboard, and moves
+<p><span id="exr:unlabeled-div-234" class="exercise"><strong>Problem 8.3  </strong></span>A knight starts from the lower left corner of a chessboard, and moves
 around by selecting one of its legal moves at random at each step, and
 taking it. What is expected number of moves it will take before it
 returns to the lower left corner?</p>
 </div>
 <div class="solution">
-<p><span id="unlabeled-div-219" class="solution"><em>Solution</em>. </span>The question is asking for the value of
+<p><span id="unlabeled-div-235" class="solution"><em>Solution</em>. </span>The question is asking for the value of
 <span class="math inline">\(m_i = {\mathbb{E}}_i[ T_i(1)]\)</span> where
 <span class="math inline">\(i\)</span> is the “lower left corner”. By Kac’s theorem this
 equals to <span class="math inline">\(1/\pi_i = 336/2 = 168\)</span>. If the knight started from one of the
@@ -980,7 +980,7 @@ the Markov Chain theory in history.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-220" class="exercise"><strong>Problem 8.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov
+<p><span id="exr:unlabeled-div-236" class="exercise"><strong>Problem 8.4  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov
 chain with the transition matrix <span class="math display">\[P=\begin{bmatrix}
     \frac{1}{4} &amp; \frac{1}{4} &amp; \frac{1}{2} \\
      0 &amp; \frac{1}{3} &amp; \frac{2}{3} \\
@@ -1028,7 +1028,7 @@ You may assume that the Ergodic theorem provides an adequate approximation.</p><
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-221" class="exercise"><strong>Problem 8.5  </strong></span>A county has 2 large cities and <span class="math inline">\(8\)</span> small ones. Any two cities have a direct
+<p><span id="exr:unlabeled-div-237" class="exercise"><strong>Problem 8.5  </strong></span>A county has 2 large cities and <span class="math inline">\(8\)</span> small ones. Any two cities have a direct
 flight between them, except for the two large ones (since they don’t like each
 other very much). A traveler starts in a large city and moves around randomly by
 picking one of the available direct flights from their current city at random and taking
@@ -1049,7 +1049,7 @@ to the initial city for the first time?</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-222" class="exercise"><strong>Problem 8.6  </strong></span>Wonder Woman is moving from a vertex to a vertex of a cube, along its
+<p><span id="exr:unlabeled-div-238" class="exercise"><strong>Problem 8.6  </strong></span>Wonder Woman is moving from a vertex to a vertex of a cube, along its
 edges. Each time she reaches a vertex, she chooses one of the three edges
 that meet there with probability <span class="math inline">\(1/3\)</span>, independently of her previous
 choices. Assuming that it takes 1 min for Wonder Woman to cross an edge,
@@ -1070,7 +1070,7 @@ How about if the cube is replaced by a tetrahedron?</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-223" class="exercise"><strong>Problem 8.7  </strong></span>Just like we did for the knight in an example above, compute the mean return time to the
+<p><span id="exr:unlabeled-div-239" class="exercise"><strong>Problem 8.7  </strong></span>Just like we did for the knight in an example above, compute the mean return time to the
 lower left corner for other chess pieces.</p>
 </div>
 <!-- <details> -->
@@ -1087,7 +1087,7 @@ lower left corner for other chess pieces.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-224" class="exercise"><strong>Problem 8.8  </strong></span>Consider the Markov chain below
+<p><span id="exr:unlabeled-div-240" class="exercise"><strong>Problem 8.8  </strong></span>Consider the Markov chain below
 <img src="pics/mc_prob1_chain.png" style="display: block; margin: auto;" />
 where equally colored edges represent equal probabilities.
 Find all stationary
@@ -1108,7 +1108,7 @@ proportion of time this chain will spend in the state <span class="math inline">
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-225" class="exercise"><strong>Problem 8.9  </strong></span>An Instagram influencer and die-hard foodie Ravi travels for work
+<p><span id="exr:unlabeled-div-241" class="exercise"><strong>Problem 8.9  </strong></span>An Instagram influencer and die-hard foodie Ravi travels for work
 between Austin and Los Angeles. After he spends a week in Austin, he
 spends another week there with probability <span class="math inline">\(1/3\)</span> or goes to Los Angeles
 with probability <span class="math inline">\(2/3\)</span>. After a week in Los Angeles, he always spends
@@ -1150,7 +1150,7 @@ restaurants each week?</p></li>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-226" class="exercise"><strong>Problem 8.10  </strong></span>Go back to the <a href="absorption-and-reward.html#facility">airline-reservation problem</a>
+<p><span id="exr:unlabeled-div-242" class="exercise"><strong>Problem 8.10  </strong></span>Go back to the <a href="absorption-and-reward.html#facility">airline-reservation problem</a>
 in the Absorption and Reward chapter. Answer the following questions, assuming that
 the system starts with both computers operational:</p>
 <ol style="list-style-type: decimal">
