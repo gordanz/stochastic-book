@@ -803,16 +803,16 @@ minimize her cost?
 :::
 
 
-<!-- <details>  -->
-<!-- <summary> Click for Solution </summary>  -->
+<details>
+<summary> Click for Solution </summary>
 
-<!-- ::: {.solution}  -->
+::: {.solution}
 
-<!-- ```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"}  -->
-<!-- ```  -->
+```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"}
+```
 
-<!-- :::  -->
-<!-- </details>  -->
+:::
+</details>
 
 
 
