@@ -683,20 +683,46 @@ recurrent state is <span class="math inline">\(\frac{21}{4}\)</span>.</p></li>
 <li><p><span class="math inline">\({\mathbb{P}}_A[X_1=C] =0\)</span> for any recurrent state <span class="math inline">\(C\)</span>.</p></li>
 </ol>
 </div>
-<!-- <details>  -->
-<!-- <summary> Click for Solution </summary>  -->
-<!-- ::: {.solution}  -->
-<!-- \  -->
-<!-- ```{r child="problems/04_Absorption_and_Reward/mc_prob1_sol.Rmd"}  -->
-<!-- ```  -->
-<!-- :::  -->
-<!-- </details>  -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-214" class="solution"><em>Solution</em>. </span><br />
+</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>False.</strong> <span class="math inline">\(F\)</span> is <span class="math inline">\(m\times m\)</span>, where <span class="math inline">\(m\)</span> is the number of
+<em>transient</em> states. The dimensions of <span class="math inline">\(F\)</span> say nothing about the
+number of recurrent states.</p></li>
+<li><p><strong>True.</strong> This is a reward computation with <span class="math inline">\(g = \binom{0}{1}\)</span>, so
+that
+<span class="math display">\[v = Fg = \begin{bmatrix} 3 &amp; 3 \\ 3/2 &amp; 3 \end{bmatrix} \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 3 \\ 3 \end{bmatrix}.\]</span>
+Therefore, the expected number of steps is <span class="math inline">\(3\)</span>, no matter where we
+start.</p></li>
+<li><p><strong>True.</strong> Another reward computation, this time with
+<span class="math inline">\(g=\binom{1}{1}\)</span>: <span class="math display">\[v = F g = \begin{bmatrix} 6 \\ 9/2\end{bmatrix}.\]</span> Since the two
+initial states are equally likely, the answer is <span class="math inline">\(\tfrac{1}{2}6 +  \tfrac{1}{2}9/2 = \frac{21}{4}\)</span>.</p></li>
+<li><p><strong>True.</strong> We know that <span class="math inline">\(F=(I-Q)^{-1}\)</span>. Therefore <span class="math inline">\(Q = I  -F^{-1}\)</span>. We can compute
+<span class="math display">\[F^{-1} = \begin{pmatrix}
+           2/3 &amp; -2/3 \\ -1/3 &amp; 2/3
+       \end{pmatrix}.\]</span>
+This can be done using R or by hand using the formula
+<span class="math display">\[\begin{pmatrix}a &amp; b \\ c &amp; d\end{pmatrix}^{-1}=\frac{1}{ad-bc}
+      \begin{pmatrix} d &amp; -b \\
+        -c &amp; a\end{pmatrix}.\]</span> Therefore, <span class="math display">\[Q = \begin{pmatrix}
+            1/3 &amp; 2/3 \\ 1/3 &amp; 1/3
+          \end{pmatrix}\]</span> The first row (transitions from <span class="math inline">\(A\)</span> to
+transient states) adds up to <span class="math inline">\(1\)</span>, so the probability of going from
+<span class="math inline">\(A\)</span> to any recurrent state in one step must be <span class="math inline">\(0\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!--
   ar-prob-01
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-214" class="exercise"><strong>Problem 7.7  </strong></span>In a Markov chain with a finite number of states, the fundamental matrix
+<p><span id="exr:unlabeled-div-215" class="exercise"><strong>Problem 7.7  </strong></span>In a Markov chain with a finite number of states, the fundamental matrix
 is given by <span class="math display">\[F=\begin{bmatrix} 3 &amp; 4 \\
     \tfrac{3}{2} &amp; 4\end{bmatrix}.\]</span> The initial distribution of the
 chain is uniform on all transient states. Compute the expected value of
@@ -708,7 +734,7 @@ all recurrent states.</p>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-215" class="solution"><em>Solution</em>. </span>Using the reward <span class="math inline">\(g\equiv 1\)</span>, the vector <span class="math inline">\(v\)</span> of expected values of
+<p><span id="unlabeled-div-216" class="solution"><em>Solution</em>. </span>Using the reward <span class="math inline">\(g\equiv 1\)</span>, the vector <span class="math inline">\(v\)</span> of expected values of
 <span class="math inline">\(\tau_C\)</span>, where each entry corresponds to a different transient initial
 state is <span class="math display">\[v= F g= \begin{bmatrix} 3 &amp; 4 \\
     \tfrac{3}{2} &amp; 4\end{bmatrix}
@@ -730,7 +756,7 @@ probability, <span class="math display">\[{\mathbb{E}}[\tau_C]= \tfrac{1}{2}\tim
 -->
 <div id="Gambler">
 <div class="exercise">
-<p><span id="exr:unlabeled-div-216" class="exercise"><strong>Problem 7.8  </strong></span>Consider the “Gambler’s ruin” model with parameter <span class="math inline">\(p\)</span>.
+<p><span id="exr:unlabeled-div-217" class="exercise"><strong>Problem 7.8  </strong></span>Consider the “Gambler’s ruin” model with parameter <span class="math inline">\(p\)</span>.
 Write an R function that computes the
 (vector of) probabilities that the gambler will go bankrupt before her wealth reaches
 <span class="math inline">\(\$1000\)</span> for each initial wealth <span class="math inline">\(x = 0,1,\dots, 1000\)</span>.
@@ -742,7 +768,7 @@ Plot the graphs for <span class="math inline">\(p=0.4, p=0.49, p=0.499\)</span> 
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-217" class="solution"><em>Solution</em>. </span>We use R and start by constructing the matrices <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> and the solving the system <span class="math inline">\((I-Q) U = R\)</span>.</p>
+<p><span id="unlabeled-div-218" class="solution"><em>Solution</em>. </span>We use R and start by constructing the matrices <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> and the solving the system <span class="math inline">\((I-Q) U = R\)</span>.</p>
 <div class="sourceCode" id="cb184"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb184-1"><a href="absorption-and-reward.html#cb184-1" aria-hidden="true" tabindex="-1"></a>ruin_probability <span class="ot">=</span> <span class="cf">function</span>(p) {</span>
 <span id="cb184-2"><a href="absorption-and-reward.html#cb184-2" aria-hidden="true" tabindex="-1"></a>    P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">ncol =</span> <span class="dv">1001</span>, <span class="at">nrow =</span> <span class="dv">1001</span>)</span>
 <span id="cb184-3"><a href="absorption-and-reward.html#cb184-3" aria-hidden="true" tabindex="-1"></a>    P[<span class="dv">1</span>, <span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span></span>
@@ -765,7 +791,7 @@ Click for Solution
 <span id="cb184-20"><a href="absorption-and-reward.html#cb184-20" aria-hidden="true" tabindex="-1"></a><span class="fu">points</span>(<span class="fu">ruin_probability</span>(<span class="fl">0.5</span>), <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;black&quot;</span>, <span class="at">lwd =</span> <span class="dv">1</span>)</span>
 <span id="cb184-21"><a href="absorption-and-reward.html#cb184-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="dv">10</span>, <span class="fl">0.43</span>, <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;p=0.5&quot;</span>, <span class="st">&quot;p=0.499&quot;</span>, <span class="st">&quot;p=0.49&quot;</span>, <span class="st">&quot;p=0.4&quot;</span>), <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>,</span>
 <span id="cb184-22"><a href="absorption-and-reward.html#cb184-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;seagreen&quot;</span>, <span class="st">&quot;darkblue&quot;</span>, <span class="st">&quot;maroon&quot;</span>), <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">lwd =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-920-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-930-1.png" width="672" style="display: block; margin: auto;" /></p>
 </div>
 </details>
 <!--
@@ -788,7 +814,7 @@ Click for Solution
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-218" class="exercise"><strong>Problem 7.9  </strong></span>A basketball player is shooting a series of free throws. The probability
+<p><span id="exr:unlabeled-div-219" class="exercise"><strong>Problem 7.9  </strong></span>A basketball player is shooting a series of free throws. The probability
 of hitting any single one is <span class="math inline">\(1/2\)</span>, and the throws are independent of
 each other. What is the expected number of throws the player will
 attempt before hitting 3 free throws in a row (including those 3)?</p>
@@ -798,7 +824,7 @@ attempt before hitting 3 free throws in a row (including those 3)?</p>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-219" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(X_n\)</span> be the size of the longest winning streak so far. The value of
+<p><span id="unlabeled-div-220" class="solution"><em>Solution</em>. </span>Let <span class="math inline">\(X_n\)</span> be the size of the longest winning streak so far. The value of
 <span class="math inline">\(X_{n+1}\)</span> then equals <span class="math inline">\(1+X_n\)</span> with probability <span class="math inline">\(1/2\)</span> and <span class="math inline">\(0\)</span> with
 probability <span class="math inline">\(1/2\)</span> so that the transition matrix of the Markov chain <span class="math inline">\(X\)</span>,
 on the state space <span class="math inline">\(S=\{0,1,2,3\}\)</span> is <span class="math display">\[P = \begin{bmatrix}
@@ -825,7 +851,7 @@ so that <span class="math inline">\(v_0 = 14\)</span>.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-220" class="exercise"><strong>Problem 7.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain
+<p><span id="exr:unlabeled-div-221" class="exercise"><strong>Problem 7.10  </strong></span>Let <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> be a Markov chain
 with the following transition matrix <span class="math display">\[P=
 \begin{bmatrix}
   1/2 &amp; 1/2 &amp; 0 \\
@@ -851,19 +877,86 @@ with transition matrix <span class="math display">\[P=
 state is still <span class="math inline">\(1\)</span>)? Remember this trick for your next exam.</p></li>
 </ol>
 </div>
-<!-- <details>  -->
-<!-- <summary> Click for Solution </summary>  -->
-<!-- ::: {.solution}  -->
-<!-- ```{r child="problems/04_Absorption_and_Reward/ar-prob-04_sol.Rmd"}  -->
-<!-- ```  -->
-<!-- :::  -->
-<!-- </details>  -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-222" class="solution"><em>Solution</em>. </span>The states 1 and 2 are transient and 3 is recurrent, so the canonical
+decomposition is <span class="math inline">\(C=\{3\}\)</span>, <span class="math inline">\(T=\{1,2\}\)</span> and the canonical form of the
+transition matrix is <span class="math display">\[P=
+\begin{bmatrix}
+1   &amp;   0  &amp;  0  \\
+0   &amp;  1/2 &amp; 1/2 \\
+1/3 &amp;  1/3 &amp; 1/3
+\end{bmatrix}\]</span> The matrices <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are given by <span class="math display">\[Q=
+\begin{bmatrix}
+1/2 &amp; 1/2 \\
+1/3 &amp; 1/3
+\end{bmatrix},
+R=\begin{bmatrix}
+0   \\
+1/3
+\end{bmatrix},\]</span> and the fundamental matrix <span class="math inline">\(F=(I-Q)^{-1}\)</span> is <span class="math display">\[F=
+\begin{bmatrix}
+  4 &amp; 3 \\
+2 &amp; 3
+\end{bmatrix}.\]</span></p>
+<ol style="list-style-type: decimal">
+<li><p>The reward function <span class="math inline">\(g(1)=g(2)=1\)</span>, i.e. <span class="math inline">\(g=  \begin{bmatrix}  1 \\ 1  \end{bmatrix}\)</span> will give us the expected time until absorption:
+<span class="math display">\[v=Fg=   \begin{bmatrix}
+  4 &amp; 3 \\
+2 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}
+   1 \\ 1
+  \end{bmatrix}=
+\begin{bmatrix}
+   7 \\ 5
+\end{bmatrix}.\]</span> Since the initial state is <span class="math inline">\(i=1\)</span>, the expected time
+before we first hit <span class="math inline">\(3\)</span> is <span class="math inline">\(v_1=7\)</span>.</p></li>
+<li><p>Here we use the reward function <span class="math display">\[g(i)=
+\begin{cases}
+  0, &amp; i=1,\\
+  1, &amp; i=2.
+\end{cases}\]</span> to get <span class="math display">\[v=Fg=   
+\begin{bmatrix}
+  4 &amp; 3 \\
+2 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}
+   0 \\ 1
+\end{bmatrix}=
+\begin{bmatrix}
+   3 \\ 3
+\end{bmatrix},\]</span> so the answer is <span class="math inline">\(v_1=3\)</span>.</p></li>
+<li><p>No, they would not. Indeed, these numbers only affect what the chain
+does after it hits <span class="math inline">\(3\)</span> for the first time, and that is irrelevant
+for calculations about the events which happen prior to that.</p>
+<p>No, all states would be recurrent. The moral of the story that the
+absorption calculations can be used even in the settings where all
+states are recurrent. You simply need to adjust the probabilities,
+as shown in the following part of the problem.</p></li>
+<li><p>We make the state <span class="math inline">\(3\)</span> absorbing (and states <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> transient)
+by replacing the transition matrix by the following one: <span class="math display">\[P=
+\begin{bmatrix}
+17/20 &amp; 1/20 &amp; 1/10\\
+1/15 &amp; 13/15 &amp; 1/15\\
+0 &amp; 0 &amp; 1\\
+  \end{bmatrix}\]</span> The new chain behaves exactly like the old one
+until it hits <span class="math inline">\(3\)</span> for the first time. Now we find the canonical
+decomposition and compute the matrix <span class="math inline">\(F\)</span> as above and get
+<span class="math display">\[F=\begin{bmatrix}8 &amp; 3 \\ 4 &amp; 9\end{bmatrix},\]</span> so that the expected number of visits to
+<span class="math inline">\(2\)</span> (with initial state <span class="math inline">\(1\)</span>) is <span class="math inline">\(F_{12}=3\)</span>.</p></li>
+</ol>
+</div>
+</details>
 <!--
   ar-prob-02
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-221" class="exercise"><strong>Problem 7.11  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
+<p><span id="exr:unlabeled-div-223" class="exercise"><strong>Problem 7.11  </strong></span>A fair 6-sided die is rolled repeatedly, and for <span class="math inline">\(n\in{\mathbb{N}}\)</span>, the outcome
 of the <span class="math inline">\(n\)</span>-th roll is denoted by <span class="math inline">\(Y_n\)</span> (it is assumed that <span class="math inline">\(\{Y_n\}_{n\in{\mathbb{N}}}\)</span> are
 independent of each other). For <span class="math inline">\(n\in{\mathbb{N}}_0\)</span>, let <span class="math inline">\(X_n\)</span> be the remainder
 (taken in the set <span class="math inline">\(\{0,1,2,3,4\}\)</span>) left after the sum
@@ -888,7 +981,7 @@ compute the period of each state.</p></li>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-222" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-224" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li><p>The outcomes <span class="math inline">\(1,2,3,4,5,6\)</span> leave remainders <span class="math inline">\(1,2,3,4,0,1\)</span>, when
 divided by <span class="math inline">\(5\)</span>, so the transition matrix <span class="math inline">\(P\)</span> of the chain is given
@@ -972,7 +1065,7 @@ given by <span class="math display">\[g_2=
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-223" class="exercise"><strong>Problem 7.12  </strong></span>Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence
+<p><span id="exr:unlabeled-div-225" class="exercise"><strong>Problem 7.12  </strong></span>Let <span class="math inline">\(\{Y_n\}_{n\in {\mathbb{N}}_0}\)</span> be a sequence
 of die-rolls, i.e., a sequence of independent random variables with
 distribution <span class="math display">\[Y_n \sim \left(
 \begin{array}{cccccc}
@@ -1001,7 +1094,7 @@ expected value of <span class="math inline">\(S\)</span>?</p></li>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-224" class="solution"><em>Solution</em>. </span> </p>
+<p><span id="unlabeled-div-226" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
 <li><p>The value of <span class="math inline">\(X_{n+1}\)</span> is either going to be equal to <span class="math inline">\(X_n\)</span> if
 <span class="math inline">\(Y_{n+1}\)</span> happens to be less than or equal to it, or it moves up to
@@ -1076,7 +1169,7 @@ value of the sum is <span class="math inline">\(25\)</span>.</p>
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-225" class="exercise"><strong>Problem 7.13  </strong></span>Go back to the problem with
+<p><span id="exr:unlabeled-div-227" class="exercise"><strong>Problem 7.13  </strong></span>Go back to the problem with
 <a href="Markov-chains.html#basil">Basil the rat</a> in the he first lecture on Markov chains and answer the question 2., but this time using an absorption/reward computation.</p>
 </div>
 <details>
@@ -1084,7 +1177,7 @@ value of the sum is <span class="math inline">\(25\)</span>.</p>
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-226" class="solution"><em>Solution</em>. </span>We reuse the Markov chain constructed in the original problem:</p>
+<p><span id="unlabeled-div-228" class="solution"><em>Solution</em>. </span>We reuse the Markov chain constructed in the original problem:</p>
 <div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="absorption-and-reward.html#cb187-1" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>,<span class="at">nrow =</span><span class="dv">7</span>, <span class="at">ncol=</span><span class="dv">7</span> )</span>
 <span id="cb187-2"><a href="absorption-and-reward.html#cb187-2" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">1</span>,<span class="dv">2</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>; P[<span class="dv">1</span>,<span class="dv">3</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">2</span>;</span>
 <span id="cb187-3"><a href="absorption-and-reward.html#cb187-3" aria-hidden="true" tabindex="-1"></a>P[<span class="dv">2</span>,<span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">2</span>,<span class="dv">4</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>; P[<span class="dv">2</span>,<span class="dv">6</span>] <span class="ot">=</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>;</span>
@@ -1107,7 +1200,7 @@ follows: what is the probability that the first recurrent state the chain visits
   ------------------------------------------------
 -->
 <div class="exercise">
-<p><span id="exr:unlabeled-div-227" class="exercise"><strong>Problem 7.14  </strong></span>Go back to the problem with the
+<p><span id="exr:unlabeled-div-229" class="exercise"><strong>Problem 7.14  </strong></span>Go back to the problem with the
 <a href="Markov-chains.html#professor">professor and his umbrellas</a> in the first lecture on Markov chains and answer the questions in part 2., but this time using an absorption/reward computation.</p>
 </div>
 <details>
@@ -1115,7 +1208,7 @@ follows: what is the probability that the first recurrent state the chain visits
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-228" class="solution"><em>Solution</em>. </span>We reuse the Markov chain constructed in the original problem:</p>
+<p><span id="unlabeled-div-230" class="solution"><em>Solution</em>. </span>We reuse the Markov chain constructed in the original problem:</p>
 <div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="absorption-and-reward.html#cb189-1" aria-hidden="true" tabindex="-1"></a>S<span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;h0-4&quot;</span>, <span class="st">&quot;h1-3&quot;</span>, <span class="st">&quot;h2-2&quot;</span>, <span class="st">&quot;h3-1&quot;</span>, <span class="st">&quot;h4-0&quot;</span>, </span>
 <span id="cb189-2"><a href="absorption-and-reward.html#cb189-2" aria-hidden="true" tabindex="-1"></a>     <span class="st">&quot;0-4o&quot;</span>, <span class="st">&quot;1-3o&quot;</span>, <span class="st">&quot;2-2o&quot;</span>, <span class="st">&quot;3-1o&quot;</span>, <span class="st">&quot;4-0o&quot;</span>, <span class="st">&quot;Wet&quot;</span>)</span>
 <span id="cb189-3"><a href="absorption-and-reward.html#cb189-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1176,7 +1269,7 @@ before he got wet.</p>
 <div id="facility">
 
 <div class="exercise">
-<p><span id="exr:unlabeled-div-229" class="exercise"><strong>Problem 7.15  </strong></span>An airline reservation system has two computers. Any computer in operation may break down on any given day with probability <span class="math inline">\(p=0.3\)</span>, independently of the other computer.
+<p><span id="exr:unlabeled-div-231" class="exercise"><strong>Problem 7.15  </strong></span>An airline reservation system has two computers. Any computer in operation may break down on any given day with probability <span class="math inline">\(p=0.3\)</span>, independently of the other computer.
 There is a single repair facility which takes two days to restore a
 computer to normal. It can work on only one computer at a time, and if two computers need work at the same time, one of them has to wait and enters the facility as soon as it is free again.</p>
 <p>The system starts with one operational computer; the other one broke last night and just entered the repair facility this morning.</p>
@@ -1185,13 +1278,50 @@ computer to normal. It can work on only one computer at a time, and if two compu
 <li><p>Assuming that each day with only one working computer costs the company <span class="math inline">\(\$10,000\)</span> and each day with both computers down <span class="math inline">\(\$30,000\)</span>, what is the total cost the company is expected to incur between now and the first time both computers are operational again.</p></li>
 </ol>
 </div>
-<!-- <details>  -->
-<!-- <summary> Click for Solution </summary>  -->
-<!-- ::: {.solution}  -->
-<!-- ```{r child="problems/04_Absorption_and_Reward/facility_sol.Rmd"}  -->
-<!-- ```  -->
-<!-- :::  -->
-<!-- </details>  -->
+<details>
+<summary>
+Click for Solution
+</summary>
+<div class="solution">
+<p><span id="unlabeled-div-232" class="solution"><em>Solution</em>. </span>Any of the computers can be in one of the following 4 conditions: in operation (OK),
+in repair facility - 2nd day (R2), in repair facility - 1st day (R1), waiting to enter the
+repair facility (W). Since there are two computers, each state of the Markov chain
+will be a quadruple of numbers <span class="math inline">\((OK, R2, R1, W)\)</span> denoting the number of computers in each
+conditions. For example, 1-0-1-0 means that there is one computer in operation (OK)
+and one which is spending its first day in the repair facility (R1). If there are no
+computers in operation, the chain moves deterministically, but if 1 or 2
+computers are in operation, they break down with probability p each,
+independently of the other. For example, if there are two computers in operation
+(the state of the system being 2-0-0-0), there are 3 possible scenarios: both
+computers remain in operation (that happens with probability <span class="math inline">\((1 − p)^2\)</span>), exactly
+one computer breaks down (the probability of that is <span class="math inline">\(2p(1 − p)\)</span>) and both
+computers break down (with probability <span class="math inline">\(p^2\)</span>). In the first case, the chain stays
+in the state 2-0-0-0. In the second case, the chain moves to the state 1-0-1-0
+and in the third case one of the computers enters the repair facility, while the
+other spends a day waiting, which corresponds to the state 1-0-1-0. All in all,
+here is the transition graph of the chain:</p>
+<p><img src="pics/facility_chain.png" style="display: block; margin: auto;" /></p>
+<p>In this problem we only care about what happens after both computers are operational again, we might as well make the state 2-0-0-0 an absorbing state and remove the existing transitions
+from 2-0-0-0 to other states. The state 0-0-1-1 can also be removed because there is no way to get there from the initial state 1-0-1-0 without passing through 2-0-0-0 which we just “blocked”. The simplified chain will therefore look like this:</p>
+<p><img src="pics/facility_simplified_chain.png" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li><p>To interpret this as an absorption question, we need to simplify our chain a bit more and turn 0-1-0-1 into an absorbing state. This way, we get the following chain
+<img src="pics/facility_simplest_chain.png" style="display: block; margin: auto;" /></p>
+<p>The lucky break is that this is a Gambler’s-ruin chain with <span class="math inline">\(a=3\)</span>, the probability of winning <span class="math inline">\(1-p\)</span> and the
+initial wealth <span class="math inline">\(1\)</span>. According to the worked-out Example in the notes this probability is given
+by <span class="math inline">\((1-p)^2/(p+(1-p)^2)\)</span> (remember, our probability of winning is <span class="math inline">\(1-p\)</span>, and not <span class="math inline">\(p\)</span>), which,
+for <span class="math inline">\(p=0.3\)</span> evaluates to about <span class="math inline">\(0.62\)</span></p></li>
+<li><p>This is a reward-type question for the original (simplified) chain. Unfortunately, this is not a Gambler’s-ruin chain, so we will have to perform all the computations in this case. This chain has 3 transient and one recurrent (absorbing) state and the reward (cost) of visiting state 0-1-0-1 is <span class="math inline">\(30,000\)</span> and <span class="math inline">\(10,000\)</span> for states 1-0-1-0 and 1-1-0-0. The entire computation is
+performed in the chunk below:</p></li>
+</ol>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="absorption-and-reward.html#cb194-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.3</span></span>
+<span id="cb194-2"><a href="absorption-and-reward.html#cb194-2" aria-hidden="true" tabindex="-1"></a>Tr <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0-1-0-1&quot;</span>, <span class="st">&quot;1-0-1-0&quot;</span>, <span class="st">&quot;1-1-0-0&quot;</span>)</span>
+<span id="cb194-3"><a href="absorption-and-reward.html#cb194-3" aria-hidden="true" tabindex="-1"></a>Q <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="dv">0</span>, p, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb194-4"><a href="absorption-and-reward.html#cb194-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">30000</span>, <span class="dv">10000</span>, <span class="dv">10000</span>), <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb194-5"><a href="absorption-and-reward.html#cb194-5" aria-hidden="true" tabindex="-1"></a><span class="fu">solve</span>(<span class="fu">diag</span>(<span class="dv">3</span>) <span class="sc">-</span> Q, g)[<span class="dv">2</span>, <span class="dv">1</span>]  <span class="co">#The initial state is 2 (1-0-1-0)</span></span>
+<span id="cb194-6"><a href="absorption-and-reward.html#cb194-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 53061</span></span></code></pre></div>
+</div>
+</details>
 
 </div>
 </div>
