@@ -428,27 +428,37 @@ strategy is better?</p></li>
 </div>
 <div id="problem-2." class="section level2">
 <h2>Problem 2.</h2>
-<p>Consider a Markov chain with the transition matrix <span class="math display">\[P=\begin{pmatrix}
-    0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
-    \frac{1}{3} &amp; 0 &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 \\
-    0 &amp; \frac{1}{2} &amp; 0 &amp; \frac{1}{2} &amp; 0 \\
-    0 &amp; \frac{1}{3} &amp; \frac{1}{3} &amp; 0 &amp; \frac{1}{3} \\
-    0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
-    \end{pmatrix}
-\]</span></p>
+<p>An Instagram influencer and die-hard foodie Ravi travels for work
+between Austin and Los Angeles. After he spends a week in Austin, he
+spends another week there with probability <span class="math inline">\(1/3\)</span> or goes to Los Angeles with
+probability <span class="math inline">\(2/3\)</span>. After a week in
+Los Angeles, he always spends the next week in Austin.</p>
+<p>His friend, Delphine, a tech enterpreneur and a passionate
+restaurant-goer herself, keeps a similar schedule. She also moves
+between Austin and Los Angeles, but, being a free spirit (and also a bit
+detached from reality), she makes her decisions by tossing a coin. No
+matter where she is, Austin or Los Angeles, she stays there with
+probability <span class="math inline">\(1/2\)</span> for another week,
+or switches cities with probability <span class="math inline">\(1/2\)</span>, as well. Moreover, the coin she uses
+is just a coin - it is not magically influenced by Ravi’s current
+position in any way. Similarly, Ravi’s decision whether to stay or not
+has nothing to do with Delphine’s coin, or the city she is in.</p>
+<p>Each time Ravi and Delphine find themselves in the same city, they go
+out on Friday night to try a new restaurant. If they happen to be in
+Austin, they pay <span class="math inline">\(\$100\)</span> for the
+experience. Los Angeles is more expensive, and the typical dinner costs
+<span class="math inline">\(\$200\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li><p>Find all stationary distributions.</p></li>
-<li><p>The chain starts from the state <span class="math inline">\(4\)</span>. What is the expected number of steps
-before it returns to <span class="math inline">\(4\)</span>?</p></li>
-<li><p>How many times, on average, does the chain visit state <span class="math inline">\(1\)</span> between two consecutive visits to state
-<span class="math inline">\(5\)</span>?</p></li>
-<li><p>Each time the chain visits the state <span class="math inline">\(i\)</span>, <span class="math inline">\(i\)</span>
-dollars are added to an account. Estimate the amount of money in the
-account after 9999 transitions? You may assume that the ergodic theorem
-provides an adequate approximation.</p></li>
+<li><p>Ravi and Delphine are in Los Angeles this week. How many weeks
+will pass (on average) before they are both in Los Angeles
+again?</p></li>
+<li><p>How many Austin dinners do they have, on average, between two Los
+Angeles dinners?</p></li>
+<li><p>What is the long-run average amount of money they spend on
+restaurants each week?</p></li>
 </ol>
 <!-- ## Solution -->
-<!-- ```{r child="~/.s/problems/05_Stationary_Distributions/sl-prob-01a_sol.Rmd"} -->
+<!-- ```{r child="~/.s/problems/05_Stationary_Distributions/friends_sol.Rmd"} -->
 <!-- ``` -->
 </div>
 </div>
