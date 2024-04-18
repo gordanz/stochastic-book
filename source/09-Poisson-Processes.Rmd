@@ -171,14 +171,27 @@ and then set
 \begin{align}
 N_t = \max \{ n\in\N_0 \, : \, P_n \leq t\}
 \end{align}
-Even though the notation is a bit different from before, it will not be hard to see 
+Simulation:
+```{r}
+simulate_Poisson <- function(T_max=5, lambda=1) {
+  N_max = lambda * T_max * 10
+  T = 0; N=0;
+  while (T[length(T)] < T_max) {
+    T=rbind(T,T[length(T)]+rexp(1,rate = lambda));
+  }
+  return(T[2:(length(T)-1)])
+}
+T=simulate_Poisson(lambda=2)
+plot_cadlag(x=T, y=0:(length(T)-1)-1)
+```
 
 
 
 
 
 
-## Additional Problems for Chapter 8
+
+## Additional Problems for Chapter 9 
 
 <!--
   sl-prob-01
