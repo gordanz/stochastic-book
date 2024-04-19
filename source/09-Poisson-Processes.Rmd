@@ -18,7 +18,7 @@ knit: |
 library(tidyverse)
 plot_cadlag <- function(x,y,blacks=TRUE,whites=TRUE, treshold=0.5, point_size=1, ...) {
   points = tibble(x,y, is_black=FALSE, is_white = FALSE)
-  points$is_black[1]=TRUE
+  # points$is_black[1]=TRUE
   points$is_black[nrow(points)]=TRUE
   
   i = 1
