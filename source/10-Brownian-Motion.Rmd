@@ -1,0 +1,48 @@
+---
+knit: |
+  (function(input, ...) {
+    rmarkdown::render(
+      input,
+      output_file = paste0(
+        xfun::sans_ext(input), '-', Sys.Date(), '.html'
+      ),
+      envir = globalenv()
+    )
+  })
+---
+
+```{r child="mydefs.Rmd"}
+```
+
+
+
+# The Brownian Motion
+<div style="counter-reset: thechapter 10;"> </div>
+
+## Additional Problems for Chapter 9 
+
+<!--
+  sl-prob-01
+  ------------------------------------------------
+-->
+
+<!-- ::: {.exercise} -->
+
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_prb.Rmd"} -->
+<!-- ``` -->
+
+<!-- ::: -->
+
+
+<!-- <details> -->
+<!-- <summary> Click for Solution </summary> -->
+<!-- ::: {.solution} -->
+<!-- \ -->
+<!-- ```{r child="problems/05_Stationary_Distributions/sl-prob-01_sol.Rmd"} -->
+<!-- ``` -->
+<!--  -->
+<!-- ::: -->
+<!-- </details> -->
+
+## Endnotes
+
