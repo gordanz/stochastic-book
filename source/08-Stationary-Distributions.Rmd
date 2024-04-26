@@ -168,7 +168,7 @@ To compute $\pi$, we start by writing down the following system of
 three linear equations: $$\begin{array}{rcrcrcr}
     \pi_1 &=& \frac{1}{2}\, \pi_1    & +& \frac{1}{3}\, \pi_2        && \\
     \pi_2 &=& \frac{1}{2}\, \pi_1  & +& \frac{1}{3}\, \pi_2  &+&
-    \frac{1}{2}\, \pi_3 \\
+    \frac{1}{3}\, \pi_3 \\
     \pi_3 &=&              &&   \frac{1}{3}\, \pi_2  &+&
     \frac{2}{3}\, \pi_3 
 \end{array}$$ 
