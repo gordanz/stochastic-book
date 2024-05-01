@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Stationary Distributions | Lecture notes for “Introduction to Stochastic Processes”</title>
   <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Stationary Distributions | Lecture notes for “Introduction to Stochastic Processes”" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,11 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -104,14 +104,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -346,7 +346,8 @@ distribution <span class="math inline">\({\mathbb{P}}[X_0=0]={\mathbb{P}}[X_0=1]
 even, and <span class="math inline">\(X_n=1-X_0\)</span> if <span class="math inline">\(n\)</span> is odd. Moreover, <span class="math inline">\(X_0\)</span> and <span class="math inline">\(1-X_0\)</span>
 have the same distribution (Bernoulli with <span class="math inline">\(p=\tfrac{1}{2}\)</span>), and, so
 <span class="math inline">\(X_0, X_1,\dots\)</span> all have the same distribution. How about
-<span class="math inline">\(k\)</span>-tuples? Why do <span class="math inline">\((X_0,X_1, \dots, X_k)\)</span> and <span class="math inline">\((X_m,X_{m+1},\dots, X_{m+k})\)</span> have the same
+<span class="math inline">\(k\)</span>-tuples? Why do <span class="math inline">\((X_0,X_1,
+\dots, X_k)\)</span> and <span class="math inline">\((X_m,X_{m+1},\dots, X_{m+k})\)</span> have the same
 distribution? For <span class="math inline">\(i_0,i_1,\dots, i_k\in \{0,1\}\)</span>, by the Markov
 property, we have <span class="math display">\[\label{equ:380C}
 \begin{split}
@@ -370,7 +371,7 @@ whole process became stationary. This is not a coincidence; we can play
 the same trick with any Markov chain, as long as the initial
 distribution with the above property can be found. Actually, such a
 distribution is so important that it even has a name:</p>
-<p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i)_{i\in S}\)</span> on the state space <span class="math inline">\(S\)</span> of a
+<p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i)_{i\in  S}\)</span> on the state space <span class="math inline">\(S\)</span> of a
 Markov chain with transition matrix <span class="math inline">\(P\)</span> is called a <strong>stationary distribution</strong>
 if
 <span class="math display">\[{\mathbb{P}}[X_1=i]=\pi_i \text{ for all } i\in S,
@@ -418,7 +419,7 @@ Find all stationary distributions of this chain.</p>
 three linear equations: <span class="math display">\[\begin{array}{rcrcrcr}
     \pi_1 &amp;=&amp; \frac{1}{2}\, \pi_1    &amp; +&amp; \frac{1}{3}\, \pi_2        &amp;&amp; \\
     \pi_2 &amp;=&amp; \frac{1}{2}\, \pi_1  &amp; +&amp; \frac{1}{3}\, \pi_2  &amp;+&amp;
-    \frac{1}{2}\, \pi_3 \\
+    \frac{1}{3}\, \pi_3 \\
     \pi_3 &amp;=&amp;              &amp;&amp;   \frac{1}{3}\, \pi_2  &amp;+&amp;
     \frac{2}{3}\, \pi_3
 \end{array}\]</span>
@@ -479,9 +480,11 @@ we need to show that it solves the system
    \end{split}\]</span> It is immediate that
 <span class="math inline">\(\pi_0 = \pi_1 = \dots = \pi_a = \frac{1}{a+1}\)</span> is a probability distribution
 that solves the system above. On the other hand, the first equation
-yields <span class="math inline">\(\pi_1 = \pi_0\)</span>, the second one that <span class="math inline">\(\pi_2 = 2 \pi_1 - \pi_0 = \pi_0\)</span>, the third <span class="math inline">\(\pi_3 = 2 \pi_2 - \pi_1 = \pi_0\)</span>,
+yields <span class="math inline">\(\pi_1 = \pi_0\)</span>, the second one that <span class="math inline">\(\pi_2 = 2
+\pi_1 - \pi_0 = \pi_0\)</span>, the third <span class="math inline">\(\pi_3 = 2 \pi_2 - \pi_1 = \pi_0\)</span>,
 etc. Therefore all <span class="math inline">\(\pi_i\)</span> must be the same, and, since
-<span class="math inline">\(\sum_{i=0}^a \pi_i = 1\)</span>, we conclude that the uniform distribution is the only stationary
+<span class="math inline">\(\sum_{i=0}^a \pi_i =
+1\)</span>, we conclude that the uniform distribution is the only stationary
 distribution.</p>
 <p>Can there be more than one stationary distribution? Can there be none?
 Sure, here is an example:</p>
@@ -509,7 +512,9 @@ fact, let us analyze the relation between stationary distributions and
 the properties of recurrence and transience. Here is our first result:</p>
 <p><strong>Proposition.</strong>
 Suppose that the state space <span class="math inline">\(S\)</span> of a Markov chain is finite and let
-<span class="math inline">\(S=C_1\cup C_2\cup \dots \cup C_m \cup  T\)</span> be its canonical decomposition into recurrent classes <span class="math inline">\(C_1, \dots,  C_m\)</span> and the set of transient states <span class="math inline">\(T\)</span>. Then the following two
+<span class="math inline">\(S=C_1\cup C_2\cup \dots \cup C_m \cup
+  T\)</span> be its canonical decomposition into recurrent classes <span class="math inline">\(C_1, \dots,
+  C_m\)</span> and the set of transient states <span class="math inline">\(T\)</span>. Then the following two
 statements are equivalent:</p>
 <ol style="list-style-type: decimal">
 <li><p><span class="math inline">\(\pi\)</span> is a stationary distribution, and</p></li>
@@ -527,7 +532,7 @@ P_1      &amp; 0      &amp; 0        &amp; 0   \\
 <span class="math inline">\(\pi_T=(\pi_i, i\in T)\)</span>.</p>
 <p><strong>Proof.</strong>
 We write the equation <span class="math inline">\(\pi=\pi P\)</span> coordinatewise as
-<span class="math inline">\(\pi_j=\sum_{i\in S} \pi_i p_{ij}\)</span> and, by distinguishing the cases
+<span class="math inline">\(\pi_j=\sum_{i\in  S} \pi_i p_{ij}\)</span> and, by distinguishing the cases
 <span class="math inline">\(i\in C_k\)</span>, <span class="math inline">\(k\in\{1,2,\dots, m\}\)</span>, and <span class="math inline">\(i\in T\)</span>, we get the following
 sytem of matrix equations (alternatively, just write the system
 <span class="math inline">\(\pi= \pi P\)</span> in the block-matrix form according to the cannonical
@@ -552,7 +557,8 @@ transient state <span class="math inline">\(i\)</span>. What remains are recurre
 analyize each one separately. Note, however, that <span class="math inline">\(\pi_{C_k}\)</span> does not
 need to be a real distribution on <span class="math inline">\(C_k\)</span>, since
 <span class="math inline">\(\sum_{i\in C_k} (\pi_{C_k})_i\)</span> does not need to equal <span class="math inline">\(1\)</span>. However,
-unless <span class="math inline">\(\pi_{C_k}=(0,0,\dots, 0)\)</span>, we can always multiply all its elements by a constant to make the
+unless <span class="math inline">\(\pi_{C_k}=(0,0,\dots,
+0)\)</span>, we can always multiply all its elements by a constant to make the
 sum equal to <span class="math inline">\(1\)</span>.</p>
 </div>
 <div id="stationary-distributions-for-finite-irreducible-chains-and-kacs-lemma" class="section level2 hasAnchor" number="8.2">
@@ -627,15 +633,18 @@ stationary distribution first. The equations are <span class="math display">\[\b
   \pi_2 &amp;= \frac{1}{5} \pi_1 + \frac{1}{4} \pi_2,\end{aligned}\]</span> which, with
 the additional requirement <span class="math inline">\(\pi_1+\pi_2 = 1\)</span>, give
 <span class="math display">\[\pi_1 = \tfrac{15}{19}, \pi_2 = \tfrac{4}{19}.\]</span> Since
-<span class="math inline">\(v_{ij} = m_i \pi_j\)</span>, we have <span class="math inline">\(v_{21} = m_2 \pi_1 = \tfrac{15}{19} m_2\)</span>. We also know that <span class="math inline">\(m_2 = 1/\pi_2 = \frac{19}{4}\)</span>, and, so, we expect
-to see <span class="math inline">\(\frac{15}{4} = 3.75\)</span> cars between two consecutive trucks.</p>
+<span class="math inline">\(v_{ij} = m_i \pi_j\)</span>, we have <span class="math inline">\(v_{21} = m_2 \pi_1 = \tfrac{15}{19}
+m_2\)</span>. We also know that <span class="math inline">\(m_2 = 1/\pi_2 = \frac{19}{4}\)</span>, and, so, we expect
+to see <span class="math inline">\(\frac{15}{4}  = 3.75\)</span> cars between two consecutive trucks.</p>
 <p>In this particular case, we could have answered the question by
 computing the expected return time <span class="math inline">\(m_2 = {\mathbb{E}}_2[ T_2(1)]\)</span> to the state
 <span class="math inline">\(2\)</span>. As above, <span class="math inline">\(m_2 = 1/\pi_2 = \tfrac{19}{4}\)</span>. We have to be careful,
 because the state <span class="math inline">\(2\)</span> itself is counted exactly once in this
-expectation, so <span class="math inline">\(m_2 = \tfrac{19}{4}\)</span> does not only count all the cars between two trucks, but
+expectation, so <span class="math inline">\(m_2 =
+\tfrac{19}{4}\)</span> does not only count all the cars between two trucks, but
 also one of the trucks. Therefore, the number of cars only is
-<span class="math inline">\(\frac{19}{4} - 1 = \frac{15}{4}\)</span>, which is exactly the number we obtained above.</p>
+<span class="math inline">\(\frac{19}{4} -
+1 = \frac{15}{4}\)</span>, which is exactly the number we obtained above.</p>
 </div>
 <p>The family of Markov chains called <strong>random walks on graphs</strong> provides for
 many interesting and
@@ -779,7 +788,7 @@ quickly reaches the uniform equilibrium state. It is no coincidence that
 this “limiting” distribution happens to be a stationary distribution.
 Before we make this claim more precise, let us define rigorously what we
 mean by a limiting distribution:</p>
-<p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i, i\in S)\)</span>
+<p><strong>Definition.</strong> A distribution <span class="math inline">\(\pi=(\pi_i, i\in  S)\)</span>
 on the state space <span class="math inline">\(S\)</span> of a Markov chain with transition matrix <span class="math inline">\(P\)</span> is
 called a <strong>limiting distribution</strong>
 if <span class="math display">\[\lim_{n{\rightarrow}\infty} p^{(n)}_{ij}=\pi_j,\]</span> for all <span class="math inline">\(i,j\in S\)</span>.</p>
@@ -798,7 +807,7 @@ because they do not add up to <span class="math inline">\(1\)</span>.</p></li>
 <li><p>Note that the independence on the initial state <span class="math inline">\(i\)</span> is built into
 the definition of the limiting distribution: the sequence
 <span class="math inline">\(\{p^{(n)}_{ij}\}_{n\in{\mathbb{N}}}\)</span> must tend to the same limit <span class="math inline">\(\pi_j\)</span> for all
-<span class="math inline">\(i\in S\)</span>.</p></li>
+<span class="math inline">\(i\in  S\)</span>.</p></li>
 <li><p>Since limits are unique, there can be at most one limiting
 distribution in a given chain.</p></li>
 </ol>
@@ -810,7 +819,8 @@ transition matrix <span class="math inline">\(P\)</span> admits a limiting distr
 <p><strong>Proof.</strong> To show that <span class="math inline">\(\pi\)</span> is a stationary distribution, we need to verify that
 it satisfies <span class="math inline">\(\pi=\pi P\)</span>, i.e., that
 <span class="math display">\[\pi_{j}= \sum_{i\in S} \pi_i p_{ij}.\]</span> We use the Chapman-Kolmogorov
-equation <span class="math inline">\(p^{(n+1)}_{ij}= \sum_{k\in S} p^{(n)}_{ik} p_{kj}\)</span> and start from the observation that
+equation <span class="math inline">\(p^{(n+1)}_{ij}=
+\sum_{k\in S} p^{(n)}_{ik} p_{kj}\)</span> and start from the observation that
 <span class="math inline">\(\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}\)</span> to get exactly what we need:
 <span class="math display">\[\pi_j=\lim_{n{\rightarrow}\infty} p^{(n+1)}_{ij}= \lim_{n{\rightarrow}\infty}
 \sum_{k\in S} p^{(n)}_{ik} p_{kj} =
@@ -839,7 +849,8 @@ The simplest example is a
 Markov chain with two states <span class="math inline">\(i=1,2\)</span> which does not move at all,
 i.e., where <span class="math inline">\(p_{11}=p_{22}=1\)</span>. It follows that for each <span class="math inline">\(n\)</span>, we have
 <span class="math inline">\(p^{(n)}_{ij} = 1\)</span> if <span class="math inline">\(i=j\)</span> and <span class="math inline">\(p^{(n)}_{ij}=0\)</span> if <span class="math inline">\(i\ne j\)</span>. Therefore, the
-limits <span class="math inline">\(\lim_{n{\rightarrow}\infty}  p^{(n)}_{ij}\)</span> exist for each pair <span class="math inline">\(i,j\)</span>, but their values depend on
+limits <span class="math inline">\(\lim_{n{\rightarrow}\infty}
+  p^{(n)}_{ij}\)</span> exist for each pair <span class="math inline">\(i,j\)</span>, but their values depend on
 the initial state <span class="math inline">\(i\)</span>: <span class="math display">\[\lim_{n{\rightarrow}\infty} p^{(n)}_{12} = 0 \text{ and }
   \lim_{n{\rightarrow}\infty} p^{(n)}_{22} = 1.\]</span></p></li>
 </ol>
@@ -1005,7 +1016,8 @@ Click for Solution
 <div class="solution">
 <p><span id="unlabeled-div-240" class="solution"><em>Solution</em>. </span> </p>
 <ol style="list-style-type: decimal">
-<li><p>Stationary distributions <span class="math inline">\(\pi=(\pi_1,\pi_2,\pi_3)\)</span> satisfy <span class="math inline">\(\pi  P=\pi\)</span>, i.e., <span class="math display">\[%   \label{equ:}
+<li><p>Stationary distributions <span class="math inline">\(\pi=(\pi_1,\pi_2,\pi_3)\)</span> satisfy <span class="math inline">\(\pi
+  P=\pi\)</span>, i.e., <span class="math display">\[%   \label{equ:}
   \nonumber
    \begin{split}
 \tfrac{1}{4} \pi_1 \hspace{6.7ex} + \tfrac{1}{3} \pi_3 &amp; = \pi_1 \\
@@ -1018,8 +1030,11 @@ consideration (this is always the case in problems with stationary
 distributions).</p>
 <p>The first equation yields that <span class="math inline">\(\pi_3=\frac{9}{4} \pi_1\)</span>, and the
 second one that
-<span class="math inline">\(\pi_2 = \tfrac{3}{2} ( \tfrac{1}{4}\pi_1+\tfrac{1}{3} \pi_3)= \tfrac{3}{2} \pi_1\)</span>. It remains to find <span class="math inline">\(\pi_1\)</span> such that
-<span class="math inline">\(\pi_1+\pi_2+\pi_3=1\)</span>, i.e, <span class="math inline">\(\pi_1+ \tfrac{3}{2} \pi_1+ \frac{9}{4} \pi_1=1\)</span>, i.e., <span class="math inline">\(\pi_1=(1+\tfrac{3}{2}+\frac{9}{4})^{-1}= \tfrac{4}{19}\)</span>. Therefore, <span class="math display">\[\pi=
+<span class="math inline">\(\pi_2 = \tfrac{3}{2} ( \tfrac{1}{4}\pi_1+\tfrac{1}{3}
+\pi_3)= \tfrac{3}{2} \pi_1\)</span>. It remains to find <span class="math inline">\(\pi_1\)</span> such that
+<span class="math inline">\(\pi_1+\pi_2+\pi_3=1\)</span>, i.e, <span class="math inline">\(\pi_1+ \tfrac{3}{2} \pi_1+ \frac{9}{4}
+\pi_1=1\)</span>, i.e., <span class="math inline">\(\pi_1=(1+\tfrac{3}{2}+\frac{9}{4})^{-1}=
+\tfrac{4}{19}\)</span>. Therefore, <span class="math display">\[\pi=
 (\tfrac{4}{19},\tfrac{6}{19},\tfrac{9}{19})\]</span> is the only stationary
 distribution.</p></li>
 <li><p>By Kac’s theorem, the number of steps between two returns to a state <span class="math inline">\(i\)</span> (in an
@@ -1154,7 +1169,7 @@ times are given by in the following table:</p>
 </tr>
 <tr class="odd">
 <td align="center">king</td>
-<td align="right"><span class="math inline">\(\tfrac{420}{3} = 140\)</span></td>
+<td align="right"><span class="math inline">\(\tfrac{420}{3} =  140\)</span></td>
 </tr>
 <tr class="even">
 <td align="center">pawn</td>
@@ -1182,7 +1197,8 @@ proportion of time this chain will spend in the state <span class="math inline">
 Click for Solution
 </summary>
 <div class="solution">
-<p><span id="unlabeled-div-248" class="solution"><em>Solution</em>. </span>This chain has two recurrent classes <span class="math inline">\(C_1=\{1,2,3\}\)</span> and <span class="math inline">\(C_2 =  \{6,7\}\)</span>. Their transition matrices <span class="math inline">\(C_1\)</span> are given by
+<p><span id="unlabeled-div-248" class="solution"><em>Solution</em>. </span>This chain has two recurrent classes <span class="math inline">\(C_1=\{1,2,3\}\)</span> and <span class="math inline">\(C_2 =
+  \{6,7\}\)</span>. Their transition matrices <span class="math inline">\(C_1\)</span> are given by
 <span class="math display">\[P_{C_1}=\begin{bmatrix}1/2 &amp; 0 &amp; 1/2 \\ 1/4 &amp; 1/2 &amp; 1/4 \\ 0 &amp; 1/2 &amp;
   1/2\end{bmatrix} \text{ and }P_{C_2} = \begin{bmatrix} 0 &amp; 1 \\ 1/2 &amp; 1/2\end{bmatrix}.\]</span> The unique
 stationary distribution <span class="math inline">\(((\pi_{C_1})_1,(\pi_{C_1})_2,(\pi_{C_1})_3)\)</span>
@@ -1198,7 +1214,8 @@ and it follows that <span class="math inline">\((\pi_{C_1})_2 = 2 (\pi_{C_1})_1\
 <span class="math inline">\(\pi_{C_2}\)</span> is given by <span class="math display">\[\begin{aligned}
   (\pi_{C_2})_1 &amp;= 1/2 (\pi_{C_2})_2 \\
   (\pi_{C_2})_2 &amp;= (\pi_{C_2})_1 + 1/2 (\pi_{C_2})_2.\end{aligned}\]</span>
-Together with <span class="math inline">\((\pi_{C_2})_1 + (\pi_{C_2})_2 = 1\)</span>, we get <span class="math inline">\(\pi_{C_2} = (1/3, 2/3)\)</span>.</p>
+Together with <span class="math inline">\((\pi_{C_2})_1 + (\pi_{C_2})_2 = 1\)</span>, we get <span class="math inline">\(\pi_{C_2} =
+(1/3, 2/3)\)</span>.</p>
 <p>The states <span class="math inline">\(4\)</span> and <span class="math inline">\(5\)</span> are transient, so any stationary distribution
 must be of the form
 <span class="math display">\[\pi = ( \alpha \frac{1}{5}, \alpha \frac{2}{5}, \alpha \frac{2}{5}, 0, 0,
@@ -1253,20 +1270,20 @@ we constructed there has the following graph
 <img src="pics/facility_chain.png" style="display: block; margin: auto;" /></p>
 <p>Since both questions asked need the stationary distribution, let us compute it first. There are two difficulties. The first one is that the equation <span class="math inline">\(\pi = \pi P\)</span> is not in the format R’s <code>solve</code> command likes. That is easily fixed by transposing everything, i.e., by solving the equation <span class="math inline">\((I - P^T) \pi^T = 0\)</span>. The second problem is that the system of equations <span class="math inline">\(\pi = \pi P\)</span> is underdetermined (if you sum all the equations you will get <span class="math inline">\(1=1\)</span>) so that the additional requirement <span class="math inline">\(\pi_1+\dots+\pi_5=1\)</span> must be added.
 We take care of both of these things by first forming the matrix <span class="math inline">\(M = I - P^T\)</span> and then replacing its last row by a row of 1s. We also need to replace the <span class="math inline">\(0\)</span> vector on the right hand side by the vector <span class="math inline">\((0,0,0,0,1)\)</span>. This way, the last equation becomes exactly <span class="math inline">\(\pi_1+\dots+\pi_5 = 1\)</span>. Here is how all of this is done in R:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="stationary-distributions.html#cb195-1" aria-hidden="true" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.3</span></span>
-<span id="cb195-2"><a href="stationary-distributions.html#cb195-2" aria-hidden="true" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0-0-1-1&quot;</span>, <span class="st">&quot;0-1-0-1&quot;</span>, <span class="st">&quot;1-0-1-0&quot;</span>, <span class="st">&quot;1-1-0-0&quot;</span>, <span class="st">&quot;2-0-0-0&quot;</span>)</span>
-<span id="cb195-3"><a href="stationary-distributions.html#cb195-3" aria-hidden="true" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p,</span>
-<span id="cb195-4"><a href="stationary-distributions.html#cb195-4" aria-hidden="true" tabindex="-1"></a>    p<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), <span class="dv">0</span>, (<span class="dv">1</span> <span class="sc">-</span> p)<span class="sc">^</span><span class="dv">2</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
-<span id="cb195-5"><a href="stationary-distributions.html#cb195-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-6"><a href="stationary-distributions.html#cb195-6" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">5</span>) <span class="sc">-</span> <span class="fu">t</span>(P)</span>
-<span id="cb195-7"><a href="stationary-distributions.html#cb195-7" aria-hidden="true" tabindex="-1"></a>M[<span class="dv">5</span>, ] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb195-8"><a href="stationary-distributions.html#cb195-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-9"><a href="stationary-distributions.html#cb195-9" aria-hidden="true" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb195-10"><a href="stationary-distributions.html#cb195-10" aria-hidden="true" tabindex="-1"></a>v[<span class="dv">5</span>, <span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb195-11"><a href="stationary-distributions.html#cb195-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-12"><a href="stationary-distributions.html#cb195-12" aria-hidden="true" tabindex="-1"></a>(<span class="at">p_stat =</span> <span class="fu">t</span>(<span class="fu">solve</span>(M, v)))</span>
-<span id="cb195-13"><a href="stationary-distributions.html#cb195-13" aria-hidden="true" tabindex="-1"></a><span class="do">##       [,1] [,2] [,3] [,4] [,5]</span></span>
-<span id="cb195-14"><a href="stationary-distributions.html#cb195-14" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 0.028 0.12 0.32 0.22 0.31</span></span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="stationary-distributions.html#cb195-1" tabindex="-1"></a>p <span class="ot">=</span> <span class="fl">0.3</span></span>
+<span id="cb195-2"><a href="stationary-distributions.html#cb195-2" tabindex="-1"></a>S <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;0-0-1-1&quot;</span>, <span class="st">&quot;0-1-0-1&quot;</span>, <span class="st">&quot;1-0-1-0&quot;</span>, <span class="st">&quot;1-1-0-0&quot;</span>, <span class="st">&quot;2-0-0-0&quot;</span>)</span>
+<span id="cb195-3"><a href="stationary-distributions.html#cb195-3" tabindex="-1"></a>P <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, p, <span class="dv">0</span>, <span class="dv">1</span> <span class="sc">-</span> p,</span>
+<span id="cb195-4"><a href="stationary-distributions.html#cb195-4" tabindex="-1"></a>    p<span class="sc">^</span><span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> p <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> p), <span class="dv">0</span>, (<span class="dv">1</span> <span class="sc">-</span> p)<span class="sc">^</span><span class="dv">2</span>), <span class="at">byrow =</span> <span class="cn">TRUE</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb195-5"><a href="stationary-distributions.html#cb195-5" tabindex="-1"></a></span>
+<span id="cb195-6"><a href="stationary-distributions.html#cb195-6" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">diag</span>(<span class="dv">5</span>) <span class="sc">-</span> <span class="fu">t</span>(P)</span>
+<span id="cb195-7"><a href="stationary-distributions.html#cb195-7" tabindex="-1"></a>M[<span class="dv">5</span>, ] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb195-8"><a href="stationary-distributions.html#cb195-8" tabindex="-1"></a></span>
+<span id="cb195-9"><a href="stationary-distributions.html#cb195-9" tabindex="-1"></a>v <span class="ot">=</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb195-10"><a href="stationary-distributions.html#cb195-10" tabindex="-1"></a>v[<span class="dv">5</span>, <span class="dv">1</span>] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb195-11"><a href="stationary-distributions.html#cb195-11" tabindex="-1"></a></span>
+<span id="cb195-12"><a href="stationary-distributions.html#cb195-12" tabindex="-1"></a>(<span class="at">p_stat =</span> <span class="fu">t</span>(<span class="fu">solve</span>(M, v)))</span>
+<span id="cb195-13"><a href="stationary-distributions.html#cb195-13" tabindex="-1"></a><span class="do">##       [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb195-14"><a href="stationary-distributions.html#cb195-14" tabindex="-1"></a><span class="do">## [1,] 0.028 0.12 0.32 0.22 0.31</span></span></code></pre></div>
 <p>The vector <code>p_stat</code> contains the (unique) stationary distribution, so we can start by answering the two questions posed in the problem.</p>
 <ol style="list-style-type: decimal">
 <li><p>The percentage of time both machines are operable is <span class="math inline">\(\pi_{2-0-0-0}\)</span>. The order of 2-0-0-0 is <span class="math inline">\(5\)</span>, so the answer is approximately <span class="math inline">\(0.3066\)</span>.</p></li>
@@ -1281,10 +1298,10 @@ We take care of both of these things by first forming the matrix <span class="ma
 \end{align}\]</span></p></li>
 </ol>
 <p>To get the expected long-term reward-per-day, we need to compute the product of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(f\)</span> (understood as a column vector):</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="stationary-distributions.html#cb196-1" aria-hidden="true" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">30000</span>, <span class="dv">30000</span>, <span class="dv">10000</span>, <span class="dv">10000</span>, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
-<span id="cb196-2"><a href="stationary-distributions.html#cb196-2" aria-hidden="true" tabindex="-1"></a>p_stat <span class="sc">%*%</span> f</span>
-<span id="cb196-3"><a href="stationary-distributions.html#cb196-3" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1]</span></span>
-<span id="cb196-4"><a href="stationary-distributions.html#cb196-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,] 9952</span></span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="stationary-distributions.html#cb196-1" tabindex="-1"></a>f <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">30000</span>, <span class="dv">30000</span>, <span class="dv">10000</span>, <span class="dv">10000</span>, <span class="dv">0</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span>
+<span id="cb196-2"><a href="stationary-distributions.html#cb196-2" tabindex="-1"></a>p_stat <span class="sc">%*%</span> f</span>
+<span id="cb196-3"><a href="stationary-distributions.html#cb196-3" tabindex="-1"></a><span class="do">##      [,1]</span></span>
+<span id="cb196-4"><a href="stationary-distributions.html#cb196-4" tabindex="-1"></a><span class="do">## [1,] 9952</span></span></code></pre></div>
 </div>
 </details>
 </div>
@@ -1293,6 +1310,7 @@ We take care of both of these things by first forming the matrix <span class="ma
 
 </div>
 </div>
+
 
 
 

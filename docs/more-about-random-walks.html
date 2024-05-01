@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 More about Random Walks | Lecture notes for “Introduction to Stochastic Processes”</title>
   <meta name="description" content="A set of lecture notes for M362M: Introduction to Stochastic Processes" />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 More about Random Walks | Lecture notes for “Introduction to Stochastic Processes”" />
   <meta property="og:type" content="book" />
@@ -57,7 +57,7 @@
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -67,7 +67,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -91,11 +91,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 code span.al { color: #ef2929; } /* Alert */
 code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #c4a000; } /* Attribute */
+code span.at { color: #204a87; } /* Attribute */
 code span.bn { color: #0000cf; } /* BaseN */
 code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4e9a06; } /* Char */
-code span.cn { color: #000000; } /* Constant */
+code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #8f5902; font-style: italic; } /* Comment */
 code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
 code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
@@ -104,14 +104,14 @@ code span.dv { color: #0000cf; } /* DecVal */
 code span.er { color: #a40000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #0000cf; } /* Float */
-code span.fu { color: #000000; } /* Function */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
 code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
 code span.ot { color: #8f5902; } /* Other */
 code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code span.sc { color: #000000; } /* SpecialChar */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
 code span.ss { color: #4e9a06; } /* SpecialString */
 code span.st { color: #4e9a06; } /* String */
 code span.va { color: #000000; } /* Variable */
@@ -295,9 +295,9 @@ probabilities.</p>
 and ask what the probabilities <span class="math inline">\({\mathbb{P}}[M_n = k]\)</span> for <span class="math inline">\(k=0,\dots, n\)</span> are.
 An easy numerical solution to this problem can be given by simulation. We reuse the function
 <code>simulate_walk</code> defined at the beginning of the chapter, but also employ a new function, called <code>apply</code> which “applies” a function to each row (or column) of a data frame or a matrix. It seems to be tailor-made for our purpose<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> because we want to compute the maximum of each row of the simulation matrix (remember - the row means keep the realization fixed, but vary the time-index <span class="math inline">\(n\)</span>). The syntax of <code>apply</code> is simple - it needs the data frame, the margin (rows are coded as 1 and columns as 2; so when the margin is 1, the function is applied row-wise and when the margin is 2, the function is applied column-wise) and the function to be applied (<code>max</code> in our case). The output is a vector of size <code>nsim</code> with all row-wise maxima:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="more-about-random-walks.html#cb161-1" aria-hidden="true" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="dv">100000</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
-<span id="cb161-2"><a href="more-about-random-walks.html#cb161-2" aria-hidden="true" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">apply</span>(walk, <span class="dv">1</span>, max)</span>
-<span id="cb161-3"><a href="more-about-random-walks.html#cb161-3" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(M, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="more-about-random-walks.html#cb161-1" tabindex="-1"></a>walk <span class="ot">=</span> <span class="fu">simulate_walk</span>(<span class="at">nsim =</span> <span class="dv">100000</span>, <span class="at">T =</span> <span class="dv">12</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span>
+<span id="cb161-2"><a href="more-about-random-walks.html#cb161-2" tabindex="-1"></a>M <span class="ot">=</span> <span class="fu">apply</span>(walk, <span class="dv">1</span>, max)</span>
+<span id="cb161-3"><a href="more-about-random-walks.html#cb161-3" tabindex="-1"></a><span class="fu">hist</span>(M, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.5</span>, <span class="fl">12.5</span>, <span class="dv">1</span>), <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-174-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The overall shape of the distribution is as we expected; the support is <span class="math inline">\(\{0,1,2,\dots, 12\}\)</span> and the
 probabilities tend to decrease as <span class="math inline">\(k\)</span> gets larger. The unexpected feature is that <span class="math inline">\({\mathbb{P}}[ M_{12} = 1]\)</span> seems
@@ -611,7 +611,8 @@ maximal value in the interval <span class="math inline">\(\{0,1,\dots, 100\}\)</
 times</strong>. Here is a more precise, mathematical, definition. You should note that
 we allow our stopping times to take the value <span class="math inline">\(+\infty\)</span>. The usual
 interpretation is that whatever the stopping time is modeling never happens.</p>
-<p><strong>Definition.</strong> A random variable <span class="math inline">\(\tau\)</span> taking values in <span class="math inline">\({\mathbb{N}}_0\cup\{+\infty\} = \{0,1,2,\dots, +\infty\}\)</span> is said to be a <strong>stopping time</strong> with respect to
+<p><strong>Definition.</strong> A random variable <span class="math inline">\(\tau\)</span> taking values in <span class="math inline">\({\mathbb{N}}_0\cup\{+\infty\}
+= \{0,1,2,\dots, +\infty\}\)</span> is said to be a <strong>stopping time</strong> with respect to
 the process <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> if for each <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> there exists a function
 <span class="math inline">\(G^n:{\mathbb{R}}^{n+1}\to \{0,1\}\)</span> such that <span class="math display">\[\mathbf{1}_{\{\tau=n\}}=G^n(X_0,X_1,\dots, X_n),
 \text{ for all } n\in{\mathbb{N}}_0.\]</span></p>
@@ -689,7 +690,8 @@ knowledge of the values of the random walk after <span class="math inline">\(n\)
 precisely, let us sketch the proof of the fact that <span class="math inline">\(\tau_{\max}\)</span> is not a
 stopping time. Suppose, to the contrary, that it is, and let <span class="math inline">\(G^n\)</span>
 be the associated family of decision functions. Consider the following two
-trajectories: <span class="math inline">\((0,1,2,3,\dots,  T-1,T)\)</span> and <span class="math inline">\((0,1,2,3,\dots, T-1,T-2)\)</span>. They differ only in the
+trajectories: <span class="math inline">\((0,1,2,3,\dots,
+  T-1,T)\)</span> and <span class="math inline">\((0,1,2,3,\dots, T-1,T-2)\)</span>. They differ only in the
 direction of the last step. They also differ in the fact that
 <span class="math inline">\(\tau_{\max}=T\)</span> for the first one and <span class="math inline">\(\tau_{\max}=T-1\)</span> for the second one. On the
 other hand, by the definition of the decision functions, we have
@@ -737,7 +739,8 @@ Hence
 <div class="solution">
 <p><span id="unlabeled-div-100" class="solution"><em>Solution</em>. </span>Here is another representation of the random variable <span class="math inline">\(X_{\tau}\)</span>:
 <span class="math display">\[X_{\tau} = \sum_{k=1}^{\tau} \xi_k=\sum_{k=1}^{\infty} \xi_k \mathbf{1}_{\{k\leq \tau\}}.\]</span> The idea
-behind it is simple: add all the values of <span class="math inline">\(\xi_k\)</span> for <span class="math inline">\(k\leq \tau\)</span> and keep adding zeros (since <span class="math inline">\(\xi_k \mathbf{1}_{\{k\leq \tau\}}=0\)</span> for <span class="math inline">\(k&gt;\tau\)</span>)
+behind it is simple: add all the values of <span class="math inline">\(\xi_k\)</span> for <span class="math inline">\(k\leq
+\tau\)</span> and keep adding zeros (since <span class="math inline">\(\xi_k \mathbf{1}_{\{k\leq \tau\}}=0\)</span> for <span class="math inline">\(k&gt;\tau\)</span>)
 after that. Taking expectation of both sides and switching <span class="math inline">\({\mathbb{E}}\)</span> and
 <span class="math inline">\(\sum\)</span> (this can be justified, but the argument is technical and we omit
 it here) yields: <span class="math display">\[
@@ -1084,7 +1087,8 @@ be <span class="math inline">\(\leq 4\)</span>. This can be further computed usi
 <li><p>Let the outcomes of the coin tosses be denoted by <span class="math inline">\(\gamma_1 = H\)</span>,
 <span class="math inline">\(\gamma_2, \gamma_3, \dots\)</span>. We define the random variables
 <span class="math inline">\(\delta_1,\delta_2,\dots\)</span> as follows: <span class="math inline">\(\delta_1 = 1\)</span> if <span class="math inline">\(\gamma_2 = T\)</span>
-and <span class="math inline">\(\delta_1 = -1\)</span>, otherwise. Similarly, <span class="math inline">\(\delta_2 = 1\)</span> if <span class="math inline">\(\gamma_3 = \gamma_2\)</span> and <span class="math inline">\(-1\)</span> otherwise. It is clear that
+and <span class="math inline">\(\delta_1 = -1\)</span>, otherwise. Similarly, <span class="math inline">\(\delta_2 = 1\)</span> if <span class="math inline">\(\gamma_3 =
+\gamma_2\)</span> and <span class="math inline">\(-1\)</span> otherwise. It is clear that
 <span class="math inline">\(\delta_1,\delta_2,\dots\)</span> is an iid sequence of coin tosses (just like
 in the definition of) of a simple symmetric random walk. After <span class="math inline">\(n\)</span>
 tosses ( the first one), our gambler has
@@ -1115,7 +1119,7 @@ parity is wrong), the required probability is also equal to
 <li><p>Let <span class="math inline">\(X_n\)</span>, <span class="math inline">\(n\in{\mathbb{N}}_0\)</span> be the number of heads <em>minus</em> the number of tails
 obtained so far. Then, <span class="math inline">\(\{X_n\}_{n\in {\mathbb{N}}_0}\)</span> is a simple symmetric random walk, and
 we stop tossing the coin when <span class="math inline">\(X\)</span> hits <span class="math inline">\(3\)</span> for the first time. This will
-happen during the first 10 tosses, if and only if <span class="math inline">\(M_{10} \geq 3\)</span>,
+happen during the first 10 tosses, if and only if <span class="math inline">\(M_{10} \geq  3\)</span>,
 where <span class="math inline">\(M_n\)</span> denotes the (running) maximum of <span class="math inline">\(X\)</span>. According to the
 reflection principle, <span class="math display">\[\nonumber
   \begin{split}
@@ -1166,7 +1170,8 @@ Click for Solution
 <span class="math inline">\(\{X_n\}_{0\leq n \leq 15}\)</span> is a simple symmetric random walk with the
 time horizon <span class="math inline">\(T=15\)</span>.</p>
 <ol style="list-style-type: decimal">
-<li><p>This is simply <span class="math inline">\({\mathbb{P}}[ X_{15} = 11] = \binom{15}{2} 2^{-15} =  \binom{15}{13} 2^{-15}\)</span>.</p></li>
+<li><p>This is simply <span class="math inline">\({\mathbb{P}}[ X_{15} = 11] = \binom{15}{2} 2^{-15} =
+      \binom{15}{13} 2^{-15}\)</span>.</p></li>
 <li><p>The only way for Luke to return with <span class="math inline">\(3\)</span> cookies is to go straight
 to <span class="math inline">\(11\)</span>, step away from it, return, step away from it and return
 again. There are exactly <span class="math inline">\(4\)</span> paths that do that. They all start with
@@ -1179,7 +1184,8 @@ the following 4 ways
 the maximal (i.e., right-most) position of his walk is <span class="math inline">\(11\)</span> or
 above. Therefore, the required probability is
 <span class="math inline">\({\mathbb{P}}[ M_{15} \geq 11]\)</span>. Using the formula
-<span class="math inline">\({\mathbb{P}}[ M_T=k] = {\mathbb{P}}[X_T = k]  + {\mathbb{P}}[ X_T = k+1]\)</span> we get <span class="math display">\[\begin{aligned}
+<span class="math inline">\({\mathbb{P}}[ M_T=k] = {\mathbb{P}}[X_T = k]
+      + {\mathbb{P}}[ X_T = k+1]\)</span> we get <span class="math display">\[\begin{aligned}
         {\mathbb{P}}[ M_{15} \geq 11]
         &amp;= {\mathbb{P}}[ M_{15} = 11] + {\mathbb{P}}[ M_{15} = 12] +
         \dots + {\mathbb{P}}[ M_{15}=15]\\ &amp; = {\mathbb{P}}[ X_{15}=11] + 2 {\mathbb{P}}[ X_{15} = 13] + 2
@@ -1190,7 +1196,8 @@ above. Therefore, the required probability is
 <li><p>Here, we want Luke to reach the position <span class="math inline">\(11\)</span> (to get a cookie), but
 not the position <span class="math inline">\(12\)</span> (where the bowl of broccoli soup is). This
 corresponds to the maximum being exactly <span class="math inline">\(11\)</span>. By the formula
-<span class="math inline">\({\mathbb{P}}[ M_T = k] =  {\mathbb{P}}[X_T=k] + {\mathbb{P}}[X_T = k+1]\)</span>, we get
+<span class="math inline">\({\mathbb{P}}[ M_T = k] =
+       {\mathbb{P}}[X_T=k] + {\mathbb{P}}[X_T = k+1]\)</span>, we get
 <span class="math display">\[{\mathbb{P}}[ M_{15}=11] = {\mathbb{P}}[X_{15}=11] = \binom{15}{2}2^{-15}.\]</span></p></li>
 </ol>
 </div>
@@ -1204,7 +1211,8 @@ corresponds to the maximum being exactly <span class="math inline">\(11\)</span>
 <ol style="list-style-type: decimal">
 <li><p>Use the reflection principle to show that <span class="math inline">\(C_n\)</span> is the number
 trajectories <span class="math inline">\((x_0,\dots, x_{2n})\)</span> of a random
-walk with time horizon <span class="math inline">\(T=2n\)</span> such that <span class="math inline">\(x_k  \geq 0\)</span>, for all <span class="math inline">\(k\in\{0,1,\dots, 2n\}\)</span> and <span class="math inline">\(x_{2n}=0\)</span>.</p></li>
+walk with time horizon <span class="math inline">\(T=2n\)</span> such that <span class="math inline">\(x_k
+  \geq 0\)</span>, for all <span class="math inline">\(k\in\{0,1,\dots, 2n\}\)</span> and <span class="math inline">\(x_{2n}=0\)</span>.</p></li>
 <li><p>Prove the <em>Segner’s recurrence formula</em>
 <span class="math inline">\(C_{n+1} = \sum_{i=0}^n C_{i} C_{n-i}\)</span>. .</p></li>
 <li><p>Show that <span class="math inline">\(C_n\)</span> is the number of ways the vertices of a regular
@@ -1227,7 +1235,8 @@ trajectory with <span class="math inline">\(x_{2n} = -2\)</span>. Conversely, ea
 <span class="math inline">\(x_{2n}=-2\)</span> will cross the level <span class="math inline">\(-1\)</span> at some point <span class="math inline">\(k\)</span>, and its reflection
 (around <span class="math inline">\(-1\)</span>) will be a trajectory with <span class="math inline">\(x_0=0\)</span> to <span class="math inline">\(x_{2n}=0\)</span>. Therefore,
 <span class="math inline">\(\hat{C}_n = \binom{2n}{n+1}\)</span> because there are exactly <span class="math inline">\(\binom{2n}{n+1}\)</span>
-trajectories with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}=-2\)</span> (<span class="math inline">\(n+1\)</span> down-steps and <span class="math inline">\(2n - (n+1) =  n-1\)</span> up-steps). Putting it all together, we get
+trajectories with <span class="math inline">\(x_0=0\)</span> and <span class="math inline">\(x_{2n}=-2\)</span> (<span class="math inline">\(n+1\)</span> down-steps and <span class="math inline">\(2n - (n+1) =
+  n-1\)</span> up-steps). Putting it all together, we get
 <span class="math display">\[\begin{align}
    C_n &amp;= \binom{2n}{n} -
   \binom{2n}{n+1} = \frac{(2n)!}{n! n!} - \frac{(2n)!}{ (n+1)! (n-1)!} = \frac{
@@ -1271,9 +1280,12 @@ which <span class="math inline">\(V_1\)</span> is paired with <span class="math 
 which <span class="math inline">\(m\)</span> is odd(why?), we we can write <span class="math inline">\(m=2i\)</span>.
 <img src="_main_files/figure-html/unnamed-chunk-726-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Each pairing in <span class="math inline">\(A_{2i}\)</span>
-splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,  \dots, V_{2i-1}\)</span>“to the left”
-of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1  V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>
-to the right (there are <span class="math inline">\(2n -  2i\)</span> of those. No pairing can use one point “to the left” and one point “to
+splits the set of <span class="math inline">\(2n\)</span> points into three classes. Those points <span class="math inline">\(V_2, V_3,
+\dots, V_{2i-1}\)</span>“to the left”
+of the segment <span class="math inline">\(V_1 V_{2i}\)</span> (there are <span class="math inline">\(2i-2\)</span> of those), the segment <span class="math inline">\(V_1
+V_{2i}\)</span> itself (blue), and the set of remaining points <span class="math inline">\(V_{2i+1}, \dots, V_{2n}\)</span>
+to the right (there are <span class="math inline">\(2n -
+2i\)</span> of those. No pairing can use one point “to the left” and one point “to
 the right”, because the segment joining them would necessarily intersect
 <span class="math inline">\(V_1 V_{2i}\)</span>. Hence, the problem is reduced to two smaller, but similar,
 problems. We can pair the points “to the left” in <span class="math inline">\(B_{i-1}\)</span> ways (the red segments), and those
@@ -1467,81 +1479,81 @@ Click for Solution
 <ol style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="more-about-random-walks.html#cb162-1" aria-hidden="true" tabindex="-1"></a>simulate_tau <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
-<span id="cb162-2"><a href="more-about-random-walks.html#cb162-2" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb162-3"><a href="more-about-random-walks.html#cb162-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
-<span id="cb162-4"><a href="more-about-random-walks.html#cb162-4" aria-hidden="true" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb162-5"><a href="more-about-random-walks.html#cb162-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (X <span class="sc">==</span> <span class="dv">1</span>)</span>
-<span id="cb162-6"><a href="more-about-random-walks.html#cb162-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb162-7"><a href="more-about-random-walks.html#cb162-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb162-8"><a href="more-about-random-walks.html#cb162-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
-<span id="cb162-9"><a href="more-about-random-walks.html#cb162-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="more-about-random-walks.html#cb162-1" tabindex="-1"></a>simulate_tau <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
+<span id="cb162-2"><a href="more-about-random-walks.html#cb162-2" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb162-3"><a href="more-about-random-walks.html#cb162-3" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb162-4"><a href="more-about-random-walks.html#cb162-4" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb162-5"><a href="more-about-random-walks.html#cb162-5" tabindex="-1"></a>        <span class="cf">if</span> (X <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb162-6"><a href="more-about-random-walks.html#cb162-6" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb162-7"><a href="more-about-random-walks.html#cb162-7" tabindex="-1"></a>    }</span>
+<span id="cb162-8"><a href="more-about-random-walks.html#cb162-8" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
+<span id="cb162-9"><a href="more-about-random-walks.html#cb162-9" tabindex="-1"></a>}</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="more-about-random-walks.html#cb163-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
-<span id="cb163-2"><a href="more-about-random-walks.html#cb163-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb163-3"><a href="more-about-random-walks.html#cb163-3" aria-hidden="true" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T))</span>
-<span id="cb163-4"><a href="more-about-random-walks.html#cb163-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="more-about-random-walks.html#cb163-1" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb163-2"><a href="more-about-random-walks.html#cb163-2" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb163-3"><a href="more-about-random-walks.html#cb163-3" tabindex="-1"></a>tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T))</span>
+<span id="cb163-4"><a href="more-about-random-walks.html#cb163-4" tabindex="-1"></a><span class="fu">hist</span>(tau, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-754-1.png" width="672" style="display: block; margin: auto;" /></p>
 <ol start="3" style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="more-about-random-walks.html#cb164-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
-<span id="cb164-2"><a href="more-about-random-walks.html#cb164-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
-<span id="cb164-3"><a href="more-about-random-walks.html#cb164-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
-<span id="cb164-4"><a href="more-about-random-walks.html#cb164-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-5"><a href="more-about-random-walks.html#cb164-5" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span></span>
-<span id="cb164-6"><a href="more-about-random-walks.html#cb164-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb164-7"><a href="more-about-random-walks.html#cb164-7" aria-hidden="true" tabindex="-1"></a>    tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T[i]))</span>
-<span id="cb164-8"><a href="more-about-random-walks.html#cb164-8" aria-hidden="true" tabindex="-1"></a>    Mean[i] <span class="ot">=</span> <span class="fu">mean</span>(tau)</span>
-<span id="cb164-9"><a href="more-about-random-walks.html#cb164-9" aria-hidden="true" tabindex="-1"></a>    StDev[i] <span class="ot">=</span> <span class="fu">sd</span>(tau)</span>
-<span id="cb164-10"><a href="more-about-random-walks.html#cb164-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb164-11"><a href="more-about-random-walks.html#cb164-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(T, Mean, StDev)</span>
-<span id="cb164-12"><a href="more-about-random-walks.html#cb164-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">50</span>)  <span class="co"># no scientific (e) notation</span></span>
-<span id="cb164-13"><a href="more-about-random-walks.html#cb164-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df)</span>
-<span id="cb164-14"><a href="more-about-random-walks.html#cb164-14" aria-hidden="true" tabindex="-1"></a><span class="do">##        T Mean StDev</span></span>
-<span id="cb164-15"><a href="more-about-random-walks.html#cb164-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 1    500   31    98</span></span>
-<span id="cb164-16"><a href="more-about-random-walks.html#cb164-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   1000   43   158</span></span>
-<span id="cb164-17"><a href="more-about-random-walks.html#cb164-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  10000  196  1156</span></span>
-<span id="cb164-18"><a href="more-about-random-walks.html#cb164-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  50000  264  2865</span></span>
-<span id="cb164-19"><a href="more-about-random-walks.html#cb164-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 100000  427  5077</span></span></code></pre></div>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="more-about-random-walks.html#cb164-1" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
+<span id="cb164-2"><a href="more-about-random-walks.html#cb164-2" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb164-3"><a href="more-about-random-walks.html#cb164-3" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb164-4"><a href="more-about-random-walks.html#cb164-4" tabindex="-1"></a></span>
+<span id="cb164-5"><a href="more-about-random-walks.html#cb164-5" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb164-6"><a href="more-about-random-walks.html#cb164-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb164-7"><a href="more-about-random-walks.html#cb164-7" tabindex="-1"></a>    tau <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau</span>(T[i]))</span>
+<span id="cb164-8"><a href="more-about-random-walks.html#cb164-8" tabindex="-1"></a>    Mean[i] <span class="ot">=</span> <span class="fu">mean</span>(tau)</span>
+<span id="cb164-9"><a href="more-about-random-walks.html#cb164-9" tabindex="-1"></a>    StDev[i] <span class="ot">=</span> <span class="fu">sd</span>(tau)</span>
+<span id="cb164-10"><a href="more-about-random-walks.html#cb164-10" tabindex="-1"></a>}</span>
+<span id="cb164-11"><a href="more-about-random-walks.html#cb164-11" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(T, Mean, StDev)</span>
+<span id="cb164-12"><a href="more-about-random-walks.html#cb164-12" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">50</span>)  <span class="co"># no scientific (e) notation</span></span>
+<span id="cb164-13"><a href="more-about-random-walks.html#cb164-13" tabindex="-1"></a><span class="fu">print</span>(df)</span>
+<span id="cb164-14"><a href="more-about-random-walks.html#cb164-14" tabindex="-1"></a><span class="do">##        T Mean StDev</span></span>
+<span id="cb164-15"><a href="more-about-random-walks.html#cb164-15" tabindex="-1"></a><span class="do">## 1    500   31    98</span></span>
+<span id="cb164-16"><a href="more-about-random-walks.html#cb164-16" tabindex="-1"></a><span class="do">## 2   1000   43   158</span></span>
+<span id="cb164-17"><a href="more-about-random-walks.html#cb164-17" tabindex="-1"></a><span class="do">## 3  10000  196  1156</span></span>
+<span id="cb164-18"><a href="more-about-random-walks.html#cb164-18" tabindex="-1"></a><span class="do">## 4  50000  264  2865</span></span>
+<span id="cb164-19"><a href="more-about-random-walks.html#cb164-19" tabindex="-1"></a><span class="do">## 5 100000  427  5077</span></span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
 <li></li>
 </ol>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="more-about-random-walks.html#cb165-1" aria-hidden="true" tabindex="-1"></a>simulate_tau_abs <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
-<span id="cb165-2"><a href="more-about-random-walks.html#cb165-2" aria-hidden="true" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
-<span id="cb165-3"><a href="more-about-random-walks.html#cb165-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
-<span id="cb165-4"><a href="more-about-random-walks.html#cb165-4" aria-hidden="true" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
-<span id="cb165-5"><a href="more-about-random-walks.html#cb165-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">abs</span>(X) <span class="sc">==</span> <span class="dv">5</span>)</span>
-<span id="cb165-6"><a href="more-about-random-walks.html#cb165-6" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
-<span id="cb165-7"><a href="more-about-random-walks.html#cb165-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb165-8"><a href="more-about-random-walks.html#cb165-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
-<span id="cb165-9"><a href="more-about-random-walks.html#cb165-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="more-about-random-walks.html#cb166-1" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
-<span id="cb166-2"><a href="more-about-random-walks.html#cb166-2" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb166-3"><a href="more-about-random-walks.html#cb166-3" aria-hidden="true" tabindex="-1"></a>tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T))</span>
-<span id="cb166-4"><a href="more-about-random-walks.html#cb166-4" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(tau_abs, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="more-about-random-walks.html#cb165-1" tabindex="-1"></a>simulate_tau_abs <span class="ot">=</span> <span class="cf">function</span>(T) {</span>
+<span id="cb165-2"><a href="more-about-random-walks.html#cb165-2" tabindex="-1"></a>    X <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb165-3"><a href="more-about-random-walks.html#cb165-3" tabindex="-1"></a>    <span class="cf">for</span> (n <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>T) {</span>
+<span id="cb165-4"><a href="more-about-random-walks.html#cb165-4" tabindex="-1"></a>        X <span class="ot">=</span> X <span class="sc">+</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> <span class="dv">1</span>)</span>
+<span id="cb165-5"><a href="more-about-random-walks.html#cb165-5" tabindex="-1"></a>        <span class="cf">if</span> (<span class="fu">abs</span>(X) <span class="sc">==</span> <span class="dv">5</span>)</span>
+<span id="cb165-6"><a href="more-about-random-walks.html#cb165-6" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb165-7"><a href="more-about-random-walks.html#cb165-7" tabindex="-1"></a>    }</span>
+<span id="cb165-8"><a href="more-about-random-walks.html#cb165-8" tabindex="-1"></a>    <span class="fu">return</span>(n)</span>
+<span id="cb165-9"><a href="more-about-random-walks.html#cb165-9" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="more-about-random-walks.html#cb166-1" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb166-2"><a href="more-about-random-walks.html#cb166-2" tabindex="-1"></a>T <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb166-3"><a href="more-about-random-walks.html#cb166-3" tabindex="-1"></a>tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T))</span>
+<span id="cb166-4"><a href="more-about-random-walks.html#cb166-4" tabindex="-1"></a><span class="fu">hist</span>(tau_abs, <span class="at">probability =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-757-1.png" width="672" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="more-about-random-walks.html#cb167-1" aria-hidden="true" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
-<span id="cb167-2"><a href="more-about-random-walks.html#cb167-2" aria-hidden="true" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
-<span id="cb167-3"><a href="more-about-random-walks.html#cb167-3" aria-hidden="true" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
-<span id="cb167-4"><a href="more-about-random-walks.html#cb167-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb167-5"><a href="more-about-random-walks.html#cb167-5" aria-hidden="true" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
-<span id="cb167-6"><a href="more-about-random-walks.html#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
-<span id="cb167-7"><a href="more-about-random-walks.html#cb167-7" aria-hidden="true" tabindex="-1"></a>    tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T[i]))</span>
-<span id="cb167-8"><a href="more-about-random-walks.html#cb167-8" aria-hidden="true" tabindex="-1"></a>    Mean[i] <span class="ot">=</span> <span class="fu">mean</span>(tau_abs)</span>
-<span id="cb167-9"><a href="more-about-random-walks.html#cb167-9" aria-hidden="true" tabindex="-1"></a>    StDev[i] <span class="ot">=</span> <span class="fu">sd</span>(tau_abs)</span>
-<span id="cb167-10"><a href="more-about-random-walks.html#cb167-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb167-11"><a href="more-about-random-walks.html#cb167-11" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(T, Mean, StDev)</span>
-<span id="cb167-12"><a href="more-about-random-walks.html#cb167-12" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">50</span>)  <span class="co"># no scientific (e) notation</span></span>
-<span id="cb167-13"><a href="more-about-random-walks.html#cb167-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df)</span>
-<span id="cb167-14"><a href="more-about-random-walks.html#cb167-14" aria-hidden="true" tabindex="-1"></a><span class="do">##        T Mean StDev</span></span>
-<span id="cb167-15"><a href="more-about-random-walks.html#cb167-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 1    500   25    20</span></span>
-<span id="cb167-16"><a href="more-about-random-walks.html#cb167-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 2   1000   25    20</span></span>
-<span id="cb167-17"><a href="more-about-random-walks.html#cb167-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 3  10000   25    20</span></span>
-<span id="cb167-18"><a href="more-about-random-walks.html#cb167-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 4  50000   25    20</span></span>
-<span id="cb167-19"><a href="more-about-random-walks.html#cb167-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 100000   25    20</span></span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="more-about-random-walks.html#cb167-1" tabindex="-1"></a>T <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">500</span>, <span class="dv">1000</span>, <span class="dv">10000</span>, <span class="dv">50000</span>, <span class="dv">100000</span>)</span>
+<span id="cb167-2"><a href="more-about-random-walks.html#cb167-2" tabindex="-1"></a>Mean <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb167-3"><a href="more-about-random-walks.html#cb167-3" tabindex="-1"></a>StDev <span class="ot">=</span> <span class="fu">vector</span>(<span class="at">length =</span> <span class="dv">5</span>)</span>
+<span id="cb167-4"><a href="more-about-random-walks.html#cb167-4" tabindex="-1"></a></span>
+<span id="cb167-5"><a href="more-about-random-walks.html#cb167-5" tabindex="-1"></a>nsim <span class="ot">=</span> <span class="dv">10000</span></span>
+<span id="cb167-6"><a href="more-about-random-walks.html#cb167-6" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) {</span>
+<span id="cb167-7"><a href="more-about-random-walks.html#cb167-7" tabindex="-1"></a>    tau_abs <span class="ot">=</span> <span class="fu">replicate</span>(nsim, <span class="fu">simulate_tau_abs</span>(T[i]))</span>
+<span id="cb167-8"><a href="more-about-random-walks.html#cb167-8" tabindex="-1"></a>    Mean[i] <span class="ot">=</span> <span class="fu">mean</span>(tau_abs)</span>
+<span id="cb167-9"><a href="more-about-random-walks.html#cb167-9" tabindex="-1"></a>    StDev[i] <span class="ot">=</span> <span class="fu">sd</span>(tau_abs)</span>
+<span id="cb167-10"><a href="more-about-random-walks.html#cb167-10" tabindex="-1"></a>}</span>
+<span id="cb167-11"><a href="more-about-random-walks.html#cb167-11" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(T, Mean, StDev)</span>
+<span id="cb167-12"><a href="more-about-random-walks.html#cb167-12" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">50</span>)  <span class="co"># no scientific (e) notation</span></span>
+<span id="cb167-13"><a href="more-about-random-walks.html#cb167-13" tabindex="-1"></a><span class="fu">print</span>(df)</span>
+<span id="cb167-14"><a href="more-about-random-walks.html#cb167-14" tabindex="-1"></a><span class="do">##        T Mean StDev</span></span>
+<span id="cb167-15"><a href="more-about-random-walks.html#cb167-15" tabindex="-1"></a><span class="do">## 1    500   25    20</span></span>
+<span id="cb167-16"><a href="more-about-random-walks.html#cb167-16" tabindex="-1"></a><span class="do">## 2   1000   25    20</span></span>
+<span id="cb167-17"><a href="more-about-random-walks.html#cb167-17" tabindex="-1"></a><span class="do">## 3  10000   25    20</span></span>
+<span id="cb167-18"><a href="more-about-random-walks.html#cb167-18" tabindex="-1"></a><span class="do">## 4  50000   25    20</span></span>
+<span id="cb167-19"><a href="more-about-random-walks.html#cb167-19" tabindex="-1"></a><span class="do">## 5 100000   25    20</span></span></code></pre></div>
 <p>The most glaring difference between two tables is that the mean and st-dev estimates seem to grow with <span class="math inline">\(T\)</span> in the first, but not in the second case. It suggests that the random variable
 <span class="math inline">\(\tau\)</span> takes such large values that no “cap” <span class="math inline">\(T\)</span> can “contain them”. More precisely, the random variable <span class="math inline">\(\tau\)</span> has <strong>infinite expectation</strong> (and also <strong>infinite standard deviation</strong>). Indeed, it its expectation were finite, the value in the “Mean” column would stabilize towards it. Since they don’t, this expectation is infinite. Same for standard deviation. The moral of the story is that even though simple symmetric random walks hit every level eventually, you may have to wait a long time for that to happen.</p>
 <p>This does not happen for <code>tau_abs</code>. Indeed, it can be shown that both its expectation and standard deviation are finite. The time you are going wait until you hit either <span class="math inline">\(-5\)</span> or <span class="math inline">\(5\)</span> is much shorter “on average” than the time needed to hit <span class="math inline">\(1\)</span>.</p>
